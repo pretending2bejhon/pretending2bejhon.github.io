@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Jhonalbert Alvarez — Sales · RevOps · AI systems</title>
+  <meta name="description" content="I build the system behind the work — outbound systems, CRM architecture, AI agents with hard boundaries, explainable data tools, knowledge operating systems, and team AI enablement.">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0813">
+  <link rel="canonical" href="https://pretending2bejhon.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pretending2bejhon.github.io/">
+  <meta property="og:title" content="Jhonalbert Alvarez — I build the system behind the work.">
+  <meta property="og:description" content="Outbound systems · CRM architecture · AI agent systems · Explainable data tools · Knowledge operating systems · Team AI enablement. Every status label is literal.">
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="%23a78bfa" stroke-width="2.5"/><path d="M20 20 29 10" stroke="%23a78bfa" stroke-width="2.5"/><circle cx="20" cy="20" r="3" fill="%23a78bfa"/></svg>'>
+<style>
+  /* JHONALBERT ALVAREZ — portfolio. "Night console": violet night, one motivated light,
+     thin display face, scenes not cards; the log-pose reticle as the identity instrument.
+     Titles are system-first; the problem rides as the kicker. Status labels are literal.
+     Derived one-pager: this same document through the @media print block at the bottom —
+     regenerated, never hand-edited. Typefaces: local stand-ins pending the font-selection pass. */
+
+  /* the nameplate face: Saira SemiCondensed 500 (OFL, via Google Fonts), subset to A–Z caps
+     and embedded so it renders identically everywhere — no CDN request, no fallback flash */
+  @font-face {
+    font-family: "Saira SemiCondensed NP";
+    src: url(data:font/woff2;base64,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) format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  html { scroll-behavior: auto; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  html, body { margin: 0; padding: 0; background: #0b0813; }
+
+  .skip-link {
+    position: absolute; left: -9999px; top: 12px; z-index: 10;
+    background: oklch(75% 0.155 300); color: #0b0813; padding: 10px 18px;
+    font: 600 13px/1 "Segoe UI", system-ui, sans-serif; text-decoration: none;
+  }
+  .skip-link:focus { left: 12px; }
+
+  .d4 {
+    --night:  oklch(12% 0.03 295);
+    --deep:   oklch(9.5% 0.026 296);
+    --signal: oklch(75% 0.155 300);
+    --text:   oklch(95.5% 0.012 300);
+    --dim:    oklch(70% 0.045 297);
+    --faint:  oklch(52% 0.04 296);
+    --hair:   oklch(38% 0.05 297 / .4);
+
+    font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+    background: linear-gradient(180deg, var(--night) 0%, var(--deep) 100%);
+    color: var(--text);
+    min-height: 100vh;
+    color-scheme: dark;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .d4 * { box-sizing: border-box; }
+  .d4 ::selection { background: var(--signal); color: var(--deep); }
+  .d4 :focus-visible { outline: 1px solid var(--signal); outline-offset: 4px; }
+
+  .mono { font-family: "Cascadia Mono", Consolas, ui-monospace, monospace; }
+  .display { font-family: "Segoe UI Variable Display", "Segoe UI Light", "Segoe UI", sans-serif; font-weight: 280; }
+
+  .col { width: 100%; max-width: 1060px; margin: 0 auto; padding-left: clamp(22px, 5vw, 56px); padding-right: clamp(22px, 5vw, 56px); }
+
+  .sys-short { display: none; } /* print-only derivation copy */
+
+  /* ————— hero: the one lit viewport ————— */
+  .scene-hero {
+    min-height: 94vh; position: relative; display: flex; flex-direction: column;
+    justify-content: space-between; padding-top: 34px; padding-bottom: 9vh;
+  }
+  .scene-hero::before {
+    content: ""; position: absolute; inset: auto 0 0 0; height: 72vh; pointer-events: none;
+    background: radial-gradient(120% 90% at 50% 108%, oklch(36% 0.105 295 / .85) 0%, oklch(24% 0.07 295 / .5) 34%, transparent 68%);
+  }
+  .scene-hero > * { position: relative; }
+
+  .titlecard { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .lockup { display: flex; align-items: center; gap: 22px; }
+  .lockup h1 {
+    margin: 0; font-size: clamp(1.35rem, 2.5vw, 2rem); letter-spacing: .15em; text-transform: uppercase;
+    font-family: "Saira SemiCondensed NP", "Bahnschrift SemiCondensed", "Bahnschrift", "Segoe UI", sans-serif;
+    font-weight: 500;
+  }
+  .titlecard .role { font-size: 11.5px; letter-spacing: .22em; color: var(--dim); text-transform: uppercase; }
+
+  .reticle { width: clamp(52px, 5.5vw, 68px); height: auto; flex: none; }
+  .reticle .ring  { fill: none; stroke: oklch(48% 0.06 297 / .7); stroke-width: 1; }
+  .reticle .ring2 { fill: none; stroke: oklch(48% 0.06 297 / .4); stroke-width: .7; }
+  .reticle .needle { stroke: var(--signal); stroke-width: 1.1; fill: none; }
+  .reticle .pin { fill: var(--signal); }
+
+  .hero-low { display: grid; gap: 30px; }
+  .thesis {
+    margin: 0; font-size: clamp(2.7rem, 8vw, 6rem); line-height: 1.02; letter-spacing: -0.028em;
+    max-width: 14ch; text-wrap: balance;
+  }
+  .avail { margin: 0; font-size: 14.5px; color: var(--dim); letter-spacing: .04em; }
+  .cta-row { display: flex; gap: 38px; flex-wrap: wrap; align-items: baseline; }
+  .cta {
+    font-size: 14px; letter-spacing: .08em; text-decoration: none; color: var(--text);
+    border-bottom: 1px solid var(--signal); padding-bottom: 6px; transition: color .2s ease, border-color .2s ease;
+  }
+  .cta:hover { color: var(--signal); }
+  .cta.quiet { color: var(--dim); border-color: var(--hair); }
+  .cta.quiet:hover { color: var(--text); border-color: var(--signal); }
+
+  /* ————— the spine: six scenes ————— */
+  .scenes { padding-top: clamp(64px, 11vh, 120px); }
+  .scene { padding: clamp(44px, 8.5vh, 92px) 0; scroll-margin-top: 40px; }
+
+  .kicker { margin: 0 0 16px; font-size: 11px; letter-spacing: .2em; color: var(--faint); text-transform: uppercase; }
+  .kicker i { font-style: normal; color: var(--signal); opacity: .75; }
+
+  .scene h2 {
+    margin: 0 0 20px; font-size: clamp(2rem, 4.6vw, 3.3rem); line-height: 1.04;
+    letter-spacing: -0.022em; font-weight: 280; text-wrap: balance;
+  }
+  .scene .sys { margin: 0; max-width: 58ch; font-size: 16.5px; font-weight: 350; color: var(--dim); }
+  .scene .sys b { color: var(--text); font-weight: 500; }
+
+  .subtitle { margin: 26px 0 0; font-size: 12px; line-height: 1.8; color: var(--faint); letter-spacing: .04em; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+  .subtitle .st { display: inline-flex; align-items: center; gap: 8px; color: var(--signal); letter-spacing: .14em; }
+  .subtitle a { color: var(--dim); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--hair); }
+  .subtitle a:hover { color: var(--signal); }
+
+  /* status carried by dot FORM: filled = live · hollow = synthetic demo · half = live engagement */
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--signal); position: relative; top: .5px; }
+  .dot.hollow { background: transparent; border: 1.3px solid var(--signal); }
+  .dot.half { background: linear-gradient(90deg, var(--signal) 50%, transparent 50%); border: 1.3px solid var(--signal); }
+
+  .scene.left  .inner { max-width: 660px; }
+  .scene.right .inner { max-width: 640px; margin-left: auto; }
+  .scene.center .inner { max-width: 560px; margin: 0 auto; }
+  .scene.wide .inner { max-width: 780px; }
+  .scene.wide .sys { max-width: 66ch; }
+
+  .twin-bridge { padding: clamp(40px, 8vh, 80px) 0 0; }
+  .twin-bridge p { margin: 0 0 8px; font-size: 11.5px; letter-spacing: .26em; color: var(--faint); text-transform: uppercase; }
+  .twin-bridge hr { border: 0; border-top: 1px solid var(--hair); margin: 18px 0 0; }
+  .twin { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(34px, 6vw, 90px); }
+  .twin .scene { padding-top: clamp(34px, 6vh, 60px); }
+  .twin .scene h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+  .twin .scene .sys { font-size: 15.5px; }
+
+  /* ————— band 3: THE MAP ————— */
+  .map-band { padding: clamp(70px, 12vh, 130px) 0 clamp(50px, 8vh, 90px); scroll-margin-top: 20px; }
+  .map-head { text-align: center; }
+  .map-head .lead { display: block; width: 1px; height: 74px; background: linear-gradient(180deg, transparent, var(--signal)); margin: 0 auto 22px; }
+  .map-head h2 { margin: 0 0 14px; font-size: clamp(2rem, 4.6vw, 3.3rem); font-weight: 280; letter-spacing: -0.022em; text-wrap: balance; }
+  .map-head p { margin: 0 auto; max-width: 52ch; font-size: 14.5px; color: var(--dim); }
+
+  .map-stage { position: relative; margin-top: clamp(30px, 5vh, 56px); }
+  .map-svg { display: block; width: 100%; height: auto; }
+
+  .edge { stroke: oklch(44% 0.06 297 / .38); stroke-width: 1; fill: none; transition: stroke .2s ease, opacity .2s ease, stroke-width .2s ease; }
+  .edge.is-on { stroke: var(--signal); stroke-width: 1.6; opacity: 1; }
+  .map-stage.has-focus .edge:not(.is-on) { opacity: .18; }
+
+  .station { cursor: pointer; transition: opacity .25s ease; }
+  .station .ring { fill: oklch(12% 0.03 295 / .01); stroke: oklch(52% 0.07 298 / .8); stroke-width: 1.1; transition: stroke .25s ease; }
+  .station .tick { stroke: oklch(52% 0.07 298 / .5); stroke-width: 1; transition: stroke .25s ease; }
+  .station .st-pin { transition: opacity .25s ease; }
+  .station text {
+    font-family: "Cascadia Mono", Consolas, ui-monospace, monospace;
+    font-size: 10.5px; letter-spacing: .18em; fill: var(--faint); text-transform: uppercase;
+    transition: fill .25s ease;
+  }
+  .station:hover .ring, .station.is-on .ring { stroke: var(--signal); }
+  .station:hover text, .station.is-on text { fill: var(--text); }
+  .map-stage.has-focus .station:not(.is-on):not(.core) { opacity: .35; }
+  .station:focus { outline: none; }
+  .station:focus-visible .ring { stroke: var(--signal); stroke-width: 1.6; }
+
+  .core .ring, .core .ring2 { fill: none; stroke: oklch(56% 0.08 298 / .9); stroke-width: 1.2; }
+  .core .ring2 { stroke: oklch(48% 0.06 297 / .45); stroke-width: .8; }
+  .core .needle { stroke: var(--signal); stroke-width: 1.2; }
+  .core .pin { fill: var(--signal); }
+  .core text { fill: var(--dim); }
+
+  .sp-live { fill: var(--signal); }
+  .sp-hollow { fill: none; stroke: var(--signal); stroke-width: 1.3; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .map-svg .edge { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    .map-band.live .edge { animation: draw 1.1s cubic-bezier(.4,.1,.2,1) forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    .map-svg .station { opacity: 0; }
+    .map-band.live .station { animation: arrive .7s cubic-bezier(.16,.7,.2,1) forwards; }
+    @keyframes arrive { to { opacity: 1; } }
+    .core .needle { transform-box: view-box; transform-origin: 500px 300px; animation: sweep 16s linear infinite; }
+    @keyframes sweep { to { transform: rotate(360deg); } }
+  }
+
+  .readout { margin-top: clamp(22px, 4vh, 40px); border-top: 1px solid var(--hair); padding-top: 24px; min-height: 130px; }
+  .readout .kicker { margin-bottom: 10px; }
+  .readout h3 { margin: 0 0 10px; font-size: clamp(1.3rem, 2.4vw, 1.8rem); font-weight: 300; letter-spacing: -0.015em; }
+  .readout .blurb { margin: 0; max-width: 66ch; font-size: 14.5px; color: var(--dim); }
+  .readout .subtitle { margin-top: 14px; }
+  .readout .goto { margin-left: 6px; }
+
+  .map-list { display: none; margin: 30px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--hair); }
+  .map-list li { border-bottom: 1px solid var(--hair); }
+  .map-list a { display: flex; align-items: center; gap: 12px; padding: 15px 2px; text-decoration: none; }
+  .map-list .t { color: var(--text); font-size: 15px; flex: 1 1 auto; }
+  .map-list .k { color: var(--faint); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+
+  /* ————— about + contact ————— */
+  .about { padding: clamp(60px, 10vh, 110px) 0 0; }
+  .about .line { margin: 0 0 22px; font-size: clamp(1.6rem, 3.4vw, 2.5rem); font-weight: 280; letter-spacing: -0.02em; max-width: 24ch; }
+  .about p.body { margin: 0; max-width: 58ch; font-size: 15.5px; color: var(--dim); }
+  .about .facts { margin: 26px 0 0; font-size: 11px; letter-spacing: .2em; color: var(--faint); text-transform: uppercase; }
+  .about .facts i { font-style: normal; color: var(--signal); opacity: .75; }
+
+  .contact { padding: clamp(70px, 12vh, 120px) 0 clamp(60px, 10vh, 100px); text-align: left; scroll-margin-top: 40px; }
+  .contact h2 { margin: 0 0 12px; font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 280; letter-spacing: -0.022em; max-width: 18ch; }
+  .contact .sub { margin: 0 0 30px; font-size: 15.5px; color: var(--dim); }
+  .contact .slots { display: flex; gap: 12px; flex-wrap: wrap; }
+  .contact .slot {
+    padding: 11px 20px; border: 1px solid var(--hair); color: var(--dim);
+    font-size: 11.5px; letter-spacing: .14em;
+  }
+  .contact a.slot { text-decoration: none; transition: border-color .2s ease, color .2s ease; }
+  .contact a.slot:hover { border-color: var(--signal); color: var(--text); }
+  .contact .slot-icon { display: inline-flex; align-items: center; }
+  .contact .li { width: 16px; height: 16px; fill: var(--dim); transition: fill .2s ease; }
+  .contact a.slot:hover .li { fill: var(--signal); }
+  .li-url { display: none; }
+  .contact .slot.pending { opacity: .55; }
+  .contact .note { margin: 18px 0 0; font-size: 11px; color: var(--faint); letter-spacing: .06em; }
+
+  /* ————— footer ————— */
+  .footer { border-top: 1px solid var(--hair); padding: 26px 0 40px; }
+  .footer .row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .footer .who { display: flex; align-items: center; gap: 14px; font-size: 11px; letter-spacing: .18em; color: var(--faint); text-transform: uppercase; }
+  .footer .who svg { width: 26px; height: 26px; }
+  .footer a { color: var(--dim); text-decoration: none; font-size: 11.5px; letter-spacing: .14em; }
+  .footer a:hover { color: var(--signal); }
+
+  /* ————— motion ————— */
+  @media (prefers-reduced-motion: no-preference) {
+    .reticle .needle { transform-box: view-box; transform-origin: 20px 20px; animation: sweep2 14s linear infinite; }
+    @keyframes sweep2 { to { transform: rotate(360deg); } }
+    .titlecard { animation: appear 1.1s ease-out both; }
+    .thesis { animation: rise 1.1s cubic-bezier(.16,.7,.2,1) both .15s; }
+    .avail { animation: rise 1.1s cubic-bezier(.16,.7,.2,1) both .3s; }
+    .cta-row { animation: rise 1.1s cubic-bezier(.16,.7,.2,1) both .42s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(22px); } }
+    @keyframes appear { from { opacity: 0; } }
+    .scene .inner, .twin-bridge, .map-head, .about > div, .contact > div {
+      animation: rise 1s cubic-bezier(.16,.7,.2,1) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 42%;
+    }
+  }
+
+  @media (max-width: 780px) {
+    .twin { grid-template-columns: 1fr; gap: 0; }
+    .scene.right .inner, .scene.center .inner { margin: 0; }
+    .scene-hero { min-height: 88vh; }
+    .map-stage, .readout { display: none; }
+    .map-list { display: block; }
+  }
+
+  /* ————— THE DERIVED ONE-PAGER (print) ——————————————————————————————
+     Hero line + the six triples (short form) + contact. White ground, violet signal.
+     Print this page to PDF to regenerate the one-pager — never hand-edit it. */
+  @media print {
+    @page { size: letter; margin: 13mm 15mm; }
+    html, body { background: #fff; }
+    .d4 { background: #fff; color: #17112b; font-size: 10pt; line-height: 1.35; overflow: visible; }
+    .d4 * { animation: none !important; transition: none !important; }
+    .col { max-width: 100%; padding: 0; }
+
+    .skip-link, .cta-row, .map-band, .about, .footer, .kicker, .gotow { display: none !important; }
+    .contact h2 { max-width: none; }
+    .scene .subtitle a { color: #4a3d73; text-decoration: none; }
+
+    .scene-hero { min-height: 0; padding: 0 0 10pt; display: block; border-bottom: 1.2pt solid #17112b; }
+    .scene-hero::before { display: none; }
+    .titlecard { margin-bottom: 6pt; }
+    .lockup { gap: 10pt; }
+    .lockup h1 { font-size: 15pt; letter-spacing: .12em; color: #17112b; }
+    .reticle { width: 26pt; }
+    .reticle .ring { stroke: #8d80b8; } .reticle .ring2 { stroke: #c9c2e0; }
+    .reticle .needle { stroke: #5b3fae; } .reticle .pin { fill: #5b3fae; }
+    .titlecard .role { color: #5b3fae; font-size: 8pt; }
+    .hero-low { gap: 4pt; }
+    .thesis { font-size: 19pt; letter-spacing: -0.015em; color: #17112b; max-width: none; font-weight: 350; }
+    .avail { font-size: 9pt; color: #4a4266; }
+
+    .scenes { padding-top: 8pt; }
+    .scene { padding: 7pt 0; break-inside: avoid; border-bottom: .5pt solid #d9d3ea; }
+    .scene .inner, .scene.right .inner, .scene.center .inner { max-width: none; margin: 0; }
+    .scene h2 { font-size: 11.5pt; font-weight: 600; margin: 0 0 3pt; color: #17112b; }
+    .sys { display: none; }
+    .sys-short { display: block; margin: 0; font-size: 9pt; color: #3c3556; max-width: none; }
+    .subtitle { margin: 3pt 0 0; font-size: 7.5pt; color: #6a6191; }
+    .subtitle .st { color: #5b3fae; }
+    .dot { background: #5b3fae; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .dot.hollow { background: transparent; border-color: #5b3fae; }
+    .dot.half { background: linear-gradient(90deg, #5b3fae 50%, transparent 50%); border-color: #5b3fae; }
+
+    .twin-bridge { padding: 6pt 0 0; }
+    .twin-bridge p { color: #6a6191; font-size: 7pt; margin: 0; }
+    .twin-bridge hr { display: none; }
+    .twin { display: block; }
+    .twin .scene { padding: 7pt 0; }
+    .twin .scene h2 { font-size: 11.5pt; }
+
+    .contact { padding: 10pt 0 0; }
+    .contact h2 { font-size: 12pt; font-weight: 600; margin: 0 0 2pt; color: #17112b; }
+    .contact .sub { font-size: 9pt; margin: 0 0 6pt; color: #3c3556; }
+    .contact .slots { gap: 6pt; }
+    .contact .slot { border: .75pt solid #b9aede; color: #4a3d73; font-size: 7.5pt; padding: 3pt 8pt; }
+    .contact .li { display: none; }
+    .li-url { display: inline; }
+    .contact .slot-cv { display: none; }
+    .contact .note { display: none; }
+  }
+</style>
+</head>
+<body id="top">
+<a class="skip-link" href="#work">Skip to the work</a>
+
+<div class="d4">
+  <!-- ————— band 1 · hero, the one lit viewport ————— -->
+  <header class="scene-hero">
+    <div class="col titlecard">
+      <span class="lockup">
+        <h1>Jhonalbert Alvarez</h1>
+        <svg class="reticle" viewBox="0 0 40 40" aria-hidden="true">
+          <circle class="ring"  cx="20" cy="20" r="15"></circle>
+          <circle class="ring2" cx="20" cy="20" r="9.5"></circle>
+          <path class="needle" d="M20 20 29 10"></path>
+          <circle class="pin" cx="20" cy="20" r="2"></circle>
+        </svg>
+      </span>
+      <span class="role">Sales · RevOps · AI systems</span>
+    </div>
+
+    <div class="col hero-low">
+      <p class="thesis display">I build the system behind the work.</p>
+      <p class="avail">Open to roles and freelance engagements.</p>
+      <div class="cta-row">
+        <a class="cta" href="#work">See the work ↓</a>
+        <a class="cta quiet" href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ————— band 2 · the six systems ————— -->
+  <main class="scenes col" id="work">
+    <section class="scene left" id="sys-01">
+      <div class="inner">
+        <p class="kicker mono">SYS-01 <i>·</i> leads go cold</p>
+        <h2 class="display">Outbound system</h2>
+        <p class="sys">An outbound motion built from zero — isolated sending infrastructure, automated warmup, multichannel sequences across email, LinkedIn, and cold call, <b>compliant with CAN-SPAM and TCPA</b>. In front of it, an 11-question public diagnostic that shows a business, in dollars, what its intake is leaking — then turns the reveal into a booked call.</p>
+        <p class="sys-short">Sending infrastructure, automated warmup, multichannel sequences — CAN-SPAM/TCPA compliant — plus an 11-question public diagnostic that prices leaked intake in dollars and converts the reveal into booked calls.</p>
+        <p class="subtitle mono"><span class="st"><span class="dot"></span>LIVE</span> — production build · <a href="https://frakkr.com" target="_blank" rel="noopener">frakkr.com ↗</a>, team work<span class="gotow"> · <a class="goto" href="#map">see in map ↓</a></span></p>
+      </div>
+    </section>
+
+    <section class="scene right" id="sys-02">
+      <div class="inner">
+        <p class="kicker mono">SYS-02 <i>·</i> pipeline friction</p>
+        <h2 class="display">CRM architecture</h2>
+        <p class="sys">A spreadsheet CRM redesigned into a <b>three-table relational model</b> — one row per account, one per touch, one per audit call — under a locked stage vocabulary. A bad write <b>fails</b> instead of silently corrupting the funnel. A scheduled agent ranks every rep's leads each morning and drops the day's calls onto their calendar.</p>
+        <p class="sys-short">Spreadsheet CRM rebuilt as a three-table relational model under a locked stage vocabulary — bad writes fail. A scheduled agent ranks each rep's leads every morning and puts the day's calls on their calendar.</p>
+        <p class="subtitle mono"><span class="st"><span class="dot"></span>LIVE INTERNALLY</span> — reps never touch the database</p>
+      </div>
+    </section>
+
+    <section class="scene wide" id="sys-03">
+      <div class="inner">
+        <p class="kicker mono">SYS-03 <i>·</i> manual work doesn't scale</p>
+        <h2 class="display">AI agent systems</h2>
+        <p class="sys">A business's own process turned into <b>reliable, resumable AI skills</b> — state files, atomic writes, checkpoint recovery. Every agent is built least-privilege by default: untrusted-field boundaries, explicit allowlists, the minimum write scope that finishes the job. Security is how they're built, not the product.</p>
+        <p class="sys-short">Business processes turned into reliable, resumable AI skills — state files, atomic writes, checkpoint recovery — built least-privilege by default: untrusted-field boundaries, allowlists, minimum write scope.</p>
+        <p class="subtitle mono"><span class="st"><span class="dot"></span>LIVE INTERNALLY</span> — agents on a live revenue pipeline · a privilege-leak class found and closed before ship<span class="gotow"> · <a class="goto" href="#map">see in map ↓</a></span></p>
+      </div>
+    </section>
+
+    <section class="scene center" id="sys-04">
+      <div class="inner">
+        <p class="kicker mono">SYS-04 <i>·</i> data hides the why</p>
+        <h2 class="display">Explainable data tools</h2>
+        <p class="sys">Explainable models over black boxes — retention and churn scoring that hands back <b>human-readable reason codes</b> — and an offline call-QA pipeline: local transcription, rubric-scored teardowns. Recordings never touch a cloud API.</p>
+        <p class="sys-short">Explainable retention and churn scoring with human-readable reason codes, plus an offline call-QA pipeline — local transcription, rubric-scored teardowns; recordings never touch a cloud API.</p>
+        <p class="subtitle mono"><span class="st"><span class="dot hollow"></span>SYNTHETIC-DATA DEMO</span> — AUC 0.74 · 2.6× top-decile lift, on a labeled synthetic book, fully offline</p>
+      </div>
+    </section>
+
+    <div class="twin-bridge">
+      <p>One muscle · two scales</p>
+      <hr>
+    </div>
+    <div class="twin">
+      <section class="scene" id="sys-05">
+        <div class="inner">
+          <p class="kicker mono">SYS-05 <i>·</i> context gets scattered</p>
+          <h2 class="display">Knowledge operating system</h2>
+          <p class="sys">One <b>boot file</b> carries the rules. A routing table loads deeper context only when a task needs it. Scheduled consolidation keeps it current — any AI agent boards the whole system in one read.</p>
+          <p class="sys-short">One boot file carries the rules, a routing table loads deeper context on demand, scheduled consolidation keeps it current — any AI agent boards the system in one read.</p>
+          <p class="subtitle mono"><span class="st"><span class="dot"></span>LIVE INTERNALLY</span> — run daily</p>
+        </div>
+      </section>
+      <section class="scene" id="sys-06">
+        <div class="inner">
+          <p class="kicker mono">SYS-06 <i>·</i> AI training doesn't stick</p>
+          <h2 class="display">Team AI enablement</h2>
+          <p class="sys">A module curriculum built on the team's <b>own real work</b> — never invented exercises — over a psychology-backed influence layer: habit, motivation, identity, social contagion, environment, proof. Each worker builds their own AI companion as the curriculum itself.</p>
+          <p class="sys-short">A module curriculum built on the team's own real work over a psychology-backed influence layer — each worker builds their own AI companion as the curriculum itself.</p>
+          <p class="subtitle mono"><span class="st"><span class="dot half"></span>LIVE ENGAGEMENT</span> — enterprise pilot, technical ops team · client unnamed by design</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ————— band 3 · THE MAP ————— -->
+    <section class="map-band" id="map" aria-label="The map — how the systems connect">
+      <div class="map-head">
+        <span class="lead" aria-hidden="true"></span>
+        <h2 class="display">The map — how it connects.</h2>
+        <p>Same six systems, one operating discipline. The spine already told the story — this is the deep-dive view: hover over a station.</p>
+      </div>
+
+      <div class="map-stage" data-stage>
+        <svg class="map-svg" viewBox="0 0 1000 620" role="group" aria-label="Interactive map: six systems connected around the operator. Use Tab to move between stations, Enter to pin.">
+          <g aria-hidden="true">
+            <path class="edge" data-edge="core outbound" d="M471 285 L204 172" pathLength="1"></path>
+            <path class="edge" data-edge="core crm"      d="M477 319 L288 437" pathLength="1"></path>
+            <path class="edge" data-edge="core agents"   d="M521 274 L677 143" pathLength="1"></path>
+            <path class="edge" data-edge="core data"     d="M532 305 L803 330" pathLength="1"></path>
+            <path class="edge" data-edge="core kos"      d="M507 333 L549 517" pathLength="1"></path>
+            <path class="edge" data-edge="core team"     d="M527 321 L795 539" pathLength="1"></path>
+            <path class="edge" data-edge="outbound crm"  d="M185 187 L248 424" pathLength="1"></path>
+            <path class="edge" data-edge="crm agents"    d="M280 435 C420 330 550 210 672 145" pathLength="1"></path>
+            <path class="edge" data-edge="crm data"      d="M287 449 C470 400 640 360 802 336" pathLength="1"></path>
+            <path class="edge" data-edge="agents kos"    d="M694 147 C660 290 600 430 560 517" pathLength="1"></path>
+            <path class="edge" data-edge="kos team"      d="M588 550 L792 552" pathLength="1"></path>
+          </g>
+
+          <g class="station core" data-node="core" role="button" tabindex="0" aria-label="Jhonalbert Alvarez, the operator. Select to reset the map.">
+            <circle class="ring"  cx="500" cy="300" r="30"></circle>
+            <circle class="ring2" cx="500" cy="300" r="19"></circle>
+            <path class="needle" d="M500 300 L518 280"></path>
+            <circle class="pin" cx="500" cy="300" r="3.2"></circle>
+            <text x="500" y="352" text-anchor="middle">Jhon</text>
+          </g>
+
+          <g class="station" data-node="outbound" role="button" tabindex="0" aria-label="Outbound system. Live. Hover or select to read.">
+            <circle class="ring" cx="175" cy="160" r="24"></circle>
+            <line class="tick" x1="175" y1="136" x2="175" y2="129"></line>
+            <circle class="st-pin sp-live" cx="175" cy="160" r="4"></circle>
+            <text x="175" y="205" text-anchor="middle">Outbound</text>
+          </g>
+
+          <g class="station" data-node="crm" role="button" tabindex="0" aria-label="CRM architecture. Live internally. Hover or select to read.">
+            <circle class="ring" cx="260" cy="455" r="24"></circle>
+            <line class="tick" x1="260" y1="431" x2="260" y2="424"></line>
+            <circle class="st-pin sp-live" cx="260" cy="455" r="4"></circle>
+            <text x="260" y="500" text-anchor="middle">CRM</text>
+          </g>
+
+          <g class="station" data-node="agents" role="button" tabindex="0" aria-label="AI agent systems. Live internally. Hover or select to read.">
+            <circle class="ring" cx="700" cy="130" r="24"></circle>
+            <line class="tick" x1="700" y1="106" x2="700" y2="99"></line>
+            <circle class="st-pin sp-live" cx="700" cy="130" r="4"></circle>
+            <text x="700" y="175" text-anchor="middle">AI agents</text>
+          </g>
+
+          <g class="station" data-node="data" role="button" tabindex="0" aria-label="Explainable data tools. Synthetic-data demo. Hover or select to read.">
+            <circle class="ring" cx="835" cy="333" r="24"></circle>
+            <line class="tick" x1="835" y1="309" x2="835" y2="302"></line>
+            <circle class="st-pin sp-hollow" cx="835" cy="333" r="4"></circle>
+            <text x="835" y="378" text-anchor="middle">Data</text>
+          </g>
+
+          <g class="station" data-node="kos" role="button" tabindex="0" aria-label="Knowledge operating system. Live internally. Hover or select to read.">
+            <circle class="ring" cx="558" cy="548" r="24"></circle>
+            <line class="tick" x1="558" y1="524" x2="558" y2="517"></line>
+            <circle class="st-pin sp-live" cx="558" cy="548" r="4"></circle>
+            <text x="558" y="593" text-anchor="middle">Knowledge OS</text>
+          </g>
+
+          <g class="station" data-node="team" role="button" tabindex="0" aria-label="Team AI enablement. Live engagement. Hover or select to read.">
+            <circle class="ring" cx="822" cy="552" r="24"></circle>
+            <line class="tick" x1="822" y1="528" x2="822" y2="521"></line>
+            <path class="st-pin" d="M822 548 A4 4 0 0 0 822 556 Z" fill="oklch(75% 0.155 300)"></path>
+            <circle class="st-pin sp-hollow" cx="822" cy="552" r="4"></circle>
+            <text x="822" y="597" text-anchor="middle">Enablement</text>
+          </g>
+        </svg>
+
+        <div class="readout" data-readout aria-live="polite">
+          <p class="kicker mono" data-r-kicker>THE OPERATOR</p>
+          <h3 class="display" data-r-title>Six systems, one discipline.</h3>
+          <p class="blurb" data-r-blurb>Leads flow into the pipeline, agents run on it, everything boots from the knowledge system — and the same enablement muscle teaches teams to run theirs. Hover any station to read its triple — click to pin it.</p>
+          <p class="subtitle mono" data-r-proof></p>
+        </div>
+      </div>
+
+      <ul class="map-list mono" aria-label="The systems, as a list">
+        <li><a href="#sys-01"><span class="dot"></span><span class="t">Outbound system</span><span class="k">leads go cold</span></a></li>
+        <li><a href="#sys-02"><span class="dot"></span><span class="t">CRM architecture</span><span class="k">pipeline friction</span></a></li>
+        <li><a href="#sys-03"><span class="dot"></span><span class="t">AI agent systems</span><span class="k">scale</span></a></li>
+        <li><a href="#sys-04"><span class="dot hollow"></span><span class="t">Explainable data tools</span><span class="k">the why</span></a></li>
+        <li><a href="#sys-05"><span class="dot"></span><span class="t">Knowledge operating system</span><span class="k">context</span></a></li>
+        <li><a href="#sys-06"><span class="dot half"></span><span class="t">Team AI enablement</span><span class="k">adoption</span></a></li>
+      </ul>
+    </section>
+
+    <!-- ————— band 4 · about ————— -->
+    <section class="about" aria-label="About">
+      <div>
+        <p class="line display">Sales instincts. Systems thinking. Builder's hands.</p>
+        <p class="body">I work where revenue operations and applied AI meet — the unglamorous layer: clean handoffs, explicit states, safe permissions, and a system a real team can run tomorrow.</p>
+        <p class="facts mono">Spanish, native <i>·</i> English, C1 <i>·</i> Structure before scale</p>
+      </div>
+    </section>
+
+    <!-- ————— band 5 · contact ————— -->
+    <section class="contact" id="contact" aria-label="Contact">
+      <div>
+        <h2 class="display">Bring me the messy workflow.</h2>
+        <p class="sub">I'll find the rules hiding inside it.</p>
+        <div class="slots mono">
+          <a class="slot" href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a>
+          <a class="slot slot-icon" href="https://www.linkedin.com/in/jhonalbert-alvarez/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+            <svg class="li" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            <span class="li-url">linkedin.com/in/jhonalbert-alvarez</span>
+          </a>
+          <a class="slot slot-cv" href="Jhonalbert-Alvarez-CV.pdf" target="_blank" rel="noopener">CV ↓</a>
+          <span class="slot pending">[BOOKING LINK]</span>
+        </div>
+        <p class="note mono">Booking link pending — it gates launch.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ————— band 6 · footer ————— -->
+  <footer class="footer">
+    <div class="col row">
+      <span class="who">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="15" fill="none" stroke="oklch(48% 0.06 297 / .6)" stroke-width="1.4"></circle>
+          <path d="M20 20 29 10" stroke="oklch(75% 0.155 300)" stroke-width="1.4" fill="none"></path>
+          <circle cx="20" cy="20" r="2" fill="oklch(75% 0.155 300)"></circle>
+        </svg>
+        Jhonalbert Alvarez — Structure before scale
+      </span>
+      <a href="#top" class="mono">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+</div>
+
+<noscript>
+  <style>
+    .map-stage, .readout { display: none; }
+    .map-list { display: block; }
+  </style>
+</noscript>
+
+<script>
+(function () {
+  var SYSTEMS = {
+    core: {
+      kicker: 'THE OPERATOR',
+      title: 'Six systems, one discipline.',
+      blurb: 'Leads flow into the pipeline, agents run on it, everything boots from the knowledge system — and the same enablement muscle teaches teams to run theirs. Hover any station to read its triple — click to pin it.',
+      proof: '', status: '', anchor: ''
+    },
+    outbound: {
+      kicker: 'SYS-01 · LEADS GO COLD',
+      title: 'Outbound system',
+      blurb: 'Sending infrastructure, automated warmup, multichannel sequences — and the 11-question diagnostic that turns leaked intake into booked calls.',
+      proof: 'LIVE — production build · frakkr.com, team work', status: 'live', anchor: '#sys-01'
+    },
+    crm: {
+      kicker: 'SYS-02 · PIPELINE FRICTION',
+      title: 'CRM architecture',
+      blurb: 'Three-table relational model under a locked stage vocabulary — bad writes fail. A morning agent puts each rep’s calls on their calendar.',
+      proof: 'LIVE INTERNALLY — reps never touch the database', status: 'live', anchor: '#sys-02'
+    },
+    agents: {
+      kicker: 'SYS-03 · MANUAL WORK DOESN’T SCALE',
+      title: 'AI agent systems',
+      blurb: 'A business’s own process turned into resumable AI skills — least-privilege by default: untrusted-field boundaries, allowlists, minimum write scope.',
+      proof: 'LIVE INTERNALLY — a privilege-leak class found and closed before ship', status: 'live', anchor: '#sys-03'
+    },
+    data: {
+      kicker: 'SYS-04 · DATA HIDES THE WHY',
+      title: 'Explainable data tools',
+      blurb: 'Explainable scoring with human-readable reason codes, plus offline call QA — recordings never touch a cloud API.',
+      proof: 'SYNTHETIC-DATA DEMO — AUC 0.74 · 2.6× top-decile lift, labeled synthetic book', status: 'hollow', anchor: '#sys-04'
+    },
+    kos: {
+      kicker: 'SYS-05 · CONTEXT GETS SCATTERED',
+      title: 'Knowledge operating system',
+      blurb: 'One boot file carries the rules, a routing table loads deeper context only when a task needs it, scheduled consolidation keeps it current.',
+      proof: 'LIVE INTERNALLY — run daily', status: 'live', anchor: '#sys-05'
+    },
+    team: {
+      kicker: 'SYS-06 · AI TRAINING DOESN’T STICK',
+      title: 'Team AI enablement',
+      blurb: 'A curriculum built on the team’s own real work over a psychology-backed influence layer — each worker builds their own AI companion.',
+      proof: 'LIVE ENGAGEMENT — enterprise pilot, technical ops team, client unnamed', status: 'half', anchor: '#sys-06'
+    }
+  };
+
+  var stage = document.querySelector('[data-stage]');
+  if (!stage) return;
+  var band = document.querySelector('.map-band');
+  var stations = stage.querySelectorAll('.station');
+  var edges = stage.querySelectorAll('.edge');
+  var rKicker = stage.querySelector('[data-r-kicker]');
+  var rTitle = stage.querySelector('[data-r-title]');
+  var rBlurb = stage.querySelector('[data-r-blurb]');
+  var rProof = stage.querySelector('[data-r-proof]');
+
+  function dotHtml(status) {
+    if (!status) return '';
+    var cls = status === 'live' ? 'dot' : 'dot ' + status;
+    return '<span class="st"><span class="' + cls + '"></span></span> ';
+  }
+
+  function apply(id) {
+    var s = SYSTEMS[id] || SYSTEMS.core;
+    rKicker.textContent = s.kicker;
+    rTitle.textContent = s.title;
+    rBlurb.textContent = s.blurb;
+    if (s.proof) {
+      rProof.innerHTML = dotHtml(s.status) + s.proof +
+        ' · <a class="goto" href="' + s.anchor + '">read the full entry ↑</a>';
+      rProof.style.display = '';
+    } else {
+      rProof.innerHTML = '';
+      rProof.style.display = 'none';
+    }
+
+    var focused = id !== 'core';
+    stage.classList.toggle('has-focus', focused);
+    stations.forEach(function (n) {
+      n.classList.toggle('is-on', focused && (n.dataset.node === id));
+    });
+    edges.forEach(function (e) {
+      var ends = e.dataset.edge.split(' ');
+      e.classList.toggle('is-on', focused && ends.indexOf(id) !== -1);
+    });
+  }
+
+  /* hover reads, click pins (screen-share friendly), keyboard focus reads too */
+  var pinned = null;
+  var revertTimer = null;
+
+  function hold(id) { clearTimeout(revertTimer); apply(id); }
+  function release() {
+    clearTimeout(revertTimer);
+    revertTimer = setTimeout(function () { apply(pinned || 'core'); }, 140);
+  }
+  function togglePin(id) {
+    pinned = (id === 'core' || pinned === id) ? null : id;
+    apply(pinned || id);
+  }
+
+  stations.forEach(function (n) {
+    var id = n.dataset.node;
+    n.addEventListener('pointerenter', function () { hold(id); });
+    n.addEventListener('pointerleave', release);
+    n.addEventListener('focusin', function () { hold(id); });
+    n.addEventListener('focusout', release);
+    n.addEventListener('click', function () { togglePin(id); });
+    n.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); togglePin(id); }
+    });
+  });
+
+  apply('core');
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          var i = 0;
+          band.querySelectorAll('.edge').forEach(function (e) { e.style.animationDelay = (i++ * 70) + 'ms'; });
+          var j = 0;
+          band.querySelectorAll('.station').forEach(function (s) { s.style.animationDelay = (250 + j++ * 90) + 'ms'; });
+          band.classList.add('live');
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(stage);
+  } else {
+    band.classList.add('live');
+  }
+})();
+</script>
+</body>
+</html>
