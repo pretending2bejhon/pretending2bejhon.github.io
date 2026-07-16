@@ -231,8 +231,7 @@
   .contact .slot-icon { display: inline-flex; align-items: center; }
   .contact .li { width: 16px; height: 16px; fill: var(--dim); transition: fill .2s ease; }
   .contact a.slot:hover .li { fill: var(--signal); }
-  .li-url { display: none; }
-  .contact .slot.pending { opacity: .55; }
+  .li-url, .cal-url { display: none; }
   .contact .note { margin: 18px 0 0; font-size: 11px; color: var(--faint); letter-spacing: .06em; }
 
   /* ————— footer ————— */
@@ -320,7 +319,7 @@
     .contact .slots { gap: 6pt; }
     .contact .slot { border: .75pt solid #b9aede; color: #4a3d73; font-size: 7.5pt; padding: 3pt 8pt; }
     .contact .li { display: none; }
-    .li-url { display: inline; }
+    .li-url, .cal-url { display: inline; }
     .contact .slot-cv { display: none; }
     .contact .note { display: none; }
   }
@@ -537,9 +536,8 @@
             <span class="li-url">linkedin.com/in/jhonalbert-alvarez</span>
           </a>
           <a class="slot slot-cv" href="Jhonalbert-Alvarez-CV.pdf" target="_blank" rel="noopener">CV ↓</a>
-          <span class="slot pending">[BOOKING LINK]</span>
+          <a class="slot" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min<span class="cal-url"> — cal.com/jhonalbert-alvarez-phuqi8/15min</span></a>
         </div>
-        <p class="note mono">Booking link pending — it gates launch.</p>
       </div>
     </section>
   </main>
