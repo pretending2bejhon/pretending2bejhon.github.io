@@ -82,6 +82,15 @@
   .scene-hero > * { position: relative; }
 
   .titlecard { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .tc-right { display: flex; align-items: center; gap: 20px; }
+  .lang-btn {
+    font-family: "Cascadia Mono", Consolas, ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--dim); background: none; border: 1px solid var(--hair);
+    padding: 7px 13px; cursor: pointer;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .lang-btn:hover { color: var(--signal); border-color: var(--signal); }
   .lockup { display: flex; align-items: center; gap: 22px; }
   .lockup h1 {
     margin: 0; font-size: clamp(1.35rem, 2.5vw, 2rem); letter-spacing: .15em; text-transform: uppercase;
@@ -277,7 +286,7 @@
     .d4 * { animation: none !important; transition: none !important; }
     .col { max-width: 100%; padding: 0; }
 
-    .skip-link, .cta-row, .map-band, .about, .footer, .kicker, .gotow { display: none !important; }
+    .skip-link, .cta-row, .map-band, .about, .footer, .kicker, .gotow, .lang-btn { display: none !important; }
     .contact h2 { max-width: none; }
     .scene .subtitle a { color: #4a3d73; text-decoration: none; }
 
@@ -341,7 +350,10 @@
           <circle class="pin" cx="20" cy="20" r="2"></circle>
         </svg>
       </span>
-      <span class="role">Sales · RevOps · AI systems</span>
+      <span class="tc-right">
+        <span class="role">Sales · RevOps · AI systems</span>
+        <button type="button" class="lang-btn" data-lang-btn aria-label="Cambiar a español">ES</button>
+      </span>
     </div>
 
     <div class="col hero-low">
@@ -551,9 +563,9 @@
           <path d="M20 20 29 10" stroke="oklch(75% 0.155 300)" stroke-width="1.4" fill="none"></path>
           <circle cx="20" cy="20" r="2" fill="oklch(75% 0.155 300)"></circle>
         </svg>
-        Jhonalbert Alvarez — Structure before scale
+        <span class="who-text">Jhonalbert Alvarez — Structure before scale</span>
       </span>
-      <a href="#top" class="mono">BACK TO TOP ↑</a>
+      <a href="#top" class="mono to-top">BACK TO TOP ↑</a>
     </div>
   </footer>
 </div>
@@ -567,7 +579,10 @@
 
 <script>
 (function () {
-  var SYSTEMS = {
+  var lang = 'en';
+  var current = 'core';
+
+  var SYSTEMS_EN = {
     core: {
       kicker: 'THE OPERATOR',
       title: 'Six systems, one discipline.',
@@ -612,6 +627,54 @@
     }
   };
 
+  var SYSTEMS_ES = {
+    core: {
+      kicker: 'EL OPERADOR',
+      title: 'Seis sistemas, una disciplina.',
+      blurb: 'Los leads fluyen al pipeline, los agentes corren sobre él, todo arranca desde el sistema de conocimiento — y el mismo músculo de enablement les enseña a los equipos a operar el suyo. Pasa el cursor por cualquier estación para leer su tripleta — haz clic para fijarla.',
+      proof: '', status: '', anchor: ''
+    },
+    outbound: {
+      kicker: 'SYS-01 · LOS LEADS SE ENFRÍAN',
+      title: 'Sistema outbound',
+      blurb: 'Infraestructura de envío, warmup automatizado, secuencias multicanal — y el diagnóstico de 11 preguntas que convierte intake fugado en llamadas agendadas.',
+      proof: 'EN PRODUCCIÓN — build de producción · frakkr.com, trabajo en equipo', status: 'live', anchor: '#sys-01'
+    },
+    crm: {
+      kicker: 'SYS-02 · FRICCIÓN EN EL PIPELINE',
+      title: 'Arquitectura CRM',
+      blurb: 'Modelo relacional de tres tablas bajo un vocabulario de etapas bloqueado — las escrituras inválidas fallan. Un agente matutino deja las llamadas de cada rep en su calendario.',
+      proof: 'EN PRODUCCIÓN INTERNA — los reps nunca tocan la base de datos', status: 'live', anchor: '#sys-02'
+    },
+    agents: {
+      kicker: 'SYS-03 · EL TRABAJO MANUAL NO ESCALA',
+      title: 'Sistemas de agentes de IA',
+      blurb: 'El proceso propio de un negocio convertido en skills de IA reanudables — mínimo privilegio por defecto: fronteras de campos no confiables, allowlists, alcance de escritura mínimo.',
+      proof: 'EN PRODUCCIÓN INTERNA — una clase de fuga de privilegios encontrada y cerrada antes del ship', status: 'live', anchor: '#sys-03'
+    },
+    data: {
+      kicker: 'SYS-04 · LOS DATOS ESCONDEN EL PORQUÉ',
+      title: 'Herramientas de datos explicables',
+      blurb: 'Scoring explicable con códigos de razón legibles, más QA de llamadas offline — las grabaciones nunca tocan una API en la nube.',
+      proof: 'DEMO · DATOS SINTÉTICOS — AUC 0.74 · lift 2.6× en el decil superior, cartera sintética etiquetada', status: 'hollow', anchor: '#sys-04'
+    },
+    kos: {
+      kicker: 'SYS-05 · EL CONTEXTO SE DISPERSA',
+      title: 'Sistema operativo de conocimiento',
+      blurb: 'Un archivo de arranque lleva las reglas, una tabla de ruteo carga contexto profundo solo cuando la tarea lo necesita, la consolidación programada lo mantiene al día.',
+      proof: 'EN PRODUCCIÓN INTERNA — corre a diario', status: 'live', anchor: '#sys-05'
+    },
+    team: {
+      kicker: 'SYS-06 · LA CAPACITACIÓN EN IA NO SE SOSTIENE',
+      title: 'Enablement de IA para equipos',
+      blurb: 'Un currículo construido sobre el trabajo real del equipo, sobre una capa de influencia con base psicológica — cada trabajador construye su propio compañero de IA.',
+      proof: 'PILOTO ACTIVO — piloto empresarial, equipo técnico de operaciones, cliente sin nombrar', status: 'half', anchor: '#sys-06'
+    }
+  };
+
+  var SYSTEMS = SYSTEMS_EN;
+  var READ_ENTRY = { en: 'read the full entry ↑', es: 'leer la entrada completa ↑' };
+
   var stage = document.querySelector('[data-stage]');
   if (!stage) return;
   var band = document.querySelector('.map-band');
@@ -629,13 +692,14 @@
   }
 
   function apply(id) {
+    current = id;
     var s = SYSTEMS[id] || SYSTEMS.core;
     rKicker.textContent = s.kicker;
     rTitle.textContent = s.title;
     rBlurb.textContent = s.blurb;
     if (s.proof) {
       rProof.innerHTML = dotHtml(s.status) + s.proof +
-        ' · <a class="goto" href="' + s.anchor + '">read the full entry ↑</a>';
+        ' · <a class="goto" href="' + s.anchor + '">' + READ_ENTRY[lang] + '</a>';
       rProof.style.display = '';
     } else {
       rProof.innerHTML = '';
@@ -680,6 +744,134 @@
   });
 
   apply('core');
+
+  /* ————— EN/ES — the whole page swaps client-side; EN is captured from the DOM ————— */
+  var I18N_ES = {
+    '.skip-link': 'Saltar al trabajo',
+    '.titlecard .role': 'Ventas · RevOps · Sistemas de IA',
+    '.thesis': 'Construyo el sistema detrás del trabajo.',
+    '.avail': 'Abierto a roles y proyectos freelance.',
+    '.cta-row .cta:not(.quiet)': 'Ver el trabajo ↓',
+    '.cta-row .cta.quiet': 'Contacto',
+
+    '#sys-01 .kicker': 'SYS-01 <i>·</i> los leads se enfrían',
+    '#sys-01 h2': 'Sistema outbound',
+    '#sys-01 .sys': 'Una operación outbound construida desde cero — infraestructura de envío aislada, warmup automatizado, secuencias multicanal por email, LinkedIn y llamada en frío, <b>conforme a CAN-SPAM y TCPA</b>. Al frente, un diagnóstico público de 11 preguntas que le muestra a un negocio, en dólares, cuánto se le fuga por el intake — y convierte esa revelación en una llamada agendada.',
+    '#sys-01 .sys-short': 'Infraestructura de envío, warmup automatizado, secuencias multicanal — conforme a CAN-SPAM/TCPA — más un diagnóstico público de 11 preguntas que pone en dólares el intake fugado y lo convierte en llamadas agendadas.',
+    '#sys-01 .subtitle': '<span class="st"><span class="dot"></span>EN PRODUCCIÓN</span> — build de producción · <a href="https://frakkr.com" target="_blank" rel="noopener">frakkr.com ↗</a>, trabajo en equipo<span class="gotow"> · <a class="goto" href="#map">ver en el mapa ↓</a></span>',
+
+    '#sys-02 .kicker': 'SYS-02 <i>·</i> fricción en el pipeline',
+    '#sys-02 h2': 'Arquitectura CRM',
+    '#sys-02 .sys': 'Un CRM en hojas de cálculo rediseñado como un <b>modelo relacional de tres tablas</b> — una fila por cuenta, una por touch, una por llamada de auditoría — bajo un vocabulario de etapas bloqueado. Una escritura inválida <b>falla</b> en vez de corromper el funnel en silencio. Un agente programado clasifica los leads de cada rep cada mañana y deja las llamadas del día en su calendario.',
+    '#sys-02 .sys-short': 'CRM en hojas de cálculo reconstruido como modelo relacional de tres tablas bajo vocabulario de etapas bloqueado — las escrituras inválidas fallan. Un agente programado deja las llamadas del día en el calendario de cada rep.',
+    '#sys-02 .subtitle': '<span class="st"><span class="dot"></span>EN PRODUCCIÓN INTERNA</span> — los reps nunca tocan la base de datos',
+
+    '#sys-03 .kicker': 'SYS-03 <i>·</i> el trabajo manual no escala',
+    '#sys-03 h2': 'Sistemas de agentes de IA',
+    '#sys-03 .sys': 'El proceso propio de un negocio convertido en <b>skills de IA confiables y reanudables</b> — archivos de estado, escrituras atómicas, recuperación por checkpoints. Cada agente se construye con mínimo privilegio por defecto: fronteras de campos no confiables, allowlists explícitas, el alcance de escritura mínimo que termina el trabajo. La seguridad es cómo están construidos, no el producto.',
+    '#sys-03 .sys-short': 'Procesos de negocio convertidos en skills de IA confiables y reanudables — archivos de estado, escrituras atómicas, recuperación por checkpoints — con mínimo privilegio por defecto.',
+    '#sys-03 .subtitle': '<span class="st"><span class="dot"></span>EN PRODUCCIÓN INTERNA</span> — agentes sobre un pipeline de revenue real · una clase de fuga de privilegios encontrada y cerrada antes del ship<span class="gotow"> · <a class="goto" href="#map">ver en el mapa ↓</a></span>',
+
+    '#sys-04 .kicker': 'SYS-04 <i>·</i> los datos esconden el porqué',
+    '#sys-04 h2': 'Herramientas de datos explicables',
+    '#sys-04 .sys': 'Modelos explicables en vez de cajas negras — scoring de retención y churn que devuelve <b>códigos de razón legibles</b> — y un pipeline de QA de llamadas offline: transcripción local, teardowns puntuados por rúbrica. Las grabaciones nunca tocan una API en la nube.',
+    '#sys-04 .sys-short': 'Scoring explicable de retención y churn con códigos de razón legibles, más QA de llamadas offline — las grabaciones nunca tocan una API en la nube.',
+    '#sys-04 .subtitle': '<span class="st"><span class="dot hollow"></span>DEMO · DATOS SINTÉTICOS</span> — AUC 0.74 · lift 2.6× en el decil superior, sobre una cartera sintética etiquetada, totalmente offline',
+
+    '.twin-bridge p': 'Un músculo · dos escalas',
+
+    '#sys-05 .kicker': 'SYS-05 <i>·</i> el contexto se dispersa',
+    '#sys-05 h2': 'Sistema operativo de conocimiento',
+    '#sys-05 .sys': 'Un <b>archivo de arranque</b> lleva las reglas. Una tabla de ruteo carga contexto profundo solo cuando la tarea lo necesita. La consolidación programada lo mantiene al día — cualquier agente de IA aborda el sistema completo en una sola lectura.',
+    '#sys-05 .sys-short': 'Un archivo de arranque lleva las reglas, una tabla de ruteo carga contexto bajo demanda, la consolidación programada lo mantiene al día.',
+    '#sys-05 .subtitle': '<span class="st"><span class="dot"></span>EN PRODUCCIÓN INTERNA</span> — corre a diario',
+
+    '#sys-06 .kicker': 'SYS-06 <i>·</i> la capacitación en IA no se sostiene',
+    '#sys-06 h2': 'Enablement de IA para equipos',
+    '#sys-06 .sys': 'Un currículo modular construido sobre el <b>trabajo real del equipo</b> — nunca ejercicios inventados — sobre una capa de influencia con base psicológica: hábito, motivación, identidad, contagio social, entorno, prueba. Cada trabajador construye su propio compañero de IA como el currículo mismo.',
+    '#sys-06 .sys-short': 'Un currículo modular sobre el trabajo real del equipo con una capa de influencia psicológica — cada trabajador construye su propio compañero de IA.',
+    '#sys-06 .subtitle': '<span class="st"><span class="dot half"></span>PILOTO ACTIVO</span> — piloto empresarial con un equipo técnico de operaciones · cliente sin nombrar por diseño',
+
+    '.map-head h2': 'El mapa — cómo se conecta.',
+    '.map-head p': 'Los mismos seis sistemas, una sola disciplina operativa. La columna ya contó la historia — esta es la vista profunda: pasa el cursor por una estación.',
+
+    '.map-list li:nth-child(1) .t': 'Sistema outbound',
+    '.map-list li:nth-child(1) .k': 'los leads se enfrían',
+    '.map-list li:nth-child(2) .t': 'Arquitectura CRM',
+    '.map-list li:nth-child(2) .k': 'fricción',
+    '.map-list li:nth-child(3) .t': 'Sistemas de agentes de IA',
+    '.map-list li:nth-child(3) .k': 'escala',
+    '.map-list li:nth-child(4) .t': 'Herramientas de datos explicables',
+    '.map-list li:nth-child(4) .k': 'el porqué',
+    '.map-list li:nth-child(5) .t': 'Sistema operativo de conocimiento',
+    '.map-list li:nth-child(5) .k': 'contexto',
+    '.map-list li:nth-child(6) .t': 'Enablement de IA para equipos',
+    '.map-list li:nth-child(6) .k': 'adopción',
+
+    '.about .line': 'Instinto de ventas. Pensamiento de sistemas. Manos de constructor.',
+    '.about p.body': 'Trabajo donde las operaciones de revenue y la IA aplicada se encuentran — la capa poco glamorosa: handoffs limpios, estados explícitos, permisos seguros y un sistema que un equipo real puede operar mañana.',
+    '.about .facts': 'Español, nativo <i>·</i> Inglés, C1 <i>·</i> Estructura antes que escala',
+
+    '.contact h2': 'Tráeme el workflow desordenado.',
+    '.contact .sub': 'Yo encuentro las reglas escondidas adentro.',
+    'a.slot[href*="cal.com"]': 'Agenda 15 min<span class="cal-url"> — cal.com/jhonalbert-alvarez-phuqi8/15min</span>',
+
+    '.footer .who-text': 'Jhonalbert Alvarez — Estructura antes que escala',
+    '.footer .to-top': 'VOLVER ARRIBA ↑'
+  };
+
+  var ST_TXT_ES = { core: 'Jhon', outbound: 'Outbound', crm: 'CRM', agents: 'Agentes IA', data: 'Datos', kos: 'Conocimiento', team: 'Enablement' };
+  var ST_ARIA_ES = {
+    core: 'Jhonalbert Alvarez, el operador. Selecciona para reiniciar el mapa.',
+    outbound: 'Sistema outbound. En producción. Pasa el cursor o selecciona para leer.',
+    crm: 'Arquitectura CRM. En producción interna. Pasa el cursor o selecciona para leer.',
+    agents: 'Sistemas de agentes de IA. En producción interna. Pasa el cursor o selecciona para leer.',
+    data: 'Herramientas de datos explicables. Demo con datos sintéticos. Pasa el cursor o selecciona para leer.',
+    kos: 'Sistema operativo de conocimiento. En producción interna. Pasa el cursor o selecciona para leer.',
+    team: 'Enablement de IA para equipos. Piloto activo. Pasa el cursor o selecciona para leer.'
+  };
+
+  var EN_SNAP = {}, ST_TXT_EN = {}, ST_ARIA_EN = {};
+  Object.keys(I18N_ES).forEach(function (sel) {
+    var el = document.querySelector(sel);
+    if (el) EN_SNAP[sel] = el.innerHTML;
+  });
+  stations.forEach(function (n) {
+    var id = n.dataset.node;
+    var t = n.querySelector('text');
+    if (t) ST_TXT_EN[id] = t.textContent;
+    ST_ARIA_EN[id] = n.getAttribute('aria-label');
+  });
+
+  var langBtn = document.querySelector('[data-lang-btn]');
+
+  function setLang(l) {
+    lang = l;
+    document.documentElement.lang = l;
+    Object.keys(I18N_ES).forEach(function (sel) {
+      var el = document.querySelector(sel);
+      if (el) el.innerHTML = (l === 'es') ? I18N_ES[sel] : EN_SNAP[sel];
+    });
+    stations.forEach(function (n) {
+      var id = n.dataset.node;
+      var t = n.querySelector('text');
+      if (t) t.textContent = (l === 'es') ? (ST_TXT_ES[id] || t.textContent) : ST_TXT_EN[id];
+      var a = (l === 'es') ? ST_ARIA_ES[id] : ST_ARIA_EN[id];
+      if (a) n.setAttribute('aria-label', a);
+    });
+    SYSTEMS = (l === 'es') ? SYSTEMS_ES : SYSTEMS_EN;
+    apply(current);
+    if (langBtn) {
+      langBtn.textContent = (l === 'es') ? 'EN' : 'ES';
+      langBtn.setAttribute('aria-label', (l === 'es') ? 'Switch to English' : 'Cambiar a español');
+    }
+    try { localStorage.setItem('jal-lang', l); } catch (e) {}
+  }
+
+  if (langBtn) {
+    langBtn.addEventListener('click', function () { setLang(lang === 'es' ? 'en' : 'es'); });
+  }
+  try { if (localStorage.getItem('jal-lang') === 'es') setLang('es'); } catch (e) {}
 
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
