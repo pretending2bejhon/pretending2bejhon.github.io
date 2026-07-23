@@ -158,6 +158,19 @@
   .twin .scene h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
   .twin .scene .sys { font-size: 15.5px; }
 
+  /* ————— the operating loop: build from the ground, sell to the top ————— */
+  .decision-loop { padding: clamp(54px, 10vh, 106px) 0 clamp(20px, 4vh, 44px); scroll-margin-top: 28px; }
+  .decision-loop .loop-head { max-width: 700px; }
+  .decision-loop h2 { margin: 0 0 18px; font-size: clamp(2rem, 4.6vw, 3.3rem); line-height: 1.04; letter-spacing: -0.022em; font-weight: 280; text-wrap: balance; }
+  .decision-loop .loop-lede { margin: 0; max-width: 61ch; color: var(--dim); font-size: 16.5px; }
+  .loop-note { margin: 18px 0 0; color: var(--faint); font-size: 10.5px; letter-spacing: .15em; text-transform: uppercase; }
+  .operating-steps { display: grid; grid-template-columns: repeat(4, 1fr); margin: clamp(34px, 6vh, 58px) 0 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+  .operating-step { position: relative; min-height: 180px; padding: 24px 22px 22px 0; }
+  .operating-step + .operating-step { padding-left: 22px; border-left: 1px solid var(--hair); }
+  .operating-step .step-no { display: block; margin-bottom: 34px; color: var(--signal); font-size: 10.5px; letter-spacing: .2em; }
+  .operating-step h3 { margin: 0 0 10px; font-size: 16px; font-weight: 500; letter-spacing: -.01em; }
+  .operating-step p { margin: 0; max-width: 27ch; color: var(--dim); font-size: 13.5px; line-height: 1.55; }
+
   /* ————— band 3: THE MAP ————— */
   .map-band { padding: clamp(70px, 12vh, 130px) 0 clamp(50px, 8vh, 90px); scroll-margin-top: 20px; }
   .map-head { text-align: center; }
@@ -272,6 +285,10 @@
     .twin { grid-template-columns: 1fr; gap: 0; }
     .scene.right .inner, .scene.center .inner { margin: 0; }
     .scene-hero { min-height: 88vh; }
+    .operating-steps { grid-template-columns: 1fr; }
+    .operating-step, .operating-step + .operating-step { min-height: 0; padding: 20px 0; border-left: 0; }
+    .operating-step + .operating-step { border-top: 1px solid var(--hair); }
+    .operating-step .step-no { margin-bottom: 12px; }
     .map-stage, .readout { display: none; }
     .map-list { display: block; }
   }
@@ -322,6 +339,8 @@
     .twin .scene { padding: 7pt 0; }
     .twin .scene h2 { font-size: 11.5pt; }
 
+    .decision-loop { display: none; }
+
     .contact { padding: 10pt 0 0; }
     .contact h2 { font-size: 12pt; font-weight: 600; margin: 0 0 2pt; color: #17112b; }
     .contact .sub { font-size: 9pt; margin: 0 0 6pt; color: #3c3556; }
@@ -357,23 +376,37 @@
     </div>
 
     <div class="col hero-low">
-      <p class="thesis display">I build the system behind the work.</p>
-      <p class="avail">Open to roles and freelance engagements.</p>
+      <p class="thesis display">I turn daily work into systems. Teams run them. Leaders steer.</p>
+      <p class="avail">Open to roles and focused build engagements.</p>
       <div class="cta-row">
-        <a class="cta" href="#work">See the work ↓</a>
+        <a class="cta" href="#work">See what changes ↓</a>
         <a class="cta quiet" href="#contact">Contact</a>
       </div>
     </div>
   </header>
 
   <!-- ————— band 2 · the three products ————— -->
-  <main class="scenes col" id="work">
+  <main class="scenes col">
+    <section class="decision-loop" id="work" aria-label="The operating loop">
+      <div class="loop-head">
+        <p class="kicker mono">THE OPERATING LOOP</p>
+        <h2 class="display">From the work on the ground to the decision at the top.</h2>
+        <p class="loop-lede">I start with what people actually do. Then I structure the context, make the next action clearer, and turn the repeated parts into a system leadership can steer.</p>
+        <p class="loop-note mono">Representative operating loop &mdash; not a client case</p>
+      </div>
+      <div class="operating-steps" aria-label="Four-stage operating loop">
+        <article class="operating-step"><span class="step-no mono">01</span><h3>Work happens</h3><p>The day-to-day workflow creates the signal: the handoff, the request, the decision, the exception.</p></article>
+        <article class="operating-step"><span class="step-no mono">02</span><h3>Context holds</h3><p>Rules, history, and data become one reliable picture the team can use.</p></article>
+        <article class="operating-step"><span class="step-no mono">03</span><h3>Team acts</h3><p>Priorities become clearer; AI carries the repeatable work while people keep judgment.</p></article>
+        <article class="operating-step"><span class="step-no mono">04</span><h3>Leadership steers</h3><p>The workflow makes the next decision visible instead of leaving it buried in the day-to-day.</p></article>
+      </div>
+    </section>
     <section class="scene left" id="sys-01">
       <div class="inner">
         <p class="kicker mono">SYS-01 <i>·</i> knowledge scatters</p>
         <h2 class="display">The second brain</h2>
-        <p class="sys">A private knowledge operating system built on someone's own world — a structured vault, <b>RAG retrieval</b>, memory, and a folder architecture that holds. One boot file carries the rules; a routing table loads deeper context only when a task needs it; scheduled consolidation keeps it current. Data stays local — private by design. Any AI agent boards the whole system in one read.</p>
-        <p class="sys-short">A private knowledge OS on their own world — structured vault, RAG retrieval, memory, boot file, routing table, scheduled consolidation. Data stays local; any AI agent boards the whole system in one read.</p>
+        <p class="sys"><b>Your team stops re-finding context and starts from one reliable source of truth.</b> I build private knowledge systems that hold the rules, history, and decisions behind the work, so people and AI agents can act consistently. Structured vaults, retrieval, memory, and routing keep that shared picture usable when the work gets complex.</p>
+        <p class="sys-short">One reliable source of truth for the rules, history, and decisions behind the work — private, structured, and usable by people or AI agents.</p>
         <p class="subtitle mono"><span class="st"><span class="dot"></span>LIVE</span> — this vault runs on it daily<span class="gotow"> · <a class="goto" href="#map">see in map ↓</a></span></p>
       </div>
     </section>
@@ -382,8 +415,8 @@
       <div class="inner">
         <p class="kicker mono">SYS-02 <i>·</i> AI training doesn't stick</p>
         <h2 class="display">AI enablement</h2>
-        <p class="sys">Teaching a team to apply AI to their <b>own real work</b> — never invented exercises — over a psychology-backed influence layer: habit, motivation, identity, social contagion, environment, proof. A pilot that changes how they operate, not a workshop. Each worker builds their own AI companion as the curriculum itself. Done means the team runs without me.</p>
-        <p class="sys-short">A curriculum built on the team's own real work over a psychology-backed influence layer — each worker builds their own AI companion as the curriculum. Done means the team runs without me.</p>
+        <p class="sys"><b>AI becomes part of how the team works, not a workshop they forget.</b> I build the curriculum on the team's own real workflows, never invented exercises. Each worker builds an AI companion for that work; the team leaves able to run the system without me.</p>
+        <p class="sys-short">AI applied to the team's real work — each worker builds a companion and the team leaves able to keep operating without the workshop dependency.</p>
         <p class="subtitle mono"><span class="st"><span class="dot half"></span>LIVE ENGAGEMENT</span> — enterprise pilot, technical ops team · client unnamed by design</p>
       </div>
     </section>
@@ -392,8 +425,8 @@
       <div class="inner">
         <p class="kicker mono">SYS-03 <i>·</i> the work repeats</p>
         <h2 class="display">Agentic workflows</h2>
-        <p class="sys">A business's own recurring work turned into <b>reliable, resumable AI systems</b> — scheduled agents, auto-generated branded reports, a self-assigning pipeline that ranks each rep's leads every morning and drops the day's calls on their calendar. State files, atomic writes, checkpoint recovery; every agent built least-privilege by default — untrusted-field boundaries, allowlists, the minimum write scope that finishes the job. Software delivered as a service, not an app.</p>
-        <p class="sys-short">Recurring work turned into reliable, resumable AI systems — scheduled agents, auto-generated reports, a self-assigning revenue pipeline — state files, atomic writes, checkpoint recovery, least-privilege by default.</p>
+        <p class="sys"><b>Recurring work becomes a system that executes, recovers, and shows people what needs attention.</b> A live revenue pipeline ranks each rep's leads every morning and prepares the day's calls; reports and agents handle the repeatable layer. State files, atomic writes, checkpoints, and least-privilege boundaries make the workflow safe to run.</p>
+        <p class="sys-short">A reliable operating system for repeated work: priorities surfaced, routine steps automated, exceptions visible, and people still in control.</p>
         <p class="subtitle mono"><span class="st"><span class="dot"></span>LIVE INTERNALLY</span> — agents on a live revenue pipeline · a privilege-leak class found and closed before ship · <a href="https://frakkr.com" target="_blank" rel="noopener">frakkr.com ↗</a> · <span class="st"><span class="dot hollow"></span>SYNTHETIC-DATA DEMO</span> insurance-book teardown · AUC 0.74 · 2.6× top-decile lift, fully offline<span class="gotow"> · <a class="goto" href="#map">see in map ↓</a></span></p>
       </div>
     </section>
@@ -403,7 +436,7 @@
       <div class="map-head">
         <span class="lead" aria-hidden="true"></span>
         <h2 class="display">The map — how it connects.</h2>
-        <p>The same three products, one operating discipline — build the brain, teach the team, automate the work. The spine already told the story; this is the deep-dive: hover a station.</p>
+        <p>The product spine tells what changes. This is the system view: shared context, a capable team, and workflows that carry the repeatable work. Hover a station to trace it.</p>
       </div>
 
       <div class="map-stage" data-stage>
@@ -467,7 +500,7 @@
     <section class="about" aria-label="About">
       <div>
         <p class="line display">Sales instincts. Systems thinking. Builder's hands.</p>
-        <p class="body">I work where revenue operations and applied AI meet — the unglamorous layer: clean handoffs, explicit states, safe permissions, and a system a real team can run tomorrow.</p>
+        <p class="body">I start with the work on the ground, then build the information, rules, and automation that make teams faster and leadership clearer.</p>
         <p class="facts mono">Spanish, native <i>·</i> English, C1 <i>·</i> Structure before scale</p>
       </div>
     </section>
@@ -521,26 +554,26 @@
   var SYSTEMS_EN = {
     core: {
       kicker: 'THE OPERATOR',
-      title: 'Three products, one discipline.',
-      blurb: 'Build the brain, teach the team, automate the work — one muscle, sold to the same client over time. Hover any station to read its entry — click to pin it.',
+      title: 'Three systems, one operating loop.',
+      blurb: 'Shared context, a capable team, and repeatable work carried safely by the system. Hover any station to trace the role it plays.',
       proof: '', status: '', anchor: ''
     },
     brain: {
       kicker: 'SYS-01 · KNOWLEDGE SCATTERS',
       title: 'The second brain',
-      blurb: 'A private knowledge OS — structured vault, RAG retrieval, memory, boot file and routing. Data stays local; any AI agent boards the whole system in one read.',
+      blurb: 'One reliable source of truth for the rules, history, and decisions behind the work — private, structured, and usable by people or AI agents.',
       proof: 'LIVE — this vault runs on it daily', status: 'live', anchor: '#sys-01'
     },
     enable: {
       kicker: 'SYS-02 · AI TRAINING DOESN’T STICK',
       title: 'AI enablement',
-      blurb: 'A curriculum built on the team’s own real work over a psychology-backed influence layer — each worker builds their own AI companion.',
+      blurb: 'AI applied to the team’s real work — each worker builds a companion and the team keeps operating without workshop dependency.',
       proof: 'LIVE ENGAGEMENT — enterprise pilot, technical ops team, client unnamed', status: 'half', anchor: '#sys-02'
     },
     flows: {
       kicker: 'SYS-03 · THE WORK REPEATS',
       title: 'Agentic workflows',
-      blurb: 'Recurring work turned into resumable AI systems — scheduled agents, auto reports, a self-assigning revenue pipeline — least-privilege by default.',
+      blurb: 'Repeated work becomes a reliable operating system: priorities surfaced, routine steps automated, and exceptions kept visible.',
       proof: 'LIVE INTERNALLY — agents on a live revenue pipeline · plus a synthetic offline teardown (AUC 0.74, 2.6× lift)', status: 'live', anchor: '#sys-03'
     }
   };
@@ -548,26 +581,26 @@
   var SYSTEMS_ES = {
     core: {
       kicker: 'EL OPERADOR',
-      title: 'Tres productos, una disciplina.',
-      blurb: 'Construye el cerebro, enseña al equipo, automatiza el trabajo — un solo músculo, vendido al mismo cliente con el tiempo. Pasa el cursor por cualquier estación para leer su entrada — haz clic para fijarla.',
+      title: 'Tres sistemas, un ciclo operativo.',
+      blurb: 'Contexto compartido, un equipo capaz y trabajo repetible llevado de forma segura por el sistema. Pasa el cursor por una estación para seguir su papel.',
       proof: '', status: '', anchor: ''
     },
     brain: {
       kicker: 'SYS-01 · EL CONOCIMIENTO SE DISPERSA',
       title: 'El segundo cerebro',
-      blurb: 'Un sistema de conocimiento privado — vault estructurado, recuperación RAG, memoria, archivo de arranque y ruteo. Los datos se quedan locales; cualquier agente aborda todo en una lectura.',
+      blurb: 'Una fuente de verdad confiable para las reglas, el historial y las decisiones detrás del trabajo — privada, estructurada y utilizable por personas o agentes de IA.',
       proof: 'EN PRODUCCIÓN — este vault corre sobre él a diario', status: 'live', anchor: '#sys-01'
     },
     enable: {
       kicker: 'SYS-02 · LA CAPACITACIÓN EN IA NO SE SOSTIENE',
       title: 'Enablement de IA',
-      blurb: 'Un currículo construido sobre el trabajo real del equipo, sobre una capa de influencia con base psicológica — cada trabajador construye su propio compañero de IA.',
+      blurb: 'IA aplicada al trabajo real del equipo — cada persona construye un compañero y el equipo sigue operando sin depender del taller.',
       proof: 'PILOTO ACTIVO — piloto empresarial, equipo técnico de operaciones, cliente sin nombrar', status: 'half', anchor: '#sys-02'
     },
     flows: {
       kicker: 'SYS-03 · EL TRABAJO SE REPITE',
       title: 'Workflows agénticos',
-      blurb: 'Trabajo recurrente convertido en sistemas de IA reanudables — agentes programados, reportes autogenerados, un pipeline de revenue auto-asignante — mínimo privilegio por defecto.',
+      blurb: 'El trabajo repetido se vuelve un sistema operativo confiable: prioridades visibles, pasos rutinarios automatizados y excepciones claras.',
       proof: 'EN PRODUCCIÓN INTERNA — agentes sobre un pipeline real · más un teardown sintético offline (AUC 0.74, lift 2.6×)', status: 'live', anchor: '#sys-03'
     }
   };
@@ -649,31 +682,44 @@
   var I18N_ES = {
     '.skip-link': 'Saltar al trabajo',
     '.titlecard .role': 'Ventas · RevOps · Sistemas de IA',
-    '.thesis': 'Construyo el sistema detrás del trabajo.',
-    '.avail': 'Abierto a roles y proyectos freelance.',
-    '.cta-row .cta:not(.quiet)': 'Ver el trabajo ↓',
+    '.thesis': 'Convierto el trabajo diario en sistemas. El equipo ejecuta; los líderes deciden.',
+    '.avail': 'Abierto a roles y proyectos de construcción enfocados.',
+    '.cta-row .cta:not(.quiet)': 'Ver lo que cambia ↓',
     '.cta-row .cta.quiet': 'Contacto',
+
+    '.decision-loop .kicker': 'EL CICLO OPERATIVO',
+    '.decision-loop h2': 'Del trabajo en la base a la decisión en la cima.',
+    '.decision-loop .loop-lede': 'Empiezo por lo que la gente hace de verdad. Luego estructuro el contexto, aclaro la siguiente acción y convierto las partes repetidas en un sistema que el liderazgo puede dirigir.',
+    '.decision-loop .loop-note': 'Ciclo operativo representativo — no es un caso de cliente',
+    '.operating-step:nth-child(1) h3': 'El trabajo ocurre',
+    '.operating-step:nth-child(1) p': 'El flujo diario crea la señal: el handoff, la solicitud, la decisión, la excepción.',
+    '.operating-step:nth-child(2) h3': 'El contexto se sostiene',
+    '.operating-step:nth-child(2) p': 'Las reglas, el historial y los datos se vuelven una imagen confiable que el equipo puede usar.',
+    '.operating-step:nth-child(3) h3': 'El equipo actúa',
+    '.operating-step:nth-child(3) p': 'Las prioridades se aclaran; la IA lleva el trabajo repetible mientras las personas conservan el juicio.',
+    '.operating-step:nth-child(4) h3': 'El liderazgo dirige',
+    '.operating-step:nth-child(4) p': 'El flujo hace visible la siguiente decisión en vez de dejarla enterrada en el día a día.',
 
     '#sys-01 .kicker': 'SYS-01 <i>·</i> el conocimiento se dispersa',
     '#sys-01 h2': 'El segundo cerebro',
-    '#sys-01 .sys': 'Un sistema operativo de conocimiento privado construido sobre el mundo propio de alguien — un vault estructurado, <b>recuperación RAG</b>, memoria y una arquitectura de carpetas que aguanta. Un archivo de arranque lleva las reglas; una tabla de ruteo carga contexto profundo solo cuando la tarea lo necesita; la consolidación programada lo mantiene al día. Los datos se quedan locales — privados por diseño. Cualquier agente de IA aborda el sistema completo en una sola lectura.',
-    '#sys-01 .sys-short': 'Un sistema de conocimiento privado sobre su propio mundo — vault estructurado, recuperación RAG, memoria, archivo de arranque, tabla de ruteo, consolidación programada. Los datos se quedan locales; cualquier agente aborda todo en una lectura.',
+    '#sys-01 .sys': '<b>El equipo deja de buscar el contexto de nuevo y parte de una sola fuente de verdad confiable.</b> Construyo sistemas de conocimiento privados que guardan las reglas, el historial y las decisiones detrás del trabajo, para que personas y agentes de IA actúen de forma consistente. Vaults estructurados, recuperación, memoria y ruteo mantienen esa imagen compartida utilizable cuando el trabajo se complica.',
+    '#sys-01 .sys-short': 'Una fuente de verdad confiable para las reglas, el historial y las decisiones detrás del trabajo — privada, estructurada y utilizable por personas o agentes de IA.',
     '#sys-01 .subtitle': '<span class="st"><span class="dot"></span>EN PRODUCCIÓN</span> — este vault corre sobre él a diario<span class="gotow"> · <a class="goto" href="#map">ver en el mapa ↓</a></span>',
 
     '#sys-02 .kicker': 'SYS-02 <i>·</i> la capacitación en IA no se sostiene',
     '#sys-02 h2': 'Enablement de IA',
-    '#sys-02 .sys': 'Enseñarle a un equipo a aplicar IA a su <b>propio trabajo real</b> — nunca ejercicios inventados — sobre una capa de influencia con base psicológica: hábito, motivación, identidad, contagio social, entorno, prueba. Un piloto que cambia cómo operan, no un taller. Cada trabajador construye su propio compañero de IA como el currículo mismo. Terminar significa que el equipo corre sin mí.',
-    '#sys-02 .sys-short': 'Un currículo construido sobre el trabajo real del equipo con una capa de influencia psicológica — cada trabajador construye su propio compañero de IA. Terminar significa que el equipo corre sin mí.',
+    '#sys-02 .sys': '<b>La IA se vuelve parte de cómo trabaja el equipo, no un taller que se olvida.</b> Construyo el currículo sobre los flujos reales del equipo, nunca ejercicios inventados. Cada trabajador construye un compañero de IA para ese trabajo; el equipo termina capaz de operar el sistema sin mí.',
+    '#sys-02 .sys-short': 'IA aplicada al trabajo real del equipo — cada persona construye un compañero y el equipo sigue operando sin depender del taller.',
     '#sys-02 .subtitle': '<span class="st"><span class="dot half"></span>PILOTO ACTIVO</span> — piloto empresarial, equipo técnico de operaciones · cliente sin nombrar por diseño',
 
     '#sys-03 .kicker': 'SYS-03 <i>·</i> el trabajo se repite',
     '#sys-03 h2': 'Workflows agénticos',
-    '#sys-03 .sys': 'El trabajo recurrente propio de un negocio convertido en <b>sistemas de IA confiables y reanudables</b> — agentes programados, reportes de marca autogenerados, un pipeline auto-asignante que clasifica los leads de cada rep cada mañana y deja las llamadas del día en su calendario. Archivos de estado, escrituras atómicas, recuperación por checkpoints; cada agente con mínimo privilegio por defecto — fronteras de campos no confiables, allowlists, el alcance de escritura mínimo que termina el trabajo. Software entregado como servicio, no como app.',
-    '#sys-03 .sys-short': 'Trabajo recurrente convertido en sistemas de IA confiables y reanudables — agentes programados, reportes autogenerados, un pipeline de revenue auto-asignante — escrituras atómicas, recuperación por checkpoints, mínimo privilegio por defecto.',
+    '#sys-03 .sys': '<b>El trabajo recurrente se vuelve un sistema que ejecuta, se recupera y muestra a las personas qué necesita atención.</b> Un pipeline de revenue en vivo clasifica los leads de cada rep cada mañana y prepara las llamadas del día; los reportes y agentes llevan la capa repetible. Archivos de estado, escrituras atómicas, checkpoints y límites de mínimo privilegio hacen seguro el flujo.',
+    '#sys-03 .sys-short': 'Un sistema operativo confiable para el trabajo repetido: prioridades visibles, pasos rutinarios automatizados, excepciones claras y las personas aún al mando.',
     '#sys-03 .subtitle': '<span class="st"><span class="dot"></span>EN PRODUCCIÓN INTERNA</span> — agentes sobre un pipeline de revenue real · una clase de fuga de privilegios encontrada y cerrada antes del ship · <a href="https://frakkr.com" target="_blank" rel="noopener">frakkr.com ↗</a> · <span class="st"><span class="dot hollow"></span>DEMO · DATOS SINTÉTICOS</span> teardown de cartera de seguros · AUC 0.74 · lift 2.6× en el decil superior, totalmente offline<span class="gotow"> · <a class="goto" href="#map">ver en el mapa ↓</a></span>',
 
     '.map-head h2': 'El mapa — cómo se conecta.',
-    '.map-head p': 'Los mismos tres productos, una sola disciplina operativa — construye el cerebro, enseña al equipo, automatiza el trabajo. La columna ya contó la historia; esta es la vista profunda: pasa el cursor por una estación.',
+    '.map-head p': 'La columna de productos cuenta lo que cambia. Esta es la vista del sistema: contexto compartido, un equipo capaz y workflows que cargan el trabajo repetible. Pasa el cursor por una estación para seguirlo.',
 
     '.map-list li:nth-child(1) .t': 'El segundo cerebro',
     '.map-list li:nth-child(1) .k': 'el conocimiento se dispersa',
@@ -683,7 +729,7 @@
     '.map-list li:nth-child(3) .k': 'el trabajo se repite',
 
     '.about .line': 'Instinto de ventas. Pensamiento de sistemas. Manos de constructor.',
-    '.about p.body': 'Trabajo donde las operaciones de revenue y la IA aplicada se encuentran — la capa poco glamorosa: handoffs limpios, estados explícitos, permisos seguros y un sistema que un equipo real puede operar mañana.',
+    '.about p.body': 'Empiezo con el trabajo en la base, luego construyo la información, las reglas y la automatización que hacen al equipo más rápido y al liderazgo más claro.',
     '.about .facts': 'Español, nativo <i>·</i> Inglés, C1 <i>·</i> Estructura antes que escala',
 
     '.contact h2': 'Tráeme el workflow desordenado.',
