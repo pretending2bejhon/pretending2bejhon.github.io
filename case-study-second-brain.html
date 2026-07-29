@@ -1,0 +1,1683 @@
+<!doctype html>
+<html lang="en" data-doc="report">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A knowledge system does not rot loudly - HORUS report</title>
+<meta name="description" content="A live 276-note knowledge system rebuilt in place: 393 operations, 2,547 cross-references, zero losses. The finding is not the migration - it is the eleven rules that kept reporting success while guarding nothing, six of them live security or privacy controls, none of which raised an error.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0813">
+<meta name="generator" content="HORUS v1.0 · template-report">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="%23a78bfa" stroke-width="2.5"/><path d="M20 20 29 10" stroke="%23a78bfa" stroke-width="2.5"/><circle cx="20" cy="20" r="3" fill="%23a78bfa"/></svg>'>
+<style>
+/* ============================================================
+   HORUS tokens v1.0 — inlined byte-faithful copy of tokens.css
+   (self-containment law). Edit tokens.css first, then re-sync.
+   ============================================================ */
+:root {
+  /* --- ground (dark screen) --- */
+  --night: oklch(12% 0.03 295);
+  --deep: oklch(9.5% 0.026 296);
+  --raised: oklch(16% 0.032 296);
+  --sunken: oklch(9.5% 0.026 296 / .6);
+
+  /* --- ink --- */
+  --text: oklch(95.5% 0.012 300);
+  --dim: oklch(70% 0.045 297);
+  --faint: oklch(52% 0.04 296);
+
+  /* --- structure --- */
+  --hair: oklch(38% 0.05 297 / .4);
+  --hair-strong: oklch(38% 0.05 297 / .65);
+
+  /* --- the one accent --- */
+  --signal: oklch(75% 0.155 300);
+  --signal-bright: oklch(83% 0.155 300);
+  --signal-dim: oklch(75% 0.155 300 / .55);
+  --signal-wash: oklch(75% 0.155 300 / .1);
+  --signal-wash-strong: oklch(75% 0.155 300 / .18);
+
+  /* --- the one alarm (state, never a series) --- */
+  --danger: #ff6161;
+  --danger-wash: rgba(255, 97, 97, .12);
+
+  /* --- the one light pool (hero/footer only) --- */
+  --glowA: oklch(36% 0.105 295 / .85);
+  --glowB: oklch(24% 0.07 295 / .5);
+
+  /* --- figure-interior series (never chrome) — manim-family hues, 3b1b grammar --- */
+  --viz-1: #c69bf4;   /* violet — the brand series */
+  --viz-2: #58c4dd;   /* blue */
+  --viz-3: #f4d345;   /* yellow */
+  --viz-4: #83c167;   /* green */
+  --viz-5: #f0ac5f;   /* gold */
+  --viz-6: #c55f73;   /* maroon */
+  --viz-grid: oklch(24% 0.03 296);
+
+  /* --- type --- */
+  --font-display: 'Segoe UI Variable Display', 'Segoe UI Light', 'Segoe UI', sans-serif;
+  --font-body: 'Segoe UI Variable Text', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'Cascadia Mono', 'Cascadia Code', Consolas, ui-monospace, monospace;
+  --wt-display: 280;
+  --wt-body: 350;
+  --wt-em: 500;
+
+  /* --- scale --- */
+  --fs-h1: clamp(2.6rem, 7vw, 5.6rem);
+  --fs-h2: clamp(1.9rem, 4.2vw, 3rem);
+  --fs-h3: 1.35rem;
+  --fs-kpi: clamp(1.9rem, 3.6vw, 2.7rem);
+  --fs-body: 16px;
+  --fs-caption: 13px;
+  --fs-label: 11px;
+  --fs-proof: 12px;
+  --track-tight: -0.03em;
+  --track-h2: -0.022em;
+  --track-wide: .2em;
+  --track-mid: .14em;
+
+  /* --- layout --- */
+  --col-max: 1060px;
+  --pad-col: clamp(22px, 5vw, 56px);
+  --pad-scene: clamp(44px, 8vh, 88px);
+  --measure: 62ch;
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 10px;
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+
+  /* --- motion --- */
+  --ease-rise: cubic-bezier(.16, .7, .2, 1);
+  --ease-draw: cubic-bezier(.4, .1, .2, 1);
+  --dur-micro: .2s;
+  --dur-state: .22s;
+  --dur-draw: 1.1s;
+
+  color-scheme: dark;
+}
+
+/* paper theme — same file, print rendering */
+@media print {
+  :root {
+    --night: #fff;
+    --deep: #fff;
+    --raised: #fff;
+    --sunken: #f4f1fa;
+    --text: #17112b;
+    --dim: #3c3556;
+    --faint: #6a6191;
+    --hair: #d9d3ea;
+    --hair-strong: #b9aede;
+    --signal: #5b3fae;
+    --signal-bright: #4a3d73;
+    --signal-dim: rgba(91, 63, 174, .6);
+    --signal-wash: rgba(91, 63, 174, .07);
+    --signal-wash-strong: rgba(91, 63, 174, .14);
+    --danger: #b03030;
+    --danger-wash: rgba(176, 48, 48, .08);
+    --glowA: transparent;
+    --glowB: transparent;
+    --viz-grid: #e5e0f0;
+    /* paper-legible series — same hue identities, darkened for white ground */
+    --viz-1: #5b3fae;
+    --viz-2: #1f7f9c;
+    --viz-3: #a8891a;
+    --viz-4: #4e8f3a;
+    --viz-5: #b06f1e;
+    --viz-6: #a34d63;
+    color-scheme: light;
+  }
+}
+
+/* ============================================================
+   HORUS components v1.0 — inlined copy of horus.css (comment banners compressed;
+   declarations identical to canonical — verified by review 2026-07-20)
+   ============================================================ */
+
+/* 00 · RESET + BODY GROUND */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: auto; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-motion="off"]) { scroll-behavior: smooth; }
+}
+
+html, body { margin: 0; padding: 0; background: #0b0813; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--wt-body);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--night) 0%, var(--deep) 100%);
+  background-color: #0b0813; /* fallback ground */
+  min-height: 100vh;
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+body :where(b, strong) { color: var(--text); font-weight: var(--wt-em); }
+body :where(i, em)     { color: var(--signal); font-style: normal; }
+
+::selection { background: var(--signal); color: var(--deep); text-shadow: none; }
+:focus-visible { outline: 1px solid var(--signal); outline-offset: 4px; border-radius: 2px; }
+:focus:not(:focus-visible) { outline: none; }
+
+* { scrollbar-width: thin; scrollbar-color: var(--hair-strong) transparent; }
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: var(--hair-strong); border-radius: 6px;
+  border: 2px solid transparent; background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover { background: var(--signal-dim); }
+
+.h-mono { font-family: var(--font-mono); font-variant-ligatures: none; }
+.h-display { font-family: var(--font-display); font-weight: var(--wt-display); letter-spacing: var(--track-tight); }
+.h-tnum { font-variant-numeric: tabular-nums; }
+
+.h-skip {
+  position: absolute; left: -9999px; top: 12px; z-index: 60;
+  background: var(--signal); color: var(--deep);
+  padding: 10px 18px; border-radius: var(--r-sm);
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--track-mid);
+  text-transform: uppercase; text-decoration: none;
+}
+.h-skip:focus { left: 12px; }
+
+/* 01 · LAYOUT */
+.h-col {
+  width: 100%; max-width: var(--col-max); margin-inline: auto;
+  padding-inline: var(--pad-col);
+}
+.h-scene {
+  padding-block: var(--pad-scene);
+  border-top: 1px solid var(--hair);
+  scroll-margin-top: 72px;
+}
+.h-scene:first-of-type { border-top: 0; }
+.h-scene h2, .h-h2 {
+  margin: 0 0 var(--sp-4);
+  font-family: var(--font-display); font-weight: var(--wt-display);
+  font-size: var(--fs-h2); line-height: 1.05; letter-spacing: var(--track-h2);
+  text-wrap: balance;
+}
+.h-scene h3, .h-h3 {
+  margin: 0 0 var(--sp-3);
+  font-size: var(--fs-h3); font-weight: var(--wt-em); line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.h-prose { max-width: var(--measure); }
+.h-prose p { margin: 0 0 var(--sp-4); color: var(--dim); }
+.h-prose p:last-child { margin-bottom: 0; }
+.h-prose a {
+  color: var(--dim); text-decoration: underline;
+  text-underline-offset: 3px; text-decoration-color: var(--hair-strong);
+  transition: color var(--dur-micro) ease, text-decoration-color var(--dur-micro) ease;
+}
+.h-prose a:hover { color: var(--signal); text-decoration-color: var(--signal); }
+.h-lede {
+  max-width: var(--measure); margin: 0 0 var(--sp-5);
+  font-size: 1.15rem; line-height: 1.5; color: var(--dim);
+}
+.h-lede b { color: var(--text); }
+
+.h-hero { position: relative; isolation: isolate; overflow: hidden; }
+.h-hero::before {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 78%;
+  z-index: -1; pointer-events: none;
+  background: radial-gradient(120% 92% at 50% 112%,
+    var(--glowA) 0%, var(--glowB) 34%, transparent 68%);
+}
+
+/* 02 · MASTHEAD + UTILITY BAR + RETICLE */
+.h-masthead { position: relative; padding-top: 26px; padding-bottom: clamp(40px, 8vh, 84px); }
+.h-utilbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-4) var(--sp-5); flex-wrap: wrap;
+  padding-bottom: clamp(30px, 6vh, 64px);
+}
+.h-brand { display: flex; align-items: center; gap: 16px; }
+.h-nameplate {
+  margin: 0; font-family: var(--font-mono);
+  font-size: 13px; letter-spacing: var(--track-mid); text-transform: uppercase;
+  color: var(--text); font-weight: 500;
+}
+.h-util { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.h-doctype {
+  font-family: var(--font-mono); font-size: var(--fs-label);
+  letter-spacing: var(--track-wide); text-transform: uppercase;
+  color: var(--signal); border: 1px solid var(--signal-dim);
+  padding: 5px 10px; border-radius: var(--r-sm); white-space: nowrap;
+}
+.h-mast-date {
+  font-family: var(--font-mono); font-size: var(--fs-label);
+  letter-spacing: var(--track-mid); text-transform: uppercase; color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+.h-reticle { width: clamp(40px, 4.4vw, 52px); height: auto; flex: none; display: block; }
+.h-reticle .ring   { fill: none; stroke: oklch(48% 0.06 297 / .7); stroke-width: 1; }
+.h-reticle .ring2  { fill: none; stroke: oklch(48% 0.06 297 / .4); stroke-width: .7; }
+.h-reticle .needle { stroke: var(--signal); stroke-width: 1.1; fill: none; }
+.h-reticle .pin    { fill: var(--signal); }
+.h-btn {
+  font-family: var(--font-mono); font-size: var(--fs-label);
+  letter-spacing: var(--track-mid); text-transform: uppercase;
+  color: var(--dim); background: none; border: 1px solid var(--hair);
+  padding: 7px 13px; border-radius: var(--r-sm); cursor: pointer;
+  transition: color var(--dur-micro) ease, border-color var(--dur-micro) ease;
+}
+.h-btn:hover { color: var(--signal); border-color: var(--signal); }
+.h-btn[aria-pressed="true"] { color: var(--signal); border-color: var(--signal-dim); }
+.h-mast-title {
+  margin: 0; font-family: var(--font-display); font-weight: var(--wt-display);
+  font-size: var(--fs-h1); line-height: .98; letter-spacing: var(--track-tight);
+  max-width: 18ch; text-wrap: balance;
+}
+.h-mast-sub {
+  margin: var(--sp-5) 0 0; font-family: var(--font-mono); font-size: var(--fs-proof);
+  line-height: 1.8; color: var(--faint); letter-spacing: .04em;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px;
+}
+.h-mast-sub .h-sep { color: var(--hair-strong); }
+
+/* 03 · KICKER */
+.h-kicker {
+  margin: 0 0 var(--sp-4); font-family: var(--font-mono);
+  font-size: var(--fs-label); letter-spacing: var(--track-wide);
+  text-transform: uppercase; color: var(--faint);
+}
+.h-kicker i { color: var(--signal); font-style: normal; opacity: .85; }
+
+/* 04 · KPI STRIP */
+.h-kpis {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0; border: 1px solid var(--hair); border-radius: var(--r-md); overflow: hidden;
+  background: var(--hair);
+}
+.h-kpi {
+  padding: 20px 22px 18px; background: var(--raised); min-width: 0;
+  border-right: 1px solid var(--hair); border-bottom: 1px solid var(--hair);
+}
+.h-kpi-label {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: var(--track-wide);
+  text-transform: uppercase; color: var(--faint);
+}
+.h-kpi-value {
+  margin-top: var(--sp-2); font-family: var(--font-display); font-weight: var(--wt-display);
+  font-size: var(--fs-kpi); line-height: 1.08; letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.h-kpi-value .h-unit { color: var(--faint); font-size: .5em; letter-spacing: 0; }
+.h-kpi-sub { margin-top: var(--sp-2); font-size: var(--fs-caption); color: var(--dim); }
+.h-kpi-sub b { color: var(--signal); font-weight: 500; }
+.h-kpi-value.is-neg { color: var(--danger); }
+
+/* 05 · READ-FIRST ASIDE */
+.h-readfirst {
+  max-width: var(--measure); margin: 0;
+  border-left: 2px solid var(--signal);
+  padding: var(--sp-3) 0 var(--sp-3) var(--sp-5);
+}
+.h-readfirst .h-kicker { margin-bottom: var(--sp-2); }
+.h-readfirst p { margin: 0; color: var(--dim); font-size: 1.02rem; line-height: 1.5; }
+.h-readfirst p b { color: var(--text); }
+
+/* 06 · NAV RAIL */
+.h-nav {
+  position: sticky; top: 0; z-index: 40;
+  background: linear-gradient(180deg, var(--deep) 62%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--hair);
+}
+.h-nav-inner {
+  display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none;
+  padding-block: 10px;
+}
+.h-nav-inner::-webkit-scrollbar { display: none; }
+.h-nav a {
+  flex: none; font-family: var(--font-mono); font-size: 10.5px;
+  letter-spacing: var(--track-mid); text-transform: uppercase;
+  color: var(--faint); text-decoration: none;
+  padding: 6px 11px; border: 1px solid transparent; border-radius: var(--r-sm);
+  white-space: nowrap; transition: color var(--dur-micro) ease, border-color var(--dur-micro) ease;
+}
+.h-nav a:hover { color: var(--dim); border-color: var(--hair); }
+.h-nav a[aria-current="true"] {
+  color: var(--signal); border-color: var(--signal-dim); background: var(--signal-wash);
+}
+
+/* 07 · STORY */
+.h-story {
+  display: grid; grid-template-columns: 0.72fr 1.28fr;
+  gap: clamp(24px, 4vw, 56px); align-items: start;
+}
+.h-beats { display: flex; flex-direction: column; gap: clamp(28px, 6vh, 64px); }
+.h-step {
+  opacity: 1; transition: opacity var(--dur-state) var(--ease-rise);
+  scroll-margin-top: 40vh;
+}
+.h-story[data-step] .h-step { opacity: .5; }
+.h-step-idx {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--track-wide);
+  text-transform: uppercase; color: var(--signal);
+}
+.h-step h3 {
+  margin: 8px 0 8px; font-size: 1.22rem; font-weight: var(--wt-em);
+  line-height: 1.3; letter-spacing: -0.01em; color: var(--text);
+}
+.h-step p { margin: 0; color: var(--dim); font-size: 15px; line-height: 1.55; max-width: 46ch; }
+.h-step ul { margin: 12px 0 0; padding: 0; list-style: none; }
+.h-step li {
+  position: relative; padding-left: 18px; margin-bottom: 6px;
+  font-size: 13.5px; color: var(--dim); line-height: 1.45;
+}
+.h-step li::before { content: "→"; position: absolute; left: 0; color: var(--signal-dim); }
+.h-story[data-step="1"] .h-step[data-step="1"],
+.h-story[data-step="2"] .h-step[data-step="2"],
+.h-story[data-step="3"] .h-step[data-step="3"],
+.h-story[data-step="4"] .h-step[data-step="4"],
+.h-story[data-step="5"] .h-step[data-step="5"],
+.h-story[data-step="6"] .h-step[data-step="6"],
+.h-story[data-step="7"] .h-step[data-step="7"] { opacity: 1; }
+
+.h-visual { position: sticky; top: 1rem; align-self: start; }
+.h-visual-shell {
+  background: var(--raised); border: 1px solid var(--hair); border-radius: var(--r-lg);
+  padding: clamp(16px, 3vw, 26px);
+}
+.h-visual-svg { display: block; width: 100%; height: auto; }
+.h-mark {
+  color: var(--faint); opacity: .78;
+  transition: color var(--dur-state) ease, opacity var(--dur-state) ease;
+}
+.h-story[data-step] .h-mark { opacity: .28; }
+.h-mark--edge  { stroke: currentColor; fill: none; }
+.h-mark--node  { stroke: currentColor; }
+.h-mark--fill  { fill: currentColor; stroke: none; }
+.h-mark--label { fill: currentColor; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+.h-story[data-step="1"] .h-mark[data-beat~="1"],
+.h-story[data-step="2"] .h-mark[data-beat~="2"],
+.h-story[data-step="3"] .h-mark[data-beat~="3"],
+.h-story[data-step="4"] .h-mark[data-beat~="4"],
+.h-story[data-step="5"] .h-mark[data-beat~="5"],
+.h-story[data-step="6"] .h-mark[data-beat~="6"],
+.h-story[data-step="7"] .h-mark[data-beat~="7"] { color: var(--signal); opacity: 1; }
+.h-story[data-step="1"] .h-mark.is-danger[data-beat~="1"],
+.h-story[data-step="2"] .h-mark.is-danger[data-beat~="2"],
+.h-story[data-step="3"] .h-mark.is-danger[data-beat~="3"],
+.h-story[data-step="4"] .h-mark.is-danger[data-beat~="4"],
+.h-story[data-step="5"] .h-mark.is-danger[data-beat~="5"],
+.h-story[data-step="6"] .h-mark.is-danger[data-beat~="6"],
+.h-story[data-step="7"] .h-mark.is-danger[data-beat~="7"] { color: var(--danger); }
+
+.h-syncap {
+  margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--hair);
+  min-height: 84px;
+}
+.h-syncap-item { display: none; }
+.h-syncap-item:first-child { display: block; }
+.h-story[data-step] .h-syncap-item { display: none; }
+.h-story[data-step="1"] .h-syncap-item[data-step="1"],
+.h-story[data-step="2"] .h-syncap-item[data-step="2"],
+.h-story[data-step="3"] .h-syncap-item[data-step="3"],
+.h-story[data-step="4"] .h-syncap-item[data-step="4"],
+.h-story[data-step="5"] .h-syncap-item[data-step="5"],
+.h-story[data-step="6"] .h-syncap-item[data-step="6"],
+.h-story[data-step="7"] .h-syncap-item[data-step="7"] { display: block; }
+.h-syncap-claim { margin: 0; font-size: 14.5px; color: var(--text); font-weight: var(--wt-em); line-height: 1.4; }
+.h-syncap-proof { margin: 8px 0 0; font-family: var(--font-mono); font-size: var(--fs-proof); color: var(--faint); letter-spacing: .04em; line-height: 1.6; }
+.h-syncap-proof i { color: var(--signal); font-style: normal; }
+
+@media (max-width: 880px) {
+  .h-story { grid-template-columns: 1fr; gap: 28px; }
+  .h-visual { position: static; order: -1; }
+  .h-step { opacity: 1; }
+}
+
+/* 08 · FIGURE ATOM */
+.h-fig { margin: 0; }
+.h-fig-panel {
+  background: var(--raised); border: 1px solid var(--hair);
+  border-radius: var(--r-lg); padding: clamp(16px, 3vw, 28px);
+}
+.h-fig-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.h-axis {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em;
+  fill: var(--faint); text-transform: uppercase;
+}
+.h-grid { stroke: var(--viz-grid); stroke-width: 1; }
+.h-viz-1 { fill: var(--viz-1); } .h-viz-2 { fill: var(--viz-2); } .h-viz-3 { fill: var(--viz-3); }
+.h-viz-4 { fill: var(--viz-4); } .h-viz-5 { fill: var(--viz-5); } .h-viz-6 { fill: var(--viz-6); }
+.h-viz-signal { fill: var(--signal); } .h-viz-danger { fill: var(--danger); }
+.h-fig-cap {
+  margin: 14px 0 0; font-family: var(--font-mono); font-size: var(--fs-proof);
+  letter-spacing: .05em; color: var(--faint); line-height: 1.6;
+}
+.h-fig-cap b { color: var(--dim); font-weight: 500; }
+.h-fig-interp {
+  margin: 8px 0 0; max-width: var(--measure); font-size: var(--fs-caption);
+  color: var(--dim); line-height: 1.55;
+}
+.h-fig-interp b { color: var(--text); }
+.h-fig-interp i { color: var(--signal); font-style: normal; }
+
+/* — figure grammar (3b1b/lightboard, SPEC §1.3) — glow, plane, term-coloring — */
+.h-glow-1 { filter: drop-shadow(0 0 5px color-mix(in oklab, var(--viz-1) 55%, transparent)); }
+.h-glow-2 { filter: drop-shadow(0 0 5px color-mix(in oklab, var(--viz-2) 55%, transparent)); }
+.h-glow-3 { filter: drop-shadow(0 0 5px color-mix(in oklab, var(--viz-3) 50%, transparent)); }
+.h-glow-4 { filter: drop-shadow(0 0 5px color-mix(in oklab, var(--viz-4) 55%, transparent)); }
+.h-glow-5 { filter: drop-shadow(0 0 5px color-mix(in oklab, var(--viz-5) 55%, transparent)); }
+.h-glow-6 { filter: drop-shadow(0 0 5px color-mix(in oklab, var(--viz-6) 55%, transparent)); }
+.h-glow-signal { filter: drop-shadow(0 0 6px color-mix(in oklab, var(--signal) 60%, transparent)); }
+.h-glow-danger { filter: drop-shadow(0 0 6px color-mix(in oklab, var(--danger) 55%, transparent)); }
+.h-plane { stroke: var(--viz-grid); stroke-width: 1; }
+.h-plane--soft { opacity: .5; }
+.h-tc-1 { color: var(--viz-1); } .h-tc-2 { color: var(--viz-2); } .h-tc-3 { color: var(--viz-3); }
+.h-tc-4 { color: var(--viz-4); } .h-tc-5 { color: var(--viz-5); } .h-tc-6 { color: var(--viz-6); }
+.h-tc-signal { color: var(--signal); } .h-tc-danger { color: var(--danger); }
+
+/* 09 · PROOF LADDER */
+.h-proof {
+  display: grid; gap: 0; max-width: 760px;
+  border: 1px solid var(--hair); border-radius: var(--r-md); overflow: hidden;
+}
+.h-rung {
+  display: grid; grid-template-columns: 2.2ch auto 1fr; gap: 14px;
+  align-items: baseline; padding: 13px 18px; border-top: 1px solid var(--hair);
+}
+.h-rung:first-child { border-top: 0; }
+.h-rung-n { font-family: var(--font-mono); font-size: 12px; color: var(--faint); font-variant-numeric: tabular-nums; }
+.h-conn {
+  font-family: var(--font-mono); font-size: 12px; color: var(--signal);
+  letter-spacing: .06em; white-space: nowrap; font-weight: 500;
+}
+.h-rung-t { font-size: 14px; color: var(--dim); line-height: 1.5; }
+.h-rung-t b { color: var(--text); }
+.h-rung-t i { color: var(--signal); font-style: normal; }
+.h-rung[data-ref] .h-rung-t::after {
+  content: " " attr(data-ref); font-family: var(--font-mono); font-size: 10.5px;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--faint);
+  border: 1px solid var(--hair); border-radius: 3px; padding: 1px 5px; margin-left: 6px;
+  white-space: nowrap;
+}
+
+/* 10 · CLAIM BLOCK */
+.h-claim { max-width: 720px; }
+.h-claim h3 { margin: 0; font-size: 1.3rem; font-weight: var(--wt-em); line-height: 1.3; letter-spacing: -0.01em; }
+.h-claim ul { margin: 14px 0 0; padding: 0; list-style: none; }
+.h-claim li {
+  position: relative; padding-left: 18px; margin-bottom: 8px;
+  color: var(--dim); line-height: 1.5;
+}
+.h-claim li::before { content: "—"; position: absolute; left: 0; color: var(--signal); }
+.h-claim li b { color: var(--text); }
+.h-claim-proof {
+  margin: 18px 0 0; font-family: var(--font-mono); font-size: var(--fs-proof);
+  color: var(--dim); letter-spacing: .03em; line-height: 1.7;
+}
+.h-claim-proof b { color: var(--signal); font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+
+/* 11 · EVIDENCE LAYER */
+.h-dot {
+  display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--signal); flex: none; position: relative; top: 0;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.h-dot.is-half   { background: linear-gradient(90deg, var(--signal) 50%, transparent 50%); border: 1.3px solid var(--signal); }
+.h-dot.is-hollow { background: transparent; border: 1.3px solid var(--signal); }
+.h-status {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--track-mid);
+  text-transform: uppercase; color: var(--signal);
+}
+.is-hypothesis { border-style: dashed !important; opacity: .72; }
+.h-unverified {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: var(--track-mid);
+  text-transform: uppercase; color: var(--danger);
+  border: 1px dashed var(--danger); border-radius: 3px; padding: 3px 8px;
+}
+.h-quote {
+  border-left: 2px solid var(--signal); padding: 4px 0 4px 18px; margin: 0;
+  max-width: var(--measure); font-family: var(--font-mono); font-size: 13px;
+  color: var(--dim); line-height: 1.7;
+}
+.h-quote-src {
+  display: block; margin-top: 8px; font-size: 11px; color: var(--faint);
+  font-style: normal; letter-spacing: .05em;
+}
+.h-quote-src b { color: var(--signal); font-weight: 500; }
+.h-provenance { border-top: 1px solid var(--hair); padding-block: 30px 44px; }
+.h-prov-list { margin: 14px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--hair); }
+.h-prov-row {
+  display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; align-items: baseline;
+  padding: 9px 0; border-bottom: 1px solid var(--hair);
+  font-family: var(--font-mono); font-size: 12px;
+}
+.h-prov-src { color: var(--signal); letter-spacing: .02em; white-space: nowrap; }
+.h-prov-what { color: var(--dim); min-width: 0; }
+.h-prov-meta {
+  margin: 16px 0 0; font-family: var(--font-mono); font-size: 11px;
+  color: var(--faint); letter-spacing: .06em; line-height: 1.9;
+}
+.h-prov-meta b { color: var(--dim); font-weight: 500; }
+
+/* 12 · CONCEPT MAP */
+.h-map-stage { position: relative; }
+.h-map-svg { display: block; width: 100%; height: auto; }
+.h-edge {
+  stroke: oklch(44% 0.06 297 / .38); stroke-width: 1; fill: none;
+  transition: stroke var(--dur-state) ease, opacity var(--dur-state) ease, stroke-width var(--dur-state) ease;
+}
+.h-edge.is-on { stroke: var(--signal); stroke-width: 1.6; opacity: 1; }
+.h-map-stage.has-focus .h-edge:not(.is-on) { opacity: .16; }
+.h-edge-label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
+  text-transform: uppercase; fill: var(--faint);
+  transition: fill var(--dur-state) ease, opacity var(--dur-state) ease;
+}
+.h-edge-label.is-on { fill: var(--dim); }
+.h-map-stage.has-focus .h-edge-label:not(.is-on) { opacity: .18; }
+.h-node { cursor: pointer; transition: opacity var(--dur-state) ease; }
+.h-node .ring { fill: transparent; stroke: oklch(52% 0.07 298 / .8); stroke-width: 1.1; transition: stroke var(--dur-state) ease; }
+.h-node .tick { stroke: oklch(52% 0.07 298 / .5); stroke-width: 1; }
+.h-node .pin { fill: var(--signal); }
+.h-node .pin.is-hollow { fill: transparent; stroke: var(--signal); stroke-width: 1.3; }
+.h-node .pin.is-half { fill: transparent; stroke: var(--signal); stroke-width: 1.3; }
+.h-node text {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .16em;
+  fill: var(--faint); text-transform: uppercase; transition: fill var(--dur-state) ease;
+}
+.h-node:hover .ring, .h-node.is-on .ring { stroke: var(--signal); }
+.h-node:hover text, .h-node.is-on text { fill: var(--text); }
+.h-map-stage.has-focus .h-node:not(.is-on):not(.core) { opacity: .34; }
+.h-node:focus { outline: none; }
+.h-node:focus-visible .ring { stroke: var(--signal); stroke-width: 1.7; }
+.h-node.core .ring { stroke: oklch(56% 0.08 298 / .9); stroke-width: 1.2; }
+.h-map-readout {
+  margin-top: clamp(20px, 4vh, 40px); border-top: 1px solid var(--hair);
+  padding-top: 22px; min-height: 118px;
+}
+.h-mr-title { margin: 8px 0 8px; font-family: var(--font-display); font-weight: var(--wt-display); font-size: clamp(1.3rem, 2.4vw, 1.7rem); letter-spacing: -0.015em; }
+.h-mr-blurb { margin: 0; max-width: 64ch; color: var(--dim); font-size: 14.5px; line-height: 1.55; }
+.h-mr-proof { margin: 12px 0 0; font-family: var(--font-mono); font-size: var(--fs-proof); color: var(--faint); letter-spacing: .04em; }
+.h-mr-proof i { color: var(--signal); font-style: normal; }
+.h-map-list { display: none; margin: 24px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--hair); }
+.h-map-list li { border-bottom: 1px solid var(--hair); }
+.h-map-list a { display: flex; align-items: center; gap: 12px; padding: 13px 2px; text-decoration: none; }
+.h-map-list .t { color: var(--text); font-size: 15px; flex: 1 1 auto; }
+.h-map-list .k { font-family: var(--font-mono); color: var(--faint); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+
+/* 13 · ANALOGY + TERM UNPACKER */
+.h-analogy {
+  max-width: 720px; border: 1px solid var(--hair); border-left: 2px solid var(--signal);
+  border-radius: var(--r-md); background: var(--signal-wash); padding: clamp(18px, 3vw, 28px);
+}
+.h-analogy-head {
+  margin: 0 0 var(--sp-4); font-family: var(--font-mono); font-size: var(--fs-label);
+  letter-spacing: var(--track-wide); text-transform: uppercase; color: var(--signal);
+}
+.h-an-row {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: baseline;
+  padding: 11px 0; border-top: 1px solid var(--hair);
+}
+.h-an-row:first-of-type { border-top: 0; }
+.h-an-from { color: var(--dim); font-size: 14px; }
+.h-an-arrow { font-family: var(--font-mono); color: var(--signal); font-size: 13px; }
+.h-an-to { color: var(--text); font-size: 14px; font-weight: var(--wt-em); }
+.h-term { max-width: 720px; border: 1px solid var(--hair); border-radius: var(--r-md); overflow: hidden; }
+.h-term-row { display: grid; grid-template-columns: minmax(auto, 34%) 1fr; gap: 16px; padding: 12px 18px; border-top: 1px solid var(--hair); }
+.h-term-row:first-child { border-top: 0; }
+.h-term-key { font-family: var(--font-mono); font-size: 13px; color: var(--signal); letter-spacing: .02em; }
+.h-term-gloss { color: var(--dim); font-size: 14px; line-height: 1.5; }
+.h-term-gloss b { color: var(--text); }
+
+/* 14 · COMPARE SPLIT */
+.h-compare {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--hair); border-radius: var(--r-md); overflow: hidden;
+}
+.h-side { padding: clamp(16px, 3vw, 24px); }
+.h-side + .h-side { border-left: 1px solid var(--hair); }
+.h-side-head {
+  margin: 0 0 var(--sp-4); padding-bottom: var(--sp-3); border-bottom: 1px solid var(--hair);
+  font-family: var(--font-mono); font-size: var(--fs-label); letter-spacing: var(--track-mid);
+  text-transform: uppercase;
+}
+.h-side.is-before { background: var(--danger-wash); }
+.h-side.is-before .h-side-head { color: var(--danger); }
+.h-side.is-after { background: var(--signal-wash); }
+.h-side.is-after .h-side-head { color: var(--signal); }
+.h-side ul { margin: 0; padding: 0; list-style: none; }
+.h-side li { position: relative; padding-left: 18px; margin-bottom: 8px; color: var(--dim); font-size: 14px; line-height: 1.45; }
+.h-side li:last-child { margin-bottom: 0; }
+.h-side.is-before li::before { content: "✕"; position: absolute; left: 0; color: var(--danger); font-size: 11px; top: 2px; }
+.h-side.is-after li::before  { content: "→"; position: absolute; left: 0; color: var(--signal); }
+.h-side li b { color: var(--text); }
+@media (max-width: 720px) {
+  .h-compare { grid-template-columns: 1fr; }
+  .h-side + .h-side { border-left: 0; border-top: 1px solid var(--hair); }
+}
+
+/* 15 · SELF-CHECK */
+.h-check {
+  max-width: 720px; border: 1px solid var(--hair); border-radius: var(--r-md);
+  background: var(--sunken); padding: clamp(16px, 3vw, 26px);
+}
+.h-check-head {
+  margin: 0 0 var(--sp-3); font-family: var(--font-mono); font-size: var(--fs-label);
+  letter-spacing: var(--track-wide); text-transform: uppercase; color: var(--signal);
+}
+.h-check-item { border-top: 1px solid var(--hair); }
+.h-check-item summary {
+  cursor: pointer; list-style: none; display: flex; align-items: baseline; gap: 12px;
+  padding: 13px 0; color: var(--text); font-weight: var(--wt-em); line-height: 1.4;
+}
+.h-check-item summary::-webkit-details-marker { display: none; }
+.h-check-item summary::before {
+  content: "+"; font-family: var(--font-mono); color: var(--signal); font-size: 15px;
+  flex: none; width: 1ch; transition: transform var(--dur-micro) ease;
+}
+.h-check-item[open] summary::before { content: "−"; }
+.h-check-item summary:hover { color: var(--signal); }
+.h-check-answer {
+  margin: 0 0 14px 0; padding: 12px 0 4px 18px; border-left: 2px solid var(--signal);
+  color: var(--dim); font-size: 14px; line-height: 1.55;
+}
+.h-check-answer b { color: var(--text); }
+.h-gap {
+  margin: var(--sp-4) 0 0; padding-top: var(--sp-3); border-top: 1px dashed var(--hair-strong);
+  font-family: var(--font-mono); font-size: var(--fs-proof); color: var(--faint); letter-spacing: .04em;
+}
+.h-gap b { color: var(--signal); font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+
+/* 16 · TABLES · CODE · SCROLL WRAPPERS */
+.h-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+.h-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.h-table caption { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); padding-bottom: 10px; }
+.h-table th {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--faint); text-align: left; font-weight: 500; padding: 10px 16px 10px 0;
+  border-bottom: 1px solid var(--hair-strong); white-space: nowrap;
+}
+.h-table td { padding: 10px 16px 10px 0; border-bottom: 1px solid var(--hair); color: var(--dim); }
+.h-table tbody tr:last-child td { border-bottom: 0; }
+.h-table .num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--text); }
+.h-table td b { color: var(--text); }
+.h-code {
+  display: block; background: var(--sunken); border: 1px solid var(--hair); border-radius: var(--r-md);
+  padding: clamp(14px, 2.5vw, 20px); overflow-x: auto;
+  font-family: var(--font-mono); font-size: 13px; line-height: 1.7; color: var(--dim);
+  -webkit-overflow-scrolling: touch;
+}
+.h-code .tok { color: var(--signal); }
+.h-code .com { color: var(--faint); }
+:where(p, li, td) code, code.h-inline {
+  font-family: var(--font-mono); font-size: .9em; background: var(--sunken);
+  border: 1px solid var(--hair); padding: 1px 5px; border-radius: 3px; color: var(--signal-bright);
+}
+
+/* 17 · MOTION KIT */
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion="off"]) .h-reticle .needle {
+    transform-box: view-box; transform-origin: 20px 20px;
+    animation: h-sweep 15s linear infinite;
+  }
+  @keyframes h-sweep { to { transform: rotate(360deg); } }
+  :root:not([data-motion="off"]) .h-rise {
+    animation: h-rise .9s var(--ease-rise) both;
+    animation-delay: calc(var(--step-i, 0) * 70ms);
+  }
+  @keyframes h-rise { from { opacity: 0; transform: translateY(22px); } }
+  @supports (animation-timeline: view()) {
+    :root:not([data-motion="off"]) .h-reveal {
+      animation: h-rise 1s var(--ease-rise) both;
+      animation-timeline: view(); animation-range: entry 2% entry 40%;
+    }
+  }
+  :root:not([data-motion="off"]) .h-map-stage.is-armed .h-edge { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  :root:not([data-motion="off"]) .h-map-stage.is-live .h-edge {
+    animation: h-draw var(--dur-draw) var(--ease-draw) forwards;
+    animation-delay: calc(var(--step-i, 0) * 70ms);
+  }
+  @keyframes h-draw { to { stroke-dashoffset: 0; } }
+}
+[data-motion="off"] * , [data-motion="off"] *::before, [data-motion="off"] *::after {
+  animation: none !important; transition: none !important;
+}
+
+/* 18 · PRINT */
+@media print {
+  @page { margin: 14mm 15mm; }
+  * { animation: none !important; transition: none !important; }
+  html, body { background: #fff !important; overflow: visible; }
+  .h-no-print, .h-nav, .h-skip, .h-btn, .h-util { display: none !important; }
+  .h-hero::before { display: none !important; }
+  .h-scene { padding-block: 12pt; scroll-margin-top: 0; }
+  .h-fig, .h-claim, .h-proof, .h-compare, .h-analogy, .h-check, .h-rung, .h-kpi, .h-quote, .h-readfirst {
+    break-inside: avoid;
+  }
+  .h-story { grid-template-columns: 1fr !important; gap: 18pt; }
+  .h-visual { position: static !important; }
+  .h-step, .h-mark, .h-step[data-step] { opacity: 1 !important; }
+  .h-map-stage { display: none !important; }
+  .h-map-list { display: block !important; }
+
+  /* study answers + synced captions print in full */
+  details.h-check-item > *:not(summary) { display: block !important; }
+  .h-syncap-item { display: block !important; }
+
+  /* glows are a screen affordance — paper gets clean strokes */
+  [class*="h-glow"] { filter: none !important; }
+  .h-visual-shell, .h-fig-panel, .h-kpi, .h-analogy, .h-check, .h-code { background: #fff !important; }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")"; font-family: var(--font-mono); font-size: .82em;
+    color: var(--faint); word-break: break-all;
+  }
+  a { color: inherit; text-decoration: none; }
+}
+
+/* ============================================================
+   TEMPLATE-SPECIFIC — third block (SPEC §5). Report-only atoms:
+   decision-split mesh, figure recap strip, chart legend mesh.
+   No new tokens; hairline meshes only, no shadowed cards.
+   ============================================================ */
+
+/* decision split — "if X, do Y" 3-column hairline mesh (SPEC §3.1 pt6) */
+.t-decide {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border: 1px solid var(--hair); border-radius: var(--r-md); overflow: hidden;
+  background: var(--hair);
+}
+.t-decide-col { background: var(--raised); padding: clamp(18px, 2.6vw, 26px);
+  border-right: 1px solid var(--hair); }
+.t-decide-col:last-child { border-right: 0; }
+.t-decide-if {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: var(--track-mid);
+  text-transform: uppercase; color: var(--signal);
+}
+.t-decide-head { margin: 10px 0 12px; font-size: 1.08rem; font-weight: var(--wt-em); line-height: 1.25; color: var(--text); letter-spacing: -0.01em; }
+.t-decide-col ul { margin: 0; padding: 0; list-style: none; }
+.t-decide-col li { position: relative; padding-left: 18px; margin-bottom: 9px; font-size: 13.5px; color: var(--dim); line-height: 1.5; }
+.t-decide-col li:last-child { margin-bottom: 0; }
+.t-decide-col li::before { content: "→"; position: absolute; left: 0; color: var(--signal-dim); }
+.t-decide-col li b { color: var(--text); }
+@media (max-width: 820px) {
+  .t-decide { grid-template-columns: 1fr; }
+  .t-decide-col { border-right: 0; border-bottom: 1px solid var(--hair); }
+  .t-decide-col:last-child { border-bottom: 0; }
+}
+
+/* figure recap — thumbnail strip (SPEC §3.1 pt6) */
+.t-recap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border: 1px solid var(--hair); border-radius: var(--r-md); overflow: hidden; background: var(--hair); }
+.t-recap-item {
+  background: var(--raised); border-right: 1px solid var(--hair);
+  padding: 18px 20px; text-decoration: none; display: block;
+  transition: background var(--dur-micro) ease;
+}
+.t-recap-item:last-child { border-right: 0; }
+.t-recap-item:hover { background: var(--signal-wash); }
+.t-recap-thumb { display: block; width: 100%; height: auto; border-radius: var(--r-sm); }
+.t-recap-k { font-family: var(--font-mono); font-size: 10px; letter-spacing: var(--track-mid); text-transform: uppercase; color: var(--faint); }
+.t-recap-t { margin-top: 6px; font-size: 13.5px; color: var(--text); font-weight: var(--wt-em); line-height: 1.3; }
+.t-recap-item:hover .t-recap-t { color: var(--signal); }
+@media (max-width: 720px) {
+  .t-recap { grid-template-columns: 1fr; }
+  .t-recap-item { border-right: 0; border-bottom: 1px solid var(--hair); }
+  .t-recap-item:last-child { border-bottom: 0; }
+}
+
+/* chart legend — hairline mesh under a figure */
+.t-legend { margin: 16px 0 0; display: grid; gap: 0; border-top: 1px solid var(--hair); }
+.t-legend-row {
+  display: grid; grid-template-columns: 14px 1fr auto; gap: 12px; align-items: baseline;
+  padding: 8px 0; border-bottom: 1px solid var(--hair);
+}
+.t-legend-row:last-child { border-bottom: 0; }
+.t-swatch { width: 11px; height: 11px; border-radius: 2px; align-self: center;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.t-legend-k { font-size: 13px; color: var(--dim); }
+.t-legend-k b { color: var(--text); }
+.t-legend-v { font-family: var(--font-mono); font-size: 13px; color: var(--text); font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+
+/* a mono aside used to caption a scene's premises */
+.t-note {
+  margin: 0 0 var(--sp-5); font-family: var(--font-mono); font-size: var(--fs-proof);
+  color: var(--faint); letter-spacing: .04em; line-height: 1.7; max-width: 66ch;
+}
+.t-note b { color: var(--dim); font-weight: 500; }
+.t-note i { color: var(--signal); font-style: normal; }
+
+/* section-spacing: put breathing room between stacked atoms in one scene */
+.t-stack > * + * { margin-top: clamp(28px, 5vh, 52px); }
+
+/* ============================================================
+   FIGURE-GRAMMAR RESTYLE (this template only, SPEC §1.3).
+   Concept-cluster hues + chalk-glow on the ACTIVE beat for the
+   mechanism board; data glows for the charts. One hue = one
+   concept. Glow is a screen affordance — stripped for paper at
+   the foot of this block.
+   ============================================================ */
+
+/* -- 02 · mechanism board — glow only the currently-discussed marks -- */
+/* every lit SHAPE glows in the accent; cluster rules below repaint it.
+   labels are left un-glowed (small mono text stays crisp). */
+.h-story[data-step="1"] .h-mark[data-beat~="1"]:not(.h-mark--label),
+.h-story[data-step="2"] .h-mark[data-beat~="2"]:not(.h-mark--label),
+.h-story[data-step="3"] .h-mark[data-beat~="3"]:not(.h-mark--label),
+.h-story[data-step="4"] .h-mark[data-beat~="4"]:not(.h-mark--label),
+.h-story[data-step="5"] .h-mark[data-beat~="5"]:not(.h-mark--label),
+.h-story[data-step="6"] .h-mark[data-beat~="6"]:not(.h-mark--label) {
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--signal) 55%, transparent));
+}
+
+/* parent-context pool = viz-1 violet */
+.h-story[data-step="3"] .h-mark.t-parent[data-beat~="3"],
+.h-story[data-step="4"] .h-mark.t-parent[data-beat~="4"],
+.h-story[data-step="6"] .h-mark.t-parent[data-beat~="6"] { color: var(--viz-1); }
+.h-story[data-step="3"] .h-mark.t-parent[data-beat~="3"]:not(.h-mark--label),
+.h-story[data-step="4"] .h-mark.t-parent[data-beat~="4"]:not(.h-mark--label),
+.h-story[data-step="6"] .h-mark.t-parent[data-beat~="6"]:not(.h-mark--label) {
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--viz-1) 55%, transparent));
+}
+/* the cache-WRITE cells = viz-3 yellow (binds to the 1.25 write term) */
+.h-story[data-step="2"] .h-mark.t-write[data-beat~="2"],
+.h-story[data-step="3"] .h-mark.t-write[data-beat~="3"] { color: var(--viz-3); }
+.h-story[data-step="2"] .h-mark.t-write[data-beat~="2"]:not(.h-mark--label),
+.h-story[data-step="3"] .h-mark.t-write[data-beat~="3"]:not(.h-mark--label) {
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--viz-3) 50%, transparent));
+}
+/* the RE-READ brace = viz-2 blue (binds to the 0.1 × turns read term) */
+.h-story[data-step="4"] .h-mark.t-read[data-beat~="4"] { color: var(--viz-2); }
+.h-story[data-step="4"] .h-mark.t-read[data-beat~="4"]:not(.h-mark--label) {
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--viz-2) 55%, transparent));
+}
+/* cold-spawn cluster = viz-5 gold */
+.h-story[data-step="1"] .h-mark.t-cold[data-beat~="1"],
+.h-story[data-step="5"] .h-mark.t-cold[data-beat~="5"] { color: var(--viz-5); }
+.h-story[data-step="1"] .h-mark.t-cold[data-beat~="1"]:not(.h-mark--label),
+.h-story[data-step="5"] .h-mark.t-cold[data-beat~="5"]:not(.h-mark--label) {
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--viz-5) 55%, transparent));
+}
+/* warm-sibling cluster = viz-4 green */
+.h-story[data-step="5"] .h-mark.t-warm[data-beat~="5"] { color: var(--viz-4); }
+.h-story[data-step="5"] .h-mark.t-warm[data-beat~="5"]:not(.h-mark--label) {
+  filter: drop-shadow(0 0 5px color-mix(in oklab, var(--viz-4) 55%, transparent));
+}
+/* suspected-burn stays danger (semantic law) — red chalk-glow when lit */
+.h-story[data-step="1"] .h-mark.is-danger[data-beat~="1"]:not(.h-mark--label) {
+  filter: drop-shadow(0 0 6px color-mix(in oklab, var(--danger) 55%, transparent));
+}
+
+/* paper gets clean strokes — board glow is a screen affordance only */
+@media print {
+  .h-visual-svg .h-mark { filter: none !important; }
+}
+
+.h-data { display: none; }
+</style>
+</head>
+
+<body id="top">
+<a class="h-skip" href="#main">Skip to the report</a>
+
+<!-- HORUS-NAV (chrome, not a slot) -->
+<nav class="h-nav h-no-print" aria-label="Section navigation">
+  <div class="h-col h-nav-inner">
+    <a href="#verdict">VERDICT</a>
+    <a href="#method">01 · METHOD</a>
+    <a href="#move">02 · THE MOVE</a>
+    <a href="#drift">03 · THE DRIFT</a>
+    <a href="#ledger">04 · THE LEDGER</a>
+    <a href="#cost">05 · WHAT IT COST</a>
+    <a href="#fix">06 · THE FIX</a>
+    <a href="#limits">07 · LIMITS</a>
+    <a href="#sowhat">08 · SO WHAT</a>
+  </div>
+</nav>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="h-masthead h-hero">
+  <div class="h-col">
+    <div class="h-utilbar">
+      <span class="h-brand">
+        <svg class="h-reticle" viewBox="0 0 40 40" aria-hidden="true">
+          <circle class="ring"  cx="20" cy="20" r="15"></circle>
+          <circle class="ring2" cx="20" cy="20" r="9.5"></circle>
+          <path class="needle" d="M20 20 29 10"></path>
+          <circle class="pin" cx="20" cy="20" r="2"></circle>
+        </svg>
+        <p class="h-nameplate">HORUS // Field report</p>
+      </span>
+      <span class="h-util">
+        <span class="h-doctype">Report</span>
+        <span class="h-mast-date">Evidence cutoff 2026-07-29</span>
+        <button type="button" class="h-btn h-no-print" id="motion-toggle" aria-pressed="false">Motion on</button>
+      </span>
+    </div>
+
+    <h1 class="h-mast-title">A knowledge system does not rot loudly.</h1>
+    <p class="h-mast-sub">
+      <span>Rebuilding a <i>live</i> second brain in place — 393 operations, zero losses</span>
+      <span class="h-sep">/</span>
+      <span>every claim measured before and after by the same script</span>
+      <span class="h-sep">/</span>
+      <span>the finding is not the migration — it is the <i>eleven rules that kept passing</i></span>
+    </p>
+
+    <div style="margin-top: clamp(34px, 6vh, 60px);">
+      <div class="h-kpis" role="group" aria-label="Headline findings">
+        <div class="h-kpi">
+          <div class="h-kpi-label">Operations executed</div>
+          <div class="h-kpi-value h-tnum">393</div>
+          <div class="h-kpi-sub">in one pass · <b>0</b> collisions</div>
+        </div>
+        <div class="h-kpi">
+          <div class="h-kpi-label">Cross-references re-pointed</div>
+          <div class="h-kpi-value h-tnum">2,547</div>
+          <div class="h-kpi-sub"><b>0</b> that resolved before became unreachable</div>
+        </div>
+        <div class="h-kpi">
+          <div class="h-kpi-label">Rules that went stale in silence</div>
+          <div class="h-kpi-value h-tnum">11</div>
+          <div class="h-kpi-sub">in <b>one week</b> · none raised an error</div>
+        </div>
+        <div class="h-kpi">
+          <div class="h-kpi-label">Of those, live safety controls</div>
+          <div class="h-kpi-value h-tnum is-neg">6</div>
+          <div class="h-kpi-sub">and all six failed <b>open</b></div>
+        </div>
+        <div class="h-kpi">
+          <div class="h-kpi-label">Security-hook events, one path fix</div>
+          <div class="h-kpi-value h-tnum">0 → 139</div>
+          <div class="h-kpi-sub">the hook had been <b>absent</b>, not failing</div>
+        </div>
+        <div class="h-kpi">
+          <div class="h-kpi-label">Nightly automation writing nothing</div>
+          <div class="h-kpi-value h-tnum is-neg">3<span class="h-unit"> days</span></div>
+          <div class="h-kpi-sub">exit code <b>0</b> throughout</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="h-col" id="main" tabindex="-1">
+  <!-- ============ VERDICT ============ -->
+  <section class="h-scene" id="verdict" aria-label="Read-first verdict">
+    <aside class="h-readfirst">
+      <p class="h-kicker"><i>Read first //</i> the ruling</p>
+      <p>A knowledge system does not rot because people stop writing things down. It rots because the
+      rules that say <i>where things live</i> are stored outside the things they govern — and when
+      something moves, <b>nothing errors</b>. Rebuilding this system moved 393 items and re-pointed 2,547
+      cross-references with zero losses. That was the easy half. The finding is the other eleven: rules
+      that kept reporting success while guarding nothing, six of them live safety controls. Every one was
+      caught by measurement. Not one announced itself.</p>
+    </aside>
+  </section>
+
+  <!-- ============ 01 METHOD ============ -->
+  <section class="h-scene t-stack" id="method" aria-label="Method">
+    <div>
+      <p class="h-kicker"><i>01 //</i> method</p>
+      <h2>Premises, before any conclusion.</h2>
+      <p class="h-lede">This is a production system, not a demonstration: a working knowledge base of
+      276 notes under continuous use, with eight scheduled agents, a nightly consolidation pass and a
+      hook layer that runs whether or not anyone is watching. It was rebuilt <i>underneath itself</i>,
+      in place, while still running.</p>
+    </div>
+
+    <div class="h-term">
+      <div class="h-term-row"><span class="h-term-key">the corpus</span><span class="h-term-gloss">276 markdown notes plus 112 attachments — the whole knowledge layer, nothing sampled</span></div>
+      <div class="h-term-row"><span class="h-term-key">the graph</span><span class="h-term-gloss">2,547 cross-reference occurrences across 344 distinct targets; 122 already unresolved before the work began, and recorded as such</span></div>
+      <div class="h-term-row"><span class="h-term-key">the instrument</span><span class="h-term-gloss">one export script run twice — before and after — with <b>only the scope switched</b>. Same resolver, same parser, same normalisation. That sameness is the entire basis for comparing the two</span></div>
+      <div class="h-term-row"><span class="h-term-key">the checker</span><span class="h-term-gloss">a <i>separate</i> program from the one that did the work, carrying its own independent parser. A checker that shares a parser with the writer cannot catch a parser bug</span></div>
+      <div class="h-term-row"><span class="h-term-key">confidence, by form</span><span class="h-term-gloss">filled dot <span class="h-dot"></span> measured in this system · half dot <span class="h-dot is-half"></span> measured once, not re-run · hollow <span class="h-dot is-hollow"></span> reported, not independently verified</span></div>
+    </div>
+
+    <p class="h-fig-interp">Two design choices did most of the work and both are counter-intuitive. The
+    map of where every file would land was <b>generated</b> from the rules, never hand-edited — re-running
+    the generator reproduced it byte-for-byte, which is the proof that no human quietly patched a row.
+    And the verification program was written <i>after</i> the migration program, by the same author but
+    deliberately not sharing its code. It went red first. That is what it is for.</p>
+  </section>
+
+  <!-- ============ 02 THE MOVE ============ -->
+  <section class="h-scene t-stack" id="move" aria-label="The move and its gates">
+    <div>
+      <p class="h-kicker"><i>02 //</i> the move</p>
+      <h2>Nine gates, and one that lied.</h2>
+      <p class="h-lede">Every gate had a pass condition fixed <i>in advance</i>, so nobody could decide
+      after the fact what "correct" had meant. Eight passed on their own terms. The ninth passed on its
+      own terms and was wrong anyway — which is the most useful thing in this table.</p>
+    </div>
+
+    <div class="h-fig">
+      <div class="h-fig-panel">
+        <div class="h-scroll">
+        <table class="h-table">
+          <thead>
+            <tr><th>Gate</th><th>What it measured</th><th>Result</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="h-mono">G1</td><td>baseline captured — the whole corpus, not a sample</td><td>276 notes · 2,547 links · 112 attachments <span class="h-dot"></span></td></tr>
+            <tr><td class="h-mono">G2</td><td>every source file placed exactly once, by a stated rule</td><td>388 rows · regenerated <b>byte-identical</b> <span class="h-dot"></span></td></tr>
+            <tr><td class="h-mono">G3</td><td>dry run — plan the whole thing, write nothing</td><td>393 ops · 0 collisions · 0 parse failures <span class="h-dot"></span></td></tr>
+            <tr><td class="h-mono">G4</td><td>structure — everything at its new address, nothing left behind</td><td>388/388 present · 0 stragglers · 0 duplicate names <span class="h-dot"></span></td></tr>
+            <tr><td class="h-mono">G5</td><td><b>links</b> — nothing that resolved before may be unreachable after</td><td><b>0 lost</b> · 2,547 → 2,550 · unresolved 632 → 631 <span class="h-dot"></span></td></tr>
+            <tr><td class="h-mono">G6</td><td>metadata — parses in two independent parsers, timestamps intact</td><td>281/281 parse · <b>163/163</b> timestamps byte-identical <span class="h-dot"></span></td></tr>
+            <tr><td class="h-mono">G8</td><td>bulk data stays out of version control</td><td><b>676.8 MB</b> excluded · 0 staged <span class="h-dot"></span></td></tr>
+            <tr><td class="h-mono">G9</td><td>all eight automations run once and complete, for real</td><td>8/8 · read from the audit log, not exit codes <span class="h-dot"></span></td></tr>
+            <tr class="h-tc-danger"><td class="h-mono">G7</td><td>no stale path left in executable code</td><td><b>recorded MET. It was false.</b> <span class="h-dot is-half"></span></td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="h-fig-cap">Gate ledger · pass conditions fixed before the work, results measured after</p>
+      </div>
+      <p class="h-fig-interp">G7 asked the easy question — "search the code for the old folder names, expect
+      zero" — and got zero. The code was comprehensively broken anyway, because the breakage contained no
+      old folder name to find. <b>A gate that measures the findable class of bug will report green over the
+      class that matters.</b> It was restated as two conditions, and the second one is the one with teeth:
+      <i>every path a program builds while running must resolve inside the system.</i></p>
+    </div>
+
+    <div class="h-claim">
+      <h3>Moving the files was never the risk.</h3>
+      <ul>
+        <li>the migration ran in <b>one pass</b>, from a generated plan, with a full rollback point taken first</li>
+        <li>a parallel move of the machinery layer carried <b>57,253 files and 17.8 GB</b> with zero problems</li>
+        <li>the destructive step was gated behind a dry run that had to report zero problems first — and it was verified in the source that the check actually blocked the run, rather than merely printing</li>
+      </ul>
+      <p class="h-claim-proof"><i>PROVE IT //</i> the negative test: 56 of the moves scored below the rename-detection
+      threshold and were recorded as delete-plus-add. Every one of those 56 deletions was checked for its paired
+      addition before committing — a staged deletion with no paired addition is exactly how a migration loses a file
+      and reports success.</p>
+    </div>
+  </section>
+
+  <!-- ============ 03 THE DRIFT ============ -->
+  <section class="h-scene t-stack" id="drift" aria-label="How a rule goes stale in silence">
+    <div>
+      <p class="h-kicker"><i>03 //</i> the drift</p>
+      <h2>The rule and the thing it guards, quietly separated.</h2>
+      <p class="h-lede">Five beats, in the order it actually happens. This is the failure that
+      cost this project more than the migration did, and it is the one that will be sitting inside your
+      system right now — because nothing in a knowledge base is designed to notice it.</p>
+    </div>
+
+    <div class="h-story">
+      <div class="h-beats">
+        <div class="h-step" data-step="1">
+          <div class="h-step-idx">Beat 1 · the arrangement</div>
+          <h3>A rule names a location.</h3>
+          <p>Every system has these. An exclusion list that says which folders never get indexed. A
+          permission rule naming what may be written. A search filter. An index that says where to look
+          first. Each one is a sentence <i>about</i> a place, stored somewhere else.</p>
+          <ul><li>the rule is here · the thing it governs is <b>over there</b></li></ul>
+        </div>
+        <div class="h-step" data-step="2">
+          <div class="h-step-idx">Beat 2 · the ordinary event</div>
+          <h3>The thing moves.</h3>
+          <p>A reorganisation. A rename. A folder promoted one level up. Nothing dramatic — the kind of
+          tidying that happens in any system that is actually being used. The files arrive safely at their
+          new address. That part works.</p>
+        </div>
+        <div class="h-step" data-step="3">
+          <div class="h-step-idx">Beat 3 · the silence</div>
+          <h3>The rule still runs. It still says OK.</h3>
+          <p>It parses. It executes. It returns success, because <i>matching nothing is not an error</i> —
+          it is a perfectly ordinary result that means "no problems found." The log is green. The exit code
+          is zero. Nothing anywhere is designed to ask whether the path it named still exists.</p>
+          <ul><li>a control that guards nothing looks <b>identical</b> to one with nothing to guard</li></ul>
+        </div>
+        <div class="h-step" data-step="4">
+          <div class="h-step-idx">Beat 4 · the exposure</div>
+          <h3>Now it is guarding an empty room.</h3>
+          <p>The privacy filter no longer covers the private folder. The permission rule no longer fences
+          the sensitive path. The search guard now blocks the wrong thing <i>and</i> permits the right one.
+          The protection is gone and the reporting is unchanged.</p>
+        </div>
+        <div class="h-step" data-step="5">
+          <div class="h-step-idx">Beat 5 · the discovery</div>
+          <h3>You find out sideways, much later.</h3>
+          <p>Never from the broken rule — it is still reporting success. You find out because something
+          <i>downstream</i> behaves oddly: a nightly job produces nothing, an archive goes missing, a file
+          you expected is not where the system said it would be. Then you spend a day finding out why.</p>
+          <ul><li>diagnosis cost is the real bill, and it lands <b>weeks after</b> the cause</li></ul>
+        </div>
+      </div>
+
+      <div class="h-visual">
+        <div class="h-visual-shell">
+          <script type="application/json" class="h-data">
+          {
+            "instances_found": 11,
+            "window_days": 7,
+            "on_a_live_safety_control": 6,
+            "failed_open": 6,
+            "failed_closed": 1,
+            "raised_an_error": 0,
+            "detected_by": "measurement and downstream symptoms, never by the rule itself",
+            "worst_silent_run_days": 3,
+            "hook_events_before_after_one_path_fix": [0, 139],
+            "evidence_cutoff": "2026-07-29"
+          }
+          </script>
+          <svg class="h-visual-svg" viewBox="0 0 560 420" role="img"
+               aria-label="A rule box names a path to a location; the location moves to a new address; the arrow keeps pointing at the now-empty original while the rule continues to report OK.">
+            <!-- the rule -->
+            <g class="h-mark h-mark--node" data-beat="1 2 3 4 5">
+              <rect x="24" y="46" width="186" height="78" rx="7" class="h-plane"></rect>
+              <text x="40" y="74" class="h-mark--label" font-size="11">THE RULE</text>
+              <text x="40" y="96" font-size="12.5">exclusion list · permission</text>
+              <text x="40" y="112" font-size="12.5">rule · search guard · index</text>
+            </g>
+
+            <!-- the naming arrow. ONE label only: two <text> at one coordinate, swapped by
+                 beat, overlap at every opacity the step CSS produces -- they never fully hide. -->
+            <g class="h-mark h-mark--edge" data-beat="1 2 3 4 5">
+              <path d="M214 85 L346 85" stroke-width="1.6" fill="none" marker-end="url(#ar-ok)"></path>
+              <text x="228" y="72" class="h-mark--label" font-size="10.5">names the path</text>
+            </g>
+            <g class="h-mark h-mark--label is-danger" data-beat="3 4 5">
+              <text x="238" y="110" font-size="11.5">…which is now</text>
+            </g>
+
+            <!-- the address the rule names. One box, one set of labels; the "empty" state is
+                 written BELOW it rather than on top of it. -->
+            <g class="h-mark h-mark--node" data-beat="1 2 3 4 5">
+              <rect x="352" y="46" width="184" height="78" rx="7" class="h-plane"></rect>
+              <text x="368" y="74" class="h-mark--label" font-size="11">THE ADDRESS IT NAMES</text>
+              <text x="368" y="98" font-size="12.5">where the guarded</text>
+              <text x="368" y="114" font-size="12.5">folder used to be</text>
+            </g>
+            <g class="h-mark is-danger" data-beat="2 3 4 5">
+              <rect x="352" y="46" width="184" height="78" rx="7" fill="none" stroke-dasharray="5 5" stroke-width="1.4"></rect>
+              <text x="352" y="146" class="h-mark--label" font-size="11">EMPTY — NOTHING LIVES HERE</text>
+            </g>
+
+            <!-- the move -->
+            <g class="h-mark h-mark--edge" data-beat="2 3 4 5">
+              <path d="M444 160 L444 246" stroke-width="1.6" fill="none" marker-end="url(#ar-ok)"></path>
+              <text x="456" y="206" class="h-mark--label" font-size="10.5">moved here</text>
+            </g>
+
+            <!-- new location -->
+            <g class="h-mark h-mark--node" data-beat="2 3 4 5">
+              <rect x="352" y="250" width="184" height="76" rx="7" class="h-plane h-plane--soft"></rect>
+              <text x="368" y="278" class="h-mark--label" font-size="11">THE REAL FILES</text>
+              <text x="368" y="302" font-size="12.5">new address · unguarded</text>
+            </g>
+
+            <!-- the green badge that never changes -->
+            <g class="h-mark h-mark--fill" data-beat="3 4 5">
+              <rect x="24" y="168" width="186" height="52" rx="7" class="h-plane h-plane--soft"></rect>
+              <text x="40" y="192" class="h-mark--label" font-size="10.5">STATUS REPORTED</text>
+              <text x="40" y="210" font-size="13">exit 0 · no problems found</text>
+            </g>
+
+            <!-- guarding nothing -->
+            <g class="h-mark h-mark--label is-danger" data-beat="4 5">
+              <text x="24" y="262" font-size="12.5">actual protection now in force:</text>
+              <text x="24" y="282" font-size="17">none</text>
+            </g>
+
+            <!-- discovery -->
+            <g class="h-mark h-mark--edge is-danger" data-beat="5">
+              <path d="M112 330 L112 372" stroke-width="1.4" fill="none" stroke-dasharray="4 4"></path>
+              <text x="24" y="392" font-size="12">found days later, by an unrelated symptom</text>
+            </g>
+
+            <defs>
+              <marker id="ar-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="currentColor"></path>
+              </marker>
+            </defs>
+          </svg>
+
+          <div class="h-syncap">
+            <div class="h-syncap-item" data-step="1">
+              <p class="h-syncap-claim">A rule about a place, stored away from the place.</p>
+              <p class="h-syncap-proof"><i>ORDINARY //</i> every system has dozens of these</p>
+            </div>
+            <div class="h-syncap-item" data-step="2">
+              <p class="h-syncap-claim">The files move correctly. That step is not the bug.</p>
+              <p class="h-syncap-proof"><i>MEASURED //</i> 393 operations, 0 losses</p>
+            </div>
+            <div class="h-syncap-item" data-step="3">
+              <p class="h-syncap-claim">Matching nothing is not an error. It reads as "all clear".</p>
+              <p class="h-syncap-proof"><i>OBSERVED //</i> 11 instances, 0 raised an error</p>
+            </div>
+            <div class="h-syncap-item" data-step="4">
+              <p class="h-syncap-claim">Six of the eleven sat on a live safety control. All six failed open.</p>
+              <p class="h-syncap-proof"><i>UNSAFE DIRECTION //</i> permitting what they existed to prevent</p>
+            </div>
+            <div class="h-syncap-item" data-step="5">
+              <p class="h-syncap-claim">The bill is diagnosis time, and it arrives late.</p>
+              <p class="h-syncap-proof"><i>WORST CASE HERE //</i> 3 days of a nightly job writing nothing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 THE LEDGER ============ -->
+  <section class="h-scene t-stack" id="ledger" aria-label="The eleven instances">
+    <div>
+      <p class="h-kicker"><i>04 //</i> the ledger</p>
+      <h2>Eleven, in seven days, in one system.</h2>
+      <p class="h-lede">Not a survey of other people's systems. These are all from this one, inside a
+      single week, found while doing ordinary work. The pattern only became visible because they were
+      written down as they happened rather than remembered afterwards.</p>
+    </div>
+
+    <div class="h-fig">
+      <div class="h-fig-panel">
+        <div class="h-scroll">
+        <table class="h-table">
+          <thead>
+            <tr><th>#</th><th>The rule that went stale</th><th>What it stopped doing</th><th>Kind</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="h-mono">1</td><td>a privacy rule naming two folders</td><td>both folders were gone, so it matched nothing and <b>failed open</b></td><td class="h-tc-danger">privacy</td></tr>
+            <tr><td class="h-mono">2</td><td>an exclusion file scoped to its own folder</td><td>its folder moved out from under it; a private index and 44,000 files became exposed to version control</td><td class="h-tc-danger">privacy</td></tr>
+            <tr><td class="h-mono">3</td><td>an index exclusion list of bare folder names</td><td>stopped excluding local-only material from a shareable index</td><td class="h-tc-danger">privacy</td></tr>
+            <tr><td class="h-mono">4</td><td>security-hook registrations naming a moved folder</td><td>the hook <b>did not run at all</b> — a missing hook file does not fail closed, it is simply skipped</td><td class="h-tc-danger">security</td></tr>
+            <tr><td class="h-mono">5</td><td>a search guard pointing at a deleted folder</td><td>failed <i>open and closed at once</i>: permitted the real protected file, denied every legitimate search</td><td class="h-tc-danger">security</td></tr>
+            <tr><td class="h-mono">6</td><td>a deny list that enumerated tool <i>names</i></td><td>a second tool offering the same capability was never named, so it ran — logged as executed, looking healthy</td><td class="h-tc-danger">security</td></tr>
+            <tr><td class="h-mono">7</td><td>15 depth-counted climbs across 12 files</td><td>each overshot the system root entirely; <b>not one contained an old path to search for</b></td><td>integrity</td></tr>
+            <tr><td class="h-mono">8</td><td>a write-contract naming reserved paths</td><td>the paths had never existed at all — a contract against a fiction</td><td>integrity</td></tr>
+            <tr><td class="h-mono">9</td><td>the editor's own ignore filters</td><td>every entry named a deleted folder; no code review would ever have looked there</td><td>hygiene</td></tr>
+            <tr><td class="h-mono">10</td><td>the verification script itself</td><td>two stale-tree assumptions in one file, so it crashed and verified <b>nothing</b></td><td>hygiene</td></tr>
+            <tr><td class="h-mono">11</td><td>a routing table that regenerates itself</td><td>nothing ever ran the generator — 5 of 34 rows wrong <b>one day</b> after it was written</td><td>hygiene</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="h-fig-cap">Eleven instances · 2026-07-22 to 2026-07-29 · all found in one system, during ordinary use</p>
+      </div>
+      <p class="h-fig-interp">Six of the eleven sat on a live security or privacy control, and all six failed
+      in the <b>unsafe</b> direction — still reporting success while permitting exactly what they existed to
+      prevent. Read row 11 twice: that rule was <i>designed</i> to be immune to this, by generating itself
+      from the filesystem instead of being written by hand. It rotted anyway, because generating a thing and
+      <b>running the generator</b> are different problems, and only the first one had been solved.</p>
+    </div>
+
+    <div class="h-claim">
+      <h3>The instances have nothing in common except their shape.</h3>
+      <ul>
+        <li>they span security, privacy, search, indexing, editor configuration and the checking tools themselves</li>
+        <li>they were written by different people at different times for unrelated purposes</li>
+        <li><b>none</b> of them is a coding mistake — every one was correct on the day it was written</li>
+      </ul>
+      <p class="h-claim-proof"><i>PROVE IT //</i> the strongest evidence is row 7's sibling: a script was moved
+      to a new home to make it more durable, and <b>acquired the identical bug in the act of moving</b>. When
+      relocating something introduces the same defect you just spent a day removing, it is a property of the
+      arrangement, not of anyone's care.</p>
+    </div>
+  </section>
+
+  <!-- ============ 05 WHAT IT COST ============ -->
+  <section class="h-scene t-stack" id="cost" aria-label="What silent staleness actually costs">
+    <div>
+      <p class="h-kicker"><i>05 //</i> what it cost</p>
+      <h2>The bill is diagnosis, and it is paid late.</h2>
+      <p class="h-lede">None of these produced an error message, an alert, or a failed build. Every one
+      was paid for in the most expensive currency available — an expert's time, spent working out why
+      something <i>else</i> was behaving strangely.</p>
+    </div>
+
+    <div class="h-compare">
+      <div class="h-side is-before">
+        <p class="h-side-head">What the system reported</p>
+        <ul>
+          <li>nightly automation: <b>exit code 0</b>, every night</li>
+          <li>security hooks: registered and configured</li>
+          <li>privacy filters: present, parsing, running</li>
+          <li>the routing index: labelled <i>"generated from the filesystem"</i></li>
+          <li>the verification gate: <b>MET</b></li>
+        </ul>
+      </div>
+      <div class="h-side is-after">
+        <p class="h-side-head">What was actually true</p>
+        <ul>
+          <li>it had written <b>nothing for three days</b></li>
+          <li>two automations ran with <b>no security hook at all</b> — one completed cleanly in that state</li>
+          <li>a filter covering a folder that no longer existed</li>
+          <li>wrong in 5 of 34 rows, one day old</li>
+          <li>the gate was <b>false</b>, and the failure it hid cost a full diagnosis session</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="h-claim">
+      <h3>Three costs, each measured in this system.</h3>
+      <ul>
+        <li><b>Three days</b> of a nightly knowledge-consolidation pass silently producing nothing — the job it exists to do simply did not happen, and every status signal was green</li>
+        <li><b>Three sessions</b> of work failed to archive before anyone noticed, because a capture step wrote to a folder that had moved</li>
+        <li><b>A full day</b> of expert diagnosis to trace one silent failure back to a single line in a search guard — a line that had been correct when it was written</li>
+      </ul>
+      <p class="h-claim-proof"><i>PROVE IT //</i> the audit trail could not answer the question it exists to answer.
+      Identifying which process owned a failing session required correlating anonymous identifiers against
+      timestamps by hand. One missing field would have made it a single search. That gap is now closed, and it is
+      the cheapest fix in this entire report.</p>
+    </div>
+  </section>
+
+  <!-- ============ 06 THE FIX ============ -->
+  <section class="h-scene t-stack" id="fix" aria-label="The fix">
+    <div>
+      <p class="h-kicker"><i>06 //</i> the fix</p>
+      <h2>Put the rule inside the thing it protects.</h2>
+      <p class="h-lede">The instinct is to hunt down every stale path and correct it. That is a day's work
+      that buys you nothing, because the next reorganisation recreates all of them. The durable fix is
+      structural, and it is three rules.</p>
+    </div>
+
+    <div class="h-proof" role="list" aria-label="The structural fix, as a ladder">
+      <div class="h-rung" role="listitem">
+        <span class="h-rung-n">1</span><span class="h-conn">GIVEN</span>
+        <span class="h-rung-t">a rule stored <i>outside</i> what it governs loses contact the moment that thing moves, and the loss is silent because matching nothing is a valid result.</span>
+      </div>
+      <div class="h-rung" role="listitem">
+        <span class="h-rung-n">2</span><span class="h-conn">THEN</span>
+        <span class="h-rung-t"><b>put the rule inside the thing.</b> An exclusion file that lives in the folder it protects travels with that folder. Nothing to update, nothing to forget.</span>
+      </div>
+      <div class="h-rung" role="listitem">
+        <span class="h-rung-n">3</span><span class="h-conn">THEN</span>
+        <span class="h-rung-t"><b>anchor on a landmark, never on a count.</b> "Climb until you find the file that marks the root" survives being moved. "Climb up four levels" encodes today's depth and breaks the moment that changes — silently, because four levels up is always <i>somewhere</i>.</span>
+      </div>
+      <div class="h-rung" role="listitem">
+        <span class="h-rung-n">4</span><span class="h-conn">THEN</span>
+        <span class="h-rung-t">when a path genuinely must be named from outside, <b>make it check that its target exists</b> and stop if it does not. The class is not "naming a path is bad." The class is that a stale one <i>fails quietly</i>.</span>
+      </div>
+      <div class="h-rung" role="listitem">
+        <span class="h-rung-n">5</span><span class="h-conn">∴ THEREFORE</span>
+        <span class="h-rung-t">a rule that cannot go stale in silence is worth more than a rule that is currently correct. The first survives the next reorganisation; the second only survives until it.</span>
+      </div>
+      <div class="h-rung" role="listitem">
+        <span class="h-rung-n">6</span><span class="h-conn">AND</span>
+        <span class="h-rung-t">generating a thing is <b>half</b> the fix — something has to run the generator, on a schedule, and say so out loud when it fails. Row 11 of the ledger is what the other half costs.</span>
+      </div>
+    </div>
+
+    <div class="h-claim">
+      <h3>Applied here, in production, with the evidence taken after.</h3>
+      <ul>
+        <li>every counted climb replaced with a landmark search — verified by running both and comparing where each landed</li>
+        <li>exclusion rules moved <i>into</i> the directories they cover, so they travel with them</li>
+        <li>the one remaining named path made self-checking: removing its target now stops the program with a message, and that was <b>proven by removing the target</b>, not argued</li>
+        <li>the self-regenerating index given an actual trigger, on the nightly schedule, reporting failure into the same log everything else reports to</li>
+      </ul>
+      <p class="h-claim-proof"><i>PROVE IT //</i> the security hook that had been silently absent was measured before and
+      after the fix: <b>0 events, then 139</b>. Not "should now be running" — counted.</p>
+    </div>
+  </section>
+
+  <!-- ============ 07 LIMITS ============ -->
+  <section class="h-scene t-stack" id="limits" aria-label="Limits">
+    <div>
+      <p class="h-kicker"><i>07 //</i> limits</p>
+      <h2>What this does not show.</h2>
+    </div>
+    <div class="h-term">
+      <div class="h-term-row"><span class="h-term-key">one system</span><span class="h-term-gloss">n = 1. Eleven instances inside a single knowledge base is a strong pattern <i>in that system</i>; it is not a measured industry rate, and this report does not claim one</span></div>
+      <div class="h-term-row"><span class="h-term-key">self-reported</span><span class="h-term-gloss">the operator of the system is also its auditor. The mitigation is that every number is re-derivable from an exported baseline rather than from anyone's recollection — but it is not an independent audit <span class="h-dot is-half"></span></span></div>
+      <div class="h-term-row"><span class="h-term-key">survivorship</span><span class="h-term-gloss">eleven were <i>found</i>. The honest reading of a failure class defined by silence is that the true count is higher, not that it is eleven</span></div>
+      <div class="h-term-row"><span class="h-term-key">not a rate</span><span class="h-term-gloss">"eleven in seven days" reflects a week of deliberate structural change. A settled system drifts more slowly — the mechanism is identical, the clock is not</span></div>
+      <div class="h-term-row"><span class="h-term-key">one claim still open</span><span class="h-term-gloss">the scheduled trigger from row 11 was applied and unit-tested, but had not yet run on its real overnight schedule at the evidence cutoff. It is listed as fixed-pending-observation, not as proven <span class="h-dot is-hollow"></span></span></div>
+    </div>
+    <p class="h-fig-interp">The last row is deliberate. A report about controls that report success before they have
+    actually succeeded would be a poor place to do exactly that.</p>
+  </section>
+
+  <!-- ============ 08 SO WHAT ============ -->
+  <section class="h-scene t-stack" id="sowhat" aria-label="So what — the decision split">
+    <div>
+      <p class="h-kicker"><i>08 //</i> so what</p>
+      <h2>If you own a knowledge system, three questions.</h2>
+      <p class="h-lede">Not "buy something." These are checkable this afternoon, against whatever you
+      already run, by whoever already maintains it.</p>
+    </div>
+
+    <div class="t-decide">
+      <div class="t-decide-col">
+        <p class="t-decide-head">If you already have a knowledge base</p>
+        <p class="t-decide-if">List every rule that names a folder path — index exclusions, permission
+        rules, backup filters, search scopes, sync ignores. For each one, check the folder still exists.
+        <b>This takes an hour and it is the highest-yield hour available to you.</b> Anything that names a
+        path that is gone has been reporting success while doing nothing, and you cannot tell which from
+        the outside.</p>
+      </div>
+      <div class="t-decide-col">
+        <p class="t-decide-head">If you are about to reorganise one</p>
+        <p class="t-decide-if">Take the baseline <i>first</i>, with a script, and keep it. Every claim in
+        this report exists because a before-picture was captured with the same instrument as the after.
+        Without it you cannot prove nothing was lost — you can only fail to notice, which is not the same
+        thing and does not feel any different.</p>
+      </div>
+      <div class="t-decide-col">
+        <p class="t-decide-head">If it is already rotting</p>
+        <p class="t-decide-if">The symptom is never "the system is broken." It is that people quietly
+        stop trusting it — searching the old way, keeping a private copy, asking a colleague instead. By
+        then the cause is months upstream. The fix is structural and it is a defined piece of work with a
+        measurable end state, not an ongoing cleanup.</p>
+      </div>
+    </div>
+
+    <div class="h-claim">
+      <h3>What this engagement actually is.</h3>
+      <ul>
+        <li>a private knowledge system on your own material — structured, searchable, and <b>yours</b>, not rented</li>
+        <li>built with the discipline in this report: a captured baseline, gates with pass conditions fixed in advance, and a verifier that is not the thing being verified</li>
+        <li>and the part almost nobody sells — <b>keeping it alive</b>, because a system like this does not fail on the day it is delivered, it fails eleven silent rules later</li>
+      </ul>
+      <p class="h-claim-proof"><i>WHO THIS IS FOR //</i> a founder or executive whose knowledge is scattered across
+      years of notes, or a team of ten to fifty where the answer exists but only one person knows where. The
+      system described here is the author's own, in daily production use — every number above was taken from it,
+      not from a pilot.</p>
+    </div>
+
+    <div class="t-recap" role="group" aria-label="The report in four numbers">
+      <div class="t-recap-item"><span class="t-recap-k">393</span><span class="t-recap-t">operations, zero losses</span></div>
+      <div class="t-recap-item"><span class="t-recap-k">2,547</span><span class="t-recap-t">cross-references, none broken</span></div>
+      <div class="t-recap-item"><span class="t-recap-k">11</span><span class="t-recap-t">rules stale in silence, one week</span></div>
+      <div class="t-recap-item"><span class="t-recap-k">0</span><span class="t-recap-t">of them raised an error</span></div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ PROVENANCE ============ -->
+<footer class="h-provenance">
+  <div class="h-col">
+    <p class="h-kicker"><i>Provenance //</i> every number, to where it was measured</p>
+
+    <ul class="h-prov-list">
+      <li class="h-prov-row"><span class="h-prov-src">baseline export · before</span><span class="h-prov-what">276 markdown notes in scope · 2,547 cross-reference occurrences · 344 distinct targets · 122 already unresolved · 112 attachments · 35 notes with no metadata block. One script, run over the pre-change tree <span class="h-dot"></span></span></li>
+      <li class="h-prov-row"><span class="h-prov-src">baseline export · after</span><span class="h-prov-what">281 markdown notes · 2,550 occurrences · 0 duplicate basenames · 0 files without metadata. <b>Same script, only the scope switched</b> — resolver, link normalisation and metadata parser untouched between runs, which is the property the comparison depends on <span class="h-dot"></span></span></li>
+      <li class="h-prov-row"><span class="h-prov-src">gate G3 · dry run</span><span class="h-prov-what">393 planned operations (276 notes + 112 attachments + 5 generated files) · 0 destination collisions · 0 unwritable paths · 0 parse failures · 0 body mutations outside a cross-reference <span class="h-dot"></span></span></li>
+      <li class="h-prov-row"><span class="h-prov-src">gate G5 · links</span><span class="h-prov-what">0 targets that resolved before are unreachable after — measured per source file as <i>reachability through the move map</i>, not as a raw count of matching strings, because every source path and almost every target string changes in a migration <span class="h-dot"></span></span></li>
+      <li class="h-prov-row"><span class="h-prov-src">gate G6 · metadata</span><span class="h-prov-what">281/281 parse in both a YAML library and a strict editor-style reader · last-modified stamps byte-identical on all 163 notes carrying one · 0 machine-maintained fields mutated. A bulk move that resets timestamps destroys the signal the decay system runs on <span class="h-dot"></span></span></li>
+      <li class="h-prov-row"><span class="h-prov-src">gate G8 · bulk data</span><span class="h-prov-what">676.8 MB measured and excluded from version control; a dry-run add stages 0 of it <span class="h-dot"></span></span></li>
+      <li class="h-prov-row"><span class="h-prov-src">machinery move</span><span class="h-prov-what">56 operations · 57,253 files · 17.80 GB · 0 problems, verified empty before each source directory was removed <span class="h-dot"></span></span></li>
+      <li class="h-prov-row"><span class="h-prov-src">hook events · before/after</span><span class="h-prov-what">0 events in a 113-second run before the registration path was corrected; 139 after. The hook file was absent, and an absent hook is skipped rather than failing closed <span class="h-dot"></span></span></li>
+      <li class="h-prov-row"><span class="h-prov-src">the three-day silence</span><span class="h-prov-what">the nightly consolidation pass produced no output from 2026-07-26 to 2026-07-29 while exiting 0. Root cause: one search guard naming a deleted directory. The failing run made 7 tool calls, 3 of them denied, and wrote nothing <span class="h-dot"></span></span></li>
+      <li class="h-prov-row"><span class="h-prov-src">the routing table</span><span class="h-prov-what">measured 2026-07-29 by regenerating it and diffing against the live copy: 5 of 34 rows wrong, header claiming 254 files against a real 263, one day after it was written <span class="h-dot"></span></span></li>
+      <li class="h-prov-row"><span class="h-prov-src">the friction log</span><span class="h-prov-what">23 dated entries, each with a stated cost, written <i>as</i> each incident occurred rather than reconstructed afterwards. Reconstruction produces a feeling; contemporaneous notes produce a pattern <span class="h-dot"></span></span></li>
+      <li class="h-prov-row"><span class="h-prov-src">rollback</span><span class="h-prov-what">a tagged restore point taken before the first operation; the whole change reversible with one command at every stage <span class="h-dot"></span></span></li>
+      <li class="h-prov-row"><span class="h-prov-src">not independently audited</span><span class="h-prov-what">the operator of this system is also its auditor. Numbers are re-derivable from exports rather than from recollection, which is the mitigation — it is not a third-party audit, and this report does not present it as one <span class="h-dot is-half"></span></span></li>
+    </ul>
+
+    <p class="h-prov-meta">
+      <b>Subject</b> a live personal knowledge system — 276 notes, 8 scheduled agents, nightly consolidation, hook layer — rebuilt in place while running<br>
+      <b>Method</b> baseline export → generated move map → dry run → gated migration → independent verification, with pass conditions fixed before the work<br>
+      <b>Evidence cutoff</b> 2026-07-29 · <b>Generator</b> HORUS v1.0 · template-report · <b>Voice</b> evidence · terse<br>
+      <b>Judged against</b> one question — what actually breaks a knowledge system over time? <b>Answer: not the files. The rules about the files, drifting away from them in silence.</b>
+    </p>
+  </div>
+</footer>
+
+
+<script>
+/* ============================================================
+   HORUS runtime v1.0 — vanilla, console-clean, file:// safe.
+   Stays OUTSIDE all slots (SPEC §5). Four jobs:
+   1. IntersectionObserver story stepping (stamps data-step on .h-story)
+   2. nav-rail scroll spy (aria-current on chips)
+   3. Motion toggle (persists localStorage 'horus-motion', stamps html[data-motion])
+   4. h-map hover/focus readout swap (aria-live) + keyboard nodes
+   The document reads completely with this script disabled.
+   ============================================================ */
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- 3 · Motion toggle -------------------------------------------- */
+  var motionBtn = document.getElementById("motion-toggle");
+  function applyMotion(off) {
+    if (off) { root.setAttribute("data-motion", "off"); }
+    else { root.removeAttribute("data-motion"); }
+    if (motionBtn) {
+      motionBtn.setAttribute("aria-pressed", off ? "true" : "false");
+      motionBtn.textContent = off ? "Motion off" : "Motion on";
+    }
+  }
+  var stored = null;
+  try { stored = localStorage.getItem("horus-motion"); } catch (e) {}
+  applyMotion(stored === "off");
+  if (motionBtn) {
+    motionBtn.addEventListener("click", function () {
+      var off = root.getAttribute("data-motion") !== "off";
+      applyMotion(off);
+      try { localStorage.setItem("horus-motion", off ? "off" : "on"); } catch (e) {}
+    });
+  }
+
+  /* ---- 2 · Nav-rail scroll spy -------------------------------------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".h-nav a"));
+  var navMap = {};
+  var spied = [];
+  navLinks.forEach(function (a) {
+    var id = a.getAttribute("href").slice(1);
+    var sec = document.getElementById(id);
+    if (sec) { navMap[id] = a; spied.push(sec); }
+  });
+  function setCurrent(id) {
+    navLinks.forEach(function (a) {
+      var on = a.getAttribute("href") === "#" + id;
+      if (on) { a.setAttribute("aria-current", "true"); }
+      else { a.removeAttribute("aria-current"); }
+    });
+  }
+  if ("IntersectionObserver" in window && spied.length) {
+    var visible = {};
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        visible[en.target.id] = en.isIntersecting ? en.intersectionRatio : 0;
+      });
+      var best = null, bestR = 0;
+      spied.forEach(function (sec) {
+        var r = visible[sec.id] || 0;
+        if (r > bestR) { bestR = r; best = sec.id; }
+      });
+      if (best) { setCurrent(best); }
+    }, { rootMargin: "-20% 0px -70% 0px", threshold: [0, 0.25, 0.5, 1] });
+    spied.forEach(function (sec) { spy.observe(sec); });
+  }
+
+  /* ---- 1 · Story stepping ------------------------------------------- */
+  var stories = Array.prototype.slice.call(document.querySelectorAll(".h-story"));
+  stories.forEach(function (story) {
+    var steps = Array.prototype.slice.call(story.querySelectorAll(".h-step[data-step]"));
+    if (!steps.length || !("IntersectionObserver" in window)) { return; }
+    var active = {};
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        active[en.target.getAttribute("data-step")] = en.isIntersecting;
+      });
+      var chosen = null;
+      steps.forEach(function (s) {
+        var n = s.getAttribute("data-step");
+        if (active[n]) { chosen = n; }
+      });
+      if (chosen) { story.setAttribute("data-step", chosen); }
+    }, { rootMargin: "-34% 0px -46% 0px", threshold: 0 });
+    steps.forEach(function (s) { io.observe(s); });
+  });
+
+  /* ---- 4 · Concept map (guarded — wires only if a map exists) -------- */
+  var stage = document.querySelector(".h-map-stage");
+  if (stage) {
+    var svg = stage.querySelector(".h-map-svg");
+    var readoutEls = {
+      kicker: stage.querySelector("[data-r-kicker]"),
+      title: stage.querySelector("[data-r-title]"),
+      blurb: stage.querySelector("[data-r-blurb]"),
+      proof: stage.querySelector("[data-r-proof]")
+    };
+    var dataEl = stage.querySelector('script[type="application/json"].h-map-data');
+    var NODES = {};
+    if (dataEl) { try { NODES = JSON.parse(dataEl.textContent) || {}; } catch (e) { NODES = {}; } }
+    var nodes = Array.prototype.slice.call(stage.querySelectorAll(".h-node"));
+    var edges = Array.prototype.slice.call(stage.querySelectorAll(".h-edge"));
+    var edgeLabels = Array.prototype.slice.call(stage.querySelectorAll(".h-edge-label"));
+    var pinned = null;
+
+    function lightEdges(key) {
+      edges.forEach(function (e) {
+        var pair = (e.getAttribute("data-edge") || "").split(" ");
+        var on = key && pair.indexOf(key) !== -1;
+        e.classList.toggle("is-on", !!on);
+      });
+      edgeLabels.forEach(function (l) {
+        var pair = (l.getAttribute("data-edge") || "").split(" ");
+        var on = key && pair.indexOf(key) !== -1;
+        l.classList.toggle("is-on", !!on);
+      });
+    }
+    function show(key) {
+      var d = NODES[key];
+      if (!d) { return; }
+      if (readoutEls.kicker) { readoutEls.kicker.textContent = d.kicker || ""; }
+      if (readoutEls.title) { readoutEls.title.textContent = d.title || ""; }
+      if (readoutEls.blurb) { readoutEls.blurb.textContent = d.blurb || ""; }
+      if (readoutEls.proof) { readoutEls.proof.innerHTML = d.proof || ""; }
+      stage.classList.toggle("has-focus", key !== "core");
+      nodes.forEach(function (n) { n.classList.toggle("is-on", n.getAttribute("data-node") === key && key !== "core"); });
+      lightEdges(key === "core" ? null : key);
+    }
+    nodes.forEach(function (n) {
+      var key = n.getAttribute("data-node");
+      n.addEventListener("mouseenter", function () { if (!pinned) { show(key); } });
+      n.addEventListener("focus", function () { if (!pinned) { show(key); } });
+      n.addEventListener("click", function () {
+        if (pinned === key) { pinned = null; show("core"); }
+        else { pinned = key; show(key); }
+      });
+      n.addEventListener("keydown", function (ev) {
+        if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); n.click(); }
+      });
+    });
+    stage.addEventListener("mouseleave", function () { if (!pinned) { show("core"); } });
+
+    if (!reduce && root.getAttribute("data-motion") !== "off" && "IntersectionObserver" in window && svg) {
+      stage.classList.add("is-armed");
+      var seen = new IntersectionObserver(function (ents) {
+        ents.forEach(function (en) {
+          if (en.isIntersecting) { stage.classList.add("is-live"); seen.disconnect(); }
+        });
+      }, { threshold: 0.3 });
+      seen.observe(stage);
+    }
+  }
+})();
+</script>
+</body>
+</html>
