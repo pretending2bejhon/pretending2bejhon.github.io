@@ -42,13 +42,16 @@
   .skip-link:focus { left: 12px; }
 
   .d4 {
-    --night:  oklch(12% 0.03 295);
-    --deep:   oklch(9.5% 0.026 296);
-    --signal: oklch(75% 0.155 300);
-    --text:   oklch(95.5% 0.012 300);
-    --dim:    oklch(70% 0.045 297);
-    --faint:  oklch(52% 0.04 296);
-    --hair:   oklch(38% 0.05 297 / .4);
+    /* visual-brand palette lock */
+    --night:  #0f0a19;
+    --deep:   #030209;
+    --signal: #be95ff;
+    --sighi:  #d7afff;
+    --bone:   #e8ddd0;
+    --text:   #f1eef7;
+    --dim:    #a199b8;
+    --faint:  #76677f;
+    --hair:   rgba(68, 56, 79, .55);
 
     font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
     background: linear-gradient(180deg, var(--night) 0%, var(--deep) 100%);
@@ -74,10 +77,67 @@
   .scene-hero {
     min-height: 94vh; position: relative; display: flex; flex-direction: column;
     justify-content: space-between; padding-top: 34px; padding-bottom: 9vh;
+    overflow: hidden;
   }
   .scene-hero::before {
-    content: ""; position: absolute; inset: auto 0 0 0; height: 72vh; pointer-events: none;
-    background: radial-gradient(120% 90% at 50% 108%, oklch(36% 0.105 295 / .85) 0%, oklch(24% 0.07 295 / .5) 34%, transparent 68%);
+    content: ""; position: absolute; inset: auto 0 0 0; height: 82vh; pointer-events: none;
+    background:
+      radial-gradient(58% 46% at 72% 86%, rgba(139,96,214,.50) 0%, rgba(86,58,146,.26) 44%, transparent 74%),
+      radial-gradient(126% 96% at 64% 112%, rgba(96,66,148,.72) 0%, rgba(48,33,77,.42) 36%, transparent 70%);
+    /* Both radials are still lit where the hero box ends; unmasked they get cut mid-glow
+       and print a hard horizontal line at the seam at every viewport size. */
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 74%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 74%, transparent 100%);
+  }
+
+  /* THE HERO SCENE — Night System mode, drawn in code, no bitmaps, no external asset.
+     Depth reads foreground → midground → background: the operator's instrument (readout,
+     reticle, mount rail) in front, the anatomy in the middle, one violet horizon behind.
+     Bone ink carries the form; the single signal route is the only violet that moves.
+     Selector carries extra weight because .scene-hero > * would otherwise reset position. */
+  .d4 .scene-hero .brain-fig {
+    position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    /* The scene's own light (ground ellipse, near records, the route drop) must dissolve
+       into the page night before the element box clips it — same seam law as ::before. */
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 87%, transparent 99.5%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 87%, transparent 99.5%);
+  }
+  /* v10: the hero no longer merges or verifies - three strands leave it still separate.
+     Convergence, gate, and light now live at THE SOLUTION (page-spine script).
+     gatepulse stays: the spine's gates animate with it. */
+  @keyframes gatepulse { 0% { opacity: .8; transform: scale(.45); } 100% { opacity: 0; transform: scale(2.2); } }
+
+  /* ————— the page spine: the verified route escorts the reader through every scene.
+     Built entirely by script (no-JS pages simply have no spine). It lives at z-index -1
+     inside .d4, which must therefore be its own stacking context — otherwise a negative
+     z-index child paints UNDER .d4's opaque background gradient and vanishes. ————— */
+  .d4 { position: relative; isolation: isolate; }
+  .route-spine { position: absolute; top: 0; left: 0; z-index: -1; pointer-events: none; }
+  .route-spine .stop-ring { fill: none; stroke: #be95ff; stroke-opacity: .38; stroke-width: 1; }
+  .route-spine .stop-core { fill: #d7afff; opacity: 0; transform: scale(.3); transform-box: fill-box; transform-origin: center; transition: opacity .4s cubic-bezier(.16,.7,.2,1), transform .4s cubic-bezier(.16,.7,.2,1); }
+  .route-spine .stop.lit .stop-core { opacity: 1; transform: scale(1); }
+  .route-spine .fgate-fill { opacity: 0; transform: scale(.25); transform-box: fill-box; transform-origin: center; transition: opacity .45s cubic-bezier(.16,.7,.2,1), transform .45s cubic-bezier(.16,.7,.2,1); }
+  .route-spine .fgate-pulse { opacity: 0; }
+  .route-spine.done .fgate-fill { opacity: 1; transform: scale(1); }
+  .route-spine.done .fgate-pulse { transform-box: fill-box; transform-origin: center; animation: gatepulse 1.2s cubic-bezier(.2,.6,.3,1); }
+  /* v10 · cold zone: the problem's records light BONE when passed - reached, not
+     verified. Violet is earned only at the merge. */
+  .route-spine .stop.cold .stop-ring { stroke: #e8ddd0; stroke-opacity: .3; }
+  .route-spine .stop.cold .stop-core { fill: #e8ddd0; opacity: 0; }
+  .route-spine .stop.cold.lit .stop-core { opacity: .55; }
+  /* v10 · the merge gate at THE SOLUTION: three become one, and the light turns on */
+  .route-spine .sgate-fill { opacity: 0; transform: scale(.25); transform-box: fill-box; transform-origin: center; transition: opacity .45s cubic-bezier(.16,.7,.2,1), transform .45s cubic-bezier(.16,.7,.2,1); }
+  .route-spine .sgate-pulse { opacity: 0; }
+  .route-spine.merged .sgate-fill { opacity: 1; transform: scale(1); }
+  .route-spine.merged .sgate-pulse { transform-box: fill-box; transform-origin: center; animation: gatepulse 1.2s cubic-bezier(.2,.6,.3,1); }
+  /* v10 · the light arc: cold night above, the bloom ignites when the merge verifies,
+     warm pools carry the lit world the rest of the way down */
+  .route-spine .bloom { opacity: .3; transition: opacity 1.4s ease; }
+  .route-spine.merged .bloom { opacity: 1; }
+  @media (max-width: 780px) {
+    .d4 .scene-hero .brain-fig { left: auto; right: -30%; width: 148%; opacity: .55; }
   }
   .scene-hero > * { position: relative; }
 
@@ -116,17 +176,19 @@
     font-size: 14px; letter-spacing: .08em; text-decoration: none; color: var(--text);
     border-bottom: 1px solid var(--signal); padding-bottom: 6px; transition: color .2s ease, border-color .2s ease;
   }
-  .cta:hover { color: var(--signal); }
+  .cta:hover { color: var(--sighi); }
   .cta.quiet { color: var(--dim); border-color: var(--hair); }
   .cta.quiet:hover { color: var(--text); border-color: var(--signal); }
   .sect-cta { margin: 38px 0 0; font-size: 14px; }
 
   /* ————— the spine: three scenes ————— */
-  .scenes { padding-top: clamp(64px, 11vh, 120px); }
+  /* No top padding: the first .scene owns the inter-section rhythm. Any padding here
+     stacks on top of it and re-opens the dead black band under the hero. */
+  .scenes { padding-top: 0; }
   .scene { padding: clamp(44px, 8.5vh, 92px) 0; scroll-margin-top: 40px; }
 
   .kicker { margin: 0 0 16px; font-size: 11px; letter-spacing: .2em; color: var(--faint); text-transform: uppercase; }
-  .kicker i { font-style: normal; color: var(--signal); opacity: .75; }
+  .kicker i { font-style: normal; color: var(--bone); opacity: .85; }
 
   .scene h2 {
     margin: 0 0 20px; font-size: clamp(2rem, 4.6vw, 3.3rem); line-height: 1.04;
@@ -150,6 +212,7 @@
   .scene.center .inner { max-width: 560px; margin: 0 auto; }
   .scene.wide .inner { max-width: 780px; }
   .scene.wide .sys { max-width: 66ch; }
+
 
   .twin-bridge { padding: clamp(40px, 8vh, 80px) 0 0; }
   .twin-bridge p { margin: 0 0 8px; font-size: 11.5px; letter-spacing: .26em; color: var(--faint); text-transform: uppercase; }
@@ -222,7 +285,9 @@
     @keyframes sweep { to { transform: rotate(360deg); } }
   }
 
-  .readout { margin-top: clamp(22px, 4vh, 40px); border-top: 1px solid var(--hair); padding-top: 24px; min-height: 130px; }
+  /* min-height must fit the TALLEST station entry (187px measured, EN and ES), or
+     hovering a station grows the readout and the whole page below the map jumps. */
+  .readout { margin-top: clamp(22px, 4vh, 40px); border-top: 1px solid var(--hair); padding-top: 24px; min-height: 216px; }
   .readout .kicker { margin-bottom: 10px; }
   .readout h3 { margin: 0 0 10px; font-size: clamp(1.3rem, 2.4vw, 1.8rem); font-weight: 300; letter-spacing: -0.015em; }
   .readout .blurb { margin: 0; max-width: 66ch; font-size: 14.5px; color: var(--dim); }
@@ -301,6 +366,7 @@
   @media print {
     @page { size: letter; margin: 13mm 15mm; }
     html, body { background: #fff; }
+    .route-spine { display: none; }
     .d4 { background: #fff; color: #17112b; font-size: 10pt; line-height: 1.35; overflow: visible; }
     .d4 * { animation: none !important; transition: none !important; }
     .col { max-width: 100%; padding: 0; }
@@ -365,6 +431,245 @@
 <div class="d4">
   <!-- ————— band 1 · hero, the one lit viewport ————— -->
   <header class="scene-hero">
+    <!-- THE LIVING ARCHIVE, seam-healed. Keyed to the dendrite video
+         (hf-20260724-040651): the archive as an organic filament network - three ganglia
+         far to near plus a blurred farthest fabric, records as bright nodes at junctions.
+         Three violet two-fiber strands enter from three sources and converge into one
+         braided route at the gate: many sources, one answer. The strands draw with
+         SCROLL - the visitor drives the signal. When the gate arms, a thin continuation
+         drops out of the hero through the bottom mask: the route goes on into the page.
+         Tips are white-hot violet, never red: red means failure in the evidence grammar
+         (two caught-failure pinpoints carry it). Filled node = live · hollow = synthetic.
+         No text, no anatomy, no bitmaps. -->
+    <svg class="brain-fig" viewBox="-50 0 1160 1000" preserveAspectRatio="xMaxYMax meet"
+         xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="A living archive at night: an organic network of pale filaments with records as bright nodes at the junctions. Three violet signals enter from different sources and converge into one verified route that reaches a reticle gate as the page is scrolled.">
+      <defs>
+        <!-- the one motivated light: a violet pool low behind the near field -->
+        <radialGradient id="bg-horizon">
+          <stop offset="0%"   stop-color="#9b6ee6" stop-opacity=".55"/>
+          <stop offset="34%"  stop-color="#6d47ad" stop-opacity=".28"/>
+          <stop offset="68%"  stop-color="#3d2a63" stop-opacity=".1"/>
+          <stop offset="100%" stop-color="#3d2a63" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- depth fog: a dark band that swallows the far rows -->
+        <linearGradient id="foggrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#030209" stop-opacity="0"/>
+          <stop offset="50%"  stop-color="#030209" stop-opacity=".45"/>
+          <stop offset="100%" stop-color="#030209" stop-opacity="0"/>
+        </linearGradient>
+
+        <!-- the copy side stays in real shadow; runs far past the viewBox so no seam shows -->
+        <linearGradient id="scrimgrad" gradientUnits="userSpaceOnUse" x1="-50" y1="0" x2="520" y2="0">
+          <stop offset="0%"   stop-color="#030209" stop-opacity=".88"/>
+          <stop offset="55%"  stop-color="#030209" stop-opacity=".3"/>
+          <stop offset="100%" stop-color="#030209" stop-opacity="0"/>
+        </linearGradient>
+
+        <filter id="soft"  x="-45%" y="-45%" width="190%" height="190%"><feGaussianBlur stdDeviation="7"/></filter>
+        <filter id="soft2" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+        <filter id="soft3" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="36"/></filter>
+      </defs>
+
+      <!-- ————— background: horizon pool, ground glow, three archive stacks, record dust ————— -->
+      <g class="bg">
+        <ellipse cx="820" cy="900" rx="580" ry="250" fill="url(#bg-horizon)"/>
+        <ellipse cx="850" cy="740" rx="330" ry="150" fill="#be95ff" opacity=".07" filter="url(#soft3)"/>
+
+        <path d="M 1074 214 L 1074 470 L 1100 470 L 1100 240 Z" fill="#171126" opacity=".95"/>
+        <path d="M 1074 214 L 1074 470" stroke="#be95ff" stroke-opacity=".3" stroke-width="1.3" fill="none"/>
+        <path d="M 1108 296 L 1108 470 L 1128 470 L 1128 316 Z" fill="#171126" opacity=".9"/>
+        <path d="M 1108 296 L 1108 470" stroke="#be95ff" stroke-opacity=".2" stroke-width="1" fill="none"/>
+        <path d="M 1136 376 L 1136 470 L 1150 470 L 1150 390 Z" fill="#171126" opacity=".85"/>
+        <path d="M 1136 376 L 1136 470" stroke="#be95ff" stroke-opacity=".16" stroke-width="1" fill="none"/>
+        <path d="M 1052 470 L 1160 470" stroke="#e8ddd0" stroke-opacity=".12" stroke-width="1" fill="none"/>
+
+        <g fill="#e8ddd0" fill-opacity=".22">
+          <circle cx="618" cy="318" r="1"/><circle cx="662" cy="304" r=".9"/>
+          <circle cx="706" cy="296" r="1.1"/><circle cx="748" cy="308" r=".8"/>
+          <circle cx="884" cy="292" r="1"/><circle cx="922" cy="304" r=".9"/>
+          <circle cx="958" cy="290" r="1.1"/><circle cx="902" cy="322" r=".8"/>
+          <circle cx="586" cy="344" r=".9"/><circle cx="640" cy="352" r=".8"/>
+          <circle cx="700" cy="342" r="1"/><circle cx="880" cy="386" r=".9"/>
+          <circle cx="918" cy="402" r=".8"/><circle cx="600" cy="424" r="1"/>
+          <circle cx="560" cy="472" r=".9"/><circle cx="628" cy="500" r="1.1"/>
+          <circle cx="668" cy="540" r=".9"/><circle cx="596" cy="560" r="1"/>
+          <circle cx="866" cy="560" r="1"/><circle cx="900" cy="590" r=".9"/>
+          <circle cx="836" cy="620" r="1.1"/><circle cx="782" cy="646" r=".9"/>
+          <circle cx="1054" cy="620" r="1"/><circle cx="1092" cy="650" r=".9"/>
+          <circle cx="548" cy="770" r="1.2"/><circle cx="520" cy="820" r="1"/>
+          <circle cx="600" cy="806" r="1.1"/><circle cx="960" cy="820" r="1.2"/>
+          <circle cx="1010" cy="856" r="1.1"/><circle cx="1060" cy="790" r="1"/>
+        </g>
+
+        <!-- farthest fabric: a whole blurred layer behind everything, the archive
+             continuing past all focus the way the dendrite video's back plane does -->
+        <g stroke="#e8ddd0" stroke-opacity=".045" stroke-width="3.4" fill="none" stroke-linecap="round" filter="url(#soft2)">
+          <path d="M 1150 120 C 1020 160, 900 230, 810 330 C 730 420, 680 520, 660 630"/>
+          <path d="M 1160 340 C 1060 360, 960 400, 880 470 C 800 540, 750 630, 730 730"/>
+          <path d="M 1140 560 C 1050 580, 960 620, 890 690 C 830 750, 790 830, 775 910"/>
+          <path d="M 900 150 C 870 240, 850 340, 850 440"/>
+          <path d="M 1050 180 C 1000 260, 960 350, 940 450"/>
+          <path d="M 1155 210 C 1080 300, 1020 400, 990 510"/>
+        </g>
+
+        <!-- deepest filaments: the network continues far past focus -->
+        <g stroke="#e8ddd0" stroke-opacity=".07" stroke-width="2.2" fill="none" stroke-linecap="round" filter="url(#soft)">
+          <path d="M 1110 240 C 1010 270, 900 310, 800 370 C 720 418, 650 480, 600 550"/>
+          <path d="M 1120 420 C 1030 440, 930 470, 850 520 C 780 564, 720 620, 680 690"/>
+          <path d="M 1100 700 C 1010 700, 910 710, 830 745 C 760 776, 700 830, 660 900"/>
+          <path d="M 980 220 C 930 280, 890 350, 870 430"/>
+          <path d="M 620 380 C 600 450, 590 530, 600 610"/>
+          <path d="M 560 700 C 590 760, 610 830, 615 910"/>
+        </g>
+      </g>
+
+      <!-- ————— the network, far to near. Filaments fork like dendrites; a record lives
+           at every junction. Filled = live · hollow = synthetic · red = caught failure. ————— -->
+
+      <!-- ganglion 1 · far, high -->
+      <g class="g1" stroke="#e8ddd0" stroke-opacity=".16" fill="none" stroke-linecap="round">
+        <g stroke-width="1.6">
+          <path d="M 1000 330 C 950 320, 900 315, 850 320"/>
+          <path d="M 1000 330 C 1040 310, 1080 300, 1108 296"/>
+          <path d="M 1000 330 C 960 355, 925 385, 900 420"/>
+          <path d="M 1000 330 C 1010 290, 1020 250, 1026 210"/>
+          <path d="M 1000 330 C 1015 365, 1022 395, 1028 428"/>
+        </g>
+        <g stroke-width="1">
+          <path d="M 850 320 C 815 325, 785 335, 760 350"/>
+          <path d="M 850 320 C 820 305, 790 298, 762 300"/>
+          <path d="M 900 420 C 875 445, 850 460, 825 465"/>
+          <path d="M 900 420 C 890 448, 885 475, 888 500"/>
+        </g>
+      </g>
+      <g class="g1-nodes">
+        <g fill="#e8ddd0" fill-opacity=".5">
+          <circle cx="850" cy="320" r="2.6"/><circle cx="900" cy="420" r="2.8"/>
+          <circle cx="1026" cy="210" r="2.2"/><circle cx="825" cy="465" r="2.4"/>
+        </g>
+        <g fill="none" stroke="#e8ddd0" stroke-opacity=".5" stroke-width="1">
+          <circle cx="760" cy="350" r="2.6"/><circle cx="762" cy="300" r="2.4"/>
+        </g>
+      </g>
+
+      <!-- depth fog between the far reach and the middle of the field -->
+      <rect x="-1400" y="360" width="2560" height="130" fill="url(#foggrad)" opacity=".85"/>
+
+      <!-- ganglion 2 · the middle of the archive -->
+      <g class="g2" stroke="#e8ddd0" stroke-opacity=".22" fill="none" stroke-linecap="round">
+        <g stroke-width="2">
+          <path d="M 940 560 C 880 540, 820 510, 770 470"/>
+          <path d="M 940 560 C 870 570, 800 580, 730 575"/>
+          <path d="M 940 560 C 900 620, 855 670, 805 705"/>
+          <path d="M 940 560 C 975 520, 1005 470, 1028 428"/>
+          <path d="M 940 560 C 1000 570, 1055 575, 1108 570"/>
+          <path d="M 940 560 C 985 610, 1030 655, 1065 705"/>
+        </g>
+        <g stroke-width="1.2">
+          <path d="M 770 470 C 740 445, 715 430, 685 425"/>
+          <path d="M 770 470 C 745 480, 720 480, 695 470"/>
+          <path d="M 730 575 C 690 570, 655 555, 625 535"/>
+          <path d="M 730 575 C 700 592, 670 598, 640 600"/>
+          <path d="M 805 705 C 775 725, 745 735, 715 735"/>
+          <path d="M 805 705 C 790 740, 778 770, 768 798"/>
+          <path d="M 1065 705 C 1090 740, 1103 775, 1108 812"/>
+        </g>
+      </g>
+      <g class="g2-nodes" fill="#e8ddd0" fill-opacity=".7">
+        <circle cx="770" cy="470" r="3.8"/><circle cx="730" cy="575" r="3.6"/>
+        <circle cx="805" cy="705" r="4"/><circle cx="685" cy="425" r="3.2"/>
+        <circle cx="625" cy="535" r="3.4"/><circle cx="1065" cy="705" r="3.4"/>
+        <circle cx="695" cy="470" r="3"/><circle cx="715" cy="735" r="3.4"/>
+      </g>
+      <circle cx="1080" cy="732" r="2" fill="#ff6161" opacity=".85"/>
+
+      <!-- ganglion 3 · at the viewer's feet -->
+      <g class="g3" stroke="#e8ddd0" stroke-opacity=".3" fill="none" stroke-linecap="round">
+        <g stroke-width="2.6">
+          <path d="M 800 800 C 750 780, 700 765, 650 760"/>
+          <path d="M 800 800 C 850 790, 900 785, 950 790"/>
+          <path d="M 800 800 C 780 845, 765 890, 760 940"/>
+          <path d="M 800 800 C 840 840, 870 885, 885 935"/>
+          <path d="M 800 800 C 745 815, 695 835, 655 865"/>
+        </g>
+        <g stroke-width="1.5">
+          <path d="M 650 760 C 615 758, 585 765, 560 780"/>
+          <path d="M 650 760 C 622 748, 596 744, 572 748"/>
+          <path d="M 950 790 C 990 795, 1025 805, 1055 825"/>
+          <path d="M 950 790 C 985 780, 1018 778, 1048 782"/>
+          <path d="M 655 865 C 625 885, 600 910, 585 940"/>
+        </g>
+      </g>
+      <g class="g3-nodes" fill="#e8ddd0" fill-opacity=".85">
+        <circle cx="800" cy="800" r="6"/><circle cx="650" cy="760" r="5.2"/>
+        <circle cx="950" cy="790" r="5.4"/><circle cx="560" cy="780" r="4.8"/>
+        <circle cx="655" cy="865" r="5"/><circle cx="885" cy="935" r="5.2"/>
+        <circle cx="760" cy="940" r="4.6"/>
+      </g>
+      <circle cx="588" cy="942" r="2.2" fill="#ff6161" opacity=".85"/>
+
+      <!-- ————— THE STRANDS, v10: three questions wander the archive and leave the
+           hero STILL SEPARATE - nothing merges, nothing verifies here. They fray
+           (dead-end spurs, hollow ends) and exit through the bottom mask; the page
+           spine picks them up and carries them to the convergence at THE SOLUTION.
+           Each strand is a small bundle: one glow, two close cores in dash-sync. ————— -->
+      <g class="strands" fill="none" stroke-linecap="round">
+        <path data-strand="0" stroke="#be95ff" stroke-opacity=".32" stroke-width="7" filter="url(#soft)"
+              d="M 1000 330 C 950 360, 905 400, 880 450 C 850 510, 838 560, 810 620 C 780 685, 745 750, 725 830 C 712 890, 705 950, 700 1015"/>
+        <path data-strand="0" stroke="#d7afff" stroke-width="1.2" stroke-opacity=".8" transform="translate(2.4 1.8)"
+              d="M 1000 330 C 950 360, 905 400, 880 450 C 850 510, 838 560, 810 620 C 780 685, 745 750, 725 830 C 712 890, 705 950, 700 1015"/>
+        <path data-strand="0" data-strand-guide="0" stroke="#d7afff" stroke-width="1.5"
+              d="M 1000 330 C 950 360, 905 400, 880 450 C 850 510, 838 560, 810 620 C 780 685, 745 750, 725 830 C 712 890, 705 950, 700 1015"/>
+        <path data-strand="1" stroke="#be95ff" stroke-opacity=".32" stroke-width="7" filter="url(#soft)"
+              d="M 1085 570 C 1030 580, 985 575, 945 600 C 905 625, 890 680, 880 730 C 868 790, 862 850, 858 910 C 856 950, 858 985, 860 1015"/>
+        <path data-strand="1" stroke="#d7afff" stroke-width="1.2" stroke-opacity=".8" transform="translate(1.6 -2.4)"
+              d="M 1085 570 C 1030 580, 985 575, 945 600 C 905 625, 890 680, 880 730 C 868 790, 862 850, 858 910 C 856 950, 858 985, 860 1015"/>
+        <path data-strand="1" data-strand-guide="1" stroke="#d7afff" stroke-width="1.5"
+              d="M 1085 570 C 1030 580, 985 575, 945 600 C 905 625, 890 680, 880 730 C 868 790, 862 850, 858 910 C 856 950, 858 985, 860 1015"/>
+        <path data-strand="2" stroke="#be95ff" stroke-opacity=".32" stroke-width="7" filter="url(#soft)"
+              d="M 1055 825 C 1010 830, 975 850, 960 880 C 945 910, 968 930, 988 950 C 1000 968, 1006 990, 1008 1015"/>
+        <path data-strand="2" stroke="#d7afff" stroke-width="1.2" stroke-opacity=".8" transform="translate(-1.8 -2.2)"
+              d="M 1055 825 C 1010 830, 975 850, 960 880 C 945 910, 968 930, 988 950 C 1000 968, 1006 990, 1008 1015"/>
+        <path data-strand="2" data-strand-guide="2" stroke="#d7afff" stroke-width="1.5"
+              d="M 1055 825 C 1010 830, 975 850, 960 880 C 945 910, 968 930, 988 950 C 1000 968, 1006 990, 1008 1015"/>
+      </g>
+
+      <!-- the fray: dead-end spurs off the strands, ending hollow. Knowledge scattering. -->
+      <g class="fray" fill="none" stroke="#be95ff" stroke-opacity=".22" stroke-width="1" stroke-linecap="round">
+        <path d="M 838 560 C 815 552, 795 548, 778 550"/>
+        <path d="M 880 730 C 908 742, 928 758, 938 778"/>
+        <path d="M 745 750 C 728 772, 720 795, 720 815"/>
+      </g>
+      <g fill="none" stroke="#be95ff" stroke-opacity=".38" stroke-width="1">
+        <circle cx="778" cy="550" r="2.6"/><circle cx="938" cy="778" r="2.6"/><circle cx="720" cy="815" r="2.4"/>
+      </g>
+
+      <!-- the records the strands pass hold a little of their light -->
+      <g fill="#be95ff" fill-opacity=".85">
+        <circle cx="880" cy="450" r="3.6"/><circle cx="945" cy="600" r="4.2"/>
+        <circle cx="725" cy="830" r="4.2"/><circle cx="960" cy="880" r="3.4"/>
+      </g>
+
+      <!-- source records: where each question entered. Filled = live. -->
+      <circle cx="1000" cy="330" r="12" fill="#be95ff" opacity=".2" filter="url(#soft)"/>
+      <circle cx="1000" cy="330" r="4.2" fill="#be95ff"/>
+      <circle cx="1085" cy="570" r="11" fill="#be95ff" opacity=".2" filter="url(#soft)"/>
+      <circle cx="1085" cy="570" r="3.8" fill="#be95ff"/>
+      <circle cx="1055" cy="825" r="12" fill="#be95ff" opacity=".2" filter="url(#soft)"/>
+      <circle cx="1055" cy="825" r="4.2" fill="#be95ff"/>
+
+      <!-- the copy side of the frame stays in real shadow.
+           Runs far past the viewBox on every side: when the svg is width-limited
+           (mobile) the drawn box starts mid-hero and a y=0 rect prints its edge. -->
+      <rect x="-1400" y="-1200" width="2510" height="3400" fill="url(#scrimgrad)"/>
+
+      <!-- foreground: the traveling tips. White-hot violet, never red. -->
+      <g data-tip="0" opacity="0"><circle r="6.5" fill="#be95ff" opacity=".45" filter="url(#soft)"/><circle r="2.6" fill="#ffffff"/></g>
+      <g data-tip="1" opacity="0"><circle r="6.5" fill="#be95ff" opacity=".45" filter="url(#soft)"/><circle r="2.6" fill="#ffffff"/></g>
+      <g data-tip="2" opacity="0"><circle r="6.5" fill="#be95ff" opacity=".45" filter="url(#soft)"/><circle r="2.6" fill="#ffffff"/></g>
+    </svg>
     <div class="col titlecard">
       <span class="lockup">
         <h1>Jhonalbert Alvarez</h1>
@@ -393,7 +698,7 @@
 
   <!-- ————— band 2 · the product: the memory system ————— -->
   <main class="scenes col">
-    <section class="scene left" id="work" aria-label="The problem">
+    <section class="scene left" id="work" aria-label="The problem" data-route-stop="right">
       <div class="inner">
         <p class="kicker mono">THE PROBLEM <i>·</i> knowledge scatters</p>
         <h2 class="display">Every answer lives in somebody's head.</h2>
@@ -402,7 +707,7 @@
       </div>
     </section>
 
-    <section class="scene right" id="product" aria-label="The solution: the memory system">
+    <section class="scene right" id="product" aria-label="The solution: the memory system" data-route-stop="left">
       <div class="inner">
         <p class="kicker mono">THE SOLUTION <i>·</i> one private memory</p>
         <h2 class="display">The memory system</h2>
@@ -412,7 +717,7 @@
       </div>
     </section>
 
-    <section class="decision-loop" id="loop" aria-label="How it works day to day">
+    <section class="decision-loop" id="loop" aria-label="How it works day to day" data-route-stop="right">
       <div class="loop-head">
         <p class="kicker mono">HOW IT WORKS</p>
         <h2 class="display">From work happening to the business remembering.</h2>
@@ -428,7 +733,7 @@
       <p class="sect-cta"><a class="cta" href="#contact">Bring me your first question ↓</a></p>
     </section>
 
-    <section class="proof-band" id="proof" aria-label="Proof: my own system, measured">
+    <section class="proof-band" id="proof" aria-label="Proof: my own system, measured" data-route-stop="left">
       <div class="loop-head">
         <p class="kicker mono">PROOF <i>·</i> MEASURED, JULY 2026</p>
         <h2 class="display">Zero losses. Measured, not promised.</h2>
@@ -447,7 +752,7 @@
       <p class="mono">Two sizes · same system</p>
       <hr>
     </div>
-    <div class="twin">
+    <div class="twin" data-route-stop="center">
       <section class="scene" id="tier-founder" aria-label="For founders">
         <div class="inner">
           <p class="kicker mono">FOR FOUNDERS <i>·</i> personal</p>
@@ -466,7 +771,7 @@
       </section>
     </div>
 
-    <section class="decision-loop" id="delivery" aria-label="How the build starts">
+    <section class="decision-loop" id="delivery" aria-label="How the build starts" data-route-stop="right">
       <div class="loop-head">
         <p class="kicker mono">THE BUILD</p>
         <h2 class="display">It starts where your business is.</h2>
@@ -482,7 +787,7 @@
     </section>
 
     <!-- ————— band 3 · THE MAP ————— -->
-    <section class="map-band" id="map" aria-label="The map: how the systems connect">
+    <section class="map-band" id="map" aria-label="The map: how the systems connect" data-route-stop="left">
       <div class="map-head">
         <span class="lead" aria-hidden="true"></span>
         <h2 class="display">Behind it: one discipline, three systems.</h2>
@@ -547,7 +852,7 @@
     </section>
 
     <!-- ————— band 4 · about ————— -->
-    <section class="about" aria-label="About">
+    <section class="about" aria-label="About" data-route-stop="right">
       <div>
         <p class="line display">Sales instincts. Systems thinking. Builder's hands.</p>
         <p class="body">I start with the work on the ground, then build the information, rules, and automation that make teams faster and leadership clearer.</p>
@@ -556,7 +861,7 @@
     </section>
 
     <!-- ————— band 5 · contact ————— -->
-    <section class="contact" id="contact" aria-label="Contact">
+    <section class="contact" id="contact" aria-label="Contact" data-route-stop="gate">
       <div>
         <h2 class="display">Ask your business its first question.</h2>
         <p class="sub">Book 15 minutes. Bring one question your business can't answer fast. I'll show you how a memory system would.</p>
@@ -736,7 +1041,6 @@
     '.avail': 'Tomando proyectos de sistemas de memoria. También abierto al rol correcto.',
     '.cta-row .cta:not(.quiet)': 'Ver el sistema ↓',
     '.cta-row .cta.quiet': 'Agenda 15 min ↗',
-
     '#work .kicker': 'EL PROBLEMA <i>·</i> el conocimiento se dispersa',
     '#work h2': 'Cada respuesta vive en la cabeza de alguien.',
     '#work .sys': '<b>¿Cómo cerramos ese negocio? ¿Por qué se fue ese cliente? ¿Qué decidimos en marzo?</b> Todo negocio corre sobre respuestas así. Casi ninguna está escrita donde la gente pueda encontrarla. Viven en correos, chats viejos y en la memoria de quien estuvo ahí. Así que el equipo vuelve a resolver problemas ya resueltos. Los nuevos pasan meses preguntando. Cuando alguien se va, todo lo que sabía se va con esa persona.',
@@ -855,6 +1159,10 @@
       if (a) n.setAttribute('aria-label', a);
     });
     SYSTEMS = (l === 'es') ? SYSTEMS_ES : SYSTEMS_EN;
+    document.querySelectorAll('img[data-alt-es]').forEach(function (im) {
+      if (!im.dataset.altEn) im.dataset.altEn = im.getAttribute('alt') || '';
+      im.setAttribute('alt', (l === 'es') ? im.dataset.altEs : im.dataset.altEn);
+    });
     apply(current);
     if (langBtn) {
       langBtn.textContent = (l === 'es') ? 'EN' : 'ES';
@@ -884,6 +1192,434 @@
     io.observe(stage);
   } else {
     band.classList.add('live');
+  }
+})();
+</script>
+<script>
+/* v10 scroll driver: the visitor drives the signal. Three strands draw as the page
+   scrolls and leave the hero STILL SEPARATE - the merge, the gate, and the light
+   now live at THE SOLUTION, driven by the page-spine script.
+   Reduced motion: everything renders complete and still. */
+(function () {
+  var svg = document.querySelector('.brain-fig');
+  var hero = document.querySelector('.scene-hero');
+  if (!svg || !hero || !svg.querySelector('[data-strand]')) return;
+
+  var strandPaths = [].slice.call(svg.querySelectorAll('[data-strand]'));
+  var guides = [
+    svg.querySelector('[data-strand-guide="0"]'),
+    svg.querySelector('[data-strand-guide="1"]'),
+    svg.querySelector('[data-strand-guide="2"]')
+  ];
+  var tips = [
+    svg.querySelector('[data-tip="0"]'),
+    svg.querySelector('[data-tip="1"]'),
+    svg.querySelector('[data-tip="2"]')
+  ];
+
+  strandPaths.forEach(function (p) {
+    var L = p.getTotalLength();
+    p.dataset.len = L;
+    p.style.strokeDasharray = L + ' ' + L;
+    p.style.strokeDashoffset = L;
+  });
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var BASE = 0.15;
+
+  function clamp01(v) { return Math.min(1, Math.max(0, v)); }
+
+  function frame() {
+    var h = hero.offsetHeight || 1;
+    /* Full progress by ~55% of the hero scrolled: the strands finish exiting the
+       bottom mask right as the page spine's three lanes take over below the seam. */
+    var p = reduced ? 1 : BASE + clamp01(window.scrollY / (h * 0.55)) * (1 - BASE);
+
+    for (var i = 0; i < 3; i++) {
+      var sp = clamp01((p - i * 0.07) / 0.8);
+      strandPaths.forEach(function (path) {
+        if (path.getAttribute('data-strand') === String(i)) {
+          path.style.strokeDashoffset = path.dataset.len * (1 - sp);
+        }
+      });
+      if (!reduced && sp > 0.01 && sp < 0.985) {
+        var pt = guides[i].getPointAtLength(guides[i].dataset.len * sp);
+        tips[i].setAttribute('transform', 'translate(' + pt.x.toFixed(1) + ' ' + pt.y.toFixed(1) + ')');
+        tips[i].setAttribute('opacity', '1');
+      } else {
+        tips[i].setAttribute('opacity', '0');
+      }
+    }
+  }
+
+  if (reduced) {
+    frame();
+    return;
+  }
+  var ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; frame(); });
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  frame();
+})();
+</script>
+<script>
+/* v10 page spine: the storytelling arc. THREE lanes leave the hero still separate,
+   fray through THE PROBLEM in cold light (bone records: reached, not verified),
+   then converge into ONE at a verification gate beside THE SOLUTION heading -
+   many sources, one answer, and the light blooms on. From there the single line
+   escorts the reader through the lit half of the page (same weave and violet
+   nodes as before) to the terminal gate beside the contact ask. Vertical runs in
+   margins, side-crossings only in the gaps between sections, never under text.
+   Rebuilt from live geometry on any size change (resize, EN/ES). */
+(function () {
+  var d4 = document.querySelector('.d4');
+  var hero = document.querySelector('.scene-hero');
+  if (!d4 || !hero || !document.querySelector('[data-route-stop]')) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var svg = null, lanes = [], laneTips = [], coldStops = [], stops = [];
+  var bGlow = null, bCore = null, bTip = null, bTable = null, bTotal = 0, gateDocY = 0;
+
+  function el(name, attrs, parent) {
+    var n = document.createElementNS(NS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+
+  /* the section's WIDEST visible blocks - the line must clear grids, not just heads */
+  function widest(sec, fallback) {
+    var lo = Infinity, hi = -Infinity;
+    [].slice.call(sec.children).forEach(function (ch) {
+      var b = ch.getBoundingClientRect();
+      if (b.width < 2 || b.height < 2) return;
+      if (b.left < lo) lo = b.left;
+      if (b.right > hi) hi = b.right;
+    });
+    if (lo === Infinity) { lo = fallback.left; hi = fallback.right; }
+    return { lo: lo, hi: hi };
+  }
+
+  function makeTable(path) {
+    var L = path.getTotalLength();
+    var ls = [], ys = [], STEP = 22, n = Math.ceil(L / STEP), i;
+    for (i = 0; i <= n; i++) {
+      var l = Math.min(L, i * STEP);
+      ls.push(l);
+      ys.push(path.getPointAtLength(l).y);
+    }
+    for (i = 1; i < ys.length; i++) if (ys[i] < ys[i - 1]) ys[i] = ys[i - 1];
+    return {
+      L: L,
+      lenAtY: function (y) {
+        if (y <= ys[0]) return 0;
+        if (y >= ys[ys.length - 1]) return L;
+        var lo = 0, hi = ys.length - 1;
+        while (hi - lo > 1) {
+          var mid = (lo + hi) >> 1;
+          if (ys[mid] <= y) lo = mid; else hi = mid;
+        }
+        var span = ys[hi] - ys[lo];
+        var f = span > 0 ? (y - ys[lo]) / span : 0;
+        return ls[lo] + (ls[hi] - ls[lo]) * f;
+      }
+    };
+  }
+
+  function build() {
+    if (svg) svg.remove();
+    lanes = []; laneTips = []; coldStops = []; stops = [];
+    bGlow = bCore = bTip = bTable = null;
+    var dr = d4.getBoundingClientRect();
+    var docW = d4.clientWidth, docH = Math.round(dr.height);
+    var narrow = window.innerWidth < 780;
+    var top0 = dr.top + window.scrollY;
+    function pageTop(r) { return r.top + window.scrollY - top0; }
+
+    var heroB = pageTop(hero.getBoundingClientRect()) + hero.offsetHeight;
+
+    /* the three exits, measured off the hero's strand guides */
+    var exits = [];
+    for (var gi = 0; gi < 3; gi++) {
+      var g = document.querySelector('[data-strand-guide="' + gi + '"]');
+      var x = docW * (0.55 + gi * 0.12);
+      if (g && g.getTotalLength) {
+        try {
+          var ept = g.getPointAtLength(g.getTotalLength());
+          var m = g.getScreenCTM();
+          if (m) x = m.a * ept.x + m.c * ept.y + m.e + window.scrollX;
+        } catch (e) {}
+      }
+      exits.push(Math.max(10, Math.min(docW - 14, Math.round(x))));
+    }
+
+    var probSec = document.getElementById('work');
+    var prodSec = document.getElementById('product');
+    if (!probSec || !prodSec) return;
+
+    /* phase A geometry: the lane band right of the problem text */
+    var pr = probSec.getBoundingClientRect();
+    var pw = widest(probSec, pr);
+    var probHeadR = (probSec.querySelector('h2') || probSec).getBoundingClientRect();
+    var probNodeY = Math.round(pageTop(probHeadR) + probHeadR.height / 2);
+    var probTop = pageTop(pr) + 10, probBot = pageTop(pr) + pr.height - 10;
+    var laneLo = narrow ? 8 : Math.min(docW - 150, Math.round(pw.hi - dr.left) + 40);
+    var laneHi = narrow ? 28 : docW - 30;
+    var laneXs = [laneLo, Math.round((laneLo + laneHi) / 2), laneHi];
+
+    /* the merge gate beside THE SOLUTION heading */
+    var sr = prodSec.getBoundingClientRect();
+    var sw = widest(prodSec, sr);
+    var sHeadR = (prodSec.querySelector('h2') || prodSec).getBoundingClientRect();
+    gateDocY = Math.round(pageTop(sHeadR) + sHeadR.height / 2);
+    var gateX = narrow ? 10 : Math.max(60, Math.round(sw.lo - dr.left) - 46);
+    var prodBot = Math.round(pageTop(sr) + sr.height - 18);
+
+    svg = el('svg', { 'class': 'route-spine', width: docW, height: docH, viewBox: '0 0 ' + docW + ' ' + docH, 'aria-hidden': 'true' });
+    var defs = el('defs', {}, svg);
+    var lg = el('linearGradient', { id: 'spinefade', gradientUnits: 'userSpaceOnUse', x1: 0, y1: Math.round(heroB), x2: 0, y2: Math.round(heroB + 170) }, defs);
+    el('stop', { offset: '0', 'stop-color': '#be95ff', 'stop-opacity': '0' }, lg);
+    el('stop', { offset: '1', 'stop-color': '#be95ff', 'stop-opacity': '1' }, lg);
+    var bg = el('radialGradient', { id: 'bloomgrad' }, defs);
+    el('stop', { offset: '0', 'stop-color': '#9b6ee6', 'stop-opacity': '.16' }, bg);
+    el('stop', { offset: '.5', 'stop-color': '#6d47ad', 'stop-opacity': '.07' }, bg);
+    el('stop', { offset: '1', 'stop-color': '#6d47ad', 'stop-opacity': '0' }, bg);
+    var wg = el('radialGradient', { id: 'warmgrad' }, defs);
+    el('stop', { offset: '0', 'stop-color': '#6d47ad', 'stop-opacity': '.09' }, wg);
+    el('stop', { offset: '1', 'stop-color': '#6d47ad', 'stop-opacity': '0' }, wg);
+
+    /* the light arc, painted behind everything: the bloom at the solution */
+    var lights = el('g', {}, svg);
+    el('ellipse', { 'class': 'bloom', cx: Math.round(docW * .5), cy: gateDocY + 120, rx: Math.round(docW * .6), ry: 480, fill: 'url(#bloomgrad)' }, lights);
+
+    /* phase A: three frayed lanes, hero exit -> problem band -> the gate */
+    for (var li = 0; li < 3; li++) {
+      var lx = laneXs[li], x0 = exits[li];
+      var sway = (li - 1) * 16;
+      var d = 'M ' + x0 + ' ' + Math.round(heroB + 6);
+      d += ' C ' + x0 + ' ' + Math.round(heroB + 70) + ' ' + (lx + sway) + ' ' + Math.round(probTop - 70) + ' ' + (lx + sway) + ' ' + Math.round(probTop);
+      d += ' C ' + (lx + sway - 12) + ' ' + Math.round((probTop + probNodeY) / 2) + ' ' + (lx - sway + 12) + ' ' + Math.round((probTop + probNodeY) / 2) + ' ' + lx + ' ' + probNodeY;
+      d += ' C ' + (lx + sway) + ' ' + Math.round((probNodeY + probBot) / 2) + ' ' + (lx - sway) + ' ' + Math.round((probNodeY + probBot) / 2) + ' ' + lx + ' ' + Math.round(probBot);
+      /* converge in the EMPTY gap between the sections - the sweep must never cross
+         the solution's kicker or heading - then drop the merged line straight down
+         the clear left margin into the gate */
+      var convY = Math.round(Math.max(probBot + 50, pageTop(sr) - 34));
+      var gg2 = Math.max(60, convY - probBot);
+      d += ' C ' + lx + ' ' + Math.round(probBot + gg2 * .55) + ' ' + gateX + ' ' + Math.round(convY - gg2 * .45) + ' ' + gateX + ' ' + convY;
+      d += ' L ' + gateX + ' ' + gateDocY;
+      var lglow = el('path', { d: d, fill: 'none', stroke: 'url(#spinefade)', 'stroke-opacity': '.14', 'stroke-width': '4', 'stroke-linecap': 'round' }, svg);
+      var lcore = el('path', { d: d, fill: 'none', stroke: 'url(#spinefade)', 'stroke-opacity': '.55', 'stroke-width': '1.3', 'stroke-linecap': 'round' }, svg);
+      lanes.push({ glow: lglow, core: lcore, table: makeTable(lcore) });
+      /* cold record on this lane at the problem's heading */
+      var nr0 = narrow ? 3 : 4.2;
+      var cg = el('g', { 'class': 'stop cold' }, svg);
+      el('circle', { 'class': 'stop-ring', cx: lx, cy: probNodeY, r: nr0 }, cg);
+      el('circle', { 'class': 'stop-core', cx: lx, cy: probNodeY, r: nr0 - 2 }, cg);
+      coldStops.push({ g: cg, y: probNodeY });
+    }
+
+    /* phase B: one verified line, gate -> product margin -> the weave -> contact */
+    var pts = [{ x: gateX, y: prodBot }], gatePt = null;
+    [].slice.call(document.querySelectorAll('[data-route-stop]')).forEach(function (sec) {
+      if (sec === probSec || sec === prodSec) return;
+      var side = sec.getAttribute('data-route-stop');
+      var r = sec.getBoundingClientRect();
+      var w = widest(sec, r);
+      var headR = (sec.querySelector('h2, .line') || sec).getBoundingClientRect();
+      var nodeY = Math.round(pageTop(headR) + headR.height / 2);
+      if (side === 'gate') {
+        var gx = narrow ? 10 : Math.max(70, Math.round(w.lo - dr.left) - 78);
+        gatePt = { x: gx, y: nodeY };
+        pts.push(gatePt);
+        return;
+      }
+      var x;
+      if (narrow) x = 16;
+      else if (side === 'center') x = Math.round(r.left - dr.left + r.width / 2);
+      else if (side === 'left') x = Math.max(28, Math.round(w.lo - dr.left) - 46);
+      else x = Math.min(docW - 28, Math.round(w.hi - dr.left) + 46);
+      var yTop = Math.round(pageTop(r) + 18);
+      var yBot = Math.round(Math.max(yTop + 40, pageTop(r) + r.height - 18));
+      pts.push({ x: x, y: yTop });
+      stops.push({ x: x, y: nodeY, sec: sec });
+      pts.push({ x: x, y: yBot });
+    });
+
+    var bd = 'M ' + gateX + ' ' + gateDocY;
+    var prev = { x: gateX, y: gateDocY };
+    pts.forEach(function (p) {
+      if (Math.abs(p.x - prev.x) < 2) {
+        bd += ' L ' + p.x + ' ' + p.y;
+      } else {
+        var gg3 = Math.max(40, p.y - prev.y);
+        bd += ' C ' + prev.x + ' ' + Math.round(prev.y + gg3 * .55) + ' ' + p.x + ' ' + Math.round(p.y - gg3 * .45) + ' ' + p.x + ' ' + p.y;
+      }
+      prev = p;
+    });
+    bGlow = el('path', { d: bd, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.14', 'stroke-width': '5', 'stroke-linecap': 'round' }, svg);
+    bCore = el('path', { d: bd, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.6', 'stroke-width': '1.5', 'stroke-linecap': 'round' }, svg);
+    bTable = makeTable(bCore);
+    bTotal = bTable.L;
+
+    /* warm pools: the lit world below the merge */
+    stops.forEach(function (s) {
+      el('ellipse', { cx: s.x, cy: s.y + 150, rx: 380, ry: 240, fill: 'url(#warmgrad)' }, lights);
+    });
+    if (gatePt) el('ellipse', { cx: gatePt.x + 120, cy: gatePt.y + 60, rx: 380, ry: 240, fill: 'url(#warmgrad)' }, lights);
+
+    var nr = narrow ? 3.4 : 4.5;
+    stops.forEach(function (s) {
+      s.g = el('g', { 'class': 'stop' }, svg);
+      el('circle', { 'class': 'stop-ring', cx: s.x, cy: s.y, r: nr }, s.g);
+      el('circle', { 'class': 'stop-core', cx: s.x, cy: s.y, r: nr - 2.1 }, s.g);
+      s.len = bTable.lenAtY(s.y);
+    });
+
+    /* the merge gate: three become one */
+    var sgr = narrow ? 9 : 18;
+    var sg = el('g', { 'class': 'sgate' }, svg);
+    el('circle', { cx: gateX, cy: gateDocY, r: sgr + 8, fill: '#be95ff', opacity: '.08' }, sg);
+    el('circle', { cx: gateX, cy: gateDocY, r: sgr, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.45', 'stroke-width': '1.25' }, sg);
+    el('circle', { cx: gateX, cy: gateDocY, r: sgr * .57, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.28', 'stroke-width': '1' }, sg);
+    el('path', { d: 'M ' + gateX + ' ' + gateDocY + ' L ' + (gateX + sgr * .68) + ' ' + (gateDocY - sgr * .68), stroke: '#d7afff', 'stroke-width': '1.4', fill: 'none' }, sg);
+    el('circle', { cx: gateX, cy: gateDocY, r: 3.6, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.5', 'stroke-width': '1.1' }, sg);
+    el('circle', { 'class': 'sgate-pulse', cx: gateX, cy: gateDocY, r: 7, fill: 'none', stroke: '#d7afff', 'stroke-width': '1.4' }, sg);
+    el('circle', { 'class': 'sgate-fill', cx: gateX, cy: gateDocY, r: 3.6, fill: '#d7afff' }, sg);
+
+    /* the terminal gate at the contact ask */
+    if (gatePt) {
+      var gr = narrow ? 9 : 22;
+      var gg = el('g', { 'class': 'fgate' }, svg);
+      el('circle', { cx: gatePt.x, cy: gatePt.y, r: gr + 8, fill: '#be95ff', opacity: '.08' }, gg);
+      el('circle', { cx: gatePt.x, cy: gatePt.y, r: gr, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.45', 'stroke-width': '1.25' }, gg);
+      el('circle', { cx: gatePt.x, cy: gatePt.y, r: gr * .57, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.28', 'stroke-width': '1' }, gg);
+      el('path', { d: 'M ' + gatePt.x + ' ' + gatePt.y + ' L ' + (gatePt.x + gr * .68) + ' ' + (gatePt.y - gr * .68), stroke: '#d7afff', 'stroke-width': '1.5', fill: 'none' }, gg);
+      el('circle', { cx: gatePt.x, cy: gatePt.y, r: 4, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.5', 'stroke-width': '1.1' }, gg);
+      el('circle', { 'class': 'fgate-pulse', cx: gatePt.x, cy: gatePt.y, r: 8, fill: 'none', stroke: '#d7afff', 'stroke-width': '1.5' }, gg);
+      el('circle', { 'class': 'fgate-fill', cx: gatePt.x, cy: gatePt.y, r: 4, fill: '#d7afff' }, gg);
+    }
+
+    /* tips: three while separate, one once verified */
+    for (var ti = 0; ti < 3; ti++) {
+      var t = el('g', { opacity: '0' }, svg);
+      el('circle', { r: '4.6', fill: '#be95ff', opacity: '.4' }, t);
+      el('circle', { r: '1.9', fill: '#ffffff' }, t);
+      laneTips.push(t);
+    }
+    bTip = el('g', { opacity: '0' }, svg);
+    el('circle', { r: '5', fill: '#be95ff', opacity: '.4' }, bTip);
+    el('circle', { r: '2.1', fill: '#ffffff' }, bTip);
+
+    d4.appendChild(svg);
+
+    lanes.forEach(function (l) {
+      [l.glow, l.core].forEach(function (p) {
+        p.style.strokeDasharray = l.table.L + ' ' + l.table.L;
+        p.style.strokeDashoffset = l.table.L;
+      });
+    });
+    [bGlow, bCore].forEach(function (p) {
+      p.style.strokeDasharray = bTotal + ' ' + bTotal;
+      p.style.strokeDashoffset = bTotal;
+    });
+
+    if (reduced) {
+      lanes.forEach(function (l) { [l.glow, l.core].forEach(function (p) { p.style.strokeDashoffset = 0; }); });
+      [bGlow, bCore].forEach(function (p) { p.style.strokeDashoffset = 0; });
+      coldStops.forEach(function (s) { s.g.classList.add('lit'); });
+      stops.forEach(function (s) { s.g.classList.add('lit'); });
+      svg.classList.add('merged');
+      svg.classList.add('done');
+    } else {
+      frame();
+    }
+  }
+
+  function frame() {
+    if (!bCore) return;
+    var vh = window.innerHeight;
+    var maxS = Math.max(1, document.documentElement.scrollHeight - vh);
+    var tipDoc = window.scrollY + vh * 0.52;
+    if (window.scrollY >= maxS - 2) tipDoc = 1e9;
+    var isMerged = tipDoc >= gateDocY - 1;
+    svg.classList.toggle('merged', isMerged);
+
+    lanes.forEach(function (l, i) {
+      var len = l.table.lenAtY(tipDoc);
+      var off = Math.max(0, l.table.L - len);
+      l.glow.style.strokeDashoffset = off;
+      l.core.style.strokeDashoffset = off;
+      if (!isMerged && len > 4 && len < l.table.L - 2) {
+        var pt = l.core.getPointAtLength(len);
+        laneTips[i].setAttribute('transform', 'translate(' + pt.x.toFixed(1) + ' ' + pt.y.toFixed(1) + ')');
+        laneTips[i].setAttribute('opacity', '1');
+      } else {
+        laneTips[i].setAttribute('opacity', '0');
+      }
+    });
+
+    coldStops.forEach(function (s) { s.g.classList.toggle('lit', tipDoc >= s.y - 1); });
+
+    if (isMerged) {
+      var bLen = bTable.lenAtY(tipDoc);
+      var bOff = Math.max(0, bTotal - bLen);
+      bGlow.style.strokeDashoffset = bOff;
+      bCore.style.strokeDashoffset = bOff;
+      stops.forEach(function (s) { s.g.classList.toggle('lit', bLen >= s.len - 1); });
+      if (bLen >= bTotal - 2) {
+        svg.classList.add('done');
+        bTip.setAttribute('opacity', '0');
+      } else {
+        svg.classList.remove('done');
+        if (bLen > 4) {
+          var bpt = bCore.getPointAtLength(bLen);
+          bTip.setAttribute('transform', 'translate(' + bpt.x.toFixed(1) + ' ' + bpt.y.toFixed(1) + ')');
+          bTip.setAttribute('opacity', '1');
+        } else {
+          bTip.setAttribute('opacity', '0');
+        }
+      }
+    } else {
+      bGlow.style.strokeDashoffset = bTotal;
+      bCore.style.strokeDashoffset = bTotal;
+      stops.forEach(function (s) { s.g.classList.remove('lit'); });
+      svg.classList.remove('done');
+      bTip.setAttribute('opacity', '0');
+    }
+  }
+
+  build();
+  if (reduced) {
+    if (window.ResizeObserver) new ResizeObserver(function () { build(); }).observe(d4);
+    return;
+  }
+  var ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; frame(); });
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  var rbTimer = null;
+  function rebuild() {
+    if (rbTimer) clearTimeout(rbTimer);
+    rbTimer = setTimeout(function () { rbTimer = null; build(); }, 120);
+  }
+  window.addEventListener('resize', rebuild, { passive: true });
+  if (window.ResizeObserver) {
+    var lastH = d4.getBoundingClientRect().height;
+    new ResizeObserver(function () {
+      var h = d4.getBoundingClientRect().height;
+      if (Math.abs(h - lastH) > 2) { lastH = h; rebuild(); }
+    }).observe(d4);
   }
 })();
 </script>
