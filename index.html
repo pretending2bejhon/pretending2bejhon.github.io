@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Jhonalbert Alvarez — Sales · RevOps · AI systems</title>
-  <meta name="description" content="I build the system behind the work — a private memory system, team AI enablement, and agentic workflows that run themselves, on a foundation of sales and RevOps. Every status label is literal.">
+  <title>Jhonalbert Alvarez · The memory system</title>
+  <meta name="description" content="I build private memory systems for founders and 10–50-person teams: the rules, history, and decisions behind your work, in one place your people and your AI both answer from. I run my own business on one, daily.">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0b0813">
   <link rel="canonical" href="https://pretending2bejhon.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pretending2bejhon.github.io/">
-  <meta property="og:title" content="Jhonalbert Alvarez — I build the system behind the work.">
-  <meta property="og:description" content="The memory system · Team AI enablement · Agentic workflows — built on sales and RevOps. Every status label is literal. Most AI looks things up. These systems remember.">
+  <meta property="og:title" content="Jhonalbert Alvarez · Your business finally remembers itself.">
+  <meta property="og:description" content="The memory system: ask your business a question and get the answer in seconds, with the source. Most AI looks things up and forgets. This remembers. Every status label is literal.">
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="%23a78bfa" stroke-width="2.5"/><path d="M20 20 29 10" stroke="%23a78bfa" stroke-width="2.5"/><circle cx="20" cy="20" r="3" fill="%23a78bfa"/></svg>'>
 <style>
   /* JHONALBERT ALVAREZ — portfolio. "Night console": violet night, one motivated light,
@@ -119,6 +119,7 @@
   .cta:hover { color: var(--signal); }
   .cta.quiet { color: var(--dim); border-color: var(--hair); }
   .cta.quiet:hover { color: var(--text); border-color: var(--signal); }
+  .sect-cta { margin: 38px 0 0; font-size: 14px; }
 
   /* ————— the spine: three scenes ————— */
   .scenes { padding-top: clamp(64px, 11vh, 120px); }
@@ -159,12 +160,13 @@
   .twin .scene .sys { font-size: 15.5px; }
 
   /* ————— the operating loop: build from the ground, sell to the top ————— */
-  .decision-loop { padding: clamp(54px, 10vh, 106px) 0 clamp(20px, 4vh, 44px); scroll-margin-top: 28px; }
-  .decision-loop .loop-head { max-width: 700px; }
-  .decision-loop h2 { margin: 0 0 18px; font-size: clamp(2rem, 4.6vw, 3.3rem); line-height: 1.04; letter-spacing: -0.022em; font-weight: 280; text-wrap: balance; }
-  .decision-loop .loop-lede { margin: 0; max-width: 61ch; color: var(--dim); font-size: 16.5px; }
+  .decision-loop, .proof-band { padding: clamp(54px, 10vh, 106px) 0 clamp(20px, 4vh, 44px); scroll-margin-top: 28px; }
+  .decision-loop .loop-head, .proof-band .loop-head { max-width: 700px; }
+  .decision-loop h2, .proof-band h2 { margin: 0 0 18px; font-size: clamp(2rem, 4.6vw, 3.3rem); line-height: 1.04; letter-spacing: -0.022em; font-weight: 280; text-wrap: balance; }
+  .decision-loop .loop-lede, .proof-band .loop-lede { margin: 0; max-width: 61ch; color: var(--dim); font-size: 16.5px; }
   .loop-note { margin: 18px 0 0; color: var(--faint); font-size: 10.5px; letter-spacing: .15em; text-transform: uppercase; }
   .operating-steps { display: grid; grid-template-columns: repeat(4, 1fr); margin: clamp(34px, 6vh, 58px) 0 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+  .operating-steps.three { grid-template-columns: repeat(3, 1fr); }
   .operating-step { position: relative; min-height: 180px; padding: 24px 22px 22px 0; }
   .operating-step + .operating-step { padding-left: 22px; border-left: 1px solid var(--hair); }
   .operating-step .step-no { display: block; margin-bottom: 34px; color: var(--signal); font-size: 10.5px; letter-spacing: .2em; }
@@ -229,7 +231,7 @@
 
   .map-list { display: none; margin: 30px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--hair); }
   .map-list li { border-bottom: 1px solid var(--hair); }
-  .map-list a { display: flex; align-items: center; gap: 12px; padding: 15px 2px; text-decoration: none; }
+  .map-list .row { display: flex; align-items: center; gap: 12px; padding: 15px 2px; text-decoration: none; }
   .map-list .t { color: var(--text); font-size: 15px; flex: 1 1 auto; }
   .map-list .k { color: var(--faint); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
 
@@ -341,6 +343,10 @@
 
     .decision-loop { display: none; }
 
+    .proof-band { padding: 7pt 0; border-bottom: .5pt solid #d9d3ea; break-inside: avoid; }
+    .proof-band h2 { font-size: 11.5pt; font-weight: 600; margin: 0 0 3pt; color: #17112b; }
+    .proof-band .loop-lede, .proof-band .operating-steps { display: none; }
+
     .contact { padding: 10pt 0 0; }
     .contact h2 { font-size: 12pt; font-weight: 600; margin: 0 0 2pt; color: #17112b; }
     .contact .sub { font-size: 9pt; margin: 0 0 6pt; color: #3c3556; }
@@ -376,81 +382,115 @@
     </div>
 
     <div class="col hero-low">
-      <p class="thesis display">I turn daily work into systems. Teams run them. Leaders steer.</p>
-      <p class="avail">Open to roles and focused build engagements.</p>
+      <p class="thesis display">Your business finally remembers itself.</p>
+      <p class="avail">Now taking memory-system builds. Also open to the right role.</p>
       <div class="cta-row">
-        <a class="cta" href="#work">See what changes ↓</a>
-        <a class="cta quiet" href="#contact">Contact</a>
+        <a class="cta" href="#work">See the system ↓</a>
+        <a class="cta quiet" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min ↗</a>
       </div>
     </div>
   </header>
 
-  <!-- ————— band 2 · the three products ————— -->
+  <!-- ————— band 2 · the product: the memory system ————— -->
   <main class="scenes col">
-    <section class="decision-loop" id="work" aria-label="The operating loop">
+    <section class="scene left" id="work" aria-label="The problem">
+      <div class="inner">
+        <p class="kicker mono">THE PROBLEM <i>·</i> knowledge scatters</p>
+        <h2 class="display">Every answer lives in somebody's head.</h2>
+        <p class="sys"><b>How did we close that deal? Why did that client leave? What did we decide in March?</b> Every business runs on answers like these. Almost none of them are written down where people can find them. They live in inboxes, old chats, and the memory of whoever was there. So the team re-solves problems it already solved. New hires spend months asking. When someone leaves, everything they knew walks out with them.</p>
+        <p class="sys-short">The answers a business runs on live in heads and inboxes: re-derived every week, lost with every departure.</p>
+      </div>
+    </section>
+
+    <section class="scene right" id="product" aria-label="The solution: the memory system">
+      <div class="inner">
+        <p class="kicker mono">THE SOLUTION <i>·</i> one private memory</p>
+        <h2 class="display">The memory system</h2>
+        <p class="sys"><b>Ask your business a question and get the answer in seconds, with the source, no matter whose head it used to live in.</b> I build your company a private, organized memory: the rules, the history, and the decisions behind your work, in one place your people and your AI both answer from. Most AI tools look things up on the fly and forget. This system keeps what your business learns, so every answer makes the next one faster. It runs on your own accounts. What goes in stays yours.</p>
+        <p class="sys-short">A private, organized memory for your business: people and AI answer from one source, on your own accounts.</p>
+        <p class="subtitle mono"><span class="st"><span class="dot"></span>LIVE</span> · I run my own business on one, daily · <a href="case-study-second-brain.html">read the case study ↗</a><span class="gotow"> · <a class="goto" href="#map">see the discipline ↓</a></span></p>
+      </div>
+    </section>
+
+    <section class="decision-loop" id="loop" aria-label="How it works day to day">
       <div class="loop-head">
-        <p class="kicker mono">THE OPERATING LOOP</p>
-        <h2 class="display">From the work on the ground to the decision at the top.</h2>
-        <p class="loop-lede">I start with what people actually do. Then I structure the context, make the next action clearer, and turn the repeated parts into a system leadership can steer.</p>
-        <p class="loop-note mono">Representative operating loop &mdash; not a client case</p>
+        <p class="kicker mono">HOW IT WORKS</p>
+        <h2 class="display">From work happening to the business remembering.</h2>
+        <p class="loop-lede">The system sits under the work your team already does. As work happens, the answers, decisions, and fixes get captured, organized, and served back the moment they're needed. To your people and to your AI alike.</p>
+        <p class="loop-note mono">Representative operating loop · not a client case</p>
       </div>
       <div class="operating-steps" aria-label="Four-stage operating loop">
         <article class="operating-step"><span class="step-no mono">01</span><h3>Work happens</h3><p>A client emails a question. A rep closes a deal. Someone finally fixes the thing that broke all week. Most of that signal evaporates by Friday.</p></article>
-        <article class="operating-step"><span class="step-no mono">02</span><h3>Context holds</h3><p>The answer, the deal, the fix get captured where the whole team — and its AI — can find them, instead of living in one person's head.</p></article>
-        <article class="operating-step"><span class="step-no mono">03</span><h3>Team acts</h3><p>The fifth time the same question arrives, nobody re-derives the answer. The system serves it, with the source; people spend their judgment where it's needed.</p></article>
-        <article class="operating-step"><span class="step-no mono">04</span><h3>Leadership steers</h3><p>The owner sees which questions repeat, which handoffs break, and what to automate next — and decides from evidence, not memory.</p></article>
+        <article class="operating-step"><span class="step-no mono">02</span><h3>Context holds</h3><p>The answer, the deal, the fix get captured where the whole team and its AI can find them, instead of living in one person's head.</p></article>
+        <article class="operating-step"><span class="step-no mono">03</span><h3>Team acts</h3><p>The fifth time the same question arrives, nobody re-derives the answer. The system serves it, with the source. People spend their judgment where it's needed.</p></article>
+        <article class="operating-step"><span class="step-no mono">04</span><h3>Leadership steers</h3><p>The owner sees which questions repeat, which handoffs break, and what to automate next. Decisions come from evidence, not memory.</p></article>
       </div>
-    </section>
-    <section class="scene left" id="sys-01">
-      <div class="inner">
-        <p class="kicker mono">SYS-01 <i>·</i> knowledge scatters</p>
-        <h2 class="display">The memory system</h2>
-        <p class="sys"><b>Ask your business a question and get the answer in seconds — with the source — instead of asking the one person who's been there longest.</b> Most AI looks things up just in time; this system remembers what already happened — and learns. I build it for a founder whose decisions are buried in years of scattered notes, and for 10–50-person teams that answer the same onboarding question every month because the answer lives in somebody's head. The rules, the history, the decisions behind your work — organized in one private place your people and your AI both answer from.</p>
-        <p class="sys-short">One reliable source of truth for the rules, history, and decisions behind the work — private, structured, and usable by people or AI agents.</p>
-        <p class="subtitle mono"><span class="st"><span class="dot"></span>LIVE</span> — this vault runs on it daily · <a href="case-study-second-brain.html">read the case study ↗</a><span class="gotow"> · <a class="goto" href="#map">see in map ↓</a></span></p>
-      </div>
+      <p class="sect-cta"><a class="cta" href="#contact">Bring me your first question ↓</a></p>
     </section>
 
-    <section class="scene center" id="proof">
-      <div class="inner">
-        <p class="kicker mono">MEASURED <i>·</i> my own system, july 2026</p>
-        <h2 class="display">What zero losses looks like.</h2>
-        <p class="sys"><b>393 items and 2,547 cross-links, relocated and re-pointed in one pass — zero lost.</b> This month I rebuilt my own knowledge system while it kept running. Zero is a measurement, not a promise: the same script ran before and after, and compared. The real find: eleven rules had silently stopped working — six of them security and privacy controls still reporting “all good” while protecting nothing. One of those silences had already cost three days of a nightly job producing nothing, plus a full day to trace why. That is how a knowledge system actually fails: no error message, just quiet loss — and catching it while it is still cheap is exactly what this discipline is for.</p>
-        <p class="sys-short">Rebuilt my own live system in place: 393 items and 2,547 cross-links moved with zero losses, and eleven silently broken rules caught and fixed — all measured, before and after.</p>
-        <p class="subtitle mono"><span class="st"><span class="dot"></span>MEASURED</span> — my own production system, self-measured, not a client story · <a href="case-study-second-brain.html">read the full report ↗</a></p>
+    <section class="proof-band" id="proof" aria-label="Proof: my own system, measured">
+      <div class="loop-head">
+        <p class="kicker mono">PROOF <i>·</i> MEASURED, JULY 2026</p>
+        <h2 class="display">Zero losses. Measured, not promised.</h2>
+        <p class="loop-lede">This is my own system: every note, client file, and decision of my business lives in it. In July I rebuilt it from the ground up while it kept running. What that means, plainly:</p>
       </div>
+      <div class="operating-steps three" aria-label="What was done, how it was checked, what it caught">
+        <article class="operating-step"><span class="step-no mono">01</span><h3>What was done</h3><p>Reorganized my entire business memory into a new structure: 393 files and 2,547 links between them, moved without shutting the system down. Daily work kept running the whole time.</p></article>
+        <article class="operating-step"><span class="step-no mono">02</span><h3>How it was checked</h3><p>A script counted every file and every link before the rebuild, and ran again after. The numbers matched exactly: nothing lost, nothing left pointing nowhere. "Zero losses" is a measurement, not a slogan.</p></article>
+        <article class="operating-step"><span class="step-no mono">03</span><h3>What it caught</h3><p>Eleven automated checks had quietly stopped working. Six guarded security and privacy. All still reported "OK". That silence is how business knowledge actually disappears. Catching it early is what this discipline is for.</p></article>
+      </div>
+      <p class="sys-short">Rebuilt my own live system: 393 files and 2,547 links moved with zero losses, verified by count before and after. Eleven silently broken checks caught and fixed.</p>
+      <p class="subtitle mono"><span class="st"><span class="dot"></span>MEASURED</span> · my own production system, self-measured, not a client story · <a href="case-study-second-brain.html">read the full case study ↗</a></p>
     </section>
 
-    <section class="scene right" id="sys-02">
-      <div class="inner">
-        <p class="kicker mono">SYS-02 <i>·</i> AI training doesn't stick</p>
-        <h2 class="display">AI enablement</h2>
-        <p class="sys"><b>AI becomes part of how the team works, not a workshop they forget.</b> No invented exercises: the training runs on the team's own work — the report someone assembles every Monday, the queue they triage every morning, the handoff that keeps going wrong. Each person builds an AI companion for their own job, and the team leaves able to run all of it without me.</p>
-        <p class="sys-short">AI applied to the team's real work — each worker builds a companion and the team leaves able to keep operating without the workshop dependency.</p>
-        <p class="subtitle mono"><span class="st"><span class="dot half"></span>LIVE ENGAGEMENT</span> — enterprise pilot, technical ops team · client unnamed by design</p>
-      </div>
-    </section>
+    <div class="twin-bridge">
+      <p class="mono">Two sizes · same system</p>
+      <hr>
+    </div>
+    <div class="twin">
+      <section class="scene" id="tier-founder" aria-label="For founders">
+        <div class="inner">
+          <p class="kicker mono">FOR FOUNDERS <i>·</i> personal</p>
+          <h2 class="display">Your own memory</h2>
+          <p class="sys"><b>For the founder whose decisions are buried in years of notes.</b> Your deals, research, drafts, and decisions go into one private system that answers in seconds, on your own accounts. This is the version I run myself, shaped to your world instead of mine.</p>
+          <p class="sys-short">A founder's private memory: deals, research, and decisions, answering in seconds.</p>
+        </div>
+      </section>
+      <section class="scene" id="tier-team" aria-label="For teams of 10 to 50">
+        <div class="inner">
+          <p class="kicker mono">FOR TEAMS OF 10–50 <i>·</i> company</p>
+          <h2 class="display">The company's memory</h2>
+          <p class="sys"><b>For the team that answers the same question every month because the answer lives in somebody's head.</b> Client history, how-we-do-things, the reasons behind the rules: captured once, findable by everyone. New people get productive faster. Departures stop taking knowledge with them.</p>
+          <p class="sys-short">A company memory for 10–50-person teams: faster onboarding, knowledge that survives turnover.</p>
+        </div>
+      </section>
+    </div>
 
-    <section class="scene wide" id="sys-03">
-      <div class="inner">
-        <p class="kicker mono">SYS-03 <i>·</i> the work repeats</p>
-        <h2 class="display">Agentic workflows</h2>
-        <p class="sys"><b>Recurring work becomes a system that executes, recovers, and shows people what needs attention.</b> Running today: every morning a pipeline ranks each rep's leads and prepares the day's calls before anyone sits down. The safety rules are deliberately boring: the system touches only what it's allowed to touch, saves its progress at every step, and when something unexpected happens it stops and reports instead of guessing.</p>
-        <p class="sys-short">A reliable operating system for repeated work: priorities surfaced, routine steps automated, exceptions visible, and people still in control.</p>
-        <p class="subtitle mono"><span class="st"><span class="dot"></span>LIVE INTERNALLY</span> — agents on a live revenue pipeline · a privilege-leak class found and closed before ship · <a href="https://frakkr.com" target="_blank" rel="noopener">frakkr.com ↗</a> · <span class="st"><span class="dot hollow"></span>SYNTHETIC-DATA DEMO</span> insurance-book teardown · AUC 0.74 · 2.6× top-decile lift, fully offline<span class="gotow"> · <a class="goto" href="#map">see in map ↓</a></span></p>
+    <section class="decision-loop" id="delivery" aria-label="How the build starts">
+      <div class="loop-head">
+        <p class="kicker mono">THE BUILD</p>
+        <h2 class="display">It starts where your business is.</h2>
+        <p class="loop-lede">A fixed-scope first build of one to two weeks. After that, optional ongoing care keeps the memory growing as your business does. Three ways in:</p>
+        <p class="loop-note mono">Fixed scope · built on your accounts · your data stays yours</p>
       </div>
+      <div class="operating-steps three" aria-label="Three ways to start">
+        <article class="operating-step"><span class="step-no mono">01</span><h3>You already use AI</h3><p>Whatever assistant you run, the memory layer is built on top of it. It stops forgetting between conversations and starts answering from your business's real history.</p></article>
+        <article class="operating-step"><span class="step-no mono">02</span><h3>You're starting from zero</h3><p>I set up the assistant and the memory together. You get both working. Your team gets trained on the daily basics before I step back.</p></article>
+        <article class="operating-step"><span class="step-no mono">03</span><h3>You want to own it</h3><p>Some teams want to run and grow the system themselves. Then the build becomes a mentorship: I build it with your people until it's genuinely theirs.</p></article>
+      </div>
+      <p class="sect-cta"><a class="cta" href="#contact">Start the build ↓</a></p>
     </section>
 
     <!-- ————— band 3 · THE MAP ————— -->
-    <section class="map-band" id="map" aria-label="The map — how the systems connect">
+    <section class="map-band" id="map" aria-label="The map: how the systems connect">
       <div class="map-head">
         <span class="lead" aria-hidden="true"></span>
-        <h2 class="display">The map — how it connects.</h2>
-        <p>The product spine tells what changes. This is the system view: shared context, a capable team, and workflows that carry the repeatable work. Two sizes: your own operating memory, or the whole company's. Hover a station to trace it.</p>
+        <h2 class="display">Behind it: one discipline, three systems.</h2>
+        <p>The memory system is the first thing I build, and the foundation for the rest. Team AI enablement and agentic workflows come after it. This page sells the first. Hover a station to look around.</p>
       </div>
 
       <div class="map-stage" data-stage>
-        <svg class="map-svg" viewBox="0 0 1000 620" role="group" aria-label="Interactive map: three products connected around the operator. Use Tab to move between stations, Enter to pin.">
+        <svg class="map-svg" viewBox="0 0 1000 620" role="group" aria-label="Interactive map: the memory system and the two systems that come after it, around the operator. Use Tab to move between stations, Enter to pin.">
           <g aria-hidden="true">
             <path class="edge" data-edge="core brain"    d="M473 287 L271 186" pathLength="1"></path>
             <path class="edge" data-edge="core enable"   d="M500 330 L500 476" pathLength="1"></path>
@@ -468,14 +508,14 @@
             <text x="500" y="352" text-anchor="middle">Jhon</text>
           </g>
 
-          <g class="station" data-node="brain" role="button" tabindex="0" aria-label="The memory system. Live. Hover or select to read.">
+          <g class="station" data-node="brain" role="button" tabindex="0" aria-label="The memory system. The solution, live today. Hover or select to read.">
             <circle class="ring" cx="250" cy="175" r="24"></circle>
             <line class="tick" x1="250" y1="151" x2="250" y2="144"></line>
             <circle class="st-pin sp-live" cx="250" cy="175" r="4"></circle>
             <text x="250" y="220" text-anchor="middle">Memory System</text>
           </g>
 
-          <g class="station" data-node="enable" role="button" tabindex="0" aria-label="AI enablement. Live engagement. Hover or select to read.">
+          <g class="station" data-node="enable" role="button" tabindex="0" aria-label="AI enablement. Comes after the memory system. Hover or select to read.">
             <circle class="ring" cx="500" cy="500" r="24"></circle>
             <line class="tick" x1="500" y1="476" x2="500" y2="469"></line>
             <path class="st-pin" d="M500 496 A4 4 0 0 0 500 504 Z" fill="oklch(75% 0.155 300)"></path>
@@ -483,7 +523,7 @@
             <text x="500" y="545" text-anchor="middle">Enablement</text>
           </g>
 
-          <g class="station" data-node="flows" role="button" tabindex="0" aria-label="Agentic workflows. Live internally, with a synthetic-data demo. Hover or select to read.">
+          <g class="station" data-node="flows" role="button" tabindex="0" aria-label="Agentic workflows. Comes after the memory system. Hover or select to read.">
             <circle class="ring" cx="750" cy="175" r="24"></circle>
             <line class="tick" x1="750" y1="151" x2="750" y2="144"></line>
             <circle class="st-pin sp-live" cx="750" cy="175" r="4"></circle>
@@ -493,16 +533,16 @@
 
         <div class="readout" data-readout aria-live="polite">
           <p class="kicker mono" data-r-kicker>THE OPERATOR</p>
-          <h3 class="display" data-r-title>Three products, one discipline.</h3>
-          <p class="blurb" data-r-blurb>Build the brain, teach the team, automate the work — one muscle, sold to the same client over time. Hover any station to read its entry — click to pin it.</p>
+          <h3 class="display" data-r-title>Built in order, for the same client.</h3>
+          <p class="blurb" data-r-blurb>Build the memory, teach the team, automate the work. The memory system is the one I sell today. The other two unlock once it's in place. Hover any station to read its entry. Click to pin it.</p>
           <p class="subtitle mono" data-r-proof></p>
         </div>
       </div>
 
       <ul class="map-list mono" aria-label="The systems, as a list">
-        <li><a href="#sys-01"><span class="dot"></span><span class="t">The memory system</span><span class="k">knowledge scatters</span></a></li>
-        <li><a href="#sys-02"><span class="dot half"></span><span class="t">AI enablement</span><span class="k">adoption</span></a></li>
-        <li><a href="#sys-03"><span class="dot"></span><span class="t">Agentic workflows</span><span class="k">the work repeats</span></a></li>
+        <li><a class="row" href="#product"><span class="dot"></span><span class="t">The memory system</span><span class="k">live today</span></a></li>
+        <li><span class="row"><span class="dot half"></span><span class="t">AI enablement</span><span class="k">comes after</span></span></li>
+        <li><span class="row"><span class="dot"></span><span class="t">Agentic workflows</span><span class="k">comes after</span></span></li>
       </ul>
     </section>
 
@@ -518,8 +558,8 @@
     <!-- ————— band 5 · contact ————— -->
     <section class="contact" id="contact" aria-label="Contact">
       <div>
-        <h2 class="display">Bring me the messy workflow.</h2>
-        <p class="sub">I'll find the rules hiding inside it.</p>
+        <h2 class="display">Ask your business its first question.</h2>
+        <p class="sub">Book 15 minutes. Bring one question your business can't answer fast. I'll show you how a memory system would.</p>
         <div class="slots mono">
           <a class="slot" href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a>
           <a class="slot slot-icon" href="https://www.linkedin.com/in/jhonalbert-alvarez/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
@@ -527,7 +567,7 @@
             <span class="li-url">linkedin.com/in/jhonalbert-alvarez</span>
           </a>
           <a class="slot slot-cv" href="Jhonalbert-Alvarez-CV.pdf" target="_blank" rel="noopener">CV ↓</a>
-          <a class="slot" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min<span class="cal-url"> — cal.com/jhonalbert-alvarez-phuqi8/15min</span></a>
+          <a class="slot" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min<span class="cal-url"> · cal.com/jhonalbert-alvarez-phuqi8/15min</span></a>
         </div>
       </div>
     </section>
@@ -542,7 +582,7 @@
           <path d="M20 20 29 10" stroke="oklch(75% 0.155 300)" stroke-width="1.4" fill="none"></path>
           <circle cx="20" cy="20" r="2" fill="oklch(75% 0.155 300)"></circle>
         </svg>
-        <span class="who-text">Jhonalbert Alvarez — Structure before scale</span>
+        <span class="who-text">Jhonalbert Alvarez · Structure before scale</span>
       </span>
       <a href="#top" class="mono to-top">BACK TO TOP ↑</a>
     </div>
@@ -564,54 +604,54 @@
   var SYSTEMS_EN = {
     core: {
       kicker: 'THE OPERATOR',
-      title: 'Three systems, one operating loop.',
-      blurb: 'Shared context, a capable team, and repeatable work carried safely by the system. Hover any station to trace the role it plays.',
+      title: 'Built in order, for the same client.',
+      blurb: 'Build the memory, teach the team, automate the work. The memory system is the one I sell today. The other two unlock once it’s in place. Hover any station to read its entry. Click to pin it.',
       proof: '', status: '', anchor: ''
     },
     brain: {
-      kicker: 'SYS-01 · KNOWLEDGE SCATTERS',
+      kicker: 'LIVE TODAY · THE MEMORY SYSTEM',
       title: 'The memory system',
-      blurb: 'One reliable source of truth for the rules, history, and decisions behind the work — private, structured, and usable by people or AI agents.',
-      proof: 'LIVE — this vault runs on it daily', status: 'live', anchor: '#sys-01'
+      blurb: 'One reliable source of truth for the rules, history, and decisions behind the work: private, structured, answering people and AI alike.',
+      proof: 'LIVE · I run my own business on it daily', status: 'live', anchor: '#product'
     },
     enable: {
-      kicker: 'SYS-02 · AI TRAINING DOESN’T STICK',
+      kicker: 'COMES AFTER · AI ENABLEMENT',
       title: 'AI enablement',
-      blurb: 'AI applied to the team’s real work — each worker builds a companion and the team keeps operating without workshop dependency.',
-      proof: 'LIVE ENGAGEMENT — enterprise pilot, technical ops team, client unnamed', status: 'half', anchor: '#sys-02'
+      blurb: 'Your team learns to work with AI on their actual tasks. Training built on your real work, not invented exercises, until they run it without me.',
+      proof: 'LIVE ENGAGEMENT · enterprise pilot, technical ops team', status: 'half', anchor: ''
     },
     flows: {
-      kicker: 'SYS-03 · THE WORK REPEATS',
+      kicker: 'COMES AFTER · AGENTIC WORKFLOWS',
       title: 'Agentic workflows',
-      blurb: 'Repeated work becomes a reliable operating system: priorities surfaced, routine steps automated, and exceptions kept visible.',
-      proof: 'LIVE INTERNALLY — agents on a live revenue pipeline · plus a synthetic offline teardown (AUC 0.74, 2.6× lift)', status: 'live', anchor: '#sys-03'
+      blurb: 'The recurring parts of an operation run themselves: carefully scoped automation that stops and reports when anything unexpected happens.',
+      proof: 'LIVE INTERNALLY · runs my own sales pipeline every morning', status: 'live', anchor: ''
     }
   };
 
   var SYSTEMS_ES = {
     core: {
       kicker: 'EL OPERADOR',
-      title: 'Tres sistemas, un ciclo operativo.',
-      blurb: 'Contexto compartido, un equipo capaz y trabajo repetible llevado de forma segura por el sistema. Pasa el cursor por una estación para seguir su papel.',
+      title: 'Construido en orden, para el mismo cliente.',
+      blurb: 'Construir la memoria, formar al equipo, automatizar el trabajo. El sistema de memoria es el que vendo hoy. Los otros dos se desbloquean cuando está en su lugar. Pasa el cursor por una estación para leer su entrada. Clic para fijarla.',
       proof: '', status: '', anchor: ''
     },
     brain: {
-      kicker: 'SYS-01 · EL CONOCIMIENTO SE DISPERSA',
+      kicker: 'EN PRODUCCIÓN HOY · EL SISTEMA DE MEMORIA',
       title: 'El sistema de memoria',
-      blurb: 'Una fuente de verdad confiable para las reglas, el historial y las decisiones detrás del trabajo — privada, estructurada y utilizable por personas o agentes de IA.',
-      proof: 'EN PRODUCCIÓN — este vault corre sobre él a diario', status: 'live', anchor: '#sys-01'
+      blurb: 'Una fuente de verdad confiable para las reglas, el historial y las decisiones detrás del trabajo: privada, estructurada, respondiendo a personas y a IA por igual.',
+      proof: 'EN PRODUCCIÓN · mi propio negocio corre sobre él a diario', status: 'live', anchor: '#product'
     },
     enable: {
-      kicker: 'SYS-02 · LA CAPACITACIÓN EN IA NO SE SOSTIENE',
+      kicker: 'VIENE DESPUÉS · ENABLEMENT DE IA',
       title: 'Enablement de IA',
-      blurb: 'IA aplicada al trabajo real del equipo — cada persona construye un compañero y el equipo sigue operando sin depender del taller.',
-      proof: 'PILOTO ACTIVO — piloto empresarial, equipo técnico de operaciones, cliente sin nombrar', status: 'half', anchor: '#sys-02'
+      blurb: 'Tu equipo aprende a trabajar con IA sobre sus tareas reales. Formación construida sobre tu trabajo real, no ejercicios inventados, hasta operarlo sin mí.',
+      proof: 'PILOTO ACTIVO · piloto empresarial, equipo técnico de operaciones', status: 'half', anchor: ''
     },
     flows: {
-      kicker: 'SYS-03 · EL TRABAJO SE REPITE',
+      kicker: 'VIENE DESPUÉS · WORKFLOWS AGÉNTICOS',
       title: 'Workflows agénticos',
-      blurb: 'El trabajo repetido se vuelve un sistema operativo confiable: prioridades visibles, pasos rutinarios automatizados y excepciones claras.',
-      proof: 'EN PRODUCCIÓN INTERNA — agentes sobre un pipeline real · más un teardown sintético offline (AUC 0.74, lift 2.6×)', status: 'live', anchor: '#sys-03'
+      blurb: 'Las partes recurrentes de la operación corren solas: automatización cuidadosamente acotada que se detiene y reporta ante cualquier imprevisto.',
+      proof: 'EN PRODUCCIÓN INTERNA · corre mi propio pipeline de ventas cada mañana', status: 'live', anchor: ''
     }
   };
 
@@ -642,7 +682,7 @@
     rBlurb.textContent = s.blurb;
     if (s.proof) {
       rProof.innerHTML = dotHtml(s.status) + s.proof +
-        ' · <a class="goto" href="' + s.anchor + '">' + READ_ENTRY[lang] + '</a>';
+        (s.anchor ? ' · <a class="goto" href="' + s.anchor + '">' + READ_ENTRY[lang] + '</a>' : '');
       rProof.style.display = '';
     } else {
       rProof.innerHTML = '';
@@ -692,76 +732,98 @@
   var I18N_ES = {
     '.skip-link': 'Saltar al trabajo',
     '.titlecard .role': 'Ventas · RevOps · Sistemas de IA',
-    '.thesis': 'Convierto el trabajo diario en sistemas. El equipo ejecuta; los líderes deciden.',
-    '.avail': 'Abierto a roles y proyectos de construcción enfocados.',
-    '.cta-row .cta:not(.quiet)': 'Ver lo que cambia ↓',
-    '.cta-row .cta.quiet': 'Contacto',
+    '.thesis': 'Tu negocio por fin tiene memoria.',
+    '.avail': 'Tomando proyectos de sistemas de memoria. También abierto al rol correcto.',
+    '.cta-row .cta:not(.quiet)': 'Ver el sistema ↓',
+    '.cta-row .cta.quiet': 'Agenda 15 min ↗',
 
-    '.decision-loop .kicker': 'EL CICLO OPERATIVO',
-    '.decision-loop h2': 'Del trabajo en la base a la decisión en la cima.',
-    '.decision-loop .loop-lede': 'Empiezo por lo que la gente hace de verdad. Luego estructuro el contexto, aclaro la siguiente acción y convierto las partes repetidas en un sistema que el liderazgo puede dirigir.',
-    '.decision-loop .loop-note': 'Ciclo operativo representativo — no es un caso de cliente',
-    '.operating-step:nth-child(1) h3': 'El trabajo ocurre',
-    '.operating-step:nth-child(1) p': 'Un cliente escribe con una pregunta. Un rep cierra un negocio. Alguien por fin arregla lo que falló toda la semana. La mayoría de esa señal se evapora antes del viernes.',
-    '.operating-step:nth-child(2) h3': 'El contexto se sostiene',
-    '.operating-step:nth-child(2) p': 'La respuesta, el negocio, el arreglo quedan capturados donde todo el equipo — y su IA — puede encontrarlos, en vez de vivir en la cabeza de una sola persona.',
-    '.operating-step:nth-child(3) h3': 'El equipo actúa',
-    '.operating-step:nth-child(3) p': 'La quinta vez que llega la misma pregunta, nadie vuelve a deducir la respuesta. El sistema la entrega, con la fuente; la gente gasta su criterio donde hace falta.',
-    '.operating-step:nth-child(4) h3': 'El liderazgo dirige',
-    '.operating-step:nth-child(4) p': 'El dueño ve qué preguntas se repiten, qué handoffs se rompen y qué conviene automatizar después — y decide con evidencia, no de memoria.',
+    '#work .kicker': 'EL PROBLEMA <i>·</i> el conocimiento se dispersa',
+    '#work h2': 'Cada respuesta vive en la cabeza de alguien.',
+    '#work .sys': '<b>¿Cómo cerramos ese negocio? ¿Por qué se fue ese cliente? ¿Qué decidimos en marzo?</b> Todo negocio corre sobre respuestas así. Casi ninguna está escrita donde la gente pueda encontrarla. Viven en correos, chats viejos y en la memoria de quien estuvo ahí. Así que el equipo vuelve a resolver problemas ya resueltos. Los nuevos pasan meses preguntando. Cuando alguien se va, todo lo que sabía se va con esa persona.',
+    '#work .sys-short': 'Las respuestas sobre las que corre un negocio viven en cabezas y correos: re-deducidas cada semana, perdidas con cada salida.',
 
-    '#sys-01 .kicker': 'SYS-01 <i>·</i> el conocimiento se dispersa',
-    '#sys-01 h2': 'El sistema de memoria',
-    '#sys-01 .sys': '<b>Hazle una pregunta a tu negocio y recibe la respuesta en segundos — con la fuente — en vez de preguntarle a la persona que lleva más tiempo.</b> La mayoría de la IA busca justo a tiempo; este sistema recuerda lo que ya pasó — y aprende. Lo construyo para el fundador cuyas decisiones están enterradas en años de notas dispersas, y para equipos de 10–50 personas que responden la misma pregunta de onboarding cada mes porque la respuesta vive en la cabeza de alguien. Las reglas, el historial y las decisiones detrás de tu trabajo — organizados en un solo lugar privado del que responden tu gente y tu IA.',
-    '#sys-01 .sys-short': 'Una fuente de verdad confiable para las reglas, el historial y las decisiones detrás del trabajo — privada, estructurada y utilizable por personas o agentes de IA.',
-    '#sys-01 .subtitle': '<span class="st"><span class="dot"></span>EN PRODUCCIÓN</span> — este vault corre sobre él a diario · <a href="case-study-second-brain.html">leer el caso de estudio ↗</a><span class="gotow"> · <a class="goto" href="#map">ver en el mapa ↓</a></span>',
+    '#product .kicker': 'LA SOLUCIÓN <i>·</i> una memoria privada',
+    '#product h2': 'El sistema de memoria',
+    '#product .sys': '<b>Hazle una pregunta a tu negocio y recibe la respuesta en segundos, con la fuente, sin importar en qué cabeza vivía antes.</b> Le construyo a tu empresa una memoria privada y organizada: las reglas, el historial y las decisiones detrás de tu trabajo, en un solo lugar del que responden tu gente y tu IA. La mayoría de las herramientas de IA buscan al momento y olvidan. Este sistema conserva lo que tu negocio aprende, y cada respuesta hace más rápida la siguiente. Corre sobre tus propias cuentas. Lo que entra es tuyo.',
+    '#product .sys-short': 'Una memoria privada y organizada para tu negocio: personas e IA responden desde una sola fuente, sobre tus propias cuentas.',
+    '#product .subtitle': '<span class="st"><span class="dot"></span>EN PRODUCCIÓN</span> · mi propio negocio corre sobre una, a diario · <a href="case-study-second-brain.html">leer el caso de estudio ↗</a><span class="gotow"> · <a class="goto" href="#map">ver la disciplina ↓</a></span>',
 
-    '#proof .kicker': 'MEDIDO <i>·</i> mi propio sistema, julio 2026',
-    '#proof h2': 'Así se ve «cero pérdidas».',
-    '#proof .sys': '<b>393 elementos y 2.547 referencias cruzadas, movidos y re-apuntados en una sola pasada — cero perdidos.</b> Este mes reconstruí mi propio sistema de conocimiento sin apagarlo. Cero es una medición, no una promesa: el mismo script corrió antes y después, y comparó. El hallazgo real: once reglas habían dejado de funcionar en silencio — seis eran controles de seguridad y privacidad que seguían reportando «todo bien» sin proteger nada. Uno de esos silencios ya había costado tres días de un proceso nocturno sin producir nada, más un día entero para rastrear por qué. Así falla de verdad un sistema de conocimiento: sin mensaje de error, solo pérdida silenciosa — y atraparla mientras es barata es exactamente para lo que existe esta disciplina.',
-    '#proof .sys-short': 'Reconstruí mi propio sistema en producción, en el sitio: 393 elementos y 2.547 referencias movidos con cero pérdidas, y once reglas rotas en silencio, atrapadas y corregidas — todo medido, antes y después.',
-    '#proof .subtitle': '<span class="st"><span class="dot"></span>MEDIDO</span> — mi propio sistema en producción, auto-medido, no un caso de cliente · <a href="case-study-second-brain.html">leer el reporte completo ↗</a>',
+    '#loop .kicker': 'CÓMO FUNCIONA',
+    '#loop h2': 'Del trabajo ocurriendo al negocio recordando.',
+    '#loop .loop-lede': 'El sistema vive debajo del trabajo que tu equipo ya hace. Mientras el trabajo ocurre, las respuestas, decisiones y arreglos quedan capturados, organizados y servidos en el momento en que se necesitan. A tu gente y a tu IA por igual.',
+    '#loop .loop-note': 'Ciclo operativo representativo · no es un caso de cliente',
+    '#loop .operating-step:nth-child(1) h3': 'El trabajo ocurre',
+    '#loop .operating-step:nth-child(1) p': 'Un cliente escribe con una pregunta. Un rep cierra un negocio. Alguien por fin arregla lo que falló toda la semana. La mayoría de esa señal se evapora antes del viernes.',
+    '#loop .operating-step:nth-child(2) h3': 'El contexto se sostiene',
+    '#loop .operating-step:nth-child(2) p': 'La respuesta, el negocio, el arreglo quedan capturados donde todo el equipo y su IA pueden encontrarlos, en vez de vivir en la cabeza de una sola persona.',
+    '#loop .operating-step:nth-child(3) h3': 'El equipo actúa',
+    '#loop .operating-step:nth-child(3) p': 'La quinta vez que llega la misma pregunta, nadie vuelve a deducir la respuesta. El sistema la entrega, con la fuente. La gente gasta su criterio donde hace falta.',
+    '#loop .operating-step:nth-child(4) h3': 'El liderazgo dirige',
+    '#loop .operating-step:nth-child(4) p': 'El dueño ve qué preguntas se repiten, qué handoffs se rompen y qué conviene automatizar después. Decide con evidencia, no de memoria.',
+    '#loop .cta': 'Tráeme tu primera pregunta ↓',
 
-    '#sys-02 .kicker': 'SYS-02 <i>·</i> la capacitación en IA no se sostiene',
-    '#sys-02 h2': 'Enablement de IA',
-    '#sys-02 .sys': '<b>La IA se vuelve parte de cómo trabaja el equipo, no un taller que se olvida.</b> Nada de ejercicios inventados: la formación corre sobre el trabajo real del equipo — el reporte que alguien arma cada lunes, la cola que revisan cada mañana, el handoff que siempre sale mal. Cada persona construye un compañero de IA para su propio trabajo, y el equipo termina capaz de operarlo todo sin mí.',
-    '#sys-02 .sys-short': 'IA aplicada al trabajo real del equipo — cada persona construye un compañero y el equipo sigue operando sin depender del taller.',
-    '#sys-02 .subtitle': '<span class="st"><span class="dot half"></span>PILOTO ACTIVO</span> — piloto empresarial, equipo técnico de operaciones · cliente sin nombrar por diseño',
+    '#proof .kicker': 'PRUEBA <i>·</i> MEDIDO, JULIO 2026',
+    '#proof h2': 'Cero pérdidas. Medido, no prometido.',
+    '#proof .loop-lede': 'Este es mi propio sistema: cada nota, archivo de cliente y decisión de mi negocio vive en él. En julio lo reconstruí de raíz mientras seguía corriendo. Qué significa eso, en claro:',
+    '#proof .operating-step:nth-child(1) h3': 'Qué se hizo',
+    '#proof .operating-step:nth-child(1) p': 'Reorganicé la memoria completa de mi negocio a una estructura nueva: 393 archivos y 2.547 enlaces entre ellos, movidos sin apagar el sistema. El trabajo diario siguió corriendo todo el tiempo.',
+    '#proof .operating-step:nth-child(2) h3': 'Cómo se verificó',
+    '#proof .operating-step:nth-child(2) p': 'Un script contó cada archivo y cada enlace antes de la reconstrucción, y corrió de nuevo después. Los números coincidieron exacto: nada perdido, nada apuntando a la nada. «Cero pérdidas» es una medición, no un eslogan.',
+    '#proof .operating-step:nth-child(3) h3': 'Qué atrapó',
+    '#proof .operating-step:nth-child(3) p': 'Once verificaciones automáticas habían dejado de funcionar en silencio. Seis cuidaban seguridad y privacidad. Todas seguían reportando «OK». Ese silencio es como desaparece de verdad el conocimiento de un negocio. Atraparlo temprano es para lo que existe esta disciplina.',
+    '#proof .sys-short': 'Reconstruí mi propio sistema en producción: 393 archivos y 2.547 enlaces movidos con cero pérdidas, verificado por conteo antes y después. Once verificaciones rotas en silencio, atrapadas y corregidas.',
+    '#proof .subtitle': '<span class="st"><span class="dot"></span>MEDIDO</span> · mi propio sistema en producción, auto-medido, no un caso de cliente · <a href="case-study-second-brain.html">leer el caso completo ↗</a>',
 
-    '#sys-03 .kicker': 'SYS-03 <i>·</i> el trabajo se repite',
-    '#sys-03 h2': 'Workflows agénticos',
-    '#sys-03 .sys': '<b>El trabajo recurrente se vuelve un sistema que ejecuta, se recupera y muestra a las personas qué necesita atención.</b> Corriendo hoy: cada mañana un pipeline clasifica los leads de cada rep y prepara las llamadas del día antes de que alguien se siente. Las reglas de seguridad son aburridas a propósito: el sistema toca solo lo que tiene permitido tocar, guarda su avance en cada paso, y cuando pasa algo inesperado se detiene y reporta en vez de adivinar.',
-    '#sys-03 .sys-short': 'Un sistema operativo confiable para el trabajo repetido: prioridades visibles, pasos rutinarios automatizados, excepciones claras y las personas aún al mando.',
-    '#sys-03 .subtitle': '<span class="st"><span class="dot"></span>EN PRODUCCIÓN INTERNA</span> — agentes sobre un pipeline de revenue real · una clase de fuga de privilegios encontrada y cerrada antes del ship · <a href="https://frakkr.com" target="_blank" rel="noopener">frakkr.com ↗</a> · <span class="st"><span class="dot hollow"></span>DEMO · DATOS SINTÉTICOS</span> teardown de cartera de seguros · AUC 0.74 · lift 2.6× en el decil superior, totalmente offline<span class="gotow"> · <a class="goto" href="#map">ver en el mapa ↓</a></span>',
+    '.twin-bridge p': 'Dos tamaños · el mismo sistema',
+    '#tier-founder .kicker': 'PARA FUNDADORES <i>·</i> personal',
+    '#tier-founder h2': 'Tu propia memoria',
+    '#tier-founder .sys': '<b>Para el fundador cuyas decisiones están enterradas en años de notas.</b> Tus negocios, tu investigación, tus borradores y decisiones van a un sistema privado que responde en segundos, sobre tus propias cuentas. Es la versión que yo mismo uso, moldeada a tu mundo y no al mío.',
+    '#tier-founder .sys-short': 'La memoria privada de un fundador: negocios, investigación y decisiones, respondiendo en segundos.',
+    '#tier-team .kicker': 'PARA EQUIPOS DE 10–50 <i>·</i> empresa',
+    '#tier-team h2': 'La memoria de la empresa',
+    '#tier-team .sys': '<b>Para el equipo que responde la misma pregunta cada mes porque la respuesta vive en la cabeza de alguien.</b> Historial de clientes, cómo-hacemos-las-cosas, las razones detrás de las reglas: capturado una vez, encontrable por todos. La gente nueva produce más rápido. Las salidas dejan de llevarse el conocimiento.',
+    '#tier-team .sys-short': 'Una memoria de empresa para equipos de 10–50: onboarding más rápido, conocimiento que sobrevive la rotación.',
 
-    '.map-head h2': 'El mapa — cómo se conecta.',
-    '.map-head p': 'La columna de productos cuenta lo que cambia. Esta es la vista del sistema: contexto compartido, un equipo capaz y workflows que cargan el trabajo repetible. Dos tamaños: tu memoria operativa propia, o la de toda la empresa. Pasa el cursor por una estación para seguirlo.',
+    '#delivery .kicker': 'LA CONSTRUCCIÓN',
+    '#delivery h2': 'Empieza donde está tu negocio.',
+    '#delivery .loop-lede': 'Una primera construcción de alcance fijo, de una a dos semanas. Después, cuidado continuo opcional mantiene la memoria creciendo con tu negocio. Tres puertas de entrada:',
+    '#delivery .loop-note': 'Alcance fijo · sobre tus cuentas · tus datos son tuyos',
+    '#delivery .operating-step:nth-child(1) h3': 'Ya usas IA',
+    '#delivery .operating-step:nth-child(1) p': 'Sea cual sea el asistente que uses, la capa de memoria se construye encima. Deja de olvidar entre conversaciones y empieza a responder desde el historial real de tu negocio.',
+    '#delivery .operating-step:nth-child(2) h3': 'Empiezas de cero',
+    '#delivery .operating-step:nth-child(2) p': 'Configuro el asistente y la memoria juntos. Recibes ambos funcionando. Tu equipo queda entrenado en lo básico del uso diario antes de que yo dé un paso al lado.',
+    '#delivery .operating-step:nth-child(3) h3': 'Quieres ser dueño',
+    '#delivery .operating-step:nth-child(3) p': 'Algunos equipos quieren operar y hacer crecer el sistema por su cuenta. Entonces la construcción se vuelve mentoría: lo construyo con tu gente hasta que sea genuinamente suyo.',
+    '#delivery .cta': 'Empieza la construcción ↓',
+
+    '.map-head h2': 'Detrás: una disciplina, tres sistemas.',
+    '.map-head p': 'El sistema de memoria es lo primero que construyo, y la base del resto. El enablement de IA y los workflows agénticos vienen después. Esta página vende el primero. Pasa el cursor por una estación para mirar alrededor.',
 
     '.map-list li:nth-child(1) .t': 'El sistema de memoria',
-    '.map-list li:nth-child(1) .k': 'el conocimiento se dispersa',
+    '.map-list li:nth-child(1) .k': 'en producción hoy',
     '.map-list li:nth-child(2) .t': 'Enablement de IA',
-    '.map-list li:nth-child(2) .k': 'adopción',
+    '.map-list li:nth-child(2) .k': 'viene después',
     '.map-list li:nth-child(3) .t': 'Workflows agénticos',
-    '.map-list li:nth-child(3) .k': 'el trabajo se repite',
+    '.map-list li:nth-child(3) .k': 'viene después',
 
     '.about .line': 'Instinto de ventas. Pensamiento de sistemas. Manos de constructor.',
     '.about p.body': 'Empiezo con el trabajo en la base, luego construyo la información, las reglas y la automatización que hacen al equipo más rápido y al liderazgo más claro.',
     '.about .facts': 'Español, nativo <i>·</i> Inglés, C1 <i>·</i> Estructura antes que escala',
 
-    '.contact h2': 'Tráeme el workflow desordenado.',
-    '.contact .sub': 'Yo encuentro las reglas escondidas adentro.',
-    'a.slot[href*="cal.com"]': 'Agenda 15 min<span class="cal-url"> — cal.com/jhonalbert-alvarez-phuqi8/15min</span>',
+    '.contact h2': 'Hazle a tu negocio su primera pregunta.',
+    '.contact .sub': 'Agenda 15 minutos. Trae una pregunta que tu negocio no pueda responder rápido. Te muestro cómo la respondería un sistema de memoria.',
+    'a.slot[href*="cal.com"]': 'Agenda 15 min<span class="cal-url"> · cal.com/jhonalbert-alvarez-phuqi8/15min</span>',
 
-    '.footer .who-text': 'Jhonalbert Alvarez — Estructura antes que escala',
+    '.footer .who-text': 'Jhonalbert Alvarez · Estructura antes que escala',
     '.footer .to-top': 'VOLVER ARRIBA ↑'
   };
 
   var ST_TXT_ES = { core: 'Jhon', brain: 'Sistema de Memoria', enable: 'Enablement', flows: 'Workflows' };
   var ST_ARIA_ES = {
     core: 'Jhonalbert Alvarez, el operador. Selecciona para reiniciar el mapa.',
-    brain: 'El sistema de memoria. En producción. Pasa el cursor o selecciona para leer.',
-    enable: 'Enablement de IA. Piloto activo. Pasa el cursor o selecciona para leer.',
-    flows: 'Workflows agénticos. En producción interna, con una demo de datos sintéticos. Pasa el cursor o selecciona para leer.'
+    brain: 'El sistema de memoria. La solución, en producción hoy. Pasa el cursor o selecciona para leer.',
+    enable: 'Enablement de IA. Viene después del sistema de memoria. Pasa el cursor o selecciona para leer.',
+    flows: 'Workflows agénticos. Viene después del sistema de memoria. Pasa el cursor o selecciona para leer.'
   };
 
   var EN_SNAP = {}, ST_TXT_EN = {}, ST_ARIA_EN = {};

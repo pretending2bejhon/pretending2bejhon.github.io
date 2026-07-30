@@ -956,6 +956,7 @@ body :where(i, em)     { color: var(--signal); font-style: normal; }
         <p class="h-nameplate">HORUS // Field report</p>
       </span>
       <span class="h-util">
+        <a class="h-btn" href="index.html">← The site</a>
         <span class="h-doctype">Report</span>
         <span class="h-mast-date">Evidence cutoff 2026-07-29</span>
         <button type="button" class="h-btn h-no-print" id="motion-toggle" aria-pressed="false">Motion on</button>
@@ -964,24 +965,24 @@ body :where(i, em)     { color: var(--signal); font-style: normal; }
 
     <h1 class="h-mast-title">A knowledge system does not rot loudly.</h1>
     <p class="h-mast-sub">
-      <span>Rebuilding a <i>live</i> second brain in place — 393 operations, zero losses</span>
+      <span>my own <i>live</i> system, rebuilt in place: 393 files moved, zero losses</span>
       <span class="h-sep">/</span>
       <span>every claim measured before and after by the same script</span>
       <span class="h-sep">/</span>
-      <span>the finding is not the migration — it is the <i>eleven rules that kept passing</i></span>
+      <span>the real finding: <i>eleven checks that kept saying OK</i> while doing nothing</span>
     </p>
 
     <div style="margin-top: clamp(34px, 6vh, 60px);">
       <div class="h-kpis" role="group" aria-label="Headline findings">
         <div class="h-kpi">
-          <div class="h-kpi-label">Operations executed</div>
+          <div class="h-kpi-label">Files moved</div>
           <div class="h-kpi-value h-tnum">393</div>
           <div class="h-kpi-sub">in one pass · <b>0</b> collisions</div>
         </div>
         <div class="h-kpi">
-          <div class="h-kpi-label">Cross-references re-pointed</div>
+          <div class="h-kpi-label">Links between notes re-pointed</div>
           <div class="h-kpi-value h-tnum">2,547</div>
-          <div class="h-kpi-sub"><b>0</b> that resolved before became unreachable</div>
+          <div class="h-kpi-sub"><b>0</b> that worked before are broken now</div>
         </div>
         <div class="h-kpi">
           <div class="h-kpi-label">Rules that went stale in silence</div>
@@ -991,17 +992,17 @@ body :where(i, em)     { color: var(--signal); font-style: normal; }
         <div class="h-kpi">
           <div class="h-kpi-label">Of those, live safety controls</div>
           <div class="h-kpi-value h-tnum is-neg">6</div>
-          <div class="h-kpi-sub">and all six failed <b>open</b></div>
+          <div class="h-kpi-sub">all six kept saying <b>OK</b> while protecting nothing</div>
         </div>
         <div class="h-kpi">
-          <div class="h-kpi-label">Security-hook events, one path fix</div>
+          <div class="h-kpi-label">Security checks logged, one path fix</div>
           <div class="h-kpi-value h-tnum">0 → 139</div>
-          <div class="h-kpi-sub">the hook had been <b>absent</b>, not failing</div>
+          <div class="h-kpi-sub">the check had been <b>absent</b>, not failing</div>
         </div>
         <div class="h-kpi">
           <div class="h-kpi-label">Nightly automation writing nothing</div>
           <div class="h-kpi-value h-tnum is-neg">3<span class="h-unit"> days</span></div>
-          <div class="h-kpi-sub">exit code <b>0</b> throughout</div>
+          <div class="h-kpi-sub">while reporting <b>success</b> every night</div>
         </div>
       </div>
     </div>
@@ -1013,12 +1014,15 @@ body :where(i, em)     { color: var(--signal); font-style: normal; }
   <section class="h-scene" id="verdict" aria-label="Read-first verdict">
     <aside class="h-readfirst">
       <p class="h-kicker"><i>Read first //</i> the ruling</p>
-      <p>A knowledge system does not rot because people stop writing things down. It rots because the
-      rules that say <i>where things live</i> are stored outside the things they govern — and when
-      something moves, <b>nothing errors</b>. Rebuilding this system moved 393 items and re-pointed 2,547
-      cross-references with zero losses. That was the easy half. The finding is the other eleven: rules
-      that kept reporting success while guarding nothing, six of them live safety controls. Every one was
-      caught by measurement. Not one announced itself.</p>
+      <p><b>What was done.</b> My own live knowledge system, the one my business runs on daily, was
+      rebuilt in place while it kept running: 393 files moved, 2,547 links between notes re-pointed,
+      zero losses. <b>How that is known.</b> The same measuring script ran before the rebuild and after.
+      A separate checker program compared the two. Zero is a measurement, not an impression.
+      <b>What it found.</b> The move was the easy half. Eleven automated checks had quietly stopped
+      working, six of them guarding security or privacy, and every one was still reporting success.
+      That is how a knowledge system actually rots: <i>nothing errors</i>, value just leaks.
+      <b>What to do with it.</b> Section 08 turns this into three checks you can run on your own
+      system this afternoon.</p>
     </aside>
   </section>
 
@@ -1337,7 +1341,7 @@ body :where(i, em)     { color: var(--signal); font-style: normal; }
       <div class="h-side is-before">
         <p class="h-side-head">What the system reported</p>
         <ul>
-          <li>nightly automation: <b>exit code 0</b>, every night</li>
+          <li>nightly automation: <b>"success"</b> (exit code 0), every night</li>
           <li>security hooks: registered and configured</li>
           <li>privacy filters: present, parsing, running</li>
           <li>the routing index: labelled <i>"generated from the filesystem"</i></li>
@@ -1485,10 +1489,17 @@ body :where(i, em)     { color: var(--signal); font-style: normal; }
     </div>
 
     <div class="t-recap" role="group" aria-label="The report in four numbers">
-      <div class="t-recap-item"><span class="t-recap-k">393</span><span class="t-recap-t">operations, zero losses</span></div>
-      <div class="t-recap-item"><span class="t-recap-k">2,547</span><span class="t-recap-t">cross-references, none broken</span></div>
+      <div class="t-recap-item"><span class="t-recap-k">393</span><span class="t-recap-t">files moved, zero losses</span></div>
+      <div class="t-recap-item"><span class="t-recap-k">2,547</span><span class="t-recap-t">links re-pointed, none broken</span></div>
       <div class="t-recap-item"><span class="t-recap-k">11</span><span class="t-recap-t">rules stale in silence, one week</span></div>
       <div class="t-recap-item"><span class="t-recap-k">0</span><span class="t-recap-t">of them raised an error</span></div>
+    </div>
+
+    <div class="h-prose">
+      <p>The system in this report is what I build for clients: <a href="index.html#product">the
+      memory system</a>. If your business should remember itself,
+      <a href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">book 15 minutes</a>
+      and bring one question your business can't answer fast.</p>
     </div>
   </section>
 </main>
