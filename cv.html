@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jhonalbert Alvarez — CV</title>
-<meta name="description" content="CV — Jhonalbert Alvarez. Sales · RevOps · AI automation.">
+<title>Jhonalbert Alvarez · CV</title>
+<meta name="description" content="CV · Jhonalbert Alvarez. Sales · RevOps · AI systems.">
 <style>
   /* CV — same identity system as the portfolio site, translated to paper.
      Light ground (this IS the print artifact), violet signal, mono metadata voice,
@@ -99,7 +99,7 @@
   @media print {
     @page { size: letter; margin: 9mm 12mm; }
     html, body { background: #fff; }
-    .sheet { max-width: 100%; margin: 0; padding: 0; box-shadow: none; font-size: 8.8pt; line-height: 1.28; }
+    .sheet { max-width: 100%; margin: 0; padding: 0; box-shadow: none; font-size: 8.8pt; line-height: 1.21; }
     a { color: var(--signal); }
     .job li, .job { break-inside: avoid; }
     .grid { break-inside: avoid; gap: 0 24pt; }
@@ -113,8 +113,8 @@
     .summary { margin: 7pt 0 0; max-width: none; }
     .head-rule { margin: 9pt 0 0; }
 
-    h2 { font-size: 7.2pt; margin: 10pt 0 5pt; }
-    .job { margin-bottom: 7pt; }
+    h2 { font-size: 7.2pt; margin: 8pt 0 4pt; }
+    .job { margin-bottom: 6pt; }
     .job-head h3 { font-size: 9.8pt; }
     .job-meta { font-size: 6.8pt; }
     .job-intro { font-size: 8.6pt; }
@@ -130,7 +130,7 @@
 <body>
   <main class="sheet">
     <header>
-      <p class="role-line">Sales · RevOps · AI Automation</p>
+      <p class="role-line">Sales · RevOps · AI Systems</p>
       <div class="lockup">
         <h1>Jhonalbert Alvarez</h1>
         <svg class="reticle" viewBox="0 0 40 40" aria-hidden="true">
@@ -142,7 +142,7 @@
       </div>
       <p class="tagline">I build the revenue systems I sell.</p>
       <p class="contact-line mono">+57 314 207 5466 · <a href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a> · <a href="https://www.linkedin.com/in/jhonalbert-alvarez/">linkedin.com/in/jhonalbert-alvarez</a> · <a href="https://pretending2bejhon.github.io/">pretending2bejhon.github.io</a> · Colombia, working remotely on EU &amp; US hours</p>
-      <p class="summary">Sales development and RevOps professional who builds his own tooling. Two years on high-volume sales floors, then cofounded Frakkr, where I designed the CRM, the outbound infrastructure, and the AI agents that run our pipeline. I close with the systems I build, and I build the systems I close with. Spanish native, English C1 certified.</p>
+      <p class="summary">Sales and RevOps professional who builds his own tooling. Two years on high-volume sales floors, then cofounded Frakkr, where I designed the CRM, the outbound infrastructure and the AI agents that run our pipeline. Today I embed with a client's engineering team, build the AI system inside their existing stack, and hand it back documented, running, and with the controls that tell you when it stops working. Spanish native, English C1 certified.</p>
       <hr class="head-rule">
     </header>
 
@@ -154,13 +154,13 @@
           <h3>Co-founder &amp; Head of Growth · <span class="org">Frakkr</span></h3>
           <span class="job-meta mono">Remote, US market &nbsp;|&nbsp; Jan 2026 – Present</span>
         </div>
-        <p class="job-intro">AI intake and automation for US personal-injury law firms. I own revenue end to end on a 4-person team.</p>
+        <p class="job-intro">AI intake and automation for US personal-injury law firms, plus enterprise AI enablement. I own revenue end to end on a 4-person team, and wrote the playbooks it sells with: cold-call flow, objection handling, discovery, compliance guardrails.</p>
         <ul>
-          <li>Stood up the outbound machine from zero: isolated Google Workspace tenants on secondary domains, automated warmup, and multichannel sequences (email, LinkedIn, cold calls) built CAN-SPAM and TCPA compliant.</li>
-          <li>Designed the CRM data model and ran the migration from spreadsheets into a three-table Airtable base with a 10-stage funnel and locked stage vocabulary, so a bad write fails instead of corrupting the data.</li>
-          <li>Put AI agents on the pipeline: daily lead assignment that books each rep's morning calendar, a five-phase data-enrichment pipeline (Google Places, Apollo, web scraping), and cold-lead scoring. Red-teamed every agent for prompt injection before trusting it with writes.</li>
-          <li>Shipped the company's first inbound asset: an 11-question intake-leak diagnostic, live at frakkr.com/leak, that shows a firm in dollars what its intake is losing and converts the reveal into a booked call.</li>
-          <li>Wrote the playbooks the team sells with: cold-call flow, objection handling, discovery meetings, LinkedIn outreach, and the compliance guardrails around all of it.</li>
+          <li>Landed an AI enablement engagement with <b>Farmatodo</b> (Colombian pharmacy retailer, 143 stores, about 2,000 POS registers): ran the architecture diagnostic that produced the systems map their team lacked plus a 14-item automation backlog, and built the 1:1 training program (context engineering, agent skills, scheduled routines) on their live Oracle and n8n workflows. Agreed success metric: hours recovered per process, from 3-5 hours to minutes.</li>
+          <li>Stood up the outbound machine from zero: isolated Google Workspace tenants on secondary domains, automated warmup, and CAN-SPAM/TCPA-compliant multichannel sequences (email, LinkedIn, cold calls).</li>
+          <li>Designed two generations of the CRM. In the current base the funnel is computed: stage, fit score, intent and priority quadrant are formulas derived from activity dates, so pipeline state cannot be hand-corrupted.</li>
+          <li>Put AI agents on the pipeline: six scheduled watchers (reply detection, deadline risk, revenue tripwires, weekly funnel digest), a five-phase enrichment pipeline (Google Places, Apollo, scraping) and cold-lead scoring, each red-teamed for prompt injection before being trusted with writes.</li>
+          <li>Shipped the company's first inbound asset: an 11-question intake-leak diagnostic that shows a firm in dollars what its intake is losing, and converts the reveal into a booked call.</li>
         </ul>
       </article>
 
@@ -170,8 +170,7 @@
           <span class="job-meta mono">Bogotá &nbsp;|&nbsp; Jul 2025 – Apr 2026</span>
         </div>
         <ul>
-          <li>Ran 50+ inbound service-to-sales interactions a day: resolved the insurance claim first, then pivoted the same caller into a Verizon Home Device Protect subscription.</li>
-          <li>Hit conversion targets consistently by converting skeptical, often frustrated callers: coverage-gap discovery, plain-language ROI, rapport built under pressure.</li>
+          <li>Ran 50+ inbound service-to-sales interactions a day: resolved the insurance claim first, then pivoted the same caller into a Verizon Home Device Protect subscription, hitting conversion targets on skeptical, often frustrated callers through coverage-gap discovery, plain-language ROI and rapport under pressure.</li>
         </ul>
       </article>
 
@@ -180,9 +179,7 @@
           <h3>ML Project Assistant · <span class="org">Universidad El Bosque</span></h3>
           <span class="job-meta mono">Bogotá &nbsp;|&nbsp; Jan 2025 – Dec 2025</span>
         </div>
-        <ul>
-          <li>Built and evaluated machine-learning models for academic and applied research projects.</li>
-        </ul>
+        <p class="job-intro">Built and evaluated machine-learning models for academic and applied research projects.</p>
       </article>
 
       <article class="job">
@@ -191,8 +188,7 @@
           <span class="job-meta mono">Bogotá &nbsp;|&nbsp; Jan 2022 – Jul 2023</span>
         </div>
         <ul>
-          <li>Held an 80% first-call resolution rate on a high-pressure financial-products line; customer satisfaction up 15% on my book.</li>
-          <li>Mined internal banking data to match products to client needs. The first version of the data-driven selling I do now.</li>
+          <li>Held an 80% first-call resolution rate on a high-pressure financial-products line, with customer satisfaction up 15% on my book. Mined internal banking data to match products to client needs, the first version of the data-driven selling I do now.</li>
         </ul>
       </article>
     </section>
@@ -201,17 +197,16 @@
       <div>
         <section aria-label="Skills">
           <h2>Skills</h2>
-          <p class="skill-line"><b>Sales &amp; GTM.</b> Cold outreach systems · discovery · objection handling · closing · multichannel cadences · sales compliance (CAN-SPAM, TCPA)</p>
-          <p class="skill-line"><b>RevOps.</b> CRM design · pipeline automation · lead scoring &amp; enrichment · attribution · Instantly · Apollo · Notion</p>
-          <p class="skill-line"><b>Data.</b> Python · pandas · scikit-learn · SQL · Streamlit · explainable models over black boxes</p>
-          <p class="skill-line"><b>AI.</b> Agent workflows · LLM automation · prompt-injection hardening · local models for client-data privacy</p>
+          <p class="skill-line"><b>Sales &amp; GTM.</b> Cold outreach systems · technical discovery · solutions engineering · objection handling · closing · multichannel cadences · sales compliance (CAN-SPAM, TCPA)</p>
+          <p class="skill-line"><b>RevOps.</b> CRM design · pipeline automation · AI deployment · scheduled agents · lead scoring &amp; enrichment · attribution · Airtable · n8n · Instantly · Apollo</p>
+          <p class="skill-line"><b>Data &amp; AI.</b> Python · Claude Code · MCP servers · sub-agents · agent skills · scheduled routines · context engineering · YAML &amp; Markdown context files · LLM automation · prompt-injection hardening · pandas · scikit-learn · SQL</p>
         </section>
 
         <section aria-label="Selected projects">
           <h2>Selected Projects</h2>
-          <p class="proj"><b>AI second brain (Obsidian).</b> A personal knowledge OS: one boot file tells the AI who I am and what the rules are, a routing table sends it deeper only when needed, and nightly agents consolidate the day's knowledge and learn my writing voice from my own edits.</p>
-          <p class="proj"><b>Book teardown &amp; retention scorecard.</b> Streamlit app for insurance agencies: premium and retention attribution plus an explainable churn model with reason codes. AUC 0.74, 2.6× top-decile lift on a synthetic book, processed fully offline.</p>
-          <p class="proj"><b>Offline call-QA pipeline.</b> Local Whisper transcription feeding a structured, rubric-scored call teardown as a styled PDF. Recordings never touch a cloud API.</p>
+          <p class="proj"><b>Memory system for AI agents.</b> A knowledge OS I run daily: a boot file states the rules, a routing table loads context only when needed, and scheduled agents brief me each morning and consolidate what they learn at night, promoting durable claims, letting stale ones decay. Guardrails sit between the agents and anything destructive. Eight scheduled agents run it nightly; a 4,480-transcript audit of my own sessions validated its cost model and cut security-rule violations from 773 to 5 per day by relocating one rule.</p>
+          <p class="proj"><b>Book teardown &amp; retention scorecard.</b> Streamlit app for insurance agencies: premium/retention attribution plus an explainable churn model with reason codes. AUC 0.74, 2.6× top-decile lift on a synthetic book, fully offline.</p>
+          <p class="proj"><b>Offline call-QA pipeline.</b> Local Whisper transcription feeding a rubric-scored call teardown as a styled PDF. Recordings never touch a cloud API.</p>
         </section>
       </div>
 

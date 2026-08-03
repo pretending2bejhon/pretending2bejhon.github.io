@@ -197,6 +197,11 @@
   .scene .sys { margin: 0; max-width: 58ch; font-size: 16.5px; font-weight: 350; color: var(--dim); }
   .scene .sys b { color: var(--text); font-weight: 500; }
 
+  /* the memory tree, shown as-is: the one screen that makes the product concrete */
+  .memtree { margin: 22px 0 0; padding: 16px 18px; border: 1px solid var(--hair); font-size: 12.5px; line-height: 1.8; color: var(--dim); overflow-x: auto; white-space: pre; }
+  .memtree .dir { color: var(--signal); }
+  .tree-note { margin: 12px 0 0; max-width: 58ch; font-size: 12px; letter-spacing: .04em; color: var(--faint); }
+
   .subtitle { margin: 26px 0 0; font-size: 12px; line-height: 1.8; color: var(--faint); letter-spacing: .04em; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
   .subtitle .st { display: inline-flex; align-items: center; gap: 8px; color: var(--signal); letter-spacing: .14em; }
   .subtitle a { color: var(--dim); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--hair); }
@@ -371,7 +376,7 @@
     .d4 * { animation: none !important; transition: none !important; }
     .col { max-width: 100%; padding: 0; }
 
-    .skip-link, .cta-row, .map-band, .about, .footer, .kicker, .gotow, .lang-btn { display: none !important; }
+    .skip-link, .cta-row, .map-band, .about, .footer, .kicker, .gotow, .lang-btn, .memtree, .tree-note { display: none !important; }
     .contact h2 { max-width: none; }
     .scene .subtitle a { color: #4a3d73; text-decoration: none; }
 
@@ -713,6 +718,15 @@
         <h2 class="display">The memory system</h2>
         <p class="sys"><b>Ask your business a question and get the answer in seconds, with the source, no matter whose head it used to live in.</b> I build your company a private, organized memory: the rules, the history, and the decisions behind your work, in one place your people and your AI both answer from. Most AI tools look things up on the fly and forget. This system keeps what your business learns, so every answer makes the next one faster. It runs on your own accounts. What goes in stays yours.</p>
         <p class="sys-short">A private, organized memory for your business: people and AI answer from one source, on your own accounts.</p>
+        <pre class="memtree mono" id="memtree" aria-label="The real file tree the system runs on"><span class="dir">00-core/</span>       the rules it boots with
+<span class="dir">10-memory/</span>     what the business knows
+  <span class="dir">episodic/</span>    what happened, dated
+  <span class="dir">semantic/</span>    facts, clients, decisions
+  <span class="dir">procedural/</span>  how you do things
+  inbox.md     raw capture, nothing lost
+<span class="dir">20-ventures/</span>   offers · pipeline · clients
+<span class="dir">40-artifacts/</span>  what you actually read</pre>
+        <p class="tree-note mono" id="tree-note">The real tree, not a diagram. Plain files your team can open. A few hundred lines in play at any moment: tiny against modern context windows.</p>
         <p class="subtitle mono"><span class="st"><span class="dot"></span>LIVE</span> · I run my own business on one, daily · <a href="case-study-second-brain.html">read the case study ↗</a><span class="gotow"> · <a class="goto" href="#map">see the discipline ↓</a></span></p>
       </div>
     </section>
@@ -733,19 +747,19 @@
       <p class="sect-cta"><a class="cta" href="#contact">Bring me your first question ↓</a></p>
     </section>
 
-    <section class="proof-band" id="proof" aria-label="Proof: my own system, measured" data-route-stop="left">
+    <section class="proof-band" id="proof" aria-label="Client work: embedded with Farmatodo" data-route-stop="left">
       <div class="loop-head">
-        <p class="kicker mono">PROOF <i>·</i> MEASURED, JULY 2026</p>
-        <h2 class="display">Zero losses. Measured, not promised.</h2>
-        <p class="loop-lede">This is my own system: every note, client file, and decision of my business lives in it. In July I rebuilt it from the ground up while it kept running. What that means, plainly:</p>
+        <p class="kicker mono">CLIENT WORK <i>·</i> IN THE FIELD NOW</p>
+        <h2 class="display">Embedded with an enterprise retailer.</h2>
+        <p class="loop-lede">Farmatodo: a Colombian pharmacy retailer. 143 stores, about 2,000 POS registers. I work inside their engineering team, on their live Oracle and n8n workflows. Not a demo environment. How the engagement runs:</p>
       </div>
-      <div class="operating-steps three" aria-label="What was done, how it was checked, what it caught">
-        <article class="operating-step"><span class="step-no mono">01</span><h3>What was done</h3><p>Reorganized my entire business memory into a new structure: 393 files and 2,547 links between them, moved without shutting the system down. Daily work kept running the whole time.</p></article>
-        <article class="operating-step"><span class="step-no mono">02</span><h3>How it was checked</h3><p>A script counted every file and every link before the rebuild, and ran again after. The numbers matched exactly: nothing lost, nothing left pointing nowhere. "Zero losses" is a measurement, not a slogan.</p></article>
-        <article class="operating-step"><span class="step-no mono">03</span><h3>What it caught</h3><p>Eleven automated checks had quietly stopped working. Six guarded security and privacy. All still reported "OK". That silence is how business knowledge actually disappears. Catching it early is what this discipline is for.</p></article>
+      <div class="operating-steps three" aria-label="Embed and map, find the real work, hand it back">
+        <article class="operating-step"><span class="step-no mono">01</span><h3>Embed and map</h3><p>First deliverable: the architecture diagnostic that produced the systems map their own team didn't have. You can't automate what nobody can see.</p></article>
+        <article class="operating-step"><span class="step-no mono">02</span><h3>Find the real work</h3><p>The diagnostic surfaced a backlog of 14 recurring manual processes. That list is the roadmap, in their numbers. The agreed success metric: hours per process down to minutes.</p></article>
+        <article class="operating-step"><span class="step-no mono">03</span><h3>Hand it back</h3><p>1:1 training on context engineering, agent skills, and scheduled routines, so their team runs the system after I step back. Documented, running, with controls that tell them when it stops working.</p></article>
       </div>
-      <p class="sys-short">Rebuilt my own live system: 393 files and 2,547 links moved with zero losses, verified by count before and after. Eleven silently broken checks caught and fixed.</p>
-      <p class="subtitle mono"><span class="st"><span class="dot"></span>MEASURED</span> · my own production system, self-measured, not a client story · <a href="case-study-second-brain.html">read the full case study ↗</a></p>
+      <p class="sys-short">Embedded with Farmatodo, a 143-store Colombian retailer: architecture diagnostic, a 14-item automation backlog, and training their team on live Oracle and n8n workflows.</p>
+      <p class="subtitle mono"><span class="st"><span class="dot"></span>IN PROGRESS</span> · the case study comes when there are results to show · <a href="case-study-second-brain.html">how I run my own system ↗</a></p>
     </section>
 
     <div class="twin-bridge">
@@ -855,7 +869,7 @@
     <section class="about" aria-label="About" data-route-stop="right">
       <div>
         <p class="line display">Sales instincts. Systems thinking. Builder's hands.</p>
-        <p class="body">I start with the work on the ground, then build the information, rules, and automation that make teams faster and leadership clearer.</p>
+        <p class="body">I embed with your team, build the system inside the stack you already run, and hand it back documented, running, and with the controls that tell you when it stops working.</p>
         <p class="facts mono">Spanish, native <i>·</i> English, C1 <i>·</i> Structure before scale</p>
       </div>
     </section>
@@ -1050,6 +1064,8 @@
     '#product h2': 'El sistema de memoria',
     '#product .sys': '<b>Hazle una pregunta a tu negocio y recibe la respuesta en segundos, con la fuente, sin importar en qué cabeza vivía antes.</b> Le construyo a tu empresa una memoria privada y organizada: las reglas, el historial y las decisiones detrás de tu trabajo, en un solo lugar del que responden tu gente y tu IA. La mayoría de las herramientas de IA buscan al momento y olvidan. Este sistema conserva lo que tu negocio aprende, y cada respuesta hace más rápida la siguiente. Corre sobre tus propias cuentas. Lo que entra es tuyo.',
     '#product .sys-short': 'Una memoria privada y organizada para tu negocio: personas e IA responden desde una sola fuente, sobre tus propias cuentas.',
+    '#memtree': '<span class="dir">00-core/</span>       las reglas con las que arranca\n<span class="dir">10-memory/</span>     lo que el negocio sabe\n  <span class="dir">episodic/</span>    lo que pasó, con fecha\n  <span class="dir">semantic/</span>    hechos, clientes, decisiones\n  <span class="dir">procedural/</span>  cómo hacen las cosas\n  inbox.md     captura cruda, nada se pierde\n<span class="dir">20-ventures/</span>   ofertas · pipeline · clientes\n<span class="dir">40-artifacts/</span>  lo que de verdad se lee',
+    '#tree-note': 'El árbol real, no un diagrama. Archivos planos que tu equipo puede abrir. Unos cientos de líneas en juego en cada momento: diminuto frente a las ventanas de contexto modernas.',
     '#product .subtitle': '<span class="st"><span class="dot"></span>EN PRODUCCIÓN</span> · mi propio negocio corre sobre una, a diario · <a href="case-study-second-brain.html">leer el caso de estudio ↗</a><span class="gotow"> · <a class="goto" href="#map">ver la disciplina ↓</a></span>',
 
     '#loop .kicker': 'CÓMO FUNCIONA',
@@ -1066,17 +1082,17 @@
     '#loop .operating-step:nth-child(4) p': 'El dueño ve qué preguntas se repiten, qué handoffs se rompen y qué conviene automatizar después. Decide con evidencia, no de memoria.',
     '#loop .cta': 'Tráeme tu primera pregunta ↓',
 
-    '#proof .kicker': 'PRUEBA <i>·</i> MEDIDO, JULIO 2026',
-    '#proof h2': 'Cero pérdidas. Medido, no prometido.',
-    '#proof .loop-lede': 'Este es mi propio sistema: cada nota, archivo de cliente y decisión de mi negocio vive en él. En julio lo reconstruí de raíz mientras seguía corriendo. Qué significa eso, en claro:',
-    '#proof .operating-step:nth-child(1) h3': 'Qué se hizo',
-    '#proof .operating-step:nth-child(1) p': 'Reorganicé la memoria completa de mi negocio a una estructura nueva: 393 archivos y 2.547 enlaces entre ellos, movidos sin apagar el sistema. El trabajo diario siguió corriendo todo el tiempo.',
-    '#proof .operating-step:nth-child(2) h3': 'Cómo se verificó',
-    '#proof .operating-step:nth-child(2) p': 'Un script contó cada archivo y cada enlace antes de la reconstrucción, y corrió de nuevo después. Los números coincidieron exacto: nada perdido, nada apuntando a la nada. «Cero pérdidas» es una medición, no un eslogan.',
-    '#proof .operating-step:nth-child(3) h3': 'Qué atrapó',
-    '#proof .operating-step:nth-child(3) p': 'Once verificaciones automáticas habían dejado de funcionar en silencio. Seis cuidaban seguridad y privacidad. Todas seguían reportando «OK». Ese silencio es como desaparece de verdad el conocimiento de un negocio. Atraparlo temprano es para lo que existe esta disciplina.',
-    '#proof .sys-short': 'Reconstruí mi propio sistema en producción: 393 archivos y 2.547 enlaces movidos con cero pérdidas, verificado por conteo antes y después. Once verificaciones rotas en silencio, atrapadas y corregidas.',
-    '#proof .subtitle': '<span class="st"><span class="dot"></span>MEDIDO</span> · mi propio sistema en producción, auto-medido, no un caso de cliente · <a href="case-study-second-brain.html">leer el caso completo ↗</a>',
+    '#proof .kicker': 'TRABAJO CON CLIENTES <i>·</i> EN EL TERRENO',
+    '#proof h2': 'Integrado con un retailer enterprise.',
+    '#proof .loop-lede': 'Farmatodo: un retailer farmacéutico colombiano. 143 tiendas, cerca de 2.000 cajas POS. Trabajo dentro de su equipo de ingeniería, sobre sus flujos vivos de Oracle y n8n. No es un ambiente de demo. Así corre el proyecto:',
+    '#proof .operating-step:nth-child(1) h3': 'Integrarse y mapear',
+    '#proof .operating-step:nth-child(1) p': 'Primer entregable: el diagnóstico de arquitectura que produjo el mapa de sistemas que su propio equipo no tenía. No se puede automatizar lo que nadie puede ver.',
+    '#proof .operating-step:nth-child(2) h3': 'Encontrar el trabajo real',
+    '#proof .operating-step:nth-child(2) p': 'El diagnóstico sacó a la luz un backlog de 14 procesos manuales recurrentes. Esa lista es la hoja de ruta, en sus números. La métrica de éxito acordada: horas por proceso reducidas a minutos.',
+    '#proof .operating-step:nth-child(3) h3': 'Devolverlo funcionando',
+    '#proof .operating-step:nth-child(3) p': 'Entrenamiento 1:1 en context engineering, agent skills y rutinas programadas, para que su equipo opere el sistema cuando yo dé un paso atrás. Documentado, funcionando, con controles que avisan cuando algo deja de funcionar.',
+    '#proof .sys-short': 'Integrado con Farmatodo, un retailer colombiano de 143 tiendas: diagnóstico de arquitectura, backlog de 14 automatizaciones, y entrenamiento de su equipo sobre flujos vivos de Oracle y n8n.',
+    '#proof .subtitle': '<span class="st"><span class="dot"></span>EN CURSO</span> · el caso de estudio llega cuando haya resultados que mostrar · <a href="case-study-second-brain.html">cómo opero mi propio sistema ↗</a>',
 
     '.twin-bridge p': 'Dos tamaños · el mismo sistema',
     '#tier-founder .kicker': 'PARA FUNDADORES <i>·</i> personal',
@@ -1111,7 +1127,7 @@
     '.map-list li:nth-child(3) .k': 'viene después',
 
     '.about .line': 'Instinto de ventas. Pensamiento de sistemas. Manos de constructor.',
-    '.about p.body': 'Empiezo con el trabajo en la base, luego construyo la información, las reglas y la automatización que hacen al equipo más rápido y al liderazgo más claro.',
+    '.about p.body': 'Me integro con tu equipo, construyo el sistema dentro del stack que ya usas, y lo entrego documentado, funcionando, y con los controles que te avisan cuando deja de funcionar.',
     '.about .facts': 'Español, nativo <i>·</i> Inglés, C1 <i>·</i> Estructura antes que escala',
 
     '.contact h2': 'Hazle a tu negocio su primera pregunta.',
