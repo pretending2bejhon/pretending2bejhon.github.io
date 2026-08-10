@@ -189,6 +189,23 @@ body :where(i, em)     { color: var(--signal); font-style: normal; }
 }
 .h-skip:focus { left: 12px; }
 
+/* cursor glow — same lamp as the portfolio page (site-wide consistency).
+   Layered at z-index -1 in the root context: under all content, over the
+   ground, so it never washes the figures. Fine pointers only; print never
+   sees it. */
+.cursor-glow {
+  position: fixed; left: 0; top: 0; z-index: -1;
+  width: 500px; height: 500px; border-radius: 50%;
+  pointer-events: none; opacity: 0;
+  filter: blur(90px); mix-blend-mode: screen;
+  background: radial-gradient(circle, rgba(190, 149, 255, .20), transparent 68%);
+  transition: opacity .7s ease;
+  will-change: transform;
+}
+@media (pointer: coarse) { .cursor-glow { display: none; } }
+@media (prefers-reduced-motion: reduce) { .cursor-glow { display: none; } }
+@media print { .cursor-glow { display: none !important; } }
+
 /* 01 · LAYOUT */
 .h-col {
   width: 100%; max-width: var(--col-max); margin-inline: auto;
@@ -925,6 +942,7 @@ body :where(i, em)     { color: var(--signal); font-style: normal; }
 </head>
 
 <body id="top">
+<div class="cursor-glow" data-cursor-glow aria-hidden="true"></div>
 <a class="h-skip" href="#main">Skip to the report</a>
 
 <!-- HORUS-NAV (chrome, not a slot) -->
@@ -1688,6 +1706,32 @@ body :where(i, em)     { color: var(--signal); font-style: normal; }
       seen.observe(stage);
     }
   }
+})();
+</script>
+<script>
+/* cursor glow: a soft violet lamp lerped toward the pointer. Fine pointers
+   only; reduced motion (or data-motion="off") opts out; fades in on move. */
+(function () {
+  var el = document.querySelector('[data-cursor-glow]');
+  if (!el || !window.matchMedia) return;
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (document.documentElement.getAttribute('data-motion') === 'off') { el.style.display = 'none'; return; }
+
+  var tx = window.innerWidth / 2, ty = window.innerHeight / 2;
+  var x = tx, y = ty, shown = false;
+
+  window.addEventListener('mousemove', function (e) {
+    tx = e.clientX; ty = e.clientY;
+    if (!shown) { shown = true; el.style.opacity = '1'; }
+  }, { passive: true });
+
+  (function tick() {
+    x += (tx - x) * 0.12;
+    y += (ty - y) * 0.12;
+    el.style.transform = 'translate3d(' + (x - 250) + 'px, ' + (y - 250) + 'px, 0)';
+    window.requestAnimationFrame(tick);
+  })();
 })();
 </script>
 </body>
