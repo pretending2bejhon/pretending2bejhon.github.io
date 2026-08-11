@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Jhonalbert Alvarez · The memory system</title>
-  <meta name="description" content="I build private memory systems for founders and 10–50-person teams: the rules, history, and decisions behind your work, in one place your people and your AI both answer from. I run my own business on one, daily.">
+  <title>Jhonalbert Alvarez · Sales, data, AI systems</title>
+  <meta name="description" content="I came from sales. Now I build the data and AI systems that feed it: public-record pipelines that rank who to call first, and memory systems so a team and its AI answer from the same place. Portfolio, CV and what I have built.">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0b0813">
   <link rel="canonical" href="https://pretending2bejhon.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pretending2bejhon.github.io/">
-  <meta property="og:title" content="Jhonalbert Alvarez · Your business finally remembers itself.">
-  <meta property="og:description" content="The memory system: ask your business a question and get the answer in seconds, with the source. Most AI looks things up and forgets. This remembers. Every status label is literal.">
+  <meta property="og:title" content="Jhonalbert Alvarez · I came from sales. Now I build the systems that feed it.">
+  <meta property="og:description" content="Data systems that rank what to act on, and AI memory systems so nobody re-derives what the business already knew. What I have built, the stack I work in, and how to reach me. Every status label is literal.">
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="%23a78bfa" stroke-width="2.5"/><path d="M20 20 29 10" stroke="%23a78bfa" stroke-width="2.5"/><circle cx="20" cy="20" r="3" fill="%23a78bfa"/></svg>'>
 <style>
   /* JHONALBERT ALVAREZ — portfolio. "Night console": violet night, one motivated light,
@@ -189,9 +189,11 @@
   .reticle .pin { fill: var(--signal); }
 
   .hero-low { display: grid; gap: var(--s-8); }
+  /* the headline is a two-clause SENTENCE now, not a three-word phrase. At 14ch it
+     stacked five lines deep and read like a column; 17ch lands it at three or four. */
   .thesis {
-    margin: 0; font-size: clamp(2.7rem, 7.5vw, 5.75rem); line-height: 1.02; letter-spacing: -0.028em;
-    max-width: 14ch; text-wrap: balance;
+    margin: 0; font-size: clamp(2.5rem, 6.4vw, 5rem); line-height: 1.04; letter-spacing: -0.026em;
+    max-width: 17ch; text-wrap: balance;
   }
   .avail { margin: 0; font-size: var(--t-small); color: var(--dim); letter-spacing: .04em; }
   /* CTA hierarchy: the conversion action ("Book 15 min") is the one filled
@@ -298,6 +300,19 @@
   .door p { margin: 0; max-width: 58ch; color: var(--dim); font-size: var(--t-small); line-height: 1.65; }
   @media (min-width: 781px) {
     .door { grid-template-columns: minmax(240px, 1fr) 2fr; gap: var(--s-6); }
+  }
+
+  /* THE STACK: the one section whose CONTENT differs by language rather than
+     translating. Two sibling blocks, one per audience; the language switch shows
+     exactly one. EN gets the full technical stack, ES gets the data stack only —
+     a Colombian gerente comercial is buying a public-records pipeline, not agents. */
+  [data-lang-block][hidden] { display: none; }
+  .stack-list { margin: var(--sect-in) 0 0; border-top: 1px solid var(--hair); }
+  .stack-row { display: grid; grid-template-columns: 1fr; gap: var(--s-2); padding: var(--s-6) 0; border-bottom: 1px solid var(--hair); }
+  .stack-row h3 { margin: 0; font-size: var(--t-small); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--signal); }
+  .stack-row p { margin: 0; max-width: 62ch; color: var(--dim); font-size: var(--t-small); line-height: 1.7; }
+  @media (min-width: 781px) {
+    .stack-row { grid-template-columns: minmax(200px, 1fr) 2.4fr; gap: var(--s-6); }
   }
 
   /* ————— band 3: THE MAP ————— */
@@ -504,7 +519,7 @@
 
     .proof-band { padding: 7pt 0; border-bottom: .5pt solid #d9d3ea; break-inside: avoid; }
     .proof-band h2 { font-size: 11.5pt; font-weight: 600; margin: 0 0 3pt; color: #17112b; }
-    .proof-band .loop-lede, .proof-band .operating-steps, .proof-band .ledger { display: none; }
+    .proof-band .loop-lede, .proof-band .operating-steps, .proof-band .ledger, .proof-band .stack-list { display: none; }
 
     .contact { padding: 10pt 0 0; }
     .contact h2 { font-size: 12pt; font-weight: 600; margin: 0 0 2pt; color: #17112b; }
@@ -779,38 +794,38 @@
         </svg>
       </span>
       <span class="tc-right">
-        <span class="role">Sales · RevOps · AI systems</span>
+        <span class="role">Sales · Data · AI systems</span>
         <button type="button" class="lang-btn" data-lang-btn aria-label="Cambiar a español">ES</button>
       </span>
     </div>
 
     <div class="col hero-low">
-      <p class="thesis display">Your business finally remembers itself.</p>
-      <p class="avail">Now taking memory-system builds. Also open to the right role.</p>
+      <p class="thesis display">I came from sales. Now I build the data and AI systems that feed it.</p>
+      <p class="avail">Colombia, working EU and US hours. Open to the right role, and taking freelance builds.</p>
       <div class="cta-row">
         <a class="btn" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min <span class="arr" aria-hidden="true">↗</span></a>
-        <a class="cta quiet" href="#work">See the system ↓</a>
+        <a class="cta quiet" href="#built">See what I have built ↓</a>
       </div>
     </div>
   </header>
 
   <!-- ————— band 2 · the product: the memory system ————— -->
   <main class="scenes col">
-    <section class="scene left" id="work" aria-label="The problem" data-route-stop="right">
+    <section class="scene left" id="work" aria-label="What I do" data-route-stop="right">
       <div class="inner">
-        <p class="kicker mono">THE PROBLEM <i>·</i> knowledge scatters</p>
-        <h2 class="display">Every answer lives in somebody's head.</h2>
-        <p class="sys"><b>How did we close that deal? Why did that client leave? What did we decide in March?</b> Every business runs on answers like these. Almost none of them are written down where people can find them. They live in inboxes, old chats, and the memory of whoever was there. So the team re-solves problems it already solved. New hires spend months asking. When someone leaves, everything they knew walks out with them.</p>
-        <p class="sys-short">The answers a business runs on live in heads and inboxes: re-derived every week, lost with every departure.</p>
+        <p class="kicker mono">WHAT I DO <i>·</i> data in, decisions out</p>
+        <h2 class="display">I turn scattered records into the next decision.</h2>
+        <p class="sys"><b>Two kinds of system, one skill underneath.</b> The first takes records nobody has joined, public registries, contracting history, a company's own scattered files, and joins them into a ranked answer to a question somebody has to act on this morning. The second gives a team a memory, so people and their AI answer from the same place instead of re-deriving what the business already knew. I came up through sales floors, so I build for the person who has to make the call, not for a dashboard nobody opens.</p>
+        <p class="sys-short">Data systems that rank what to act on, and memory systems so a team stops re-deriving what it already knew.</p>
       </div>
     </section>
 
-    <section class="scene right" id="product" aria-label="The solution: the memory system" data-route-stop="left">
+    <section class="scene right" id="product" aria-label="Flagship: the memory system" data-route-stop="left">
       <div class="inner">
-        <p class="kicker mono">THE SOLUTION <i>·</i> one private memory</p>
+        <p class="kicker mono">FLAGSHIP <i>·</i> the one I run daily</p>
         <h2 class="display">The memory system</h2>
-        <p class="sys"><b>Ask your business a question and get the answer in seconds, with the source, no matter whose head it used to live in.</b> I build your company a private, organized memory: the rules, the history, and the decisions behind your work, in one place your people and your AI both answer from. Most AI tools look things up on the fly and forget. This system keeps what your business learns, so every answer makes the next one faster. It runs on your own accounts. What goes in stays yours.</p>
-        <p class="sys-short">A private, organized memory for your business: people and AI answer from one source, on your own accounts.</p>
+        <p class="sys"><b>Most AI looks things up. This remembers.</b> My own work runs on a private, structured memory: the rules, the history, and the decisions behind it, in one place I and my agents both answer from. Plain files, no database, no vendor. It is the system I know best because I live inside it every day, and it is the reason I can talk about context engineering from practice instead of from a blog post. The method is being published as an open repository.</p>
+        <p class="sys-short">A private, structured memory in plain files: I run my own work on it daily, and the method is being published.</p>
         <pre class="memtree mono" id="memtree" aria-label="The real file tree the system runs on"><span class="dir">00-core/</span>       the rules it boots with
 <span class="dir">10-memory/</span>     what the business knows
   <span class="dir">episodic/</span>    what happened, dated
@@ -819,95 +834,100 @@
   inbox.md     raw capture, nothing lost
 <span class="dir">20-ventures/</span>   offers · pipeline · clients
 <span class="dir">40-artifacts/</span>  what you actually read</pre>
-        <p class="tree-note mono" id="tree-note">The real tree, not a diagram. Plain files your team can open. A few hundred lines in play at any moment: tiny against modern context windows.</p>
-        <p class="subtitle stack mono"><span><span class="st"><span class="dot"></span>LIVE</span> · I run my own business on one, daily</span><span><a href="case-study-second-brain.html">read the case study ↗</a><span class="gotow"> · <a class="goto" href="#map">see the discipline ↓</a></span></span></p>
+        <p class="tree-note mono" id="tree-note">The real tree, not a diagram. Plain files anyone can open. A few hundred lines in play at any moment: tiny against modern context windows.</p>
+        <p class="subtitle stack mono"><span><span class="st"><span class="dot"></span>LIVE</span> · running daily since I built it</span><span><a href="case-study-second-brain.html">read the case study ↗</a><span class="gotow"> · <a class="goto" href="#map">see the discipline ↓</a></span></span></p>
       </div>
     </section>
 
-    <section class="decision-loop" id="loop" aria-label="How it works day to day" data-route-stop="right">
+    <section class="proof-band" id="built" aria-label="What I have built" data-route-stop="right">
       <div class="loop-head">
-        <h2 class="display">From work happening to the business remembering.</h2>
-        <p class="loop-lede">The system sits under the work your team already does. As work happens, the answers, decisions, and fixes get captured, organized, and served back the moment they're needed. To your people and to your AI alike.</p>
-        <p class="loop-note mono">Representative operating loop · not a client case</p>
+        <p class="kicker mono">BUILT <i>·</i> SHIPPED AND RUNNING</p>
+        <h2 class="display">What I have built.</h2>
+        <p class="loop-lede">Every entry below runs. None of them is a mockup, and none of them was built to be shown.</p>
       </div>
-      <div class="operating-steps" aria-label="Four-stage operating loop">
-        <article class="operating-step"><span class="step-no mono">01</span><h3>Work happens</h3><p>A client emails a question. A rep closes a deal. Someone finally fixes the thing that broke all week. Most of that signal evaporates by Friday.</p></article>
-        <article class="operating-step"><span class="step-no mono">02</span><h3>Context holds</h3><p>The answer, the deal, the fix get captured where the whole team and its AI can find them, instead of living in one person's head.</p></article>
-        <article class="operating-step"><span class="step-no mono">03</span><h3>Team acts</h3><p>The fifth time the same question arrives, nobody re-derives the answer. The system serves it, with the source. People spend their judgment where it's needed.</p></article>
-        <article class="operating-step"><span class="step-no mono">04</span><h3>Leadership steers</h3><p>The owner sees which questions repeat, which handoffs break, and what to automate next. Decisions come from evidence, not memory.</p></article>
+      <div class="ledger" aria-label="Built systems, in order of depth">
+        <article class="ledger-row"><h3>The memory system</h3><p>A knowledge system I operate daily: a boot file states the rules, a routing table loads context only when it is needed, and scheduled agents brief me each morning and consolidate what they learned at night. Rebuilt in place while it kept running: 393 operations, 2,547 links re-pointed, zero losses. An audit of 4,480 of my own sessions cut security-rule violations from 773 a day to 5 by relocating one rule.</p></article>
+        <article class="ledger-row"><h3>A national company spine</h3><p>Colombia's mercantile registry, public contracting and open government data joined into one row per company, 2.1 million of them, then cut into a ranked analysis of which accounts a specific seller should call first and why. The reasoning column is the product.</p></article>
+        <article class="ledger-row"><h3>An outbound machine, from zero</h3><p>Isolated sending tenants, automated warmup, compliant multichannel sequences, and a CRM where stage, fit and priority are computed from activity dates so pipeline state cannot be hand-corrupted. Built at Frakkr, where I was co-founder and Head of Growth.</p></article>
+        <article class="ledger-row"><h3>An offline call-QA pipeline</h3><p>Local transcription feeds a rubric-scored teardown into a styled report in minutes instead of days. It runs on real sales calls, not synthetic data, and the recordings never touch a cloud API.</p></article>
+        <article class="ledger-row"><h3>A public-tender watcher</h3><p>A poller over Colombia's open contracting feed that reports what changed since its last run, so a market read starts from today's record instead of last month's.</p></article>
       </div>
-      <p class="sect-cta"><a class="cta" href="#contact">Bring me your first question ↓</a></p>
+      <p class="sys-short">Built and running: a daily-driver memory system, a 2.1M-company national data spine, an outbound machine and CRM built from zero, an offline call-QA pipeline, a public-tender watcher.</p>
+      <p class="subtitle stack mono"><span><span class="st"><span class="dot"></span>LIVE</span> · status labels on this page are literal</span><span><a href="case-study-second-brain.html">the memory system, in depth ↗</a></span></p>
     </section>
 
-    <section class="proof-band" id="proof" aria-label="Client work: embedded with Farmatodo" data-route-stop="left">
+    <section class="proof-band" id="tools" aria-label="The stack" data-route-stop="left">
+      <div data-lang-block="en">
+        <div class="loop-head">
+          <p class="kicker mono">TOOLS <i>·</i> WHAT I WORK IN</p>
+          <h2 class="display">The stack.</h2>
+          <p class="loop-lede">Tools I use on real work, not a certification list.</p>
+        </div>
+        <div class="stack-list" aria-label="Stack by area">
+          <article class="stack-row"><h3>AI and agents</h3><p>Claude Code with sub-agents, MCP servers, agent skills and hooks · context engineering · scheduled routines · prompt-injection hardening · fully offline local models: Ollama, Whisper, Kokoro TTS, Stable Diffusion on OpenVINO</p></article>
+          <article class="stack-row"><h3>Data</h3><p>Python · pandas · SQL · public-record pipelines over national registries and state contracting feeds · Airtable · n8n</p></article>
+          <article class="stack-row"><h3>Sales systems</h3><p>CRM design · pipeline automation · lead scoring and enrichment · multichannel cadences · sales compliance, CAN-SPAM and TCPA</p></article>
+          <article class="stack-row"><h3>Client stacks serviced</h3><p>n8n Enterprise · Claude Enterprise · Gemini on Google Workspace · Databricks · Oracle Retail RMS v16</p></article>
+        </div>
+      </div>
+      <div data-lang-block="es" hidden>
+        <div class="loop-head">
+          <p class="kicker mono">HERRAMIENTAS <i>·</i> CON QUÉ TRABAJO</p>
+          <h2 class="display">Con qué trabajo.</h2>
+          <p class="loop-lede">Las fuentes y las herramientas con las que se arma un análisis de mercado en Colombia.</p>
+        </div>
+        <div class="stack-list" aria-label="Fuentes y herramientas">
+          <article class="stack-row"><h3>Fuentes oficiales</h3><p>SECOP · RUES · datos.gov.co. El registro mercantil y la contratación pública del Estado, cruzados por NIT en una sola base de trabajo.</p></article>
+          <article class="stack-row"><h3>Proceso</h3><p>Python para depurar, cruzar y ordenar · Airtable para operar la lista de contacto del equipo comercial · n8n para mover información entre sistemas.</p></article>
+          <article class="stack-row"><h3>Escala</h3><p>2,1 millones de empresas colombianas, una fila por NIT, recortable por sector, ciudad, tamaño y señales de vigencia.</p></article>
+          <article class="stack-row"><h3>Reglas de contacto</h3><p>Ley 2300 de 2023: horarios permitidos, frecuencia máxima y exclusión voluntaria, entregadas junto con cada análisis.</p></article>
+        </div>
+      </div>
+      <p class="sys-short">Stack: Claude Code with sub-agents, MCP servers and agent skills, context engineering, offline local models, Python and SQL data pipelines, Airtable, n8n, CRM and pipeline automation.</p>
+    </section>
+
+    <section class="proof-band" id="proof" aria-label="Client work: Farmatodo" data-route-stop="right">
       <div class="loop-head">
-        <p class="kicker mono">CLIENT WORK <i>·</i> IN THE FIELD NOW</p>
-        <h2 class="display">Embedded with an enterprise retailer.</h2>
-        <p class="loop-lede">Farmatodo: a Colombian pharmacy retailer. 143 stores, about 2,000 POS registers. I work inside their engineering team, on their live Oracle and n8n workflows. Not a demo environment. How the engagement runs:</p>
+        <p class="kicker mono">CLIENT WORK <i>·</i> ENTERPRISE</p>
+        <h2 class="display">An enterprise retailer's real backlog.</h2>
+        <p class="loop-lede">Farmatodo: a Colombian pharmacy retailer, 143 stores and about 2,000 POS registers. I landed the engagement and ran it inside their engineering team, on their live Oracle and n8n workflows. Not a demo environment. How it went:</p>
       </div>
       <div class="ledger" aria-label="Embed and map, find the real work, hand it back">
-        <article class="ledger-row"><h3>Embed and map</h3><p>First deliverable: the architecture diagnostic that produced the systems map their own team didn't have. You can't automate what nobody can see.</p></article>
-        <article class="ledger-row"><h3>Find the real work</h3><p>The diagnostic surfaced a backlog of 14 recurring manual processes. That list is the roadmap, in their numbers. The agreed success metric: hours per process down to minutes.</p></article>
-        <article class="ledger-row"><h3>Hand it back</h3><p>1:1 training on context engineering, agent skills, and scheduled routines, so their team runs the system after I step back. Documented, running, with controls that tell them when it stops working.</p></article>
+        <article class="ledger-row"><h3>Embed and map</h3><p>First deliverable: the architecture diagnostic that produced the systems map their own team did not have. You cannot automate what nobody can see.</p></article>
+        <article class="ledger-row"><h3>Find the real work</h3><p>The diagnostic surfaced a backlog of 14 recurring manual processes. That list became the roadmap, in their numbers. The agreed success metric: hours per process down to minutes.</p></article>
+        <article class="ledger-row"><h3>Hand it back</h3><p>A 1:1 training program on context engineering, agent skills and scheduled routines, so their own team runs the system. Documented, running, with the controls that say when it stops working.</p></article>
       </div>
-      <p class="sys-short">Embedded with Farmatodo, a 143-store Colombian retailer: architecture diagnostic, a 14-item automation backlog, and training their team on live Oracle and n8n workflows.</p>
-      <p class="subtitle stack mono"><span><span class="st"><span class="dot"></span>IN PROGRESS</span> · the case study comes when there are results to show</span><span><a href="case-study-second-brain.html">how I run my own system ↗</a></span></p>
+      <p class="sys-short">Farmatodo, a 143-store Colombian retailer: architecture diagnostic, a 14-item automation backlog, and a 1:1 training program on live Oracle and n8n workflows.</p>
+      <p class="subtitle stack mono"><span><span class="st"><span class="dot half"></span>PAST ENGAGEMENT</span> · I delivered the diagnostic and the training program; the account stayed with the team</span></p>
     </section>
 
-    <div class="twin-bridge">
-      <p class="mono">Two sizes · same system</p>
-      <hr>
-    </div>
-    <div class="twin" data-route-stop="center">
-      <section class="scene" id="tier-founder" aria-label="For founders">
-        <div class="inner">
-          <p class="kicker mono">FOR FOUNDERS <i>·</i> personal</p>
-          <h2 class="display">Your own memory</h2>
-          <p class="sys"><b>For the founder whose decisions are buried in years of notes.</b> Your deals, research, drafts, and decisions go into one private system that answers in seconds, on your own accounts. This is the version I run myself, shaped to your world instead of mine.</p>
-          <p class="sys-short">A founder's private memory: deals, research, and decisions, answering in seconds.</p>
-        </div>
-      </section>
-      <section class="scene" id="tier-team" aria-label="For teams of 10 to 50">
-        <div class="inner">
-          <p class="kicker mono">FOR TEAMS OF 10–50 <i>·</i> company</p>
-          <h2 class="display">The company's memory</h2>
-          <p class="sys"><b>For the team that answers the same question every month because the answer lives in somebody's head.</b> Client history, how-we-do-things, the reasons behind the rules: captured once, findable by everyone. New people get productive faster. Departures stop taking knowledge with them.</p>
-          <p class="sys-short">A company memory for 10–50-person teams: faster onboarding, knowledge that survives turnover.</p>
-        </div>
-      </section>
-    </div>
-
-    <section class="decision-loop" id="delivery" aria-label="How the build starts" data-route-stop="right">
-      <div class="loop-head">
-        <h2 class="display">It starts where your business is.</h2>
-        <p class="loop-lede">A fixed-scope first build of one to two weeks. After that, optional ongoing care keeps the memory growing as your business does. Three ways in:</p>
-        <p class="loop-note mono">Fixed scope · built on your accounts · your data stays yours</p>
+    <section class="scene left" id="radar" aria-label="Radar de Mercado, Colombia" data-route-stop="left">
+      <div class="inner">
+        <p class="kicker mono">COLOMBIA <i>·</i> MARKET INTELLIGENCE</p>
+        <h2 class="display">Radar de Mercado</h2>
+        <p class="sys"><b>A separate offer for Colombian B2B teams, in Spanish.</b> The public record says which companies exist. It does not say which ones are still alive, which ones are moving money with the state right now, or which ones a particular seller should call first. That is the work, and it has its own page.</p>
+        <p class="sys-short">Radar de Mercado: a ranked analysis of which Colombian companies to call first and why, built on the public record.</p>
+        <p class="sect-cta"><a class="cta" href="radar.html">Ver el Radar de Mercado ↗</a></p>
       </div>
-      <div class="doors" aria-label="Three ways to start">
-        <article class="door"><h3 class="display">You already use AI</h3><p>Whatever assistant you run, the memory layer is built on top of it. It stops forgetting between conversations and starts answering from your business's real history.</p></article>
-        <article class="door"><h3 class="display">You're starting from zero</h3><p>I set up the assistant and the memory together. You get both working. Your team gets trained on the daily basics before I step back.</p></article>
-        <article class="door"><h3 class="display">You want to own it</h3><p>Some teams want to run and grow the system themselves. Then the build becomes a mentorship: I build it with your people until it's genuinely theirs.</p></article>
-      </div>
-      <p class="sect-cta"><a class="cta" href="#contact">Start the build ↓</a></p>
     </section>
 
     <!-- ————— band 3 · THE MAP ————— -->
     <section class="map-band" id="map" aria-label="The map: how the systems connect" data-route-stop="left">
       <div class="map-head">
         <span class="lead" aria-hidden="true"></span>
-        <h2 class="display">Behind it: one discipline, three systems.</h2>
-        <p>The memory system is the first thing I build, and the foundation for the rest. Team AI enablement and agentic workflows come after it. This page sells the first. Hover a station to look around.</p>
+        <h2 class="display">One discipline, three systems.</h2>
+        <p>Get the context into one place, then let people and machines act on it. The same method underneath all three. Hover a station to look around.</p>
       </div>
 
       <div class="map-stage" data-stage>
         <svg class="map-svg" viewBox="0 0 1000 620" role="group" aria-label="Interactive map: the memory system and the two systems that come after it, around the operator. Use Tab to move between stations, Enter to pin.">
           <g aria-hidden="true">
-            <path class="edge" data-edge="core brain"    d="M473 287 L271 186" pathLength="1"></path>
-            <path class="edge" data-edge="core enable"   d="M500 330 L500 476" pathLength="1"></path>
-            <path class="edge" data-edge="core flows"    d="M527 287 L728 186" pathLength="1"></path>
-            <path class="edge" data-edge="brain flows"   d="M274 175 L726 175" pathLength="1"></path>
-            <path class="edge" data-edge="brain enable"  d="M265 194 L485 481" pathLength="1"></path>
-            <path class="edge" data-edge="enable flows"  d="M515 481 L735 194" pathLength="1"></path>
+            <path class="edge" data-edge="core brain"  d="M473 287 L271 186" pathLength="1"></path>
+            <path class="edge" data-edge="core data"   d="M500 330 L500 476" pathLength="1"></path>
+            <path class="edge" data-edge="core flows"  d="M527 287 L728 186" pathLength="1"></path>
+            <path class="edge" data-edge="brain flows" d="M274 175 L726 175" pathLength="1"></path>
+            <path class="edge" data-edge="brain data"  d="M265 194 L485 481" pathLength="1"></path>
+            <path class="edge" data-edge="data flows"  d="M515 481 L735 194" pathLength="1"></path>
           </g>
 
           <g class="station core" data-node="core" role="button" tabindex="0" aria-label="Jhonalbert Alvarez, the operator. Select to reset the map.">
@@ -918,22 +938,21 @@
             <text x="500" y="352" text-anchor="middle">Jhon</text>
           </g>
 
-          <g class="station" data-node="brain" role="button" tabindex="0" aria-label="The memory system. The solution, live today. Hover or select to read.">
+          <g class="station" data-node="brain" role="button" tabindex="0" aria-label="The memory system. Live, running daily. Hover or select to read.">
             <circle class="ring" cx="250" cy="175" r="24"></circle>
             <line class="tick" x1="250" y1="151" x2="250" y2="144"></line>
             <circle class="st-pin sp-live" cx="250" cy="175" r="4"></circle>
             <text x="250" y="220" text-anchor="middle">Memory System</text>
           </g>
 
-          <g class="station" data-node="enable" role="button" tabindex="0" aria-label="AI enablement. Comes after the memory system. Hover or select to read.">
+          <g class="station" data-node="data" role="button" tabindex="0" aria-label="Market intelligence. The data spine and the ranked analysis built on it. Hover or select to read.">
             <circle class="ring" cx="500" cy="500" r="24"></circle>
             <line class="tick" x1="500" y1="476" x2="500" y2="469"></line>
-            <path class="st-pin" d="M500 496 A4 4 0 0 0 500 504 Z" fill="oklch(75% 0.155 300)"></path>
-            <circle class="st-pin sp-hollow" cx="500" cy="500" r="4"></circle>
-            <text x="500" y="545" text-anchor="middle">Enablement</text>
+            <circle class="st-pin sp-live" cx="500" cy="500" r="4"></circle>
+            <text x="500" y="545" text-anchor="middle">Market Intel</text>
           </g>
 
-          <g class="station" data-node="flows" role="button" tabindex="0" aria-label="Agentic workflows. Comes after the memory system. Hover or select to read.">
+          <g class="station" data-node="flows" role="button" tabindex="0" aria-label="Agentic workflows. Scheduled agents doing recurring work. Hover or select to read.">
             <circle class="ring" cx="750" cy="175" r="24"></circle>
             <line class="tick" x1="750" y1="151" x2="750" y2="144"></line>
             <circle class="st-pin sp-live" cx="750" cy="175" r="4"></circle>
@@ -943,24 +962,24 @@
 
         <div class="readout" data-readout aria-live="polite">
           <p class="kicker mono" data-r-kicker>THE OPERATOR</p>
-          <h3 class="display" data-r-title>Built in order, for the same client.</h3>
-          <p class="blurb" data-r-blurb>Build the memory, teach the team, automate the work. The memory system is the one I sell today. The other two unlock once it's in place. Hover any station to read its entry. Click to pin it.</p>
+          <h3 class="display" data-r-title>Three systems, one method.</h3>
+          <p class="blurb" data-r-blurb>Hold the context, rank what matters, then let the recurring parts run themselves. Hover any station to read its entry. Click to pin it.</p>
           <p class="subtitle mono" data-r-proof></p>
         </div>
       </div>
 
       <ul class="map-list mono" aria-label="The systems, as a list">
-        <li><a class="row" href="#product"><span class="dot"></span><span class="t">The memory system</span><span class="k">live today</span></a></li>
-        <li><span class="row"><span class="dot half"></span><span class="t">AI enablement</span><span class="k">comes after</span></span></li>
-        <li><span class="row"><span class="dot"></span><span class="t">Agentic workflows</span><span class="k">comes after</span></span></li>
+        <li><a class="row" href="#product"><span class="dot"></span><span class="t">The memory system</span><span class="k">live daily</span></a></li>
+        <li><a class="row" href="radar.html"><span class="dot"></span><span class="t">Market intelligence</span><span class="k">live pilot</span></a></li>
+        <li><span class="row"><span class="dot"></span><span class="t">Agentic workflows</span><span class="k">live internally</span></span></li>
       </ul>
     </section>
 
     <!-- ————— band 4 · about ————— -->
     <section class="about" aria-label="About" data-route-stop="right">
       <div>
-        <p class="line display">Sales instincts. Systems thinking. Builder's hands.</p>
-        <p class="body">I embed with your team, build the system inside the stack you already run, and hand it back documented, running, and with the controls that tell you when it stops working.</p>
+        <p class="line display">Sales floor first. Then the systems behind it.</p>
+        <p class="body">Two years on high-volume sales floors, resolving a claim and then selling into the same call. Then co-founder and Head of Growth at Frakkr, where I designed the CRM, the outbound infrastructure and the agents that ran the pipeline. I build inside the stack a team already runs, and hand it back documented, running, and with the controls that say when it stops working. I know what a bad list costs a seller, because I was the one dialing it.</p>
         <p class="facts mono">Spanish, native <i>·</i> English, C1 <i>·</i> Structure before scale</p>
       </div>
     </section>
@@ -968,8 +987,8 @@
     <!-- ————— band 5 · contact ————— -->
     <section class="contact" id="contact" aria-label="Contact" data-route-stop="gate">
       <div>
-        <h2 class="display">Ask your business its first question.</h2>
-        <p class="sub">Book 15 minutes. Bring one question your business can't answer fast. I'll show you how a memory system would.</p>
+        <h2 class="display">Tell me what you need decided.</h2>
+        <p class="sub">Book 15 minutes, or write. Bring one question your business cannot answer fast today, and I will tell you what it would take to answer it.</p>
         <div class="slots mono">
           <a class="btn" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min <span class="arr" aria-hidden="true">↗</span><span class="cal-url"> · cal.com/jhonalbert-alvarez-phuqi8/15min</span></a>
           <a class="slot" href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a>
@@ -977,7 +996,8 @@
             <svg class="li" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
             <span class="li-url">linkedin.com/in/jhonalbert-alvarez</span>
           </a>
-          <a class="slot slot-cv" href="jhonalbert-alvarez-cv-site-copy.pdf" target="_blank" rel="noopener">CV ↓</a>
+          <a class="slot slot-cv" href="cv.html" data-href-es="cv-es.html" target="_blank" rel="noopener">CV ↗</a>
+          <a class="slot slot-cv" href="radar.html">Radar de Mercado ↗</a>
         </div>
       </div>
     </section>
@@ -1014,59 +1034,62 @@
   var SYSTEMS_EN = {
     core: {
       kicker: 'THE OPERATOR',
-      title: 'Built in order, for the same client.',
-      blurb: 'Build the memory, teach the team, automate the work. The memory system is the one I sell today. The other two unlock once it’s in place. Hover any station to read its entry. Click to pin it.',
+      title: 'Three systems, one method.',
+      blurb: 'Hold the context, rank what matters, then let the recurring parts run themselves. Hover any station to read its entry. Click to pin it.',
       proof: '', status: '', anchor: ''
     },
     brain: {
-      kicker: 'LIVE TODAY · THE MEMORY SYSTEM',
+      kicker: 'LIVE · THE MEMORY SYSTEM',
       title: 'The memory system',
       blurb: 'One reliable source of truth for the rules, history, and decisions behind the work: private, structured, answering people and AI alike.',
-      proof: 'LIVE · I run my own business on it daily', status: 'live', anchor: '#product'
+      proof: 'LIVE · running daily since I built it', status: 'live', anchor: '#product'
     },
-    enable: {
-      kicker: 'COMES AFTER · AI ENABLEMENT',
-      title: 'AI enablement',
-      blurb: 'Your team learns to work with AI on their actual tasks. Training built on your real work, not invented exercises, until they run it without me.',
-      proof: 'LIVE ENGAGEMENT · enterprise pilot, technical ops team', status: 'half', anchor: ''
+    data: {
+      kicker: 'LIVE · MARKET INTELLIGENCE',
+      title: 'Market intelligence',
+      blurb: 'Public registries, state contracting and open government data joined into one company record, then ranked against the ideal client of one specific seller, with the reason written beside each account.',
+      proof: 'LIVE · 2.1M-company spine, pilot offer open', status: 'live', anchor: 'radar.html'
     },
     flows: {
-      kicker: 'COMES AFTER · AGENTIC WORKFLOWS',
+      kicker: 'LIVE INTERNALLY · AGENTIC WORKFLOWS',
       title: 'Agentic workflows',
-      blurb: 'The recurring parts of an operation run themselves: carefully scoped automation that stops and reports when anything unexpected happens.',
-      proof: 'LIVE INTERNALLY · runs my own sales pipeline every morning', status: 'live', anchor: ''
+      blurb: 'The recurring parts of an operation run themselves: carefully scoped agents that stop and report when anything unexpected happens.',
+      proof: 'LIVE INTERNALLY · runs my own pipeline every morning', status: 'live', anchor: ''
     }
   };
 
   var SYSTEMS_ES = {
     core: {
       kicker: 'EL OPERADOR',
-      title: 'Construido en orden, para el mismo cliente.',
-      blurb: 'Construir la memoria, formar al equipo, automatizar el trabajo. El sistema de memoria es el que vendo hoy. Los otros dos se desbloquean cuando está en su lugar. Pasa el cursor por una estación para leer su entrada. Clic para fijarla.',
+      title: 'Tres sistemas, un mismo método.',
+      blurb: 'Reunir el contexto, ordenar lo que importa, y dejar que lo repetitivo corra solo. Pasa el cursor por una estación para leer su entrada. Clic para fijarla.',
       proof: '', status: '', anchor: ''
     },
     brain: {
-      kicker: 'EN PRODUCCIÓN HOY · EL SISTEMA DE MEMORIA',
+      kicker: 'EN PRODUCCIÓN · EL SISTEMA DE MEMORIA',
       title: 'El sistema de memoria',
       blurb: 'Una fuente de verdad confiable para las reglas, el historial y las decisiones detrás del trabajo: privada, estructurada, respondiendo a personas y a IA por igual.',
-      proof: 'EN PRODUCCIÓN · mi propio negocio corre sobre él a diario', status: 'live', anchor: '#product'
+      proof: 'EN PRODUCCIÓN · corre a diario desde que lo construí', status: 'live', anchor: '#product'
     },
-    enable: {
-      kicker: 'VIENE DESPUÉS · ENABLEMENT DE IA',
-      title: 'Enablement de IA',
-      blurb: 'Tu equipo aprende a trabajar con IA sobre sus tareas reales. Formación construida sobre tu trabajo real, no ejercicios inventados, hasta operarlo sin mí.',
-      proof: 'PILOTO ACTIVO · piloto empresarial, equipo técnico de operaciones', status: 'half', anchor: ''
+    data: {
+      kicker: 'EN PRODUCCIÓN · INTELIGENCIA DE MERCADO',
+      title: 'Inteligencia de mercado',
+      blurb: 'El registro mercantil, la contratación pública y los datos abiertos del Estado cruzados en una sola ficha por empresa, y ordenados contra el cliente ideal de un vendedor concreto, con el motivo escrito al lado de cada cuenta.',
+      proof: 'EN PRODUCCIÓN · 2,1 millones de empresas, piloto abierto', status: 'live', anchor: 'radar.html'
     },
     flows: {
-      kicker: 'VIENE DESPUÉS · WORKFLOWS AGÉNTICOS',
+      kicker: 'EN PRODUCCIÓN INTERNA · WORKFLOWS AGÉNTICOS',
       title: 'Workflows agénticos',
-      blurb: 'Las partes recurrentes de la operación corren solas: automatización cuidadosamente acotada que se detiene y reporta ante cualquier imprevisto.',
-      proof: 'EN PRODUCCIÓN INTERNA · corre mi propio pipeline de ventas cada mañana', status: 'live', anchor: ''
+      blurb: 'Las partes repetitivas de la operación corren solas: agentes acotados con cuidado que se detienen y reportan ante cualquier imprevisto.',
+      proof: 'EN PRODUCCIÓN INTERNA · corre mi propio pipeline cada mañana', status: 'live', anchor: ''
     }
   };
 
   var SYSTEMS = SYSTEMS_EN;
   var READ_ENTRY = { en: 'read the full entry ↑', es: 'leer la entrada completa ↑' };
+  /* a station may point at another PAGE rather than a section of this one;
+     the label has to stop promising a scroll when it does */
+  var GOTO_PAGE  = { en: 'open the page ↗', es: 'abrir la página ↗' };
 
   var stage = document.querySelector('[data-stage]');
   if (!stage) return;
@@ -1091,8 +1114,9 @@
     rTitle.textContent = s.title;
     rBlurb.textContent = s.blurb;
     if (s.proof) {
+      var label = (s.anchor.charAt(0) === '#') ? READ_ENTRY[lang] : GOTO_PAGE[lang];
       rProof.innerHTML = dotHtml(s.status) + s.proof +
-        (s.anchor ? ' · <a class="goto" href="' + s.anchor + '">' + READ_ENTRY[lang] + '</a>' : '');
+        (s.anchor ? ' · <a class="goto" href="' + s.anchor + '">' + label + '</a>' : '');
       rProof.style.display = '';
     } else {
       rProof.innerHTML = '';
@@ -1141,98 +1165,90 @@
   /* ————— EN/ES — the whole page swaps client-side; EN is captured from the DOM ————— */
   var I18N_ES = {
     '.skip-link': 'Saltar al trabajo',
-    '.titlecard .role': 'Ventas · RevOps · Sistemas de IA',
-    '.thesis': 'Tu negocio por fin tiene memoria.',
-    '.avail': 'Tomando proyectos de sistemas de memoria. También abierto al rol correcto.',
+    '.titlecard .role': 'Ventas · Datos · Sistemas de IA',
+    '.thesis': 'Vengo de ventas. Hoy construyo los sistemas de datos e IA que la alimentan.',
+    '.avail': 'Colombia. Análisis de mercado B2B para equipos comerciales, y sistemas de datos a la medida.',
     '.cta-row .btn': 'Agenda 15 min <span class="arr" aria-hidden="true">↗</span>',
-    '.cta-row .cta.quiet': 'Ver el sistema ↓',
-    '#work .kicker': 'EL PROBLEMA <i>·</i> el conocimiento se dispersa',
-    '#work h2': 'Cada respuesta vive en la cabeza de alguien.',
-    '#work .sys': '<b>¿Cómo cerramos ese negocio? ¿Por qué se fue ese cliente? ¿Qué decidimos en marzo?</b> Todo negocio corre sobre respuestas así. Casi ninguna está escrita donde la gente pueda encontrarla. Viven en correos, chats viejos y en la memoria de quien estuvo ahí. Así que el equipo vuelve a resolver problemas ya resueltos. Los nuevos pasan meses preguntando. Cuando alguien se va, todo lo que sabía se va con esa persona.',
-    '#work .sys-short': 'Las respuestas sobre las que corre un negocio viven en cabezas y correos: re-deducidas cada semana, perdidas con cada salida.',
+    '.cta-row .cta.quiet': 'Ver lo que he construido ↓',
+    '#work .kicker': 'QUÉ HAGO <i>·</i> datos que se vuelven decisiones',
+    '#work h2': 'Convierto registros dispersos en la próxima decisión.',
+    '#work .sys': '<b>Dos tipos de sistema, una sola habilidad debajo.</b> El primero toma registros que nadie ha cruzado, registros públicos, historial de contratación, los archivos regados de una empresa, y los convierte en una respuesta ordenada a una pregunta que alguien tiene que resolver esta mañana. El segundo le da memoria a un equipo, para que las personas y su IA respondan desde el mismo lugar en vez de volver a deducir lo que la empresa ya sabía. Vengo de piso de ventas, así que construyo para quien tiene que hacer la llamada, no para un tablero que nadie abre.',
+    '#work .sys-short': 'Sistemas de datos que ordenan sobre qué actuar, y sistemas de memoria para que un equipo deje de volver a deducir lo que ya sabía.',
 
-    '#product .kicker': 'LA SOLUCIÓN <i>·</i> una memoria privada',
+    '#product .kicker': 'LO PRINCIPAL <i>·</i> el que uso a diario',
     '#product h2': 'El sistema de memoria',
-    '#product .sys': '<b>Hazle una pregunta a tu negocio y recibe la respuesta en segundos, con la fuente, sin importar en qué cabeza vivía antes.</b> Le construyo a tu empresa una memoria privada y organizada: las reglas, el historial y las decisiones detrás de tu trabajo, en un solo lugar del que responden tu gente y tu IA. La mayoría de las herramientas de IA buscan al momento y olvidan. Este sistema conserva lo que tu negocio aprende, y cada respuesta hace más rápida la siguiente. Corre sobre tus propias cuentas. Lo que entra es tuyo.',
-    '#product .sys-short': 'Una memoria privada y organizada para tu negocio: personas e IA responden desde una sola fuente, sobre tus propias cuentas.',
+    '#product .sys': '<b>La mayoría de la IA busca. Esta recuerda.</b> Mi propio trabajo corre sobre una memoria privada y estructurada: las reglas, el historial y las decisiones detrás de él, en un solo lugar del que respondemos yo y mis agentes. Archivos planos, sin base de datos, sin proveedor. Es el sistema que mejor conozco porque vivo adentro todos los días. El método se está publicando como repositorio abierto.',
+    '#product .sys-short': 'Una memoria privada y estructurada en archivos planos: mi propio trabajo corre sobre ella a diario, y el método se está publicando.',
     '#memtree': '<span class="dir">00-core/</span>       las reglas con las que arranca\n<span class="dir">10-memory/</span>     lo que el negocio sabe\n  <span class="dir">episodic/</span>    lo que pasó, con fecha\n  <span class="dir">semantic/</span>    hechos, clientes, decisiones\n  <span class="dir">procedural/</span>  cómo hacen las cosas\n  inbox.md     captura cruda, nada se pierde\n<span class="dir">20-ventures/</span>   ofertas · pipeline · clientes\n<span class="dir">40-artifacts/</span>  lo que de verdad se lee',
-    '#tree-note': 'El árbol real, no un diagrama. Archivos planos que tu equipo puede abrir. Unos cientos de líneas en juego en cada momento: diminuto frente a las ventanas de contexto modernas.',
-    '#product .subtitle': '<span><span class="st"><span class="dot"></span>EN PRODUCCIÓN</span> · mi propio negocio corre sobre una, a diario</span><span><a href="case-study-second-brain.html">leer el caso de estudio ↗</a><span class="gotow"> · <a class="goto" href="#map">ver la disciplina ↓</a></span></span>',
+    '#tree-note': 'El árbol real, no un diagrama. Archivos planos que cualquiera puede abrir. Unos cientos de líneas en juego en cada momento: diminuto frente a las ventanas de contexto modernas.',
+    '#product .subtitle': '<span><span class="st"><span class="dot"></span>EN PRODUCCIÓN</span> · corre a diario desde que lo construí</span><span><a href="case-study-second-brain.html">leer el caso de estudio ↗</a><span class="gotow"> · <a class="goto" href="#map">ver la disciplina ↓</a></span></span>',
 
-    '#loop h2': 'Del trabajo ocurriendo al negocio recordando.',
-    '#loop .loop-lede': 'El sistema vive debajo del trabajo que tu equipo ya hace. Mientras el trabajo ocurre, las respuestas, decisiones y arreglos quedan capturados, organizados y servidos en el momento en que se necesitan. A tu gente y a tu IA por igual.',
-    '#loop .loop-note': 'Ciclo operativo representativo · no es un caso de cliente',
-    '#loop .operating-step:nth-child(1) h3': 'El trabajo ocurre',
-    '#loop .operating-step:nth-child(1) p': 'Un cliente escribe con una pregunta. Un rep cierra un negocio. Alguien por fin arregla lo que falló toda la semana. La mayoría de esa señal se evapora antes del viernes.',
-    '#loop .operating-step:nth-child(2) h3': 'El contexto se sostiene',
-    '#loop .operating-step:nth-child(2) p': 'La respuesta, el negocio, el arreglo quedan capturados donde todo el equipo y su IA pueden encontrarlos, en vez de vivir en la cabeza de una sola persona.',
-    '#loop .operating-step:nth-child(3) h3': 'El equipo actúa',
-    '#loop .operating-step:nth-child(3) p': 'La quinta vez que llega la misma pregunta, nadie vuelve a deducir la respuesta. El sistema la entrega, con la fuente. La gente gasta su criterio donde hace falta.',
-    '#loop .operating-step:nth-child(4) h3': 'El liderazgo dirige',
-    '#loop .operating-step:nth-child(4) p': 'El dueño ve qué preguntas se repiten, qué handoffs se rompen y qué conviene automatizar después. Decide con evidencia, no de memoria.',
-    '#loop .cta': 'Tráeme tu primera pregunta ↓',
+    '#built .kicker': 'CONSTRUIDO <i>·</i> ENTREGADO Y FUNCIONANDO',
+    '#built h2': 'Lo que he construido.',
+    '#built .loop-lede': 'Todo lo de abajo está funcionando. Nada es una maqueta, y nada se construyó para mostrarlo.',
+    '#built .ledger-row:nth-child(1) h3': 'El sistema de memoria',
+    '#built .ledger-row:nth-child(1) p': 'Un sistema de conocimiento que opero a diario: un archivo de arranque fija las reglas, una tabla de enrutamiento carga contexto solo cuando hace falta, y agentes programados me entregan un resumen cada mañana y de noche consolidan lo aprendido. Reconstruido en caliente, sin dejar de funcionar: 393 operaciones, 2.547 enlaces reapuntados, cero pérdidas.',
+    '#built .ledger-row:nth-child(2) h3': 'Una base nacional de empresas',
+    '#built .ledger-row:nth-child(2) p': 'El registro mercantil de Colombia, la contratación pública y los datos abiertos del Estado cruzados en una sola ficha por empresa, 2,1 millones de ellas, y de ahí sale el análisis ordenado de a qué cuentas debería llamar primero un vendedor concreto y por qué esas. El motivo escrito al lado de cada cuenta es el producto.',
+    '#built .ledger-row:nth-child(3) h3': 'Una máquina de outbound, desde cero',
+    '#built .ledger-row:nth-child(3) p': 'Tenants de envío aislados, calentamiento automatizado, secuencias multicanal que cumplen la norma, y un CRM donde la etapa, el ajuste y la prioridad se calculan a partir de fechas de actividad, de modo que el estado del pipeline no se puede corromper a mano. Construida en Frakkr, donde fui cofundador y Head of Growth.',
+    '#built .ledger-row:nth-child(4) h3': 'Un pipeline offline de QA de llamadas',
+    '#built .ledger-row:nth-child(4) p': 'Transcripción local que alimenta un análisis calificado por rúbrica y lo entrega como informe diseñado, en minutos y no en días. Corre sobre llamadas de venta reales, no datos sintéticos, y las grabaciones nunca pasan por una API en la nube.',
+    '#built .ledger-row:nth-child(5) h3': 'Un vigía de contratación pública',
+    '#built .ledger-row:nth-child(5) p': 'Un lector del feed abierto de contratación del Estado que reporta qué cambió desde su última corrida, para que una lectura de mercado arranque del registro de hoy y no del del mes pasado.',
+    '#built .sys-short': 'Construido y funcionando: un sistema de memoria de uso diario, una base nacional de 2,1 millones de empresas, una máquina de outbound y su CRM desde cero, un pipeline offline de QA de llamadas y un vigía de contratación pública.',
+    '#built .subtitle': '<span><span class="st"><span class="dot"></span>EN PRODUCCIÓN</span> · las etiquetas de estado en esta página son literales</span><span><a href="case-study-second-brain.html">el sistema de memoria, a fondo ↗</a></span>',
 
-    '#proof .kicker': 'TRABAJO CON CLIENTES <i>·</i> EN EL TERRENO',
-    '#proof h2': 'Integrado con un retailer enterprise.',
-    '#proof .loop-lede': 'Farmatodo: un retailer farmacéutico colombiano. 143 tiendas, cerca de 2.000 cajas POS. Trabajo dentro de su equipo de ingeniería, sobre sus flujos vivos de Oracle y n8n. No es un ambiente de demo. Así corre el proyecto:',
+    /* THE STACK swaps as a whole block, not as strings. Only its print line,
+       which sits outside both blocks, goes through this dictionary. */
+    '#tools .sys-short': 'Fuentes y herramientas: SECOP, RUES y datos.gov.co cruzados por NIT; Python para depurar y ordenar; Airtable para operar la lista; n8n para mover información entre sistemas.',
+
+    '#proof .kicker': 'TRABAJO CON CLIENTES <i>·</i> EMPRESA',
+    '#proof h2': 'El backlog real de un retailer.',
+    '#proof .loop-lede': 'Farmatodo: un retailer farmacéutico colombiano, 143 tiendas y cerca de 2.000 cajas POS. Cerré el proyecto y lo ejecuté dentro de su equipo de ingeniería, sobre sus flujos reales de Oracle y n8n. No era un ambiente de demo. Cómo fue:',
     '#proof .ledger-row:nth-child(1) h3': 'Integrarse y mapear',
-    '#proof .ledger-row:nth-child(1) p': 'Primer entregable: el diagnóstico de arquitectura que produjo el mapa de sistemas que su propio equipo no tenía. No se puede automatizar lo que nadie puede ver.',
+    '#proof .ledger-row:nth-child(1) p': 'Primer entregable: el diagnóstico de arquitectura que produjo el mapa de sistemas que su propio equipo no tenía. Nadie puede arreglar lo que nadie puede ver.',
     '#proof .ledger-row:nth-child(2) h3': 'Encontrar el trabajo real',
-    '#proof .ledger-row:nth-child(2) p': 'El diagnóstico sacó a la luz un backlog de 14 procesos manuales recurrentes. Esa lista es la hoja de ruta, en sus números. La métrica de éxito acordada: horas por proceso reducidas a minutos.',
+    '#proof .ledger-row:nth-child(2) p': 'El diagnóstico sacó a la luz un backlog de 14 procesos manuales recurrentes. Esa lista quedó como hoja de ruta, en sus números. La métrica de éxito acordada: horas por proceso reducidas a minutos.',
     '#proof .ledger-row:nth-child(3) h3': 'Devolverlo funcionando',
-    '#proof .ledger-row:nth-child(3) p': 'Entrenamiento 1:1 en context engineering, agent skills y rutinas programadas, para que su equipo opere el sistema cuando yo dé un paso atrás. Documentado, funcionando, con controles que avisan cuando algo deja de funcionar.',
-    '#proof .sys-short': 'Integrado con Farmatodo, un retailer colombiano de 143 tiendas: diagnóstico de arquitectura, backlog de 14 automatizaciones, y entrenamiento de su equipo sobre flujos vivos de Oracle y n8n.',
-    '#proof .subtitle': '<span><span class="st"><span class="dot"></span>EN CURSO</span> · el caso de estudio llega cuando haya resultados que mostrar</span><span><a href="case-study-second-brain.html">cómo opero mi propio sistema ↗</a></span>',
+    '#proof .ledger-row:nth-child(3) p': 'Un programa de formación 1:1 sobre sus propios flujos, para que su equipo opere el sistema por su cuenta. Documentado, funcionando, con los controles que avisan cuando algo deja de funcionar.',
+    '#proof .sys-short': 'Farmatodo, un retailer colombiano de 143 tiendas: diagnóstico de arquitectura, backlog de 14 procesos y un programa de formación 1:1 sobre flujos reales de Oracle y n8n.',
+    '#proof .subtitle': '<span><span class="st"><span class="dot half"></span>PROYECTO CERRADO</span> · entregué el diagnóstico y el programa de formación; la cuenta quedó con el equipo</span>',
 
-    '.twin-bridge p': 'Dos tamaños · el mismo sistema',
-    '#tier-founder .kicker': 'PARA FUNDADORES <i>·</i> personal',
-    '#tier-founder h2': 'Tu propia memoria',
-    '#tier-founder .sys': '<b>Para el fundador cuyas decisiones están enterradas en años de notas.</b> Tus negocios, tu investigación, tus borradores y decisiones van a un sistema privado que responde en segundos, sobre tus propias cuentas. Es la versión que yo mismo uso, moldeada a tu mundo y no al mío.',
-    '#tier-founder .sys-short': 'La memoria privada de un fundador: negocios, investigación y decisiones, respondiendo en segundos.',
-    '#tier-team .kicker': 'PARA EQUIPOS DE 10–50 <i>·</i> empresa',
-    '#tier-team h2': 'La memoria de la empresa',
-    '#tier-team .sys': '<b>Para el equipo que responde la misma pregunta cada mes porque la respuesta vive en la cabeza de alguien.</b> Historial de clientes, cómo-hacemos-las-cosas, las razones detrás de las reglas: capturado una vez, encontrable por todos. La gente nueva produce más rápido. Las salidas dejan de llevarse el conocimiento.',
-    '#tier-team .sys-short': 'Una memoria de empresa para equipos de 10–50: onboarding más rápido, conocimiento que sobrevive la rotación.',
+    '#radar .kicker': 'COLOMBIA <i>·</i> INTELIGENCIA DE MERCADO',
+    '#radar h2': 'Radar de Mercado',
+    '#radar .sys': '<b>Para equipos comerciales B2B en Colombia.</b> El registro público dice qué empresas existen. No dice cuáles siguen vivas, cuáles están moviendo plata con el Estado ahora mismo, ni a cuáles debería llamar primero un vendedor en particular. Ese es el trabajo, y tiene su propia página.',
+    '#radar .sys-short': 'Radar de Mercado: el análisis ordenado de a qué empresas colombianas llamar primero y por qué, armado sobre el registro público.',
+    '#radar .cta': 'Ver el Radar de Mercado ↗',
 
-    '#delivery h2': 'Empieza donde está tu negocio.',
-    '#delivery .loop-lede': 'Una primera construcción de alcance fijo, de una a dos semanas. Después, cuidado continuo opcional mantiene la memoria creciendo con tu negocio. Tres puertas de entrada:',
-    '#delivery .loop-note': 'Alcance fijo · sobre tus cuentas · tus datos son tuyos',
-    '#delivery .door:nth-child(1) h3': 'Ya usas IA',
-    '#delivery .door:nth-child(1) p': 'Sea cual sea el asistente que uses, la capa de memoria se construye encima. Deja de olvidar entre conversaciones y empieza a responder desde el historial real de tu negocio.',
-    '#delivery .door:nth-child(2) h3': 'Empiezas de cero',
-    '#delivery .door:nth-child(2) p': 'Configuro el asistente y la memoria juntos. Recibes ambos funcionando. Tu equipo queda entrenado en lo básico del uso diario antes de que yo dé un paso al lado.',
-    '#delivery .door:nth-child(3) h3': 'Quieres ser dueño',
-    '#delivery .door:nth-child(3) p': 'Algunos equipos quieren operar y hacer crecer el sistema por su cuenta. Entonces la construcción se vuelve mentoría: lo construyo con tu gente hasta que sea genuinamente suyo.',
-    '#delivery .cta': 'Empieza la construcción ↓',
-
-    '.map-head h2': 'Detrás: una disciplina, tres sistemas.',
-    '.map-head p': 'El sistema de memoria es lo primero que construyo, y la base del resto. El enablement de IA y los workflows agénticos vienen después. Esta página vende el primero. Pasa el cursor por una estación para mirar alrededor.',
+    '.map-head h2': 'Tres sistemas, un mismo método.',
+    '.map-head p': 'Reunir el contexto en un solo lugar, y de ahí dejar que las personas y las máquinas actúen. El mismo método debajo de los tres. Pasa el cursor por una estación para mirar alrededor.',
 
     '.map-list li:nth-child(1) .t': 'El sistema de memoria',
-    '.map-list li:nth-child(1) .k': 'en producción hoy',
-    '.map-list li:nth-child(2) .t': 'Enablement de IA',
-    '.map-list li:nth-child(2) .k': 'viene después',
+    '.map-list li:nth-child(1) .k': 'en producción',
+    '.map-list li:nth-child(2) .t': 'Inteligencia de mercado',
+    '.map-list li:nth-child(2) .k': 'piloto abierto',
     '.map-list li:nth-child(3) .t': 'Workflows agénticos',
-    '.map-list li:nth-child(3) .k': 'viene después',
+    '.map-list li:nth-child(3) .k': 'producción interna',
 
-    '.about .line': 'Instinto de ventas. Pensamiento de sistemas. Manos de constructor.',
-    '.about p.body': 'Me integro con tu equipo, construyo el sistema dentro del stack que ya usas, y lo entrego documentado, funcionando, y con los controles que te avisan cuando deja de funcionar.',
+    '.about .line': 'Primero el piso de ventas. Después los sistemas detrás.',
+    '.about p.body': 'Dos años en operaciones de venta de alto volumen, resolviendo un caso y vendiendo dentro de la misma llamada. Después cofundador y Head of Growth en Frakkr, donde diseñé el CRM, la infraestructura de outbound y los agentes que operaban el pipeline. Construyo dentro del stack que el equipo ya usa, y lo entrego documentado, funcionando, y con los controles que avisan cuando deja de funcionar. Sé lo que le cuesta una mala lista a un vendedor, porque el que marcaba era yo.',
     '.about .facts': 'Español, nativo <i>·</i> Inglés, C1 <i>·</i> Estructura antes que escala',
 
-    '.contact h2': 'Hazle a tu negocio su primera pregunta.',
-    '.contact .sub': 'Agenda 15 minutos. Trae una pregunta que tu negocio no pueda responder rápido. Te muestro cómo la respondería un sistema de memoria.',
+    '.contact h2': 'Dígame qué necesita decidir.',
+    '.contact .sub': 'Agende 15 minutos, o escríbame. Traiga una pregunta que su negocio hoy no pueda responder rápido, y le digo qué haría falta para responderla.',
     '.contact a[href*="cal.com"]': 'Agenda 15 min <span class="arr" aria-hidden="true">↗</span><span class="cal-url"> · cal.com/jhonalbert-alvarez-phuqi8/15min</span>',
 
     '.footer .who-text': 'Jhonalbert Alvarez · Estructura antes que escala',
     '.footer .to-top': 'VOLVER ARRIBA ↑'
   };
 
-  var ST_TXT_ES = { core: 'Jhon', brain: 'Sistema de Memoria', enable: 'Enablement', flows: 'Workflows' };
+  var ST_TXT_ES = { core: 'Jhon', brain: 'Sistema de Memoria', data: 'Inteligencia', flows: 'Workflows' };
   var ST_ARIA_ES = {
     core: 'Jhonalbert Alvarez, el operador. Selecciona para reiniciar el mapa.',
-    brain: 'El sistema de memoria. La solución, en producción hoy. Pasa el cursor o selecciona para leer.',
-    enable: 'Enablement de IA. Viene después del sistema de memoria. Pasa el cursor o selecciona para leer.',
-    flows: 'Workflows agénticos. Viene después del sistema de memoria. Pasa el cursor o selecciona para leer.'
+    brain: 'El sistema de memoria. En producción, corre a diario. Pasa el cursor o selecciona para leer.',
+    data: 'Inteligencia de mercado. La base de datos nacional y el análisis ordenado que sale de ella. Pasa el cursor o selecciona para leer.',
+    flows: 'Workflows agénticos. Agentes programados haciendo el trabajo repetitivo. Pasa el cursor o selecciona para leer.'
   };
 
   var EN_SNAP = {}, ST_TXT_EN = {}, ST_ARIA_EN = {};
@@ -1264,6 +1280,16 @@
       if (a) n.setAttribute('aria-label', a);
     });
     SYSTEMS = (l === 'es') ? SYSTEMS_ES : SYSTEMS_EN;
+    /* the audience split: THE STACK is not a translation, it is two different
+       lists. Whole blocks swap, and the selector dictionary never sees them. */
+    document.querySelectorAll('[data-lang-block]').forEach(function (b) {
+      b.hidden = (b.getAttribute('data-lang-block') !== l);
+    });
+    /* a few chips point at a different FILE per language (the CV) */
+    document.querySelectorAll('[data-href-es]').forEach(function (a) {
+      if (!a.dataset.hrefEn) a.dataset.hrefEn = a.getAttribute('href') || '';
+      a.setAttribute('href', (l === 'es') ? a.dataset.hrefEs : a.dataset.hrefEn);
+    });
     document.querySelectorAll('img[data-alt-es]').forEach(function (im) {
       if (!im.dataset.altEn) im.dataset.altEn = im.getAttribute('alt') || '';
       im.setAttribute('alt', (l === 'es') ? im.dataset.altEs : im.dataset.altEn);
