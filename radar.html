@@ -249,6 +249,7 @@
   .footer .who svg { width: 26px; height: 26px; }
   .footer a { color: var(--dim); text-decoration: none; font-size: var(--t-meta); letter-spacing: .14em; }
   .footer a:hover { color: var(--signal); }
+  .footer .srcline { margin: 0 0 16px; font-size: var(--t-meta); color: var(--faint); letter-spacing: .04em; line-height: 1.8; max-width: 78ch; }
 
   @media (prefers-reduced-motion: no-preference) {
     .reticle .needle { transform-box: view-box; transform-origin: 20px 20px; animation: sweep2 14s linear infinite; }
@@ -412,7 +413,6 @@
 
     <div class="col hero-low">
       <p class="thesis display">¿A qué empresas debería llamar primero su equipo comercial, y por qué esas?</p>
-      <p class="avail">Un análisis de 300 a 500 cuentas en orden de prioridad, con el motivo escrito al lado de cada una. Entrega en máximo 3 días hábiles.</p>
       <div class="cta-row">
         <a class="btn" href="mailto:jhonalbert926@gmail.com?subject=Muestra%20Radar%20de%20Mercado">Pedir la muestra de 20 cuentas, sin costo <span class="arr" aria-hidden="true">↗</span></a>
         <a class="cta quiet" href="#precio">Ver el precio ↓</a>
@@ -421,110 +421,23 @@
   </header>
 
   <main class="col" id="trabajo">
-    <!-- ————— concede the premise, immediately ————— -->
-    <section class="scene left" aria-label="El dato es público">
+    <!-- ————— el radar, en tres líneas ————— -->
+    <section class="scene left" aria-label="Qué es, qué hace y qué recibe">
       <div class="inner">
-        <p class="kicker mono">LO PRIMERO <i>·</i> y conviene decirlo de una</p>
-        <h2 class="display">El dato de origen es público, y yo lo saco de ahí.</h2>
-        <p class="sys">El registro mercantil se consulta en RUES. La contratación del Estado está publicada en SECOP. Buena parte del resto está en datos.gov.co, abierto y gratis. Nada de eso es mío ni exclusivo, y cualquiera puede verificarlo en una búsqueda.</p>
-        <p class="sys">Lo que se cobra es el trabajo que va después de la descarga: sacar lo que ya no está vivo, cruzar el registro con la contratación pública y con la estructura de grupos, y ordenar lo que queda contra un cliente ideal concreto, con el motivo escrito al lado de cada cuenta. Ese orden depende de qué vende usted y a quién, y por eso no viene hecho en ninguna fuente.</p>
-        <div class="pullquote">
-          <p class="display">El dato es de todos. El orden es mío.</p>
-        </div>
+        <p class="kicker mono">EL RADAR <i>·</i> EN TRES LÍNEAS</p>
       </div>
-    </section>
-
-    <!-- ————— what happens after the download ————— -->
-    <section class="scene right" aria-label="Qué pasa después de la descarga">
-      <div class="inner">
-        <p class="kicker mono">EL TRABAJO <i>·</i> DESPUÉS DE LA DESCARGA</p>
-        <h2 class="display">Tres pasos, en este orden.</h2>
-        <p class="sys">Cada uno cambia el resultado, y el primero es el que más lo cambia.</p>
-      </div>
-      <div class="ledger" aria-label="Los tres pasos del análisis">
+      <div class="ledger" aria-label="Qué es, qué hace y qué recibe">
         <article class="ledger-row">
-          <h3><span class="step-no mono">01</span>Sacar lo que ya no está vivo</h3>
-          <p>Un extracto crudo de registros marca como activas muchas empresas que hace años no renuevan matrícula. Ese filtro se hace primero, porque todo lo que viene después se calcula sobre lo que quedó. También salen personas naturales, duplicados y registros que no cumplen las reglas de calidad del paquete.</p>
+          <h3>Qué es</h3>
+          <p>Un análisis de 300 a 500 cuentas de su segmento en orden de prioridad, con el motivo escrito al lado de cada una. Construido cruzando RUES, SECOP y datos abiertos del Estado: 2,1 millones de empresas colombianas.</p>
         </article>
         <article class="ledger-row">
-          <h3><span class="step-no mono">02</span>Cruzar lo que nadie cruza</h3>
-          <p>El registro mercantil por un lado y la contratación pública por el otro son gratis por separado, y se rompen en silencio cuando uno intenta unirlas. Unidas por NIT, la empresa carga con sus propias señales de compra: si contrata con el Estado, cada cuánto, y desde cuándo. Cuando está disponible, se marca también la señal de grupo empresarial, porque una relación abre varias cuentas.</p>
+          <h3>Qué hace</h3>
+          <p>Le dice cuáles empresas siguen vivas, cuáles están moviendo plata ahora mismo, y a cuáles llamar primero.</p>
         </article>
         <article class="ledger-row">
-          <h3><span class="step-no mono">03</span>Ordenar contra su cliente ideal</h3>
-          <p>Se define qué vende usted, a quién, en qué ciudades y con qué tamaño o señales mínimas. Con eso se puntúa el ajuste y las cuentas quedan en orden de prioridad, cada una con su motivo. Ese motivo es el producto: es lo que le permite a su equipo empezar por arriba y saber por qué.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ————— the measured proof ————— -->
-    <section class="scene left" aria-label="La prueba, medida">
-      <div class="inner">
-        <p class="kicker mono">LA PRUEBA <i>·</i> MEDIDA, NO ARGUMENTADA</p>
-        <h2 class="display">Estado activo no significa empresa viva.</h2>
-        <p class="sys">Esta es la diferencia que se siente en el teléfono. Cuando su equipo marca sobre un extracto crudo, buena parte de las llamadas se va contra empresas que ya no están operando, y se entera llamando.</p>
-      </div>
-      <div class="figures" aria-label="Universo activo contra universo renovado">
-        <div class="figure">
-          <span class="n">1.803.341</span>
-          <p>empresas figuran con estado activo en un extracto crudo del registro mercantil.</p>
-        </div>
-        <div class="figure">
-          <span class="n">784.199</span>
-          <p>renovaron matrícula en 2025 o 2026, que es la señal de que siguen operando.</p>
-        </div>
-        <div class="figure">
-          <span class="n hi">2,3 veces</span>
-          <p>infla el universo vivo un extracto crudo. Apenas cuatro de cada diez sobreviven al filtro.</p>
-        </div>
-      </div>
-      <div class="inner">
-        <p class="sys" style="margin-top: var(--sect-in)">Sobre lo que queda vivo se puede además preguntar quién está moviendo plata con el Estado ahora mismo: <b>12.641 empresas contactables registran actividad de contratación pública desde el 1 de febrero de 2026</b>, cada una con su fecha y su historial. Esa señal caduca rápido, así que un análisis de marzo ya es arqueología en junio.</p>
-        <p class="subtitle mono"><span><span class="st"><span class="dot"></span>CIFRAS MEDIDAS</span> · calculadas sobre el universo nacional, no estimadas</span><span>Los números de su segmento se calculan para su análisis y se entregan con él.</span></p>
-      </div>
-    </section>
-
-    <!-- ————— what the buyer receives ————— -->
-    <section class="scene right" aria-label="Qué recibe">
-      <div class="inner">
-        <p class="kicker mono">EL ENTREGABLE <i>·</i> UN DOCUMENTO DE ANÁLISIS</p>
-        <h2 class="display">Qué recibe usted.</h2>
-        <p class="sys">Un documento de análisis con 300 a 500 cuentas priorizadas y el razonamiento detrás del orden. Adentro va:</p>
-        <ul class="plain-list">
-          <li>El universo real de su segmento y cuánto se redujo al filtrar por vigencia, con el número.</li>
-          <li>Las cuentas en orden de prioridad, cada una con su motivo.</li>
-          <li>Identificación y canal empresarial de cada cuenta: NIT, razón social, ciudad, actividad económica y CIIU, tipo de sociedad, año de última renovación, sitio web, teléfono empresarial normalizado, correo empresarial y su clasificación de dominio.</li>
-          <li>Contratación pública identificada, con número y fecha, cuando aplique al segmento.</li>
-          <li>Señal de grupo empresarial, cuando esté disponible.</li>
-          <li>Fecha de corte, fuentes, diccionario de campos y estado de normalización de los teléfonos.</li>
-          <li>Guía de reglas de contacto para Colombia, Ley 2300 de 2023: horarios permitidos, frecuencia máxima y exclusión voluntaria, lista para su equipo comercial.</li>
-        </ul>
-        <div class="clause">
-          <span class="lbl mono">Condición de entrega, y va literal en toda orden de servicio</span>
-          <p>"No se entrega la base fuente ni una exportación reutilizable."</p>
-          <p class="note">Los correos y teléfonos se entregan como canales empresariales disponibles. En esta versión inicial no se comprueba que el buzón exista ni que la línea sea atendida: normalizado no significa verificado ni alcanzable, y usted debe validar los canales antes de usarlos en una campaña.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ————— the three versions ————— -->
-    <section class="scene left" aria-label="Las tres versiones">
-      <div class="inner">
-        <p class="kicker mono">TRES VERSIONES <i>·</i> UNA POR TIPO DE COMPRADOR</p>
-        <h2 class="display">Se arma para lo que usted vende.</h2>
-      </div>
-      <div class="ledger" aria-label="Las tres versiones del Radar">
-        <article class="ledger-row">
-          <h3>Tecnología, software y SaaS</h3>
-          <p>Para quien vende nube, ciberseguridad, ERP, CRM, analítica, telecomunicaciones o servicios tecnológicos B2B. El análisis se arma sobre industria, ciudad, perfil y antigüedad de la empresa, señales de renovación, contactabilidad empresarial y contratación pública cuando es relevante para la solución. Una empresa EdTech recibe instituciones educativas y organizaciones de formación; una de software contable recibe negocios formales que pueden pagar e implementar su producto.</p>
-        </article>
-        <article class="ledger-row">
-          <h3>Proveedores del Estado</h3>
-          <p>Para factoring y confirming, afianzadoras y corredores de seguros de cumplimiento, y consultores de licitación. Una adjudicación reciente es el momento de compra: la empresa necesita capital de trabajo mientras el Estado paga, debe constituir garantías, y está en disposición de licitar otra vez. El análisis las entrega ordenadas por recencia de actividad contractual, trayectoria, sector y territorio.</p>
-        </article>
-        <article class="ledger-row">
-          <h3>Agencias de marketing y performance</h3>
-          <p>Dos usos. Encontrar clientes nuevos para la propia agencia, o servir de insumo de priorización para la campaña de uno de sus clientes. Se arma por vertical: si la agencia le vende performance a clínicas, recibe empresas de salud priorizadas; si trabaja para un distribuidor, recibe los compradores adecuados para ese portafolio. Cada vertical es un análisis nuevo.</p>
+          <h3>Qué recibe</h3>
+          <p>El documento priorizado con NIT, ciudad, teléfono y correo empresarial. Entrega en 3 días hábiles. Antes de pagar: muestra de 20 cuentas sin costo. Piloto: COP 900.000.</p>
         </article>
       </div>
     </section>
@@ -534,87 +447,23 @@
       <div class="inner">
         <p class="kicker mono">PRECIO <i>·</i> SIN LETRA MENUDA</p>
         <h2 class="display">Primero la muestra. Después decide.</h2>
-        <p class="sys">La muestra no compromete nada y es la forma más rápida de saber si el criterio apunta bien a su mercado.</p>
       </div>
       <div class="prices">
         <div class="price lead">
           <p class="tier mono">La muestra, antes de comprar</p>
           <p class="amount display">Sin costo</p>
           <p class="what">Hasta 20 cuentas de su segmento, para validar el ajuste antes de cualquier pago.</p>
-          <ul>
-            <li>Las 20 cuentas en orden, cada una con su motivo de prioridad.</li>
-            <li>Una o dos páginas de análisis que explican el corte: de qué universo salieron, qué se descartó y por qué, y qué dice el orden.</li>
-            <li>Los números de su segmento, calculados para usted.</li>
-          </ul>
           <p class="foot"><a class="btn" href="mailto:jhonalbert926@gmail.com?subject=Muestra%20Radar%20de%20Mercado">Pedir la muestra <span class="arr" aria-hidden="true">↗</span></a></p>
         </div>
         <div class="price">
           <p class="tier mono">Piloto único</p>
           <p class="amount display">COP 900.000</p>
           <p class="what">Un perfil de cliente ideal, un sector o caso de uso, una geografía objetivo en Colombia.</p>
-          <ul>
-            <li>300 a 500 cuentas priorizadas con su motivo, según disponibilidad y calidad del segmento.</li>
-            <li>Clasificación de correos y normalización técnica de teléfonos, sin verificación de alcance.</li>
-            <li>Exclusión de sus clientes actuales si usted entrega su lista de NIT.</li>
-            <li>Guía de reglas de contacto, Ley 2300 de 2023.</li>
-            <li>Una ronda de ajuste antes de la entrega final.</li>
-            <li>Entrega en máximo 3 días hábiles desde que se define el perfil.</li>
-            <li>Reposición durante 14 días de registros demostrablemente inválidos, hasta el 10% del análisis.</li>
-          </ul>
           <p class="foot"><a class="cta" href="#contacto">Hablemos 15 minutos ↓</a></p>
         </div>
       </div>
       <div class="inner">
-        <p class="subtitle mono"><span><span class="st"><span class="dot"></span>PILOTO ABIERTO</span> · pago anticipado, cuenta de cobro</span><span>Una recompra es un análisis nuevo, no una suscripción. La razón está abajo, en fuentes y licencia.</span></p>
-      </div>
-    </section>
-
-    <!-- ————— what it is not ————— -->
-    <section class="scene right" aria-label="Qué no incluye">
-      <div class="inner">
-        <p class="kicker mono">LÍMITES <i>·</i> DICHOS DE FRENTE</p>
-        <h2 class="display">Qué no incluye.</h2>
-        <ul class="plain-list off">
-          <li>Nombres o datos personales de decisores.</li>
-          <li>Información redistribuida desde LinkedIn.</li>
-          <li>Garantía de respuesta, reunión o compra.</li>
-          <li>Empresas que hayan manifestado intención de compra.</li>
-          <li>Exclusividad sobre el mercado o sobre las fuentes de información.</li>
-          <li>Gestión de campañas, llamadas o envío de correos.</li>
-          <li>Verificación de existencia, entregabilidad o respuesta de correos y teléfonos.</li>
-          <li>La base fuente o cualquier exportación reutilizable de ella.</li>
-        </ul>
-        <p class="sys" style="margin-top: var(--sect-in)">El Radar se vende como un producto <b>no exclusivo</b>, y al comprador se le dice. El universo empresarial puede aparecer en otros análisis. La selección, los filtros, las exclusiones y el orden de prioridad se configuran para su caso.</p>
-      </div>
-    </section>
-
-    <!-- ————— who I am: the reason this page exists ————— -->
-    <section class="who-band" aria-label="Quién soy">
-      <div>
-        <p class="line display">Quién le está hablando.</p>
-        <p class="body">Jhonalbert Alvarez. Dos años en operaciones de venta de alto volumen, y después cofundador y Head of Growth en Frakkr, donde diseñé el CRM, la infraestructura de outbound y los agentes que operaban el pipeline. Sé lo que le cuesta una mala lista a un vendedor, porque el que marcaba era yo.</p>
-        <p class="body">La base con la que trabajo la armé para mi propia prospección: 2,1 millones de empresas colombianas, una fila por NIT, con RUES, SECOP y datos.gov.co cruzados. Depuro y ordeno con Python, opero la lista de contacto en Airtable, y muevo información entre sistemas con n8n. No es teoría, es la herramienta con la que yo mismo vendo.</p>
-        <div class="links">
-          <a class="slot mono" href="index.html">Perfil completo ↗</a>
-          <a class="slot mono" href="cv-es.html">Hoja de vida ↗</a>
-          <a class="slot mono" href="https://www.linkedin.com/in/jhonalbert-alvarez/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ————— sources and licence: a condition, not a courtesy ————— -->
-    <section class="sources" aria-label="Fuentes y licencia">
-      <div>
-        <h2 class="display">Fuentes y licencia</h2>
-        <p>El Radar se construye a partir de fuentes oficiales abiertas del Estado colombiano, publicadas bajo <b>CC BY-SA 4.0</b>. La atribución es una condición de esa licencia, no una cortesía, y va en cada entrega.</p>
-        <p>Los datos de origen abierto conservan las condiciones de su licencia. La selección, los filtros, el puntaje y el orden de prioridad son trabajo propio configurado para el comprador, y es eso, no los registros públicos, lo que el Radar cobra. Por la misma condición de licencia, hoy el producto es una entrega única: la forma recurrente exigiría entregar una base derivada, y ShareAlike la volvería republicable. Por eso una recompra se cotiza como un análisis nuevo.</p>
-        <div class="attrib mono">
-          <b>Publicador:</b> Agencia Nacional de Contratación Pública, Colombia Compra Eficiente.<br>
-          <b>Conjuntos de datos:</b> SECOP I y SECOP II y contratos electrónicos, publicados en <a href="https://www.datos.gov.co/" target="_blank" rel="noopener">datos.gov.co</a>. Registro mercantil consultado en <a href="https://www.rues.org.co/" target="_blank" rel="noopener">RUES</a>.<br>
-          <b>Licencia:</b> <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener">Creative Commons Atribución CompartirIgual 4.0 Internacional</a>.<br>
-          <b>Nota de transformación:</b> datos filtrados, normalizados y combinados por el autor.<br>
-          <b>No respaldo:</b> ni los publicadores ni las entidades citadas respaldan este análisis ni su uso.
-        </div>
+        <p class="subtitle mono"><span><span class="st"><span class="dot"></span>PILOTO ABIERTO</span> · pago anticipado, cuenta de cobro</span><span>Una recompra es un análisis nuevo, no una suscripción.</span></p>
       </div>
     </section>
 
@@ -622,7 +471,7 @@
     <section class="contact" id="contacto" aria-label="Contacto">
       <div>
         <h2 class="display">Dígame a quién quiere venderle.</h2>
-        <p class="sub">Con eso le armo la muestra de 20 cuentas, sin costo, y usted me dice si apuntan bien. Si apuntan, hablamos del análisis completo.</p>
+        <p class="sub">Con eso le armo la muestra de 20 cuentas, sin costo. Si apuntan bien, hablamos del análisis completo.</p>
         <div class="slots mono">
           <a class="btn" href="mailto:jhonalbert926@gmail.com?subject=Muestra%20Radar%20de%20Mercado">Pedir la muestra <span class="arr" aria-hidden="true">↗</span></a>
           <a class="slot" href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a>
@@ -635,6 +484,9 @@
   </main>
 
   <footer class="footer">
+    <div class="col">
+      <p class="srcline mono">Fuentes: RUES, SECOP y datos.gov.co, licencia CC BY-SA 4.0. La atribución completa va en cada entrega.</p>
+    </div>
     <div class="col row">
       <span class="who">
         <svg viewBox="0 0 40 40" aria-hidden="true">
