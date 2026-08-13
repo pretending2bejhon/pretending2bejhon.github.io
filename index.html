@@ -126,38 +126,7 @@
     -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 87%, transparent 99.5%);
     mask-image: linear-gradient(180deg, #000 0%, #000 87%, transparent 99.5%);
   }
-  /* v10: the hero no longer merges or verifies - three strands leave it still separate.
-     Convergence, gate, and light now live at THE SOLUTION (page-spine script).
-     gatepulse stays: the spine's gates animate with it. */
-  @keyframes gatepulse { 0% { opacity: .8; transform: scale(.45); } 100% { opacity: 0; transform: scale(2.2); } }
-
-  /* ————— the page spine: the verified route escorts the reader through every scene.
-     Built entirely by script (no-JS pages simply have no spine). It lives at z-index -1
-     inside .d4, which must therefore be its own stacking context — otherwise a negative
-     z-index child paints UNDER .d4's opaque background gradient and vanishes. ————— */
   .d4 { position: relative; isolation: isolate; }
-  .route-spine { position: absolute; top: 0; left: 0; z-index: -1; pointer-events: none; }
-  .route-spine .stop-ring { fill: none; stroke: #be95ff; stroke-opacity: .38; stroke-width: 1; }
-  .route-spine .stop-core { fill: #d7afff; opacity: 0; transform: scale(.3); transform-box: fill-box; transform-origin: center; transition: opacity .4s cubic-bezier(.16,.7,.2,1), transform .4s cubic-bezier(.16,.7,.2,1); }
-  .route-spine .stop.lit .stop-core { opacity: 1; transform: scale(1); }
-  .route-spine .fgate-fill { opacity: 0; transform: scale(.25); transform-box: fill-box; transform-origin: center; transition: opacity .45s cubic-bezier(.16,.7,.2,1), transform .45s cubic-bezier(.16,.7,.2,1); }
-  .route-spine .fgate-pulse { opacity: 0; }
-  .route-spine.done .fgate-fill { opacity: 1; transform: scale(1); }
-  .route-spine.done .fgate-pulse { transform-box: fill-box; transform-origin: center; animation: gatepulse 1.2s cubic-bezier(.2,.6,.3,1); }
-  /* v10 · cold zone: the problem's records light BONE when passed - reached, not
-     verified. Violet is earned only at the merge. */
-  .route-spine .stop.cold .stop-ring { stroke: #e8ddd0; stroke-opacity: .3; }
-  .route-spine .stop.cold .stop-core { fill: #e8ddd0; opacity: 0; }
-  .route-spine .stop.cold.lit .stop-core { opacity: .55; }
-  /* v10 · the merge gate at THE SOLUTION: three become one, and the light turns on */
-  .route-spine .sgate-fill { opacity: 0; transform: scale(.25); transform-box: fill-box; transform-origin: center; transition: opacity .45s cubic-bezier(.16,.7,.2,1), transform .45s cubic-bezier(.16,.7,.2,1); }
-  .route-spine .sgate-pulse { opacity: 0; }
-  .route-spine.merged .sgate-fill { opacity: 1; transform: scale(1); }
-  .route-spine.merged .sgate-pulse { transform-box: fill-box; transform-origin: center; animation: gatepulse 1.2s cubic-bezier(.2,.6,.3,1); }
-  /* v10 · the light arc: cold night above, the bloom ignites when the merge verifies,
-     warm pools carry the lit world the rest of the way down */
-  .route-spine .bloom { opacity: .3; transition: opacity 1.4s ease; }
-  .route-spine.merged .bloom { opacity: 1; }
   @media (max-width: 780px) {
     .d4 .scene-hero .brain-fig { left: auto; right: -30%; width: 148%; opacity: .55; }
   }
@@ -474,7 +443,7 @@
   @media print {
     @page { size: letter; margin: 13mm 15mm; }
     html, body { background: #fff; }
-    .route-spine, .cursor-glow { display: none; }
+    .cursor-glow { display: none; }
     .d4 { background: #fff; color: #17112b; font-size: 10pt; line-height: 1.35; overflow: visible; }
     .d4 * { animation: none !important; transition: none !important; }
     .col { max-width: 100%; padding: 0; }
@@ -811,7 +780,7 @@
 
   <!-- ————— band 2 · the product: the memory system ————— -->
   <main class="scenes col">
-    <section class="scene left" id="work" aria-label="What I do" data-route-stop="right">
+    <section class="scene left" id="work" aria-label="What I do">
       <div class="inner">
         <p class="kicker mono">WHAT I DO <i>·</i> data in, decisions out</p>
         <h2 class="display">I turn scattered records into the next decision.</h2>
@@ -820,7 +789,7 @@
       </div>
     </section>
 
-    <section class="scene right" id="product" aria-label="Flagship: the memory system" data-route-stop="left">
+    <section class="scene right" id="product" aria-label="Flagship: the memory system">
       <div class="inner">
         <p class="kicker mono">FLAGSHIP <i>·</i> the one I run daily</p>
         <h2 class="display">The memory system</h2>
@@ -839,7 +808,7 @@
       </div>
     </section>
 
-    <section class="proof-band" id="built" aria-label="What I have built" data-route-stop="right">
+    <section class="proof-band" id="built" aria-label="What I have built">
       <div class="loop-head">
         <p class="kicker mono">BUILT <i>·</i> SHIPPED AND RUNNING</p>
         <h2 class="display">What I have built.</h2>
@@ -856,7 +825,7 @@
       <p class="subtitle stack mono"><span><span class="st"><span class="dot"></span>LIVE</span> · status labels on this page are literal</span><span><a href="case-study-second-brain.html">the memory system, in depth ↗</a></span></p>
     </section>
 
-    <section class="proof-band" id="tools" aria-label="The stack" data-route-stop="left">
+    <section class="proof-band" id="tools" aria-label="The stack">
       <div data-lang-block="en">
         <div class="loop-head">
           <p class="kicker mono">TOOLS <i>·</i> WHAT I WORK IN</p>
@@ -886,7 +855,7 @@
       <p class="sys-short">Stack: Claude Code with sub-agents, MCP servers and agent skills, context engineering, offline local models, Python and SQL data pipelines, Airtable, n8n, CRM and pipeline automation.</p>
     </section>
 
-    <section class="proof-band" id="proof" aria-label="Client work: Farmatodo" data-route-stop="right">
+    <section class="proof-band" id="proof" aria-label="Client work: Farmatodo">
       <div class="loop-head">
         <p class="kicker mono">CLIENT WORK <i>·</i> ENTERPRISE</p>
         <h2 class="display">An enterprise retailer's real backlog.</h2>
@@ -901,7 +870,7 @@
       <p class="subtitle stack mono"><span><span class="st"><span class="dot half"></span>PAST ENGAGEMENT</span> · I delivered the diagnostic and the training program; the account stayed with the team</span></p>
     </section>
 
-    <section class="scene left" id="radar" aria-label="Radar de Mercado, Colombia" data-route-stop="left">
+    <section class="scene left" id="radar" aria-label="Radar de Mercado, Colombia">
       <div class="inner">
         <p class="kicker mono">COLOMBIA <i>·</i> MARKET INTELLIGENCE</p>
         <h2 class="display">Radar de Mercado</h2>
@@ -912,7 +881,7 @@
     </section>
 
     <!-- ————— band 3 · THE MAP ————— -->
-    <section class="map-band" id="map" aria-label="The map: how the systems connect" data-route-stop="left">
+    <section class="map-band" id="map" aria-label="The map: how the systems connect">
       <div class="map-head">
         <span class="lead" aria-hidden="true"></span>
         <h2 class="display">One discipline, three systems.</h2>
@@ -976,7 +945,7 @@
     </section>
 
     <!-- ————— band 4 · about ————— -->
-    <section class="about" aria-label="About" data-route-stop="right">
+    <section class="about" aria-label="About">
       <div>
         <p class="line display">Sales floor first. Then the systems behind it.</p>
         <p class="body">Two years on high-volume sales floors, resolving a claim and then selling into the same call. Then co-founder and Head of Growth at Frakkr, where I designed the CRM, the outbound infrastructure and the agents that ran the pipeline. I build inside the stack a team already runs, and hand it back documented, running, and with the controls that say when it stops working. I know what a bad list costs a seller, because I was the one dialing it.</p>
@@ -985,7 +954,7 @@
     </section>
 
     <!-- ————— band 5 · contact ————— -->
-    <section class="contact" id="contact" aria-label="Contact" data-route-stop="gate">
+    <section class="contact" id="contact" aria-label="Contact">
       <div>
         <h2 class="display">Tell me what you need decided.</h2>
         <p class="sub">Book 15 minutes, or write. Bring one question your business cannot answer fast today, and I will tell you what it would take to answer it.</p>
@@ -1328,8 +1297,7 @@
 </script>
 <script>
 /* v10 scroll driver: the visitor drives the signal. Three strands draw as the page
-   scrolls and leave the hero STILL SEPARATE - the merge, the gate, and the light
-   now live at THE SOLUTION, driven by the page-spine script.
+   scrolls and leave the hero still separate.
    Reduced motion: everything renders complete and still. */
 (function () {
   var svg = document.querySelector('.brain-fig');
@@ -1363,7 +1331,7 @@
   function frame() {
     var h = hero.offsetHeight || 1;
     /* Full progress by ~55% of the hero scrolled: the strands finish exiting the
-       bottom mask right as the page spine's three lanes take over below the seam. */
+       bottom mask at the seam. */
     var p = reduced ? 1 : BASE + clamp01(window.scrollY / (h * 0.55)) * (1 - BASE);
 
     for (var i = 0; i < 3; i++) {
@@ -1397,361 +1365,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
   frame();
-})();
-</script>
-<script>
-/* v10 page spine: the storytelling arc. THREE lanes leave the hero still separate,
-   fray through THE PROBLEM in cold light (bone records: reached, not verified),
-   then converge into ONE at a verification gate beside THE SOLUTION heading -
-   many sources, one answer, and the light blooms on. From there the single line
-   escorts the reader through the lit half of the page (same weave and violet
-   nodes as before) to the terminal gate beside the contact ask. Vertical runs in
-   margins, side-crossings only in the gaps between sections, never under text.
-   Rebuilt from live geometry on any size change (resize, EN/ES). */
-(function () {
-  var d4 = document.querySelector('.d4');
-  var hero = document.querySelector('.scene-hero');
-  if (!d4 || !hero || !document.querySelector('[data-route-stop]')) return;
-  var NS = 'http://www.w3.org/2000/svg';
-  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  var svg = null, lanes = [], laneTips = [], coldStops = [], stops = [];
-  var bGlow = null, bCore = null, bTip = null, bTable = null, bTotal = 0, gateDocY = 0;
-
-  function el(name, attrs, parent) {
-    var n = document.createElementNS(NS, name);
-    for (var k in attrs) n.setAttribute(k, attrs[k]);
-    if (parent) parent.appendChild(n);
-    return n;
-  }
-
-  /* the section's WIDEST visible blocks - the line must clear grids, not just heads */
-  function widest(sec, fallback) {
-    var lo = Infinity, hi = -Infinity;
-    [].slice.call(sec.children).forEach(function (ch) {
-      var b = ch.getBoundingClientRect();
-      if (b.width < 2 || b.height < 2) return;
-      if (b.left < lo) lo = b.left;
-      if (b.right > hi) hi = b.right;
-    });
-    if (lo === Infinity) { lo = fallback.left; hi = fallback.right; }
-    return { lo: lo, hi: hi };
-  }
-
-  function makeTable(path) {
-    var L = path.getTotalLength();
-    var ls = [], ys = [], STEP = 22, n = Math.ceil(L / STEP), i;
-    for (i = 0; i <= n; i++) {
-      var l = Math.min(L, i * STEP);
-      ls.push(l);
-      ys.push(path.getPointAtLength(l).y);
-    }
-    for (i = 1; i < ys.length; i++) if (ys[i] < ys[i - 1]) ys[i] = ys[i - 1];
-    return {
-      L: L,
-      lenAtY: function (y) {
-        if (y <= ys[0]) return 0;
-        if (y >= ys[ys.length - 1]) return L;
-        var lo = 0, hi = ys.length - 1;
-        while (hi - lo > 1) {
-          var mid = (lo + hi) >> 1;
-          if (ys[mid] <= y) lo = mid; else hi = mid;
-        }
-        var span = ys[hi] - ys[lo];
-        var f = span > 0 ? (y - ys[lo]) / span : 0;
-        return ls[lo] + (ls[hi] - ls[lo]) * f;
-      }
-    };
-  }
-
-  function build() {
-    if (svg) svg.remove();
-    lanes = []; laneTips = []; coldStops = []; stops = [];
-    bGlow = bCore = bTip = bTable = null;
-    var dr = d4.getBoundingClientRect();
-    var docW = d4.clientWidth, docH = Math.round(dr.height);
-    var narrow = window.innerWidth < 780;
-    var top0 = dr.top + window.scrollY;
-    function pageTop(r) { return r.top + window.scrollY - top0; }
-
-    var heroB = pageTop(hero.getBoundingClientRect()) + hero.offsetHeight;
-
-    /* the three exits, measured off the hero's strand guides */
-    var exits = [];
-    for (var gi = 0; gi < 3; gi++) {
-      var g = document.querySelector('[data-strand-guide="' + gi + '"]');
-      var x = docW * (0.55 + gi * 0.12);
-      if (g && g.getTotalLength) {
-        try {
-          var ept = g.getPointAtLength(g.getTotalLength());
-          var m = g.getScreenCTM();
-          if (m) x = m.a * ept.x + m.c * ept.y + m.e + window.scrollX;
-        } catch (e) {}
-      }
-      exits.push(Math.max(10, Math.min(docW - 14, Math.round(x))));
-    }
-
-    var probSec = document.getElementById('work');
-    var prodSec = document.getElementById('product');
-    if (!probSec || !prodSec) return;
-
-    /* phase A geometry: the lane band right of the problem text */
-    var pr = probSec.getBoundingClientRect();
-    var pw = widest(probSec, pr);
-    var probHeadR = (probSec.querySelector('h2') || probSec).getBoundingClientRect();
-    var probNodeY = Math.round(pageTop(probHeadR) + probHeadR.height / 2);
-    var probTop = pageTop(pr) + 10, probBot = pageTop(pr) + pr.height - 10;
-    var laneLo = narrow ? 8 : Math.min(docW - 150, Math.round(pw.hi - dr.left) + 40);
-    var laneHi = narrow ? 28 : docW - 30;
-    var laneXs = [laneLo, Math.round((laneLo + laneHi) / 2), laneHi];
-
-    /* the merge gate beside THE SOLUTION heading */
-    var sr = prodSec.getBoundingClientRect();
-    var sw = widest(prodSec, sr);
-    var sHeadR = (prodSec.querySelector('h2') || prodSec).getBoundingClientRect();
-    gateDocY = Math.round(pageTop(sHeadR) + sHeadR.height / 2);
-    var gateX = narrow ? 10 : Math.max(60, Math.round(sw.lo - dr.left) - 46);
-    var prodBot = Math.round(pageTop(sr) + sr.height - 18);
-
-    svg = el('svg', { 'class': 'route-spine', width: docW, height: docH, viewBox: '0 0 ' + docW + ' ' + docH, 'aria-hidden': 'true' });
-    var defs = el('defs', {}, svg);
-    var lg = el('linearGradient', { id: 'spinefade', gradientUnits: 'userSpaceOnUse', x1: 0, y1: Math.round(heroB), x2: 0, y2: Math.round(heroB + 170) }, defs);
-    el('stop', { offset: '0', 'stop-color': '#be95ff', 'stop-opacity': '0' }, lg);
-    el('stop', { offset: '1', 'stop-color': '#be95ff', 'stop-opacity': '1' }, lg);
-    var bg = el('radialGradient', { id: 'bloomgrad' }, defs);
-    el('stop', { offset: '0', 'stop-color': '#9b6ee6', 'stop-opacity': '.16' }, bg);
-    el('stop', { offset: '.5', 'stop-color': '#6d47ad', 'stop-opacity': '.07' }, bg);
-    el('stop', { offset: '1', 'stop-color': '#6d47ad', 'stop-opacity': '0' }, bg);
-    var wg = el('radialGradient', { id: 'warmgrad' }, defs);
-    el('stop', { offset: '0', 'stop-color': '#6d47ad', 'stop-opacity': '.09' }, wg);
-    el('stop', { offset: '1', 'stop-color': '#6d47ad', 'stop-opacity': '0' }, wg);
-
-    /* the light arc, painted behind everything: the bloom at the solution */
-    var lights = el('g', {}, svg);
-    el('ellipse', { 'class': 'bloom', cx: Math.round(docW * .5), cy: gateDocY + 120, rx: Math.round(docW * .6), ry: 480, fill: 'url(#bloomgrad)' }, lights);
-
-    /* phase A: three frayed lanes, hero exit -> problem band -> the gate */
-    for (var li = 0; li < 3; li++) {
-      var lx = laneXs[li], x0 = exits[li];
-      var sway = (li - 1) * 16;
-      var d = 'M ' + x0 + ' ' + Math.round(heroB + 6);
-      d += ' C ' + x0 + ' ' + Math.round(heroB + 70) + ' ' + (lx + sway) + ' ' + Math.round(probTop - 70) + ' ' + (lx + sway) + ' ' + Math.round(probTop);
-      d += ' C ' + (lx + sway - 12) + ' ' + Math.round((probTop + probNodeY) / 2) + ' ' + (lx - sway + 12) + ' ' + Math.round((probTop + probNodeY) / 2) + ' ' + lx + ' ' + probNodeY;
-      d += ' C ' + (lx + sway) + ' ' + Math.round((probNodeY + probBot) / 2) + ' ' + (lx - sway) + ' ' + Math.round((probNodeY + probBot) / 2) + ' ' + lx + ' ' + Math.round(probBot);
-      /* converge in the EMPTY gap between the sections - the sweep must never cross
-         the solution's kicker or heading - then drop the merged line straight down
-         the clear left margin into the gate */
-      var convY = Math.round(Math.max(probBot + 50, pageTop(sr) - 34));
-      var gg2 = Math.max(60, convY - probBot);
-      d += ' C ' + lx + ' ' + Math.round(probBot + gg2 * .55) + ' ' + gateX + ' ' + Math.round(convY - gg2 * .45) + ' ' + gateX + ' ' + convY;
-      d += ' L ' + gateX + ' ' + gateDocY;
-      var lglow = el('path', { d: d, fill: 'none', stroke: 'url(#spinefade)', 'stroke-opacity': '.14', 'stroke-width': '4', 'stroke-linecap': 'round' }, svg);
-      var lcore = el('path', { d: d, fill: 'none', stroke: 'url(#spinefade)', 'stroke-opacity': '.55', 'stroke-width': '1.3', 'stroke-linecap': 'round' }, svg);
-      lanes.push({ glow: lglow, core: lcore, table: makeTable(lcore) });
-      /* cold record on this lane at the problem's heading */
-      var nr0 = narrow ? 3 : 4.2;
-      var cg = el('g', { 'class': 'stop cold' }, svg);
-      el('circle', { 'class': 'stop-ring', cx: lx, cy: probNodeY, r: nr0 }, cg);
-      el('circle', { 'class': 'stop-core', cx: lx, cy: probNodeY, r: nr0 - 2 }, cg);
-      coldStops.push({ g: cg, y: probNodeY });
-    }
-
-    /* phase B: one verified line, gate -> product margin -> the weave -> contact */
-    var pts = [{ x: gateX, y: prodBot }], gatePt = null;
-    [].slice.call(document.querySelectorAll('[data-route-stop]')).forEach(function (sec) {
-      if (sec === probSec || sec === prodSec) return;
-      var side = sec.getAttribute('data-route-stop');
-      var r = sec.getBoundingClientRect();
-      var w = widest(sec, r);
-      var headR = (sec.querySelector('h2, .line') || sec).getBoundingClientRect();
-      var nodeY = Math.round(pageTop(headR) + headR.height / 2);
-      if (side === 'gate') {
-        var gx = narrow ? 10 : Math.max(70, Math.round(w.lo - dr.left) - 78);
-        gatePt = { x: gx, y: nodeY };
-        pts.push(gatePt);
-        return;
-      }
-      var x;
-      if (narrow) x = 16;
-      else if (side === 'center') x = Math.round(r.left - dr.left + r.width / 2);
-      else if (side === 'left') x = Math.max(28, Math.round(w.lo - dr.left) - 46);
-      else x = Math.min(docW - 28, Math.round(w.hi - dr.left) + 46);
-      var yTop = Math.round(pageTop(r) + 18);
-      var yBot = Math.round(Math.max(yTop + 40, pageTop(r) + r.height - 18));
-      pts.push({ x: x, y: yTop });
-      stops.push({ x: x, y: nodeY, sec: sec });
-      pts.push({ x: x, y: yBot });
-    });
-
-    var bd = 'M ' + gateX + ' ' + gateDocY;
-    var prev = { x: gateX, y: gateDocY };
-    pts.forEach(function (p) {
-      if (Math.abs(p.x - prev.x) < 2) {
-        bd += ' L ' + p.x + ' ' + p.y;
-      } else {
-        var gg3 = Math.max(40, p.y - prev.y);
-        bd += ' C ' + prev.x + ' ' + Math.round(prev.y + gg3 * .55) + ' ' + p.x + ' ' + Math.round(p.y - gg3 * .45) + ' ' + p.x + ' ' + p.y;
-      }
-      prev = p;
-    });
-    bGlow = el('path', { d: bd, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.14', 'stroke-width': '5', 'stroke-linecap': 'round' }, svg);
-    bCore = el('path', { d: bd, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.6', 'stroke-width': '1.5', 'stroke-linecap': 'round' }, svg);
-    bTable = makeTable(bCore);
-    bTotal = bTable.L;
-
-    /* warm pools: the lit world below the merge */
-    stops.forEach(function (s) {
-      el('ellipse', { cx: s.x, cy: s.y + 150, rx: 380, ry: 240, fill: 'url(#warmgrad)' }, lights);
-    });
-    if (gatePt) el('ellipse', { cx: gatePt.x + 120, cy: gatePt.y + 60, rx: 380, ry: 240, fill: 'url(#warmgrad)' }, lights);
-
-    var nr = narrow ? 3.4 : 4.5;
-    stops.forEach(function (s) {
-      s.g = el('g', { 'class': 'stop' }, svg);
-      el('circle', { 'class': 'stop-ring', cx: s.x, cy: s.y, r: nr }, s.g);
-      el('circle', { 'class': 'stop-core', cx: s.x, cy: s.y, r: nr - 2.1 }, s.g);
-      s.len = bTable.lenAtY(s.y);
-    });
-
-    /* the merge gate: three become one */
-    var sgr = narrow ? 9 : 18;
-    var sg = el('g', { 'class': 'sgate' }, svg);
-    el('circle', { cx: gateX, cy: gateDocY, r: sgr + 8, fill: '#be95ff', opacity: '.08' }, sg);
-    el('circle', { cx: gateX, cy: gateDocY, r: sgr, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.45', 'stroke-width': '1.25' }, sg);
-    el('circle', { cx: gateX, cy: gateDocY, r: sgr * .57, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.28', 'stroke-width': '1' }, sg);
-    el('path', { d: 'M ' + gateX + ' ' + gateDocY + ' L ' + (gateX + sgr * .68) + ' ' + (gateDocY - sgr * .68), stroke: '#d7afff', 'stroke-width': '1.4', fill: 'none' }, sg);
-    el('circle', { cx: gateX, cy: gateDocY, r: 3.6, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.5', 'stroke-width': '1.1' }, sg);
-    el('circle', { 'class': 'sgate-pulse', cx: gateX, cy: gateDocY, r: 7, fill: 'none', stroke: '#d7afff', 'stroke-width': '1.4' }, sg);
-    el('circle', { 'class': 'sgate-fill', cx: gateX, cy: gateDocY, r: 3.6, fill: '#d7afff' }, sg);
-
-    /* the terminal gate at the contact ask */
-    if (gatePt) {
-      var gr = narrow ? 9 : 22;
-      var gg = el('g', { 'class': 'fgate' }, svg);
-      el('circle', { cx: gatePt.x, cy: gatePt.y, r: gr + 8, fill: '#be95ff', opacity: '.08' }, gg);
-      el('circle', { cx: gatePt.x, cy: gatePt.y, r: gr, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.45', 'stroke-width': '1.25' }, gg);
-      el('circle', { cx: gatePt.x, cy: gatePt.y, r: gr * .57, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.28', 'stroke-width': '1' }, gg);
-      el('path', { d: 'M ' + gatePt.x + ' ' + gatePt.y + ' L ' + (gatePt.x + gr * .68) + ' ' + (gatePt.y - gr * .68), stroke: '#d7afff', 'stroke-width': '1.5', fill: 'none' }, gg);
-      el('circle', { cx: gatePt.x, cy: gatePt.y, r: 4, fill: 'none', stroke: '#be95ff', 'stroke-opacity': '.5', 'stroke-width': '1.1' }, gg);
-      el('circle', { 'class': 'fgate-pulse', cx: gatePt.x, cy: gatePt.y, r: 8, fill: 'none', stroke: '#d7afff', 'stroke-width': '1.5' }, gg);
-      el('circle', { 'class': 'fgate-fill', cx: gatePt.x, cy: gatePt.y, r: 4, fill: '#d7afff' }, gg);
-    }
-
-    /* tips: three while separate, one once verified */
-    for (var ti = 0; ti < 3; ti++) {
-      var t = el('g', { opacity: '0' }, svg);
-      el('circle', { r: '4.6', fill: '#be95ff', opacity: '.4' }, t);
-      el('circle', { r: '1.9', fill: '#ffffff' }, t);
-      laneTips.push(t);
-    }
-    bTip = el('g', { opacity: '0' }, svg);
-    el('circle', { r: '5', fill: '#be95ff', opacity: '.4' }, bTip);
-    el('circle', { r: '2.1', fill: '#ffffff' }, bTip);
-
-    d4.appendChild(svg);
-
-    lanes.forEach(function (l) {
-      [l.glow, l.core].forEach(function (p) {
-        p.style.strokeDasharray = l.table.L + ' ' + l.table.L;
-        p.style.strokeDashoffset = l.table.L;
-      });
-    });
-    [bGlow, bCore].forEach(function (p) {
-      p.style.strokeDasharray = bTotal + ' ' + bTotal;
-      p.style.strokeDashoffset = bTotal;
-    });
-
-    if (reduced) {
-      lanes.forEach(function (l) { [l.glow, l.core].forEach(function (p) { p.style.strokeDashoffset = 0; }); });
-      [bGlow, bCore].forEach(function (p) { p.style.strokeDashoffset = 0; });
-      coldStops.forEach(function (s) { s.g.classList.add('lit'); });
-      stops.forEach(function (s) { s.g.classList.add('lit'); });
-      svg.classList.add('merged');
-      svg.classList.add('done');
-    } else {
-      frame();
-    }
-  }
-
-  function frame() {
-    if (!bCore) return;
-    var vh = window.innerHeight;
-    var maxS = Math.max(1, document.documentElement.scrollHeight - vh);
-    var tipDoc = window.scrollY + vh * 0.52;
-    if (window.scrollY >= maxS - 2) tipDoc = 1e9;
-    var isMerged = tipDoc >= gateDocY - 1;
-    svg.classList.toggle('merged', isMerged);
-
-    lanes.forEach(function (l, i) {
-      var len = l.table.lenAtY(tipDoc);
-      var off = Math.max(0, l.table.L - len);
-      l.glow.style.strokeDashoffset = off;
-      l.core.style.strokeDashoffset = off;
-      if (!isMerged && len > 4 && len < l.table.L - 2) {
-        var pt = l.core.getPointAtLength(len);
-        laneTips[i].setAttribute('transform', 'translate(' + pt.x.toFixed(1) + ' ' + pt.y.toFixed(1) + ')');
-        laneTips[i].setAttribute('opacity', '1');
-      } else {
-        laneTips[i].setAttribute('opacity', '0');
-      }
-    });
-
-    coldStops.forEach(function (s) { s.g.classList.toggle('lit', tipDoc >= s.y - 1); });
-
-    if (isMerged) {
-      var bLen = bTable.lenAtY(tipDoc);
-      var bOff = Math.max(0, bTotal - bLen);
-      bGlow.style.strokeDashoffset = bOff;
-      bCore.style.strokeDashoffset = bOff;
-      stops.forEach(function (s) { s.g.classList.toggle('lit', bLen >= s.len - 1); });
-      if (bLen >= bTotal - 2) {
-        svg.classList.add('done');
-        bTip.setAttribute('opacity', '0');
-      } else {
-        svg.classList.remove('done');
-        if (bLen > 4) {
-          var bpt = bCore.getPointAtLength(bLen);
-          bTip.setAttribute('transform', 'translate(' + bpt.x.toFixed(1) + ' ' + bpt.y.toFixed(1) + ')');
-          bTip.setAttribute('opacity', '1');
-        } else {
-          bTip.setAttribute('opacity', '0');
-        }
-      }
-    } else {
-      bGlow.style.strokeDashoffset = bTotal;
-      bCore.style.strokeDashoffset = bTotal;
-      stops.forEach(function (s) { s.g.classList.remove('lit'); });
-      svg.classList.remove('done');
-      bTip.setAttribute('opacity', '0');
-    }
-  }
-
-  build();
-  if (reduced) {
-    if (window.ResizeObserver) new ResizeObserver(function () { build(); }).observe(d4);
-    return;
-  }
-  var ticking = false;
-  function onScroll() {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(function () { ticking = false; frame(); });
-    }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  var rbTimer = null;
-  function rebuild() {
-    if (rbTimer) clearTimeout(rbTimer);
-    rbTimer = setTimeout(function () { rbTimer = null; build(); }, 120);
-  }
-  window.addEventListener('resize', rebuild, { passive: true });
-  if (window.ResizeObserver) {
-    var lastH = d4.getBoundingClientRect().height;
-    new ResizeObserver(function () {
-      var h = d4.getBoundingClientRect().height;
-      if (Math.abs(h - lastH) > 2) { lastH = h; rebuild(); }
-    }).observe(d4);
-  }
 })();
 </script>
 <script>
