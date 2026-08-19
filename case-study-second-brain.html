@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>The memory system · Jhonalbert Alvarez</title>
-  <meta name="description" content="A private, structured memory for you and your AI: plain files, no database, no vendor. One place you and your AI answer from. The author's own system, in daily production use.">
+  <meta name="description" content="A private, structured memory for you and your AI: plain files, no database, no vendor. One place you and your AI answer from. Benchmarked against RAG on 498 questions, with the result that went against me published in full.">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0b0813">
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="%23a78bfa" stroke-width="2.5"/><path d="M20 20 29 10" stroke="%23a78bfa" stroke-width="2.5"/><circle cx="20" cy="20" r="3" fill="%23a78bfa"/></svg>'>
@@ -154,6 +154,9 @@
   .subtitle { margin: 26px 0 0; font-size: var(--t-meta); line-height: 1.8; color: var(--faint); letter-spacing: .04em; display: grid; gap: 2px; justify-items: start; }
   .subtitle .st { display: inline-flex; align-items: center; gap: 8px; color: var(--signal); letter-spacing: .14em; }
   .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--signal); position: relative; top: .5px; }
+  .subtitle a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); padding-bottom: 3px; }
+  .subtitle a:hover { color: var(--signal); border-color: var(--signal); }
+  .scene .sys.after-figures { margin-top: var(--sect-in); }
 
   .contact { padding: calc(var(--sect) / 1.4) 0 calc(var(--sect) / 1.2); scroll-margin-top: 40px; }
   .contact h2 { margin: 0 0 12px; font-size: clamp(1.8rem, 3.8vw, 2.8rem); font-weight: 330; letter-spacing: -0.022em; max-width: 22ch; }
@@ -217,7 +220,7 @@
 
     <div class="col hero-low">
       <p class="thesis display">Most AI looks things up. This remembers.</p>
-      <p class="avail">A private, structured memory for you and your AI. The system on this page is my own, in daily production use: every number below was measured on it.</p>
+      <p class="avail">A private, structured memory for you and your AI. The system on this page is my own, in daily production use. I benchmarked it against the default way of building AI memory, and published the result that went against me.</p>
       <div class="cta-row">
         <a class="btn" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min <span class="arr" aria-hidden="true">↗</span></a>
         <a class="cta quiet" href="#what">How it works ↓</a>
@@ -251,22 +254,33 @@
         <h2 class="display">One place you and your AI answer from.</h2>
         <p class="sys">No re-explaining your business every chat. Answers with sources instead of guesses.</p>
       </div>
-      <div class="figures" aria-label="Proof numbers, measured on the author's own system">
+    </section>
+
+    <!-- ————— the benchmark ————— -->
+    <section class="scene right" id="benchmark" aria-label="The benchmark">
+      <div class="inner">
+        <p class="kicker mono">THE BENCHMARK <i>·</i> August 2026, published in full</p>
+        <h2 class="display">I tested it against the industry default. RAG came last.</h2>
+        <p class="sys">498 questions about long conversations. Same model answering, same scoring, three versions of the same setup. Out of every 100 questions:</p>
+      </div>
+      <div class="figures" aria-label="Benchmark scores over 498 questions, three setups">
         <div class="figure">
-          <span class="n">8 agents</span>
-          <p>run it nightly, on my own system.</p>
+          <span class="n">78 right</span>
+          <p>an agent searching my organized files.</p>
         </div>
         <div class="figure">
-          <span class="n">4,480</span>
-          <p>of my own sessions audited.</p>
+          <span class="n">75 right</span>
+          <p>the same files in one folder, no structure at all.</p>
         </div>
         <div class="figure">
-          <span class="n hi">773 to 5</span>
-          <p>security-rule violations a day, after that audit.</p>
+          <span class="n hi">55 right</span>
+          <p>RAG, the way almost everyone builds AI memory.</p>
         </div>
       </div>
       <div class="inner">
-        <p class="subtitle mono"><span><span class="st"><span class="dot"></span>LIVE</span> · measured on the system in daily use, not on a pilot</span></p>
+        <p class="sys after-figures">Readable files plus search beat RAG by 23 points. That is the part worth buying. The 3 points my structure added over an unstructured folder are too small to call a win, and they cost 27 percent more and answered slower, so the accuracy credit belongs to the search, not to my filing system.</p>
+        <p class="sys">The structure earns its keep somewhere else, and this run did not measure it: you can read the entire memory, every claim names where it came from, and a new file has exactly one right place to live, so two people filing it land in the same folder.</p>
+        <p class="subtitle mono"><span><span class="st"><span class="dot"></span>SELF-RUN</span> · one operator, one run, my own test rig, not comparable to any published score</span><span><a href="https://github.com/pretending2bejhon/ulpia#benchmarks-honestly" target="_blank" rel="noopener">the full method and every caveat ↗</a></span></p>
       </div>
     </section>
 
