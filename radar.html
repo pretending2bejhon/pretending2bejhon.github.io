@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Radar de Mercado B2B Colombia · Jhonalbert Alvarez</title>
-  <meta name="description" content="El análisis ordenado de a qué empresas colombianas debería llamar primero su equipo comercial, y por qué esas. Armado sobre el registro público, depurado por vigencia y cruzado con la contratación pública del Estado. Muestra de 20 cuentas sin costo.">
+  <meta name="description" content="Cualquiera puede comprar una base de datos. El Radar te dice a quién entrarle, por qué esa cuenta y no otra, y qué cambió este mes. El registro mercantil y la contratación pública del Estado cruzados por NIT, con el motivo escrito al lado de cada cuenta. Muestra de 20 cuentas sin costo.">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0b0813">
   <link rel="canonical" href="https://jhonalbert.com/radar">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jhonalbert.com/radar">
   <meta property="og:title" content="Radar de Mercado B2B Colombia">
-  <meta property="og:description" content="El dato es de todos, el orden es mío. A qué empresas llamar primero y por qué esas, con el universo ya depurado de las que ya no están vivas. Muestra de 20 cuentas sin costo.">
+  <meta property="og:description" content="El dato público es gratis. El criterio no. A quién entrarle, por qué esa cuenta y no otra, y qué cambió este mes, con el universo ya depurado de las que ya no están vivas. Muestra de 20 cuentas sin costo.">
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="%23a78bfa" stroke-width="2.5"/><path d="M20 20 29 10" stroke="%23a78bfa" stroke-width="2.5"/><circle cx="20" cy="20" r="3" fill="%23a78bfa"/></svg>'>
 <style>
   /* RADAR DE MERCADO B2B COLOMBIA — the same "night console" identity as the portfolio,
@@ -199,9 +199,9 @@
   .clause p { margin: 0; font-size: var(--t-body); color: var(--text); }
   .clause .note { margin-top: 10px; font-size: var(--t-small); color: var(--dim); }
 
-  /* price: two cards, the free one first and larger */
+  /* price: three cards, the free one first and spanning the full row */
   .prices { display: grid; grid-template-columns: 1fr; gap: var(--s-6); margin: var(--sect-in) 0 0; }
-  @media (min-width: 781px) { .prices { grid-template-columns: 1.15fr 1fr; } }
+  @media (min-width: 781px) { .prices { grid-template-columns: 1fr 1fr; } .price.lead { grid-column: 1 / -1; } }
   .price { border: 1px solid var(--hair); padding: 28px 26px; display: flex; flex-direction: column; }
   .price.lead { border-color: var(--signal); }
   .price .tier { margin: 0 0 var(--s-3); font-size: var(--t-meta); letter-spacing: .2em; text-transform: uppercase; color: var(--faint); }
@@ -412,66 +412,119 @@
     </div>
 
     <div class="col hero-low">
-      <p class="thesis display">¿A qué empresas debería llamar primero su equipo comercial, y por qué esas?</p>
+      <p class="thesis display">Cualquiera puede comprar una base de datos. El Radar te dice a quién entrarle, por qué, y qué cambió este mes.</p>
+      <p class="avail">El registro mercantil y la contratación pública del Estado cruzados por NIT, y de ahí el orden de prioridad con el motivo escrito al lado de cada cuenta.</p>
       <div class="cta-row">
         <a class="btn" href="mailto:jhonalbert926@gmail.com?subject=Muestra%20Radar%20de%20Mercado">Pedir la muestra de 20 cuentas, sin costo <span class="arr" aria-hidden="true">↗</span></a>
-        <a class="cta quiet" href="#precio">Ver el precio ↓</a>
+        <a class="cta quiet" href="#precio">Ver los precios ↓</a>
       </div>
     </div>
   </header>
 
   <main class="col" id="trabajo">
-    <!-- ————— el radar, en tres líneas ————— -->
-    <section class="scene left" aria-label="Qué es, qué hace y qué recibe">
+    <!-- ————— el radar, en cuatro líneas: el registro, el criterio, el movimiento, el modo ————— -->
+    <section class="scene left" aria-label="El registro, el criterio, el movimiento y cómo se entrega">
       <div class="inner">
-        <p class="kicker mono">EL RADAR <i>·</i> EN TRES LÍNEAS</p>
+        <p class="kicker mono">EL RADAR <i>·</i> EN CUATRO LÍNEAS</p>
       </div>
-      <div class="ledger" aria-label="Qué es, qué hace y qué recibe">
+      <div class="ledger" aria-label="El registro, el criterio, el movimiento y cómo se entrega">
         <article class="ledger-row">
-          <h3>Qué es</h3>
-          <p>Un análisis de 300 a 500 cuentas de su segmento en orden de prioridad, con el motivo escrito al lado de cada una. Construido cruzando RUES, SECOP y datos abiertos del Estado: 2,1 millones de empresas colombianas.</p>
+          <h3>El registro</h3>
+          <p>1.751.328 sociedades colombianas de las 58 cámaras de comercio, cruzadas por NIT con la contratación pública del Estado y los datos abiertos. Año de renovación, actividad económica, tipo de sociedad, cámara, procesos y contratos públicos con sus fechas.</p>
         </article>
         <article class="ledger-row">
-          <h3>Qué hace</h3>
-          <p>Le dice cuáles empresas siguen vivas, cuáles están moviendo plata ahora mismo, y a cuáles llamar primero.</p>
+          <h3>El criterio</h3>
+          <p>De 300 a 500 cuentas de tu segmento en orden de prioridad, con el motivo escrito al lado de cada una: por qué encaja con tu cliente ideal, qué señal la pone arriba y qué la deja fuera. El motivo es el producto, no el renglón.</p>
         </article>
         <article class="ledger-row">
-          <h3>Qué recibe</h3>
-          <p>El documento priorizado con NIT, ciudad, teléfono y correo empresarial. Entrega en 3 días hábiles. Antes de pagar: muestra de 20 cuentas sin costo. Piloto: COP 900.000.</p>
+          <h3>El movimiento</h3>
+          <p>El registro no está quieto: hay empresas que renovaron, empresas que acaban de entrar a tu segmento y procesos y contratos públicos que aparecieron después del último corte. El análisis te muestra ese movimiento y cómo reordena la prioridad. Cada línea lleva su fecha de corte.</p>
         </article>
+        <article class="ledger-row">
+          <h3>Cómo lo recibes</h3>
+          <p>Documento de análisis para leer y repartir a tu equipo comercial, o llave de API para consultar desde tu propio sistema, sin registro y sin crear cuenta. El modo lo eliges tú.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ————— posición: contra qué compite, dicho de frente ————— -->
+    <section class="scene right" aria-label="Contra qué compite">
+      <div class="inner">
+        <p class="kicker mono">POSICIÓN <i>·</i> CONTRA QUÉ COMPITE</p>
+        <h2 class="display">El dato público es gratis. El criterio no existe en ninguna parte.</h2>
+        <p class="sys">Los datos que usa el Radar son abiertos y cualquiera puede descargarlos. Hay incluso una API pública y sin llave con estados financieros de empresas colombianas. Aquí no se cobra el acceso al dato.</p>
+        <p class="sys">Lo que no está en ningún catálogo del mercado: <b>la contratación pública y el registro mercantil cruzados en la misma ficha</b>, <b>el orden de prioridad con el motivo escrito al lado de cada cuenta</b>, y <b>el canal institucional que la empresa misma registró</b> para el segmento que le vende al Estado. Eso es lo que se paga.</p>
+        <p class="sys">La consecuencia práctica: tus créditos de Apollo, Lusha o Sales Navigator se gastan solamente donde hay algo que convertir. El Radar va antes de esas herramientas, nunca en su lugar.</p>
       </div>
     </section>
 
     <!-- ————— price ————— -->
     <section class="scene" id="precio" aria-label="Precio">
       <div class="inner">
-        <p class="kicker mono">PRECIO <i>·</i> SIN LETRA MENUDA</p>
+        <p class="kicker mono">PRECIOS <i>·</i> SIN LETRA MENUDA</p>
         <h2 class="display">Primero la muestra. Después decide.</h2>
       </div>
       <div class="prices">
         <div class="price lead">
           <p class="tier mono">La muestra, antes de comprar</p>
           <p class="amount display">Sin costo</p>
-          <p class="what">Hasta 20 cuentas de su segmento, para validar el ajuste antes de cualquier pago.</p>
+          <p class="what">Hasta 20 cuentas de tu segmento, cada una con su análisis escrito, para validar el ajuste antes de cualquier pago. El motivo de cada cuenta va siempre, nunca el dato a secas.</p>
           <p class="foot"><a class="btn" href="mailto:jhonalbert926@gmail.com?subject=Muestra%20Radar%20de%20Mercado">Pedir la muestra <span class="arr" aria-hidden="true">↗</span></a></p>
         </div>
         <div class="price">
-          <p class="tier mono">Piloto único</p>
-          <p class="amount display">COP 900.000</p>
+          <p class="tier mono">Análisis único</p>
+          <p class="amount display">COP 1.200.000</p>
           <p class="what">Un perfil de cliente ideal, un sector o caso de uso, una geografía objetivo en Colombia.</p>
+          <ul>
+            <li>De 300 a 500 cuentas en orden, con el motivo escrito al lado de cada una</li>
+            <li>Entrega en 3 días hábiles desde que queda definido el cliente ideal</li>
+            <li>Una ronda de ajuste incluida</li>
+          </ul>
+          <p class="foot"><a class="cta" href="#contacto">Hablemos 15 minutos ↓</a></p>
+        </div>
+        <div class="price">
+          <p class="tier mono">Llave de API · trimestre</p>
+          <p class="amount display">COP 2.400.000</p>
+          <p class="what">Para equipos técnicos que consultan el registro desde su propio sistema. Llave con alcance, cupo y política propios, sin registro y sin crear cuenta.</p>
+          <ul>
+            <li>Standard: 1.000 consultas al mes, hasta 100 filas por consulta, alcance nacional</li>
+            <li>Pro: COP 4.000.000 por trimestre, de 2.500 a 3.000 consultas al mes</li>
+            <li>Sin exportación masiva y sin volcado de la fuente</li>
+          </ul>
           <p class="foot"><a class="cta" href="#contacto">Hablemos 15 minutos ↓</a></p>
         </div>
       </div>
       <div class="inner">
-        <p class="subtitle mono"><span><span class="st"><span class="dot"></span>PILOTO ABIERTO</span> · pago anticipado, cuenta de cobro</span><span>Una recompra es un análisis nuevo, no una suscripción.</span></p>
+        <p class="subtitle mono"><span><span class="st"><span class="dot"></span>PRECIOS EN FIRME</span> · sin IVA, 100% anticipado, cuenta de cobro</span><span>Persona natural no responsable de IVA. Van con la cuenta de cobro el RUT y la certificación bancaria; el documento soporte lo genera tu contabilidad. Una recompra es un análisis nuevo.</span></p>
+      </div>
+    </section>
+
+    <!-- ————— límites: dichos antes, no después ————— -->
+    <section class="sources scene left" id="limites" aria-label="Límites y licencia">
+      <div class="inner">
+        <p class="kicker mono">LÍMITES <i>·</i> DICHOS ANTES, NO DESPUÉS</p>
+        <h2>Lo que este trabajo no hace.</h2>
+        <ul class="plain-list off">
+          <li>No se entrega la base fuente ni una exportación reutilizable. Se entrega el análisis, y en el modo técnico, la consulta.</li>
+          <li>No se entregan datos personales del representante legal. Cuando el único canal registrado coincide con el personal del representante, la ficha lo indica y el dato no viaja.</li>
+          <li>Presencia no es alcanzabilidad. Los canales se entregan como están publicados en la fuente oficial, no se prueban uno por uno.</li>
+          <li>El Radar ordena por ajuste y por vigencia, nunca por intención. Ninguna cuenta se presenta como interesada o compradora si no ha expresado esa intención.</li>
+          <li>El teléfono y el correo institucionales existen para una parte del universo, no para todo. La cobertura es alta en el segmento con contratación pública activa y baja fuera de él.</li>
+          <li>La ciudad y el departamento solo son confiables para las empresas que los declararon ante el Estado. La cámara de comercio sí cubre el universo completo y es el filtro geográfico que se vende.</li>
+        </ul>
+        <div class="clause">
+          <span class="lbl mono">Condición de la licencia</span>
+          <p>No se entrega la base fuente ni una exportación reutilizable.</p>
+          <p class="note">Las fuentes son datos abiertos del Estado colombiano bajo licencia CC BY-SA 4.0. Cada entrega lleva la atribución completa. Contacto empresarial únicamente, dentro de los horarios de la Ley 2300 de 2023.</p>
+        </div>
       </div>
     </section>
 
     <!-- ————— contact ————— -->
     <section class="contact" id="contacto" aria-label="Contacto">
       <div>
-        <h2 class="display">Dígame a quién quiere venderle.</h2>
-        <p class="sub">Con eso le armo la muestra de 20 cuentas, sin costo. Si apuntan bien, hablamos del análisis completo.</p>
+        <h2 class="display">Dime a quién quieres venderle.</h2>
+        <p class="sub">Con eso te armo la muestra de 20 cuentas, sin costo y con el análisis escrito de cada una. Si apuntan bien, el análisis completo son COP 1.200.000 sin IVA, anticipado, contra cuenta de cobro. Sin contrato de permanencia y sin crear cuenta en ninguna parte.</p>
         <div class="slots mono">
           <a class="btn" href="mailto:jhonalbert926@gmail.com?subject=Muestra%20Radar%20de%20Mercado">Pedir la muestra <span class="arr" aria-hidden="true">↗</span></a>
           <a class="slot" href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a>
