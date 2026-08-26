@@ -149,7 +149,8 @@
     font-family: "Saira SemiCondensed NP", "Bahnschrift SemiCondensed", "Bahnschrift", "Segoe UI", sans-serif;
     font-weight: 500;
   }
-  .titlecard .role { font-size: var(--t-meta); letter-spacing: .22em; color: var(--dim); text-transform: uppercase; }
+  .titlecard .navlink { font-size: var(--t-meta); letter-spacing: .18em; text-transform: uppercase; color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); padding-bottom: 4px; }
+  .titlecard .navlink:hover { color: var(--signal); border-color: var(--signal); }
 
   .reticle { width: clamp(52px, 5.5vw, 68px); height: auto; flex: none; }
   .reticle .ring  { fill: none; stroke: oklch(48% 0.06 297 / .7); stroke-width: 1; }
@@ -448,7 +449,7 @@
     .d4 * { animation: none !important; transition: none !important; }
     .col { max-width: 100%; padding: 0; }
 
-    .skip-link, .cta-row, .map-band, .about, .footer, .kicker, .gotow, .lang-btn, .memtree, .tree-note { display: none !important; }
+    .skip-link, .cta-row, .map-band, .about, .footer, .kicker, .gotow, .lang-btn, .titlecard .navlink, .memtree, .tree-note { display: none !important; }
     .contact h2 { max-width: none; }
     .scene .subtitle a { color: #4a3d73; text-decoration: none; }
 
@@ -460,7 +461,6 @@
     .reticle { width: 26pt; }
     .reticle .ring { stroke: #8d80b8; } .reticle .ring2 { stroke: #c9c2e0; }
     .reticle .needle { stroke: #5b3fae; } .reticle .pin { fill: #5b3fae; }
-    .titlecard .role { color: #5b3fae; font-size: 8pt; }
     .hero-low { gap: 4pt; }
     .thesis { font-size: 19pt; letter-spacing: -0.015em; color: #17112b; max-width: none; font-weight: 350; }
     .avail { font-size: 9pt; color: #4a4266; }
@@ -763,7 +763,9 @@
         </svg>
       </span>
       <span class="tc-right">
-        <span class="role">Sales · Data · AI systems</span>
+        <a class="navlink mono" href="https://api.jhonalbert.com/">RADAR DE MERCADO</a>
+        <a class="navlink mono" href="https://api.jhonalbert.com/docs">DOCS</a>
+        <a class="navlink mono" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">BOOK 15 MIN ↗</a>
         <button type="button" class="lang-btn" data-lang-btn aria-label="Cambiar a español">ES</button>
       </span>
     </div>
@@ -806,7 +808,7 @@
         <p class="loop-lede">The memory system above is one of two products. This is the other. Same discipline underneath: get the context into one place, then let people and machines act on it. Everything else I have built is proof of the method, not an item on a menu.</p>
       </div>
       <div class="ledger" aria-label="The two products">
-        <article class="ledger-row"><h3>Radar de Mercado · Colombia</h3><p>Anyone can buy a database. Nobody tells you which company is worth a proposal. For any Colombian company that sells B2B: the accounts that are demonstrably alive and have budget moving, in order, each with the reason written beside it, from the mercantile registry joined to state contracting. You read it as an analysis, or your system queries it through an API key. Never a downloadable list. <a class="goto" href="/radar">ver el Radar de Mercado ↗</a></p></article>
+        <article class="ledger-row"><h3>Radar de Mercado · Colombia</h3><p>Anyone can buy a database. Nobody tells you which company is worth a proposal. For any Colombian company that sells B2B: the accounts that are demonstrably alive and have budget moving, in order, each with the reason written beside it, from the mercantile registry joined to state contracting. You read it as an analysis, or your system queries it through an API key. Never a downloadable list. <a class="goto" href="https://api.jhonalbert.com/">ver el Radar de Mercado ↗</a></p></article>
         <article class="ledger-row"><h3>Start with the sample</h3><p>Twenty accounts from your segment, each one read on the company's own site and written up, at no cost. Fifteen minutes if you would rather talk first. One door per product, never priced. <a class="goto" href="#contact">tell me who you sell to ↓</a></p></article>
       </div>
       <p class="sys-short">Two products: the memory system, and Radar de Mercado for any Colombian company that sells B2B. Both open with a free session.</p>
@@ -934,7 +936,7 @@
 
       <ul class="map-list mono" aria-label="The systems, as a list">
         <li><a class="row" href="#product"><span class="dot"></span><span class="t">The memory system</span><span class="k">live daily</span></a></li>
-        <li><a class="row" href="/radar"><span class="dot"></span><span class="t">Market intelligence</span><span class="k">offer live</span></a></li>
+        <li><a class="row" href="https://api.jhonalbert.com/"><span class="dot"></span><span class="t">Market intelligence</span><span class="k">offer live</span></a></li>
         <li><span class="row"><span class="dot"></span><span class="t">Agentic workflows</span><span class="k">live internally</span></span></li>
       </ul>
     </section>
@@ -961,7 +963,7 @@
             <span class="li-url">linkedin.com/in/jhonalbert-alvarez</span>
           </a>
           <a class="slot slot-cv" href="cv.html" data-href-es="cv-es.html" target="_blank" rel="noopener">CV ↗</a>
-          <a class="slot slot-cv" href="/radar">Radar de Mercado ↗</a>
+          <a class="slot slot-cv" href="https://api.jhonalbert.com/">Radar de Mercado ↗</a>
         </div>
       </div>
     </section>
@@ -1012,7 +1014,7 @@
       kicker: 'LIVE · MARKET INTELLIGENCE',
       title: 'Market intelligence',
       blurb: 'Public registries, state contracting and open government data joined into one company record, then ranked against the ideal client of one specific seller, with the reason written beside each account. The data is public and free to anyone; the join, the ranking and the written reason are the product.',
-      proof: 'LIVE · 1.75M-company engine, metered API answering', status: 'live', anchor: '/radar'
+      proof: 'LIVE · 1.75M-company engine, metered API answering', status: 'live', anchor: 'https://api.jhonalbert.com/'
     },
     flows: {
       kicker: 'LIVE INTERNALLY · AGENTIC WORKFLOWS',
@@ -1039,7 +1041,7 @@
       kicker: 'EN PRODUCCIÓN · INTELIGENCIA DE MERCADO',
       title: 'Inteligencia de mercado',
       blurb: 'El registro mercantil, la contratación pública y los datos abiertos del Estado cruzados en una sola ficha por empresa, y ordenados contra el cliente ideal de un vendedor concreto, con el motivo escrito al lado de cada cuenta. El dato es público y gratuito para cualquiera; el cruce, el orden y el motivo escrito son el producto.',
-      proof: 'EN PRODUCCIÓN · 1,75 millones de sociedades, API con llave respondiendo', status: 'live', anchor: '/radar'
+      proof: 'EN PRODUCCIÓN · 1,75 millones de sociedades, API con llave respondiendo', status: 'live', anchor: 'https://api.jhonalbert.com/'
     },
     flows: {
       kicker: 'EN PRODUCCIÓN INTERNA · WORKFLOWS AGÉNTICOS',
@@ -1129,7 +1131,7 @@
   /* ————— EN/ES — the whole page swaps client-side; EN is captured from the DOM ————— */
   var I18N_ES = {
     '.skip-link': 'Saltar al trabajo',
-    '.titlecard .role': 'Ventas · Datos · Sistemas de IA',
+    '.tc-right a[href*="cal.com"]': 'AGENDA 15 MIN ↗',
     '.thesis': 'Vengo de ventas. Hoy construyo los sistemas de datos e IA que la alimentan.',
     '.avail': 'Colombia. Análisis de mercado B2B para equipos comerciales, y sistemas de datos a la medida.',
     '.cta-row .btn': 'Agenda 15 min <span class="arr" aria-hidden="true">↗</span>',
@@ -1146,7 +1148,7 @@
     '#offers h2': 'Qué hago.',
     '#offers .loop-lede': 'El sistema de memoria de arriba es uno de los dos productos. Este es el otro. La misma disciplina debajo: reunir el contexto en un solo lugar, y de ahí dejar que las personas y las máquinas actúen sobre él. Todo lo demás que he construido es prueba del método, no un renglón de un menú.',
     '#offers .ledger-row:nth-child(1) h3': 'Radar de Mercado · Colombia',
-    '#offers .ledger-row:nth-child(1) p': 'Cualquiera puede comprar una base de datos. Nadie te dice a qué empresa vale la pena presentarle una propuesta. Para cualquier empresa colombiana que vende B2B: las cuentas que están demostrablemente vivas y tienen presupuesto en movimiento, en orden y con el motivo escrito al lado de cada una, sobre el registro mercantil cruzado con la contratación pública. Lo lees como análisis, o tu sistema lo consulta con una llave de API. Nunca una lista descargable. <a class="goto" href="/radar">ver el Radar de Mercado ↗</a>',
+    '#offers .ledger-row:nth-child(1) p': 'Cualquiera puede comprar una base de datos. Nadie te dice a qué empresa vale la pena presentarle una propuesta. Para cualquier empresa colombiana que vende B2B: las cuentas que están demostrablemente vivas y tienen presupuesto en movimiento, en orden y con el motivo escrito al lado de cada una, sobre el registro mercantil cruzado con la contratación pública. Lo lees como análisis, o tu sistema lo consulta con una llave de API. Nunca una lista descargable. <a class="goto" href="https://api.jhonalbert.com/">ver el Radar de Mercado ↗</a>',
     '#offers .ledger-row:nth-child(2) h3': 'Empieza por la muestra',
     '#offers .ledger-row:nth-child(2) p': 'Veinte cuentas de tu segmento, cada una leída en el sitio de la empresa y con su análisis escrito, sin costo. Quince minutos si prefieres hablar primero. Una puerta por producto, nunca con precio. <a class="goto" href="#contact">dime a quién le vendes ↓</a>',
     '#offers .sys-short': 'Dos productos: el sistema de memoria, y Radar de Mercado para cualquier empresa colombiana que vende B2B. A los dos se entra por una sesión sin costo.',
