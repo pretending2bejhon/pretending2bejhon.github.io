@@ -149,8 +149,7 @@
     font-family: "Saira SemiCondensed NP", "Bahnschrift SemiCondensed", "Bahnschrift", "Segoe UI", sans-serif;
     font-weight: 500;
   }
-  .titlecard .navlink { font-size: var(--t-meta); letter-spacing: .18em; text-transform: uppercase; color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); padding-bottom: 4px; }
-  .titlecard .navlink:hover { color: var(--signal); border-color: var(--signal); }
+  .titlecard .role { font-size: var(--t-meta); letter-spacing: .22em; color: var(--dim); text-transform: uppercase; }
 
   .reticle { width: clamp(52px, 5.5vw, 68px); height: auto; flex: none; }
   .reticle .ring  { fill: none; stroke: oklch(48% 0.06 297 / .7); stroke-width: 1; }
@@ -449,7 +448,7 @@
     .d4 * { animation: none !important; transition: none !important; }
     .col { max-width: 100%; padding: 0; }
 
-    .skip-link, .cta-row, .map-band, .about, .footer, .kicker, .gotow, .lang-btn, .titlecard .navlink, .memtree, .tree-note { display: none !important; }
+    .skip-link, .cta-row, .map-band, .about, .footer, .kicker, .gotow, .lang-btn, .memtree, .tree-note { display: none !important; }
     .contact h2 { max-width: none; }
     .scene .subtitle a { color: #4a3d73; text-decoration: none; }
 
@@ -461,6 +460,7 @@
     .reticle { width: 26pt; }
     .reticle .ring { stroke: #8d80b8; } .reticle .ring2 { stroke: #c9c2e0; }
     .reticle .needle { stroke: #5b3fae; } .reticle .pin { fill: #5b3fae; }
+    .titlecard .role { color: #5b3fae; font-size: 8pt; }
     .hero-low { gap: 4pt; }
     .thesis { font-size: 19pt; letter-spacing: -0.015em; color: #17112b; max-width: none; font-weight: 350; }
     .avail { font-size: 9pt; color: #4a4266; }
@@ -763,9 +763,7 @@
         </svg>
       </span>
       <span class="tc-right">
-        <a class="navlink mono" href="https://api.jhonalbert.com/">RADAR DE MERCADO</a>
-        <a class="navlink mono" href="https://api.jhonalbert.com/docs">DOCS</a>
-        <a class="navlink mono" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">BOOK 15 MIN ↗</a>
+        <span class="role">Sales · Data · AI systems</span>
         <button type="button" class="lang-btn" data-lang-btn aria-label="Cambiar a español">ES</button>
       </span>
     </div>
@@ -801,18 +799,19 @@
       </div>
     </section>
 
-    <section class="proof-band" id="offers" aria-label="What I do: the second product and the free door">
+    <section class="proof-band" id="offers" aria-label="What I do: Lead Generation, its proof, and the free door">
       <div class="loop-head">
         <p class="kicker mono">WHAT I DO <i>·</i> TWO PRODUCTS</p>
         <h2 class="display">What I do.</h2>
         <p class="loop-lede">The memory system above is one of two products. This is the other. Same discipline underneath: get the context into one place, then let people and machines act on it. Everything else I have built is proof of the method, not an item on a menu.</p>
       </div>
-      <div class="ledger" aria-label="The two products">
-        <article class="ledger-row"><h3>Radar de Mercado · Colombia</h3><p>Anyone can buy a database. Nobody tells you which company is worth a proposal. For any Colombian company that sells B2B: the accounts that are demonstrably alive and have budget moving, in order, each with the reason written beside it, from the mercantile registry joined to state contracting. You read it as an analysis, or your system queries it through an API key. Never a downloadable list. <a class="goto" href="https://api.jhonalbert.com/">ver el Radar de Mercado ↗</a></p></article>
-        <article class="ledger-row"><h3>Start with the sample</h3><p>Twenty accounts from your segment, each one read on the company's own site and written up, at no cost. Fifteen minutes if you would rather talk first. One door per product, never priced. <a class="goto" href="#contact">tell me who you sell to ↓</a></p></article>
+      <div class="ledger" aria-label="Lead Generation, its proof, and the free door">
+        <article class="ledger-row"><h3>Lead Generation</h3><p>You are good at the work and the problem is you cannot name who to sell it to. I find the buyers who actually fit, show you the gap visible on their own site or ads, and book the meeting myself so the calendar is the number that counts. Named buyers, the evidence attached, meetings on your calendar. Never a list. <a class="goto" href="#contact">tell me who you sell to ↓</a></p></article>
+        <article class="ledger-row"><h3>Case study: Radar de Mercado</h3><p>The targeting engine behind Lead Generation is custom software I built for a client: Colombia's mercantile registry joined to public contracting, one row per company, cut into a ranked read of which accounts are alive, have budget moving, and why. Not sold on its own. It is what runs underneath.</p></article>
+        <article class="ledger-row"><h3>Start with the free session</h3><p>A free 30-minute session on how you find buyers today. No pitch, no deck, nothing to sign. One door per product, never priced. <a class="goto" href="#contact">book the 30 minutes ↓</a></p></article>
       </div>
-      <p class="sys-short">Two products: the memory system, and Radar de Mercado for any Colombian company that sells B2B. Both open with a free session.</p>
-      <p class="subtitle stack mono"><span><span class="st"><span class="dot"></span>LIVE</span> · both products are running today</span><span><a href="#contact">tell me what you need decided ↓</a></span></p>
+      <p class="sys-short">Two products: the memory system, and Lead Generation for anyone good at the work who cannot name the buyer. Radar de Mercado is the custom engine behind it, proof, not sold on its own. Both open with a free session.</p>
+      <p class="subtitle stack mono"><span><span class="st"><span class="dot half"></span>OPENING</span> · the engine runs on a live client; Lead Generation is taking its first accounts</span><span><a href="#contact">tell me what you need decided ↓</a></span></p>
     </section>
 
     <section class="proof-band" id="built" aria-label="What I have built">
@@ -936,7 +935,7 @@
 
       <ul class="map-list mono" aria-label="The systems, as a list">
         <li><a class="row" href="#product"><span class="dot"></span><span class="t">The memory system</span><span class="k">live daily</span></a></li>
-        <li><a class="row" href="https://api.jhonalbert.com/"><span class="dot"></span><span class="t">Market intelligence</span><span class="k">offer live</span></a></li>
+        <li><a class="row" href="#offers"><span class="dot"></span><span class="t">The targeting engine</span><span class="k">live · client build</span></a></li>
         <li><span class="row"><span class="dot"></span><span class="t">Agentic workflows</span><span class="k">live internally</span></span></li>
       </ul>
     </section>
@@ -963,7 +962,6 @@
             <span class="li-url">linkedin.com/in/jhonalbert-alvarez</span>
           </a>
           <a class="slot slot-cv" href="cv.html" data-href-es="cv-es.html" target="_blank" rel="noopener">CV ↗</a>
-          <a class="slot slot-cv" href="https://api.jhonalbert.com/">Radar de Mercado ↗</a>
         </div>
       </div>
     </section>
@@ -1011,10 +1009,10 @@
       proof: 'LIVE · running daily since I built it', status: 'live', anchor: '#product'
     },
     data: {
-      kicker: 'LIVE · MARKET INTELLIGENCE',
-      title: 'Market intelligence',
-      blurb: 'Public registries, state contracting and open government data joined into one company record, then ranked against the ideal client of one specific seller, with the reason written beside each account. The data is public and free to anyone; the join, the ranking and the written reason are the product.',
-      proof: 'LIVE · 1.75M-company engine, metered API answering', status: 'live', anchor: 'https://api.jhonalbert.com/'
+      kicker: 'LIVE · THE TARGETING ENGINE',
+      title: 'The targeting engine',
+      blurb: 'Public registries, state contracting and open government data joined into one company record, then ranked against the ideal client of one specific seller, with the reason written beside each account. Built as custom software for a client; the same engine now aims my Lead Generation work.',
+      proof: 'LIVE · 1.75M-company engine, metered API answering', status: 'live', anchor: '#offers'
     },
     flows: {
       kicker: 'LIVE INTERNALLY · AGENTIC WORKFLOWS',
@@ -1038,10 +1036,10 @@
       proof: 'EN PRODUCCIÓN · corre a diario desde que lo construí', status: 'live', anchor: '#product'
     },
     data: {
-      kicker: 'EN PRODUCCIÓN · INTELIGENCIA DE MERCADO',
-      title: 'Inteligencia de mercado',
-      blurb: 'El registro mercantil, la contratación pública y los datos abiertos del Estado cruzados en una sola ficha por empresa, y ordenados contra el cliente ideal de un vendedor concreto, con el motivo escrito al lado de cada cuenta. El dato es público y gratuito para cualquiera; el cruce, el orden y el motivo escrito son el producto.',
-      proof: 'EN PRODUCCIÓN · 1,75 millones de sociedades, API con llave respondiendo', status: 'live', anchor: 'https://api.jhonalbert.com/'
+      kicker: 'EN PRODUCCIÓN · EL MOTOR DE TARGETING',
+      title: 'El motor de targeting',
+      blurb: 'El registro mercantil, la contratación pública y los datos abiertos del Estado cruzados en una sola ficha por empresa, y ordenados contra el cliente ideal de un vendedor concreto, con el motivo escrito al lado de cada cuenta. Software a la medida construido para un cliente; el mismo motor apunta hoy mi trabajo de Lead Generation.',
+      proof: 'EN PRODUCCIÓN · 1,75 millones de sociedades, API con llave respondiendo', status: 'live', anchor: '#offers'
     },
     flows: {
       kicker: 'EN PRODUCCIÓN INTERNA · WORKFLOWS AGÉNTICOS',
@@ -1131,7 +1129,7 @@
   /* ————— EN/ES — the whole page swaps client-side; EN is captured from the DOM ————— */
   var I18N_ES = {
     '.skip-link': 'Saltar al trabajo',
-    '.tc-right a[href*="cal.com"]': 'AGENDA 15 MIN ↗',
+    '.titlecard .role': 'Ventas · Datos · Sistemas de IA',
     '.thesis': 'Vengo de ventas. Hoy construyo los sistemas de datos e IA que la alimentan.',
     '.avail': 'Colombia. Análisis de mercado B2B para equipos comerciales, y sistemas de datos a la medida.',
     '.cta-row .btn': 'Agenda 15 min <span class="arr" aria-hidden="true">↗</span>',
@@ -1147,12 +1145,14 @@
     '#offers .kicker': 'QUÉ HAGO <i>·</i> DOS PRODUCTOS',
     '#offers h2': 'Qué hago.',
     '#offers .loop-lede': 'El sistema de memoria de arriba es uno de los dos productos. Este es el otro. La misma disciplina debajo: reunir el contexto en un solo lugar, y de ahí dejar que las personas y las máquinas actúen sobre él. Todo lo demás que he construido es prueba del método, no un renglón de un menú.',
-    '#offers .ledger-row:nth-child(1) h3': 'Radar de Mercado · Colombia',
-    '#offers .ledger-row:nth-child(1) p': 'Cualquiera puede comprar una base de datos. Nadie te dice a qué empresa vale la pena presentarle una propuesta. Para cualquier empresa colombiana que vende B2B: las cuentas que están demostrablemente vivas y tienen presupuesto en movimiento, en orden y con el motivo escrito al lado de cada una, sobre el registro mercantil cruzado con la contratación pública. Lo lees como análisis, o tu sistema lo consulta con una llave de API. Nunca una lista descargable. <a class="goto" href="https://api.jhonalbert.com/">ver el Radar de Mercado ↗</a>',
-    '#offers .ledger-row:nth-child(2) h3': 'Empieza por la muestra',
-    '#offers .ledger-row:nth-child(2) p': 'Veinte cuentas de tu segmento, cada una leída en el sitio de la empresa y con su análisis escrito, sin costo. Quince minutos si prefieres hablar primero. Una puerta por producto, nunca con precio. <a class="goto" href="#contact">dime a quién le vendes ↓</a>',
-    '#offers .sys-short': 'Dos productos: el sistema de memoria, y Radar de Mercado para cualquier empresa colombiana que vende B2B. A los dos se entra por una sesión sin costo.',
-    '#offers .subtitle': '<span><span class="st"><span class="dot"></span>EN PRODUCCIÓN</span> · los dos productos están corriendo hoy</span><span><a href="#contact">dime qué necesitas decidir ↓</a></span>',
+    '#offers .ledger-row:nth-child(1) h3': 'Lead Generation',
+    '#offers .ledger-row:nth-child(1) p': 'Eres bueno en lo que haces y el problema es que no sabes a quién venderle. Encuentro a los compradores que de verdad encajan, te muestro la falla visible en su propio sitio o su pauta, y agendo yo mismo la reunión para que el calendario sea el número que cuenta. Compradores con nombre, la evidencia adjunta, reuniones en tu calendario. Nunca una lista. <a class="goto" href="#contact">dime a quién le vendes ↓</a>',
+    '#offers .ledger-row:nth-child(2) h3': 'Caso de estudio: Radar de Mercado',
+    '#offers .ledger-row:nth-child(2) p': 'El motor de targeting detrás de Lead Generation es software a la medida que construí para un cliente: el registro mercantil de Colombia cruzado con la contratación pública, una fila por empresa, cortado en una lectura priorizada de qué cuentas están vivas, tienen presupuesto en movimiento, y por qué. No se vende por separado. Es lo que corre debajo.',
+    '#offers .ledger-row:nth-child(3) h3': 'Empieza por la sesión gratis',
+    '#offers .ledger-row:nth-child(3) p': 'Una sesión de 30 minutos sin costo sobre cómo encuentras compradores hoy. Sin pitch, sin deck, sin firmar nada. Una puerta por producto, nunca con precio. <a class="goto" href="#contact">agenda los 30 minutos ↓</a>',
+    '#offers .sys-short': 'Dos productos: el sistema de memoria, y Lead Generation para quien es bueno en lo que hace y no sabe a quién venderle. Radar de Mercado es el motor a la medida detrás, prueba, no se vende por separado. Los dos abren con una sesión gratis.',
+    '#offers .subtitle': '<span><span class="st"><span class="dot half"></span>ABRIENDO</span> · el motor corre sobre un cliente real; Lead Generation está tomando sus primeras cuentas</span><span><a href="#contact">dime qué necesitas decidir ↓</a></span>',
 
     '#built .kicker': 'CONSTRUIDO <i>·</i> ENTREGADO Y FUNCIONANDO',
     '#built h2': 'Lo que he construido.',
@@ -1191,8 +1191,8 @@
 
     '.map-list li:nth-child(1) .t': 'El sistema de memoria',
     '.map-list li:nth-child(1) .k': 'en producción',
-    '.map-list li:nth-child(2) .t': 'Inteligencia de mercado',
-    '.map-list li:nth-child(2) .k': 'oferta abierta',
+    '.map-list li:nth-child(2) .t': 'El motor de targeting',
+    '.map-list li:nth-child(2) .k': 'en producción · cliente',
     '.map-list li:nth-child(3) .t': 'Workflows agénticos',
     '.map-list li:nth-child(3) .k': 'producción interna',
 
