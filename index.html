@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Jhonalbert Alvarez · Direct-response copywriter, B2B</title>
-  <meta name="description" content="Direct-response copy for B2B outbound in Colombia: researched from public records, written and run by me, measured in replies and held meetings. Plus the memory system my own work runs on. Portfolio, CV and what I have built.">
+  <title>Jhonalbert Alvarez · Forward-deployed copywriter</title>
+  <meta name="description" content="Why your prospecting is losing you money, and how to fix it today. Direct-response copy for B2B outbound in Colombia, judged on meetings that actually happen.">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0b0813">
   <link rel="canonical" href="https://jhonalbert.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jhonalbert.com/">
-  <meta property="og:title" content="Jhonalbert Alvarez · I write and run B2B outbound. It is measured in replies and meetings.">
-  <meta property="og:description" content="Direct-response outbound for B2B teams, researched from Colombia's public records and measured every week, and AI memory systems so nobody re-derives what the business already knew. What I have built, the stack I work in, and how to reach me. Every status label is literal.">
+  <meta property="og:title" content="Jhonalbert Alvarez · Forward-deployed copywriter for B2B outbound">
+  <meta property="og:description" content="Why your prospecting is losing you money, and how to fix it today. What would it mean for your business if your prospecting converted 1% better? Find out on a call.">
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="%23a78bfa" stroke-width="2.5"/><path d="M20 20 29 10" stroke="%23a78bfa" stroke-width="2.5"/><circle cx="20" cy="20" r="3" fill="%23a78bfa"/></svg>'>
 <style>
   /* JHONALBERT ALVAREZ — portfolio. "Night console": violet night, one motivated light,
@@ -144,7 +144,7 @@
   .lang-btn:active { transform: scale(.97); }
   .lang-btn:hover { color: var(--signal); border-color: var(--signal); }
   .lockup { display: flex; align-items: center; gap: 22px; }
-  .lockup h1 {
+  .lockup .name {
     margin: 0; font-size: clamp(1.35rem, 2.5vw, 2rem); letter-spacing: .15em; text-transform: uppercase;
     font-family: "Saira SemiCondensed NP", "Bahnschrift SemiCondensed", "Bahnschrift", "Segoe UI", sans-serif;
     font-weight: 500;
@@ -158,13 +158,15 @@
   .reticle .pin { fill: var(--signal); }
 
   .hero-low { display: grid; gap: var(--s-8); }
-  /* the headline is a two-clause SENTENCE now, not a three-word phrase. At 14ch it
-     stacked five lines deep and read like a column; 17ch lands it at three or four. */
+  /* the headline is the H1 (a sales-page headline in the buyer's words), one size down
+     from the old two-clause thesis so a 20-word line lands at four or five rows, not seven. */
   .thesis {
-    margin: 0; font-size: clamp(2.5rem, 6.4vw, 5rem); line-height: 1.04; letter-spacing: -0.026em;
-    max-width: 17ch; text-wrap: balance;
+    margin: 0; font-size: clamp(2.1rem, 5.2vw, 4.1rem); line-height: 1.06; letter-spacing: -0.024em;
+    max-width: 24ch; text-wrap: balance;
   }
-  .avail { margin: 0; font-size: var(--t-small); color: var(--dim); letter-spacing: .04em; }
+  /* the title explainer under the headline: the fused title in plain words */
+  .define { margin: 0; max-width: 60ch; font-size: var(--t-lead); line-height: 1.42; font-weight: 350; color: var(--dim); }
+  .note-line { font-size: var(--t-small); color: var(--dim); letter-spacing: .04em; }
   /* CTA hierarchy: the conversion action ("Book 15 min") is the one filled
      button on the page — press feedback on :active, arrow nudge on hover.
      Everything else stays a quiet underline. */
@@ -209,6 +211,12 @@
   }
   .scene .sys { margin: 0; max-width: 60ch; font-size: var(--t-body); font-weight: 350; color: var(--dim); }
   .scene .sys b { color: var(--text); font-weight: 500; }
+  .scene .sys + .sys { margin-top: var(--s-4); }
+  .scene .sys a, .ledger-row p a { color: var(--text); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--hair); }
+  .scene .sys a:hover, .ledger-row p a:hover { color: var(--signal); }
+  .scene .inner .cta-row { margin-top: var(--s-6); }
+  .proof-band .cta-row { margin-top: var(--sect-in); }
+  .ledger-row .q-tag { display: block; margin-top: 8px; font-size: var(--t-meta); font-weight: 400; letter-spacing: .04em; color: var(--faint); }
 
   /* the memory tree, shown as-is: the one screen that makes the product concrete */
   .memtree { margin: var(--s-6) 0 0; padding: 16px 18px; border: 1px solid var(--hair); font-size: 13px; line-height: 1.8; color: var(--dim); overflow-x: auto; white-space: pre; }
@@ -260,6 +268,9 @@
   .ledger-row { display: grid; grid-template-columns: minmax(180px, 1fr) 2fr; gap: var(--s-6); padding: var(--s-6) 0; border-bottom: 1px solid var(--hair); }
   .ledger-row h3 { margin: 0; font-size: var(--t-lead); font-weight: 500; letter-spacing: -.01em; line-height: 1.25; }
   .ledger-row p { margin: 0; max-width: 58ch; color: var(--dim); font-size: var(--t-small); line-height: 1.65; }
+  /* literal status labels on the built rows */
+  .ledger-row .st-tag { display: block; margin-top: 8px; font-size: var(--t-meta); font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--signal); }
+  .ledger-row .memtree { margin-top: var(--s-4); }
 
   /* THE BUILD: three doors as a stacked index — display-weight titles,
      hanging copy, hairlines. A third layout family. */
@@ -271,10 +282,9 @@
     .door { grid-template-columns: minmax(240px, 1fr) 2fr; gap: var(--s-6); }
   }
 
-  /* THE STACK: the one section whose CONTENT differs by language rather than
-     translating. Two sibling blocks, one per audience; the language switch shows
-     exactly one. EN gets the full technical stack, ES gets the data stack only —
-     a Colombian gerente comercial is buying a public-records pipeline, not agents. */
+  /* THE STACK swaps as two sibling blocks, one per language, and the language switch
+     shows exactly one. Since 2026-09-07 both blocks carry the SAME four rows (research,
+     writing and sending, agents and AI, rules), translated; edit them as a pair. */
   [data-lang-block][hidden] { display: none; }
   .stack-list { margin: var(--sect-in) 0 0; border-top: 1px solid var(--hair); }
   .stack-row { display: grid; grid-template-columns: 1fr; gap: var(--s-2); padding: var(--s-6) 0; border-bottom: 1px solid var(--hair); }
@@ -284,76 +294,7 @@
     .stack-row { grid-template-columns: minmax(200px, 1fr) 2.4fr; gap: var(--s-6); }
   }
 
-  /* ————— band 3: THE MAP ————— */
-  .map-band { padding: var(--sect) 0 calc(var(--sect) / 1.6); scroll-margin-top: 20px; }
-  .map-head { text-align: center; }
-  .map-head .lead { display: block; width: 1px; height: 74px; background: linear-gradient(180deg, transparent, var(--signal)); margin: 0 auto 22px; }
-  .map-head h2 { margin: 0 0 14px; font-size: clamp(2rem, 4.6vw, 3.25rem); font-weight: 330; letter-spacing: -0.022em; text-wrap: balance; }
-  .map-head p { margin: 0 auto; max-width: 52ch; font-size: var(--t-small); color: var(--dim); }
-
-  .map-stage { position: relative; margin-top: var(--sect-in); }
-  .map-svg { display: block; width: 100%; height: auto; }
-
-  .edge { stroke: oklch(44% 0.06 297 / .38); stroke-width: 1; fill: none; transition: stroke .25s var(--ease-out), opacity .25s var(--ease-out), stroke-width .25s var(--ease-out); }
-  .edge.is-on { stroke: var(--signal); stroke-width: 1.6; opacity: 1; }
-  .map-stage.has-focus .edge:not(.is-on) { opacity: .18; }
-
-  .station { cursor: pointer; transition: opacity .3s var(--ease-out); }
-  .station .ring { fill: oklch(12% 0.03 295 / .01); stroke: oklch(52% 0.07 298 / .8); stroke-width: 1.1; transition: stroke .3s var(--ease-out); }
-  .station .tick { stroke: oklch(52% 0.07 298 / .5); stroke-width: 1; transition: stroke .3s var(--ease-out); }
-  .station .st-pin { transition: opacity .3s var(--ease-out); }
-  .station text {
-    font-family: "Cascadia Mono", Consolas, ui-monospace, monospace;
-    font-size: 11px; letter-spacing: .18em; fill: var(--faint); text-transform: uppercase;
-    transition: fill .3s var(--ease-out);
-  }
-  .station:hover .ring, .station.is-on .ring { stroke: var(--signal); }
-  .station:hover text, .station.is-on text { fill: var(--text); }
-  .map-stage.has-focus .station:not(.is-on):not(.core) { opacity: .35; }
-  .station:focus { outline: none; }
-  .station:focus-visible .ring { stroke: var(--signal); stroke-width: 1.6; }
-
-  .core .ring, .core .ring2 { fill: none; stroke: oklch(56% 0.08 298 / .9); stroke-width: 1.2; }
-  .core .ring2 { stroke: oklch(48% 0.06 297 / .45); stroke-width: .8; }
-  .core .needle { stroke: var(--signal); stroke-width: 1.2; }
-  .core .pin { fill: var(--signal); }
-  .core text { fill: var(--dim); }
-
-  .sp-live { fill: var(--signal); }
-  .sp-hollow { fill: none; stroke: var(--signal); stroke-width: 1.3; }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .map-svg .edge { stroke-dasharray: 1; stroke-dashoffset: 1; }
-    .map-band.live .edge { animation: draw 1.1s cubic-bezier(.4,.1,.2,1) forwards; }
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-    .map-svg .station { opacity: 0; }
-    .map-band.live .station { animation: arrive .7s cubic-bezier(.16,.7,.2,1) forwards; }
-    @keyframes arrive { to { opacity: 1; } }
-    .core .needle { transform-box: view-box; transform-origin: 500px 300px; animation: sweep 16s linear infinite; }
-    @keyframes sweep { to { transform: rotate(360deg); } }
-  }
-
-  /* min-height must fit the TALLEST station entry (187px measured, EN and ES), or
-     hovering a station grows the readout and the whole page below the map jumps. */
-  .readout { margin-top: clamp(22px, 4vh, 40px); border-top: 1px solid var(--hair); padding-top: 24px; min-height: 216px; }
-  .readout .kicker { margin-bottom: 10px; }
-  .readout h3 { margin: 0 0 10px; font-size: clamp(1.3rem, 2.4vw, 1.8rem); font-weight: 330; letter-spacing: -0.015em; }
-  .readout .blurb { margin: 0; max-width: 66ch; font-size: var(--t-small); color: var(--dim); }
-  .readout .subtitle { margin-top: 14px; }
-  .readout .goto { margin-left: 6px; }
-
-  .map-list { display: none; margin: 30px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--hair); }
-  .map-list li { border-bottom: 1px solid var(--hair); }
-  .map-list .row { display: flex; align-items: center; gap: 12px; padding: 15px 2px; text-decoration: none; }
-  .map-list .t { color: var(--text); font-size: var(--t-small); flex: 1 1 auto; }
-  .map-list .k { color: var(--faint); font-size: var(--t-meta); letter-spacing: .14em; text-transform: uppercase; }
-
   /* ————— about + contact ————— */
-  .about { padding: var(--sect) 0 0; }
-  .about .line { margin: 0 0 22px; font-size: clamp(1.6rem, 3.4vw, 2.5rem); font-weight: 330; letter-spacing: -0.02em; max-width: 24ch; }
-  .about p.body { margin: 0; max-width: 58ch; font-size: var(--t-body); color: var(--dim); }
-  .about .facts { margin: 26px 0 0; font-size: var(--t-meta); letter-spacing: .2em; color: var(--faint); text-transform: uppercase; }
-  .about .facts i { font-style: normal; color: var(--signal); opacity: .75; }
 
   .contact { padding: var(--sect) 0 calc(var(--sect) / 1.3); text-align: left; scroll-margin-top: 40px; }
   .contact h2 { margin: 0 0 12px; font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 330; letter-spacing: -0.022em; max-width: 18ch; }
@@ -403,12 +344,12 @@
     @keyframes sweep2 { to { transform: rotate(360deg); } }
     .titlecard { animation: appear 1.1s var(--ease-out) both; }
     .thesis { animation: rise 1.1s var(--ease-out) both .15s; }
-    .avail { animation: rise 1.1s var(--ease-out) both .3s; }
+    .define { animation: rise 1.1s var(--ease-out) both .24s; }
     .cta-row { animation: rise 1.1s var(--ease-out) both .42s; }
     @keyframes rise { from { opacity: 0; transform: translateY(22px); } }
     @keyframes appear { from { opacity: 0; } }
     /* prose scenes rise as one block */
-    .scene .inner, .twin-bridge, .map-head, .about > div, .contact > div, .loop-head {
+    .scene .inner, .twin-bridge, .map-head, .contact > div, .loop-head {
       animation: rise 1s var(--ease-out) both;
       animation-timeline: view();
       animation-range: entry 0% entry 42%;
@@ -433,8 +374,6 @@
     .operating-step + .operating-step { border-top: 1px solid var(--hair); }
     .operating-step .step-no { margin-bottom: 12px; }
     .ledger-row { grid-template-columns: 1fr; gap: var(--s-2); }
-    .map-stage, .readout { display: none; }
-    .map-list { display: block; }
   }
 
   /* ————— THE DERIVED ONE-PAGER (print) ——————————————————————————————
@@ -448,7 +387,7 @@
     .d4 * { animation: none !important; transition: none !important; }
     .col { max-width: 100%; padding: 0; }
 
-    .skip-link, .cta-row, .map-band, .about, .footer, .kicker, .gotow, .lang-btn, .memtree, .tree-note { display: none !important; }
+    .skip-link, .cta-row, .note-line, .footer, .kicker, .gotow, .lang-btn, .memtree, .tree-note { display: none !important; }
     .contact h2 { max-width: none; }
     .scene .subtitle a { color: #4a3d73; text-decoration: none; }
 
@@ -456,14 +395,14 @@
     .scene-hero::before { display: none; }
     .titlecard { margin-bottom: 6pt; }
     .lockup { gap: 10pt; }
-    .lockup h1 { font-size: 15pt; letter-spacing: .12em; color: #17112b; }
+    .lockup .name { font-size: 15pt; letter-spacing: .12em; color: #17112b; }
     .reticle { width: 26pt; }
     .reticle .ring { stroke: #8d80b8; } .reticle .ring2 { stroke: #c9c2e0; }
     .reticle .needle { stroke: #5b3fae; } .reticle .pin { fill: #5b3fae; }
     .titlecard .role { color: #5b3fae; font-size: 8pt; }
     .hero-low { gap: 4pt; }
     .thesis { font-size: 19pt; letter-spacing: -0.015em; color: #17112b; max-width: none; font-weight: 350; }
-    .avail { font-size: 9pt; color: #4a4266; }
+    .define { font-size: 9.5pt; color: #3c3556; max-width: none; }
 
     .scenes { padding-top: 8pt; }
     .scene { padding: 7pt 0; break-inside: avoid; border-bottom: .5pt solid #d9d3ea; }
@@ -506,7 +445,7 @@
 </style>
 </head>
 <body id="top">
-<a class="skip-link" href="#product">Skip to the work</a>
+<a class="skip-link" href="#problem">Skip to the work</a>
 
 <div class="d4">
   <!-- the cursor lamp: script moves it; sits under all content, over the ground -->
@@ -753,39 +692,190 @@
       <g data-tip="2" opacity="0"><circle r="6.5" fill="#be95ff" opacity=".45" filter="url(#soft)"/><circle r="2.6" fill="#ffffff"/></g>
     </svg>
     <div class="col titlecard">
-      <span class="lockup">
-        <h1>Jhonalbert Alvarez</h1>
+      <div class="lockup">
+        <p class="name">Jhonalbert Alvarez</p>
         <svg class="reticle" viewBox="0 0 40 40" aria-hidden="true">
           <circle class="ring"  cx="20" cy="20" r="15"></circle>
           <circle class="ring2" cx="20" cy="20" r="9.5"></circle>
           <path class="needle" d="M20 20 29 10"></path>
           <circle class="pin" cx="20" cy="20" r="2"></circle>
         </svg>
-      </span>
+      </div>
       <span class="tc-right">
-        <span class="role">Direct-response copywriter · B2B</span>
+        <span class="role">Forward-deployed copywriter</span>
         <button type="button" class="lang-btn" data-lang-btn aria-label="Cambiar a español">ES</button>
       </span>
     </div>
 
     <div class="col hero-low">
-      <p class="thesis display">I write and run B2B outbound in Colombia. It is measured in replies and held meetings.</p>
-      <p class="avail">Colombia, working EU and US hours. Taking the first outbound sprints, and memory-system builds.</p>
+      <!-- Hero per Jhon 2026-09-07 evening: the H1 agitates the problem, the line under it is a question hook, no availability line.
+           Alternate headline Jhon floated, benefit-led: "Cómo mejorar tus ventas en 30 días sin gastar más en marketing". -->
+      <h1 class="thesis display">Why your prospecting is losing you money (and how to fix it today)</h1>
+      <p class="define">What would it mean for your business if your prospecting converted 1% better?</p>
       <div class="cta-row">
         <a class="btn" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min <span class="arr" aria-hidden="true">↗</span></a>
-        <a class="cta quiet" href="#built">See what I have built ↓</a>
+        <a class="cta quiet" href="#muestra">Find out on a call ↓</a>
       </div>
     </div>
   </header>
 
-  <!-- ————— band 2 · the flagship: the memory system, then the second product ————— -->
+  <!-- ————— the sales page. Order per Jhon 2026-09-07 evening: problem, credibility, mechanism, proof, what you receive,
+       guarantee, objections, the close; then the engineering tail (built, research engine, stack) and contact last.
+       Draft copy, Jhon corrects. English lives in the markup, Spanish in the I18N_ES dictionary at the bottom; both change in the same edit. ————— -->
   <main class="scenes col">
-    <section class="scene left" id="product" aria-label="Flagship: the memory system">
+    <!-- band 2 · the problem (hook + agitation) -->
+    <section class="scene left" id="problem" aria-label="The problem: the calendar does not fill">
       <div class="inner">
-        <p class="kicker mono">FLAGSHIP <i>·</i> the one I run daily</p>
-        <h2 class="display">The memory system</h2>
-        <p class="sys"><b>Most AI looks things up. This remembers.</b> My work runs on a private, structured memory: rules, history and decisions in plain files, no database, no vendor. My agents and I answer from the same place, so nothing gets re-explained and nothing gets re-derived. The method is being published as an open repository.</p>
-        <p class="sys-short">A private, structured memory in plain files: I run my own work on it daily, and the method is being published.</p>
+        <p class="kicker mono">THE PROBLEM</p>
+        <h2 class="display">The calendar does not fill.</h2>
+        <!-- stat source, kept off the page by Jhon's ruling 2026-09-07: Belkins 2026, 0.49% replies of sends at 11-50 employees, https://belkins.io/blog/cold-email-response-rates -->
+        <p class="sys" id="problem-a">You have a sales team, but they are not getting enough meetings. The average cold email gets about one reply per two hundred sent. Do you think hiring another SDR fixes that?</p>
+        <p class="sys" id="problem-b"><b>The problem is not effort.</b> It is the quality of the message.</p>
+        <p class="sys-short">A sales team without enough meetings; cold email averages one reply per two hundred sent; the problem is not effort, it is the quality of the message.</p>
+      </div>
+    </section>
+
+    <!-- band 3 · credibility: why listen to this person (Jhon 2026-09-07 evening). The about band is folded in here.
+         Jhon's line "He generado un promedio de X reuniones mensuales..." needs a sourced number: the vault holds no monthly meeting
+         average (outbound baseline 0 booked; the one buyer-run sample is 15 contacted, 6 replies, 5 meetings, told in the proof band).
+         Fill only with a number you can source. -->
+    <section class="scene left" id="why" aria-label="Why listen to me">
+      <div class="inner">
+        <p class="kicker mono">WHY LISTEN TO ME</p>
+        <h2 class="display">Sales floor first. Then the systems behind it.</h2>
+        <p class="sys" id="why-a">Two years on high-volume sales floors, dialing lists other people built. Then co-founder and Head of Growth at Frakkr, where I designed the CRM, the outbound infrastructure and the agents that ran the pipeline. Today I write and send myself, on a base of 1,751,328 Colombian companies I built to know who to write to, and why.</p>
+        <p class="sys" id="why-b"><b>I know what a bad list costs a seller.</b> I was the one dialing it. That is why my work starts before the first message.</p>
+        <p class="sys-short">Two years on sales floors, then co-founder and Head of Growth at Frakkr (CRM, outbound infrastructure, agents); today writes and sends himself on a base of 1,751,328 Colombian companies he built.</p>
+      </div>
+    </section>
+
+    <!-- band 4 · the mechanism: what is different and why it works (Jhon 2026-09-07 evening: kicker removed, lede on the four pillars).
+         The ficha placeholder rows are gone; the twenty companies with the reason live in the muestra and in week 1.
+         "Statistical significance" is not claimed: the research note (section H) rules that B2B outbound never reaches it; decisions from numbers with denominators instead. -->
+    <section class="proof-band" id="reason" aria-label="The mechanism: what I do differently">
+      <div class="loop-head">
+        <h2 class="display">What I do differently, and why it works.</h2>
+        <p class="loop-lede">Most people write first and ask questions later. I do it the other way around, in four steps, and that is why the message reads like it was written for that company. Because it was.</p>
+      </div>
+      <div class="ledger" aria-label="The four steps: research, what moves the buyer, proven structures, decisions with numbers">
+        <article class="ledger-row"><h3>1 · Research before a single word</h3><p>Your market and your competitors, read in Colombia's mercantile registry, public contracting and open data before I write anything. Which companies are alive, what they just did, and why now.</p></article>
+        <article class="ledger-row"><h3>2 · What moves your buyer</h3><p>What they already know about their problem, what it costs them, and what makes them act. The message enters through there, not through your product.</p></article>
+        <article class="ledger-row"><h3>3 · Proven structures</h3><p>AIDA (attention, interest, desire, action) and PAS (problem, agitation, solution). Each message makes one point and asks for one thing.</p></article>
+        <article class="ledger-row"><h3>4 · Decisions with numbers</h3><p>Every week: sent, replies, meetings, each with its denominator. The next step comes out of those numbers, not out of a hunch.</p></article>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min <span class="arr" aria-hidden="true">↗</span></a>
+        <span class="note-line">The muestra arrives 48 hours before the call. <a href="#muestra">How it works ↓</a></span>
+      </div>
+      <p class="sys-short">The method: research in Colombia's public records before writing, what moves the buyer, AIDA and PAS structures, and weekly decisions from numbers with their denominators.</p>
+    </section>
+
+    <!-- band 5 · social proof: three things that happened, with denominators, no names (consent rule E3; the clinic and the fintech are prospects, not clients).
+         Sources: CUB prep 2026-08-18 section 2 (cold LinkedIn opener 08-06, pains named and portfolio asked 08-07, meeting asked 08-10, held 08-25);
+         Firux sample fact + 09-03 correction (20 delivered, 15 contacted by the buyer himself by email, 6 replied, 5 meetings); structure plan D5 for the retailer. -->
+    <section class="proof-band" id="proof" aria-label="Proof: three times the method did its job">
+      <div class="loop-head">
+        <p class="kicker mono">PROOF</p>
+        <h2 class="display">Three times the method did its job.</h2>
+        <p class="loop-lede">No client names in public. The numbers and the way it happened, yes.</p>
+      </div>
+      <div class="ledger" aria-label="One cold message, twenty companies, more than 140 stores">
+        <article class="ledger-row"><h3>One cold message, one meeting</h3><p>A single cold LinkedIn message to the head of technology at a university clinic. He replied naming his own pains, asked for the portfolio, and booked the meeting himself.</p></article>
+        <article class="ledger-row"><h3>Twenty companies, five meetings</h3><p>The CEO of a fintech took twenty companies from my research and wrote to them himself: fifteen had a working channel, six replied, five meetings. His count, not mine.</p></article>
+        <article class="ledger-row"><h3>More than 140 stores</h3><p>A Colombian pharmacy retailer, about 2,000 registers. Two calls before any proposal, then a proposal written in his numbers, on his own process. He got the map of his systems, a backlog of 14 recurring manual processes, and his team trained to run it. Won at Frakkr, where I was co-founder.</p></article>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min <span class="arr" aria-hidden="true">↗</span></a>
+        <span class="note-line">Your market gets the same treatment before we talk. <a href="#muestra">The muestra ↓</a></span>
+      </div>
+      <p class="sys-short">Proof with denominators: one cold LinkedIn message that became a meeting with a university clinic; a fintech CEO who wrote to twenty researched companies himself (fifteen with a channel, six replies, five meetings); an enterprise retailer won with two calls before the proposal.</p>
+      <p class="subtitle stack mono"><span><span class="st"><span class="dot"></span>MEASURED</span> · every number above has its denominator · names stay with the companies</span></p>
+    </section>
+
+    <!-- band 6 · what you receive: the core, three included items that each answer a doubt, the anchor against the alternatives, the price as a fraction (Jhon 2026-09-07 evening).
+         PRICE: the standing rule is no price on a public page (offer doc + hot.md, ruled 2026-09-07 morning), so the number is withheld here;
+         it lives in 20-ventures/prasma/offers/2026-09-07_prasma-respuesta-directa__offer.md. Jhon rules whether it goes public. -->
+    <section class="proof-band" id="offers" aria-label="What you receive">
+      <div class="loop-head">
+        <p class="kicker mono">WHAT YOU RECEIVE</p>
+        <h2 class="display">A 30-day sprint, and everything that stays with you.</h2>
+        <p class="loop-lede">Back to the problem: you have a team and you do not have the meetings. This is what fixes it, and what you keep afterwards.</p>
+      </div>
+      <div class="ledger" aria-label="The sprint, three things included, the alternatives, the price, the page version">
+        <article class="ledger-row"><h3>The sprint: meetings with evidence</h3><p>Thirty days of outbound written and sent by me, inside your process: institutional email, LinkedIn (I write, you press send) and switchboard calls. Every message carries a reason about that company. Every reply is handled until the meeting is on your calendar. Every week, the numbers.</p></article>
+        <article class="ledger-row"><h3>Included · The map of your market<span class="q-tag mono">Answers: who do we even write to?</span></h3><p>How many companies there were, how many survived the cut, why each one fell, and the reason each survivor stays. Yours to keep, whether or not we continue.</p></article>
+        <article class="ledger-row"><h3>Included · A brief before every meeting<span class="q-tag mono">Answers: does my team walk in blind?</span></h3><p>One page on the company before your team enters the room. Nobody on your side improvises.</p></article>
+        <article class="ledger-row"><h3>Included · The day-30 report<span class="q-tag mono">Answers: what happens on day 31?</span></h3><p>Who answered and who did not, the objections in their own words, which segment converts and which message did it. With that, your team can keep going without me.</p></article>
+        <article class="ledger-row"><h3>Against the alternatives</h3><p>Another SDR is six months of salary to find out whether outbound works for you. Ads charge you per click from people who asked for nothing. Trying strategies costs the months that do not come back. The sprint answers in thirty days.</p></article>
+        <article class="ledger-row"><h3>The price</h3><p>A fraction of any of those three bills, paid in two parts. The exact number, on the call, next to your own numbers.</p></article>
+        <article class="ledger-row"><h3>Already have traffic?</h3><p>The same method on your page: your qualifying rule fixed in writing, two weeks of baseline, then the page, measured against it. Agencies and builders with live ads.</p></article>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min <span class="arr" aria-hidden="true">↗</span></a>
+        <span class="note-line">Nothing to pay before the call. <a href="#muestra">What happens when you book ↓</a></span>
+      </div>
+      <p class="sys-short">The sprint (written and sent by me, every reply to your calendar, weekly numbers) plus the map of your market, a brief before every meeting and the day-30 report; priced as a fraction of another SDR, ads or months of trial, the number on the call.</p>
+      <p class="subtitle stack mono"><span><span class="st"><span class="dot half"></span>OPENING</span> · taking the first sprints · two at a time, one ideal client each</span></p>
+    </section>
+
+    <!-- band 7 · risk reversal: the six-meeting floor and the second payment at the first held meeting, no numbers (offer doc 2026-09-07, "Precio" paragraph). -->
+    <section class="scene left" id="guarantee" aria-label="If it does not work">
+      <div class="inner">
+        <p class="kicker mono">IF IT DOES NOT WORK</p>
+        <h2 class="display">Six meetings, or I keep working for free until they happen.</h2>
+        <p class="sys" id="guarantee-a">The sprint includes six qualified meetings. If they are not there on day 30, I keep working at no cost until they are. And the second part of the payment is due when the first meeting has happened, not when it is booked. If it never happens, you do not pay it.</p>
+        <p class="sys" id="guarantee-b"><b>What counts as a meeting.</b> A company inside your ideal client, with the person who decides or signs, at a time both agreed. A no-show does not count. A reschedule counts once. Written down before we start.</p>
+        <p class="sys-short">Six qualified meetings included or the work continues at no cost; the second payment only when the first meeting has been held; a no-show never counts.</p>
+      </div>
+    </section>
+
+    <!-- band 8 · objections, answered in the reader's words. Sources: the offer doc ("Cómo trabajamos", "Lo que no incluye") and the 2026-09-07 persona run, section 8
+         (domain reputation, database fatigue, one person or an agency, universe size). -->
+    <section class="proof-band" id="objections" aria-label="The questions people ask before starting">
+      <div class="loop-head">
+        <p class="kicker mono">BEFORE YOU ASK</p>
+        <h2 class="display">The questions I get before we start.</h2>
+        <p class="loop-lede">Answered here, so the call is about your case and not about this.</p>
+      </div>
+      <div class="ledger" aria-label="Eight questions and their answers">
+        <article class="ledger-row"><h3>Which domain does this go out from?</h3><p>A dedicated mailbox, warmed up beforehand, on a secondary domain. Never your main domain. Your reputation is not touched.</p></article>
+        <article class="ledger-row"><h3>Do you touch my LinkedIn account?</h3><p>No. I write every message; on your account, you press send. No program ever enters your LinkedIn.</p></article>
+        <article class="ledger-row"><h3>Is this legal?</h3><p>Yes. Inside Ley 2300 de 2023: institutional mailboxes, permitted hours, frequency and opt-out as the law sets them, never cold WhatsApp. And Ley 1581 on personal data.</p></article>
+        <article class="ledger-row"><h3>Is it you or an agency?</h3><p>It is me. I write, I send, I handle every reply. Nobody hands you to a junior.</p></article>
+        <article class="ledger-row"><h3>I already have a database. Why this?</h3><p>A database tells you who exists. The cut tells you who to write to, why, and why now, with what backs it: a renewed registration, a state contract, active ads. The message that goes out with that reason is the work.</p></article>
+        <article class="ledger-row"><h3>What if my market is too small for six meetings?</h3><p>The muestra gives you a first read of your market before the call, and the week-1 cut confirms it: how many companies there are and how many fit. If it does not hold six, we talk about it before you sign.</p></article>
+        <article class="ledger-row"><h3>Do I have to be in the meetings?</h3><p>The meetings are yours. I get them, I hand you the brief before each one, and closing is yours.</p></article>
+        <article class="ledger-row"><h3>How much of my time does it take?</h3><p>One working session in week 1 to fix your ideal client in writing, pressing send on your LinkedIn, and the meetings themselves.</p></article>
+      </div>
+      <p class="sys-short">Sends leave from a dedicated warmed mailbox on a secondary domain; nobody touches your LinkedIn; inside Ley 2300 and Ley 1581; one person does the work; the cut beats a database; the universe is checked before you sign; the meetings and the closing are yours; one session of your time in week 1.</p>
+      <p class="subtitle stack mono"><span>Another question? <a href="#muestra">Bring it to the call ↓</a></span></p>
+    </section>
+
+    <!-- band 9 · urgency and the close: real capacity (two sprints at a time, offer doc), the cost of waiting, then exactly what to do, what happens and what you receive.
+         Still Jhon's hands before deploy: the cal.com booking questions (what you sell, where, what you use today) and the 48-hour minimum notice. -->
+    <section class="scene left" id="muestra" aria-label="Start here">
+      <div class="inner">
+        <p class="kicker mono">START HERE</p>
+        <h2 class="display">Book 15 minutes. The muestra arrives before the call.</h2>
+        <p class="sys" id="muestra-a">I run two sprints at a time, no more, because I write and send them myself. When both are taken, the next one starts when one ends. And every month the calendar stays empty is another month of salary, ads or waiting, paid for no meetings.</p>
+        <p class="sys" id="muestra-b"><b>What happens when you book.</b> The form asks what you sell, where, and what you use today. Within 48 hours, before we talk, you get one page: twenty companies from your market with the written reason and the why-now, five lines on why what you use today loses, and the three things about your buyer I would research first. The call walks through it. No cost, no commitment.</p>
+        <div class="cta-row">
+          <a class="btn" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min <span class="arr" aria-hidden="true">↗</span></a>
+          <span class="note-line">Got here from my email? Reply there instead.</span>
+        </div>
+        <p class="sys-short">Two sprints at a time; book 15 minutes, the form asks what you sell, where and what you use today, and the muestra arrives within 48 hours, before the call, at no cost.</p>
+      </div>
+    </section>
+
+    <!-- band 10 · what I have built (proof of the engineering half; status labels literal) -->
+    <section class="proof-band" id="built" aria-label="What I have built">
+      <div class="loop-head">
+        <p class="kicker mono">BUILT <i>·</i> SHIPPED AND RUNNING</p>
+        <h2 class="display">What I have built.</h2>
+        <p class="loop-lede">For whoever wants to see what is underneath. Every status label on this page is literal.</p>
+      </div>
+      <div class="ledger" aria-label="Built systems, in order of depth">
+        <article class="ledger-row"><h3>The memory system<span class="st-tag mono">LIVE · running daily since I built it</span></h3><div><p>The knowledge system I operate daily, where my agents and I answer from the same plain files. Benchmarked against RAG on 498 questions: plain files plus search answered 78 out of 100, RAG answered 55. The half that went against my own design is published with it. <a href="case-study-second-brain.html">Read the case study ↗</a></p>
         <pre class="memtree mono" id="memtree" aria-label="The real file tree the system runs on"><span class="dir">00-core/</span>       the rules it boots with
 <span class="dir">10-memory/</span>     what the business knows
   <span class="dir">episodic/</span>    what happened, dated
@@ -794,166 +884,64 @@
   inbox.md     raw capture, nothing lost
 <span class="dir">20-ventures/</span>   offers · pipeline · clients
 <span class="dir">40-artifacts/</span>  what you actually read</pre>
-        <p class="tree-note mono" id="tree-note">The real tree, not a diagram. Plain files anyone can open. A few hundred lines in play at any moment: tiny against modern context windows.</p>
-        <p class="subtitle stack mono"><span><span class="st"><span class="dot"></span>LIVE</span> · running daily since I built it</span><span><a href="case-study-second-brain.html">read the case study ↗</a><span class="gotow"> · <a class="goto" href="#map">see the discipline ↓</a></span></span></p>
+        <p class="tree-note mono" id="tree-note">The real tree, not a diagram. Plain files anyone can open. A few hundred lines in play at any moment: tiny against modern context windows.</p></div></article>
+        <article class="ledger-row"><h3>Icarus, the outbound agent<span class="st-tag mono">BUILT · v0 · draft and approve, first client cycle pending</span></h3><p>It reads the account list and the open threads, drafts every touch with the public-record reason attached, and runs each draft through hard gates before anyone sees it: Ley 2300 sending windows, evidence required, no invented price, copy lint. Then it waits. Nothing sends itself: a tap on my phone executes it, and the ledger records it.</p></article>
       </div>
-    </section>
-
-    <section class="proof-band" id="offers" aria-label="What I do: direct-response outbound, its proof, and the free door">
-      <div class="loop-head">
-        <p class="kicker mono">WHAT I DO <i>·</i> TWO PRODUCTS</p>
-        <h2 class="display">What I do.</h2>
-        <p class="loop-lede">The memory system above is one of two products. This is the other: direct-response copy for B2B outbound, written on top of the research and measured every week.</p>
-      </div>
-      <div class="ledger" aria-label="Direct-response outbound, its proof, and the free door">
-        <article class="ledger-row"><h3>Direct-response outbound</h3><p>You already know who you sell to and you have a sales team. What you do not have is the meetings. Before you hire another SDR: in 30 days I research your market from Colombia's public records and your buyers' own footprint, write the email and LinkedIn sequences with a written reason for every company, run the outreach inside the law, and book qualified meetings on your calendar. Every week you see the numbers with their denominator: sent, delivered, replies, meetings booked, meetings held. What counts as a qualified meeting is written down before we start, and a no-show does not count. <a class="goto" href="#contact">tell me who you sell to ↓</a></p></article>
-        <article class="ledger-row"><h3>Case study: Radar de Mercado</h3><p>The research engine under every sequence is custom software I built for a client: Colombia's mercantile registry joined to public contracting, one row per company, cut into a ranked read of which accounts are alive, have budget moving, and why. Not sold on its own. It is what runs underneath.</p></article>
-        <article class="ledger-row"><h3>Start with the muestra</h3><p>Send me what you sell and where, plus what you use today: your cold email or your landing page. In 48 hours you get one page: the research (twenty companies from your market with the written reason and the why now), a five-line diagnosis of why what you use today loses, and the three things about your buyer I would research before writing the first line. If it is useful, 15 minutes to walk through it. Never priced. <a class="goto" href="#contact">send me what you use today ↓</a></p></article>
-      </div>
-      <p class="sys-short">Two products: the memory system, and direct-response outbound for B2B teams that know their buyer and need the meetings: researched, written, run and measured. Radar de Mercado is the custom engine underneath, proof, not sold on its own. Both open with a free door.</p>
-      <p class="subtitle stack mono"><span><span class="st"><span class="dot half"></span>OPENING</span> · the engine runs on a live client; the outbound is taking its first sprints</span><span><a href="#contact">send me what you use today ↓</a></span></p>
-    </section>
-
-    <section class="proof-band" id="built" aria-label="What I have built">
-      <div class="loop-head">
-        <p class="kicker mono">BUILT <i>·</i> SHIPPED AND RUNNING</p>
-        <h2 class="display">What I have built.</h2>
-        <p class="loop-lede">Every entry below runs. None of them is a mockup, and none of them was built to be shown.</p>
-      </div>
-      <div class="ledger" aria-label="Built systems, in order of depth">
-        <article class="ledger-row"><h3>The memory system</h3><p>The knowledge system I operate daily, where my agents and I answer from the same plain files. I benchmarked it against RAG, the default way to build AI memory, on 498 questions: plain files plus search answered 78 out of 100, RAG answered 55. The half of that result that went against my own design is published with it.</p></article>
-        <article class="ledger-row"><h3>A national company spine</h3><p>Colombia's mercantile registry, public contracting and open government data joined into one row per company, 1.75 million of them, then cut into a ranked analysis of which accounts are alive, have budget moving, and why each one is on the list. The written reason is the product.</p></article>
-        <article class="ledger-row"><h3>An outbound machine, from zero</h3><p>Isolated sending tenants, automated warmup, compliant multichannel sequences, and a CRM where stage, fit and priority are computed from activity dates so pipeline state cannot be hand-corrupted. Built at Frakkr, where I was co-founder and Head of Growth.</p></article>
-        <article class="ledger-row"><h3>An offline call-QA pipeline</h3><p>Local transcription feeds a rubric-scored teardown into a styled report in minutes instead of days. It runs on real sales calls, not synthetic data, and the recordings never touch a cloud API.</p></article>
-        <article class="ledger-row"><h3>A public-tender watcher</h3><p>A poller over Colombia's open contracting feed that reports what changed since its last run, so a market read starts from today's record instead of last month's.</p></article>
-      </div>
-      <p class="sys-short">Built and running: a daily-driver memory system, a 1.75M-company national data spine, an outbound machine and CRM built from zero, an offline call-QA pipeline, a public-tender watcher.</p>
+      <p class="sys-short">Built and running: the memory system and Icarus, a draft-and-approve outbound agent.</p>
       <p class="subtitle stack mono"><span><span class="st"><span class="dot"></span>LIVE</span> · status labels on this page are literal</span><span><a href="case-study-second-brain.html">the memory system, in depth ↗</a></span></p>
     </section>
 
+    <!-- band 11 · the research engine: the spine and the browser for agents on their own (Jhon 2026-09-07). The browser tool is never named on the page. -->
+    <section class="proof-band" id="engine" aria-label="The research engine">
+      <div class="loop-head">
+        <p class="kicker mono">THE RESEARCH ENGINE</p>
+        <h2 class="display">Where the reason comes from.</h2>
+        <p class="loop-lede">Two parts, both built by me. One finds the companies. The other reads what each one shows the world.</p>
+      </div>
+      <div class="ledger" aria-label="The company spine and the browser for agents">
+        <article class="ledger-row"><h3>The company spine<span class="st-tag mono">LIVE · on a live client</span></h3><p>Colombia's mercantile registry, public contracting and open data, joined into one record per company. An API answers which accounts are alive and why. Built as custom software for a client; it runs under every sequence.</p></article>
+        <article class="ledger-row"><h3>The browser for agents<span class="st-tag mono">LIVE · v2 since 2026-09-02</span></h3><p>It reads a company's website, its ads, its reels and its LinkedIn page before the first line is written. It only reads. It never sends.</p></article>
+      </div>
+      <p class="sys-short">The research engine: the company spine (registry, public contracting and open data as one record per company, with an API) and a read-only browser for agents.</p>
+      <p class="subtitle stack mono"><span><span class="st"><span class="dot"></span>LIVE</span> · RUES · SECOP · datos.gov.co · 1,751,328 companies, one row per NIT</span><span><a href="#muestra">get the muestra ↓</a></span></p>
+    </section>
+
+    <!-- band 12 · the stack: four rows, the same four in both languages (block-swapped, not string-translated) -->
     <section class="proof-band" id="tools" aria-label="The stack">
       <div data-lang-block="en">
         <div class="loop-head">
           <p class="kicker mono">TOOLS <i>·</i> WHAT I WORK IN</p>
           <h2 class="display">The stack.</h2>
-          <p class="loop-lede">Tools I use on real work, not a certification list.</p>
+          <p class="loop-lede">What the sprint runs on. Not a certification list.</p>
         </div>
-        <div class="stack-list" aria-label="Stack by area">
-          <article class="stack-row"><h3>AI and agents</h3><p>Claude Code with sub-agents, MCP servers, agent skills and hooks · context engineering · scheduled routines · prompt-injection hardening · fully offline local models: Ollama, Whisper, Kokoro TTS, Stable Diffusion on OpenVINO</p></article>
-          <article class="stack-row"><h3>Data</h3><p>Python · pandas · SQL · public-record pipelines over national registries and state contracting feeds · Airtable · n8n</p></article>
-          <article class="stack-row"><h3>Sales systems</h3><p>CRM design · pipeline automation · lead scoring and enrichment · multichannel cadences · sales compliance, CAN-SPAM and TCPA</p></article>
-          <article class="stack-row"><h3>Client stacks serviced</h3><p>n8n Enterprise · Claude Enterprise · Gemini on Google Workspace · Databricks · Oracle Retail RMS v16</p></article>
+        <div class="stack-list" aria-label="Stack by job">
+          <article class="stack-row"><h3>Research</h3><p>RUES · SECOP · datos.gov.co · the company spine (Python, Postgres) · a read-only browser for the buyer's footprint · LinkedIn Sales Navigator</p></article>
+          <article class="stack-row"><h3>Writing and sending</h3><p>A dedicated, warmed mailbox on a secondary domain, never yours · institutional email and LinkedIn by hand · switchboard calls · the touch ledger with its denominator · cal.com</p></article>
+          <article class="stack-row"><h3>Agents and AI</h3><p>Claude Code (sub-agents, MCP servers, skills, hooks) · Icarus · the memory system in plain files · offline local models for call transcripts and media (Whisper, Ollama, Kokoro, Stable Diffusion on OpenVINO): recordings never touch a cloud API</p></article>
+          <article class="stack-row"><h3>Rules</h3><p>Ley 2300 de 2023 (contact windows, frequency, opt-out) · Ley 1581 (habeas data) · CAN-SPAM and TCPA for the English-speaking market</p></article>
         </div>
       </div>
       <div data-lang-block="es" hidden>
         <div class="loop-head">
           <p class="kicker mono">HERRAMIENTAS <i>·</i> CON QUÉ TRABAJO</p>
-          <h2 class="display">Con qué trabajo.</h2>
-          <p class="loop-lede">Las fuentes y las herramientas con las que se arma un análisis de mercado en Colombia.</p>
+          <h2 class="display">El stack.</h2>
+          <p class="loop-lede">Sobre qué corre el sprint. No es una lista de certificaciones.</p>
         </div>
-        <div class="stack-list" aria-label="Fuentes y herramientas">
-          <article class="stack-row"><h3>Fuentes oficiales</h3><p>SECOP · RUES · datos.gov.co. El registro mercantil y la contratación pública del Estado, cruzados por NIT en una sola base de trabajo.</p></article>
-          <article class="stack-row"><h3>Proceso</h3><p>Python para depurar, cruzar y ordenar · Airtable para operar la lista de contacto del equipo comercial · n8n para mover información entre sistemas.</p></article>
-          <article class="stack-row"><h3>Escala</h3><p>1.751.328 empresas colombianas, una fila por NIT, recortable por sector, ciudad, tamaño y señales de vigencia.</p></article>
-          <article class="stack-row"><h3>Reglas de contacto</h3><p>Ley 2300 de 2023: horarios permitidos, frecuencia máxima y exclusión voluntaria, entregadas junto con cada análisis.</p></article>
-        </div>
-      </div>
-      <p class="sys-short">Stack: Claude Code with sub-agents, MCP servers and agent skills, context engineering, offline local models, Python and SQL data pipelines, Airtable, n8n, CRM and pipeline automation.</p>
-    </section>
-
-    <section class="proof-band" id="proof" aria-label="Client work: enterprise retailer">
-      <div class="loop-head">
-        <p class="kicker mono">CLIENT WORK <i>·</i> ENTERPRISE</p>
-        <h2 class="display">An enterprise retailer's real backlog.</h2>
-        <p class="loop-lede">A Colombian pharmacy retailer: enterprise scale, multi-site, high POS volume. I landed the engagement and ran it inside their engineering team, on their live Oracle and n8n workflows. Not a demo environment. How it went:</p>
-      </div>
-      <div class="ledger" aria-label="Embed and map, find the real work, hand it back">
-        <article class="ledger-row"><h3>Embed and map</h3><p>First deliverable: the architecture diagnostic that produced the systems map their own team did not have. You cannot automate what nobody can see.</p></article>
-        <article class="ledger-row"><h3>Find the real work</h3><p>The diagnostic surfaced a backlog of 14 recurring manual processes. That list became the roadmap, in their numbers. The agreed success metric: hours per process down to minutes.</p></article>
-        <article class="ledger-row"><h3>Hand it back</h3><p>A 1:1 training program on context engineering, agent skills and scheduled routines, so their own team runs the system. Documented, running, with the controls that say when it stops working.</p></article>
-      </div>
-      <p class="sys-short">An enterprise Colombian pharmacy retailer: architecture diagnostic, a 14-item automation backlog, and a 1:1 training program on live Oracle and n8n workflows.</p>
-      <p class="subtitle stack mono"><span><span class="st"><span class="dot half"></span>PAST ENGAGEMENT</span> · I delivered the diagnostic and the training program; the account stayed with the team</span></p>
-    </section>
-
-    <!-- ————— band 3 · THE MAP ————— -->
-    <section class="map-band" id="map" aria-label="The map: how the systems connect">
-      <div class="map-head">
-        <span class="lead" aria-hidden="true"></span>
-        <h2 class="display">One discipline, three systems.</h2>
-        <p>Get the context into one place, then let people and machines act on it. The same method underneath all three. Hover a station to look around.</p>
-      </div>
-
-      <div class="map-stage" data-stage>
-        <svg class="map-svg" viewBox="0 0 1000 620" role="group" aria-label="Interactive map: the memory system and the two systems that come after it, around the operator. Use Tab to move between stations, Enter to pin.">
-          <g aria-hidden="true">
-            <path class="edge" data-edge="core brain"  d="M473 287 L271 186" pathLength="1"></path>
-            <path class="edge" data-edge="core data"   d="M500 330 L500 476" pathLength="1"></path>
-            <path class="edge" data-edge="core flows"  d="M527 287 L728 186" pathLength="1"></path>
-            <path class="edge" data-edge="brain flows" d="M274 175 L726 175" pathLength="1"></path>
-            <path class="edge" data-edge="brain data"  d="M265 194 L485 481" pathLength="1"></path>
-            <path class="edge" data-edge="data flows"  d="M515 481 L735 194" pathLength="1"></path>
-          </g>
-
-          <g class="station core" data-node="core" role="button" tabindex="0" aria-label="Jhonalbert Alvarez, the operator. Select to reset the map.">
-            <circle class="ring"  cx="500" cy="300" r="30"></circle>
-            <circle class="ring2" cx="500" cy="300" r="19"></circle>
-            <path class="needle" d="M500 300 L518 280"></path>
-            <circle class="pin" cx="500" cy="300" r="3.2"></circle>
-            <text x="500" y="352" text-anchor="middle">Jhon</text>
-          </g>
-
-          <g class="station" data-node="brain" role="button" tabindex="0" aria-label="The memory system. Live, running daily. Hover or select to read.">
-            <circle class="ring" cx="250" cy="175" r="24"></circle>
-            <line class="tick" x1="250" y1="151" x2="250" y2="144"></line>
-            <circle class="st-pin sp-live" cx="250" cy="175" r="4"></circle>
-            <text x="250" y="220" text-anchor="middle">Memory System</text>
-          </g>
-
-          <g class="station" data-node="data" role="button" tabindex="0" aria-label="Market intelligence. The data spine and the ranked analysis built on it. Hover or select to read.">
-            <circle class="ring" cx="500" cy="500" r="24"></circle>
-            <line class="tick" x1="500" y1="476" x2="500" y2="469"></line>
-            <circle class="st-pin sp-live" cx="500" cy="500" r="4"></circle>
-            <text x="500" y="545" text-anchor="middle">Market Intel</text>
-          </g>
-
-          <g class="station" data-node="flows" role="button" tabindex="0" aria-label="Agentic workflows. Scheduled agents doing recurring work. Hover or select to read.">
-            <circle class="ring" cx="750" cy="175" r="24"></circle>
-            <line class="tick" x1="750" y1="151" x2="750" y2="144"></line>
-            <circle class="st-pin sp-live" cx="750" cy="175" r="4"></circle>
-            <text x="750" y="220" text-anchor="middle">Workflows</text>
-          </g>
-        </svg>
-
-        <div class="readout" data-readout aria-live="polite">
-          <p class="kicker mono" data-r-kicker>THE OPERATOR</p>
-          <h3 class="display" data-r-title>Three systems, one method.</h3>
-          <p class="blurb" data-r-blurb>Hold the context, rank what matters, then let the recurring parts run themselves. Hover any station to read its entry. Click to pin it.</p>
-          <p class="subtitle mono" data-r-proof></p>
+        <div class="stack-list" aria-label="Stack por tarea">
+          <article class="stack-row"><h3>Investigación</h3><p>RUES · SECOP · datos.gov.co · la base de empresas (Python, Postgres) · un navegador de solo lectura para la huella del comprador · LinkedIn Sales Navigator</p></article>
+          <article class="stack-row"><h3>Escritura y envío</h3><p>Un buzón dedicado y calentado en un dominio secundario, nunca el tuyo · correo institucional y LinkedIn a mano · llamadas a conmutador · el registro de toques con su denominador · cal.com</p></article>
+          <article class="stack-row"><h3>Agentes e IA</h3><p>Claude Code (subagentes, servidores MCP, skills, hooks) · Icarus · el sistema de memoria en archivos planos · modelos locales sin nube para transcribir llamadas y medios (Whisper, Ollama, Kokoro, Stable Diffusion en OpenVINO): las grabaciones nunca pasan por una API en la nube</p></article>
+          <article class="stack-row"><h3>Reglas</h3><p>Ley 2300 de 2023 (horarios de contacto, frecuencia, exclusión) · Ley 1581 (habeas data) · CAN-SPAM y TCPA para el mercado en inglés</p></article>
         </div>
       </div>
-
-      <ul class="map-list mono" aria-label="The systems, as a list">
-        <li><a class="row" href="#product"><span class="dot"></span><span class="t">The memory system</span><span class="k">live daily</span></a></li>
-        <li><a class="row" href="#offers"><span class="dot"></span><span class="t">The targeting engine</span><span class="k">live · client build</span></a></li>
-        <li><span class="row"><span class="dot"></span><span class="t">Agentic workflows</span><span class="k">live internally</span></span></li>
-      </ul>
+      <p class="sys-short">Stack: public-record sources and the company spine, a dedicated warmed mailbox and the touch ledger, Claude Code with Icarus and offline local models, and the contact rules (Ley 2300, Ley 1581).</p>
     </section>
 
-    <!-- ————— band 4 · about ————— -->
-    <section class="about" aria-label="About">
-      <div>
-        <p class="line display">Sales floor first. Then the systems behind it.</p>
-        <p class="body">Two years on high-volume sales floors, resolving a claim and then selling into the same call. Then co-founder and Head of Growth at Frakkr, where I designed the CRM, the outbound infrastructure and the agents that ran the pipeline. I build inside the stack a team already runs, and hand it back documented, running, and with the controls that say when it stops working. I know what a bad list costs a seller, because I was the one dialing it.</p>
-        <p class="facts mono">Spanish, native <i>·</i> English, C1 <i>·</i> Structure before scale</p>
-      </div>
-    </section>
-
-    <!-- ————— band 5 · contact ————— -->
+    <!-- band 13 · contact, the CTA repeated one last time -->
     <section class="contact" id="contact" aria-label="Contact">
       <div>
-        <h2 class="display">Tell me what you need decided.</h2>
-        <p class="sub">Book 15 minutes, or write. Bring one question your business cannot answer fast today, and I will tell you what it would take to answer it.</p>
+        <h2 class="display">Book the 15 minutes.</h2>
+        <p class="sub">What you do: book. What happens: within 48 hours the muestra arrives. What you get: twenty companies with their reason, five lines on what you use today, and a call to walk through it. If you got here from my email, reply there instead.</p>
         <div class="slots mono">
           <a class="btn" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener">Book 15 min <span class="arr" aria-hidden="true">↗</span><span class="cal-url"> · cal.com/jhonalbert-alvarez-phuqi8/15min</span></a>
           <a class="slot" href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a>
@@ -967,7 +955,7 @@
     </section>
   </main>
 
-  <!-- ————— band 6 · footer ————— -->
+  <!-- ————— footer ————— -->
   <footer class="footer">
     <div class="col row">
       <span class="who">
@@ -983,249 +971,157 @@
   </footer>
 </div>
 
-<noscript>
-  <style>
-    .map-stage, .readout { display: none; }
-    .map-list { display: block; }
-  </style>
-</noscript>
 
 <script>
 (function () {
   var lang = 'en';
-  var current = 'core';
 
-  var SYSTEMS_EN = {
-    core: {
-      kicker: 'THE OPERATOR',
-      title: 'Three systems, one method.',
-      blurb: 'Hold the context, rank what matters, then let the recurring parts run themselves. Hover any station to read its entry. Click to pin it.',
-      proof: '', status: '', anchor: ''
-    },
-    brain: {
-      kicker: 'LIVE · THE MEMORY SYSTEM',
-      title: 'The memory system',
-      blurb: 'One reliable source of truth for the rules, history, and decisions behind the work: private, structured, answering people and AI alike.',
-      proof: 'LIVE · running daily since I built it', status: 'live', anchor: '#product'
-    },
-    data: {
-      kicker: 'LIVE · THE TARGETING ENGINE',
-      title: 'The targeting engine',
-      blurb: 'Public registries, state contracting and open government data joined into one company record, then ranked against the ideal client of one specific seller, with the reason written beside each account. Built as custom software for a client; the same engine now aims my outbound.',
-      proof: 'LIVE · 1.75M-company engine, metered API answering', status: 'live', anchor: '#offers'
-    },
-    flows: {
-      kicker: 'LIVE INTERNALLY · AGENTIC WORKFLOWS',
-      title: 'Agentic workflows',
-      blurb: 'The recurring parts of an operation run themselves: carefully scoped agents that stop and report when anything unexpected happens.',
-      proof: 'LIVE INTERNALLY · runs my own pipeline every morning', status: 'live', anchor: ''
-    }
-  };
-
-  var SYSTEMS_ES = {
-    core: {
-      kicker: 'EL OPERADOR',
-      title: 'Tres sistemas, un mismo método.',
-      blurb: 'Reunir el contexto, ordenar lo que importa, y dejar que lo repetitivo corra solo. Pasa el cursor por una estación para leer su entrada. Clic para fijarla.',
-      proof: '', status: '', anchor: ''
-    },
-    brain: {
-      kicker: 'EN PRODUCCIÓN · EL SISTEMA DE MEMORIA',
-      title: 'El sistema de memoria',
-      blurb: 'Una fuente de verdad confiable para las reglas, el historial y las decisiones detrás del trabajo: privada, estructurada, respondiendo a personas y a IA por igual.',
-      proof: 'EN PRODUCCIÓN · corre a diario desde que lo construí', status: 'live', anchor: '#product'
-    },
-    data: {
-      kicker: 'EN PRODUCCIÓN · EL MOTOR DE TARGETING',
-      title: 'El motor de targeting',
-      blurb: 'El registro mercantil, la contratación pública y los datos abiertos del Estado cruzados en una sola ficha por empresa, y ordenados contra el cliente ideal de un vendedor concreto, con el motivo escrito al lado de cada cuenta. Software a la medida construido para un cliente; el mismo motor apunta hoy mi outbound.',
-      proof: 'EN PRODUCCIÓN · 1,75 millones de sociedades, API con llave respondiendo', status: 'live', anchor: '#offers'
-    },
-    flows: {
-      kicker: 'EN PRODUCCIÓN INTERNA · WORKFLOWS AGÉNTICOS',
-      title: 'Workflows agénticos',
-      blurb: 'Las partes repetitivas de la operación corren solas: agentes acotados con cuidado que se detienen y reportan ante cualquier imprevisto.',
-      proof: 'EN PRODUCCIÓN INTERNA · corre mi propio pipeline cada mañana', status: 'live', anchor: ''
-    }
-  };
-
-  var SYSTEMS = SYSTEMS_EN;
-  var READ_ENTRY = { en: 'read the full entry ↑', es: 'leer la entrada completa ↑' };
-  /* a station may point at another PAGE rather than a section of this one;
-     the label has to stop promising a scroll when it does */
-  var GOTO_PAGE  = { en: 'open the page ↗', es: 'abrir la página ↗' };
-
-  var stage = document.querySelector('[data-stage]');
-  if (!stage) return;
-  var band = document.querySelector('.map-band');
-  var stations = stage.querySelectorAll('.station');
-  var edges = stage.querySelectorAll('.edge');
-  var rKicker = stage.querySelector('[data-r-kicker]');
-  var rTitle = stage.querySelector('[data-r-title]');
-  var rBlurb = stage.querySelector('[data-r-blurb]');
-  var rProof = stage.querySelector('[data-r-proof]');
-
-  function dotHtml(status) {
-    if (!status) return '';
-    var cls = status === 'live' ? 'dot' : 'dot ' + status;
-    return '<span class="st"><span class="' + cls + '"></span></span> ';
-  }
-
-  function apply(id) {
-    current = id;
-    var s = SYSTEMS[id] || SYSTEMS.core;
-    rKicker.textContent = s.kicker;
-    rTitle.textContent = s.title;
-    rBlurb.textContent = s.blurb;
-    if (s.proof) {
-      var label = (s.anchor.charAt(0) === '#') ? READ_ENTRY[lang] : GOTO_PAGE[lang];
-      rProof.innerHTML = dotHtml(s.status) + s.proof +
-        (s.anchor ? ' · <a class="goto" href="' + s.anchor + '">' + label + '</a>' : '');
-      rProof.style.display = '';
-    } else {
-      rProof.innerHTML = '';
-      rProof.style.display = 'none';
-    }
-
-    var focused = id !== 'core';
-    stage.classList.toggle('has-focus', focused);
-    stations.forEach(function (n) {
-      n.classList.toggle('is-on', focused && (n.dataset.node === id));
-    });
-    edges.forEach(function (e) {
-      var ends = e.dataset.edge.split(' ');
-      e.classList.toggle('is-on', focused && ends.indexOf(id) !== -1);
-    });
-  }
-
-  /* hover reads, click pins (screen-share friendly), keyboard focus reads too */
-  var pinned = null;
-  var revertTimer = null;
-
-  function hold(id) { clearTimeout(revertTimer); apply(id); }
-  function release() {
-    clearTimeout(revertTimer);
-    revertTimer = setTimeout(function () { apply(pinned || 'core'); }, 140);
-  }
-  function togglePin(id) {
-    pinned = (id === 'core' || pinned === id) ? null : id;
-    apply(pinned || id);
-  }
-
-  stations.forEach(function (n) {
-    var id = n.dataset.node;
-    n.addEventListener('pointerenter', function () { hold(id); });
-    n.addEventListener('pointerleave', release);
-    n.addEventListener('focusin', function () { hold(id); });
-    n.addEventListener('focusout', release);
-    n.addEventListener('click', function () { togglePin(id); });
-    n.addEventListener('keydown', function (ev) {
-      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); togglePin(id); }
-    });
-  });
-
-  apply('core');
-
-  /* ————— EN/ES — the whole page swaps client-side; EN is captured from the DOM ————— */
+  /* ————— EN/ES — the whole page swaps client-side; EN is captured from the DOM —————
+     One selector per text element. Every EN element that changes needs its ES entry
+     changed in the same edit, or the ES page silently keeps the old sentence.
+     THE STACK swaps as two whole [data-lang-block] blocks, not as strings. */
   var I18N_ES = {
     '.skip-link': 'Saltar al trabajo',
-    '.titlecard .role': 'Copywriter de respuesta directa · B2B',
-    '.thesis': 'Escribo y corro el outbound de empresas B2B en Colombia. Se mide en respuestas y reuniones hechas.',
-    '.avail': 'Colombia, en horario de Europa y Estados Unidos. Tomando los primeros sprints de outbound, y proyectos del sistema de memoria.',
-    '.cta-row .btn': 'Agenda 15 min <span class="arr" aria-hidden="true">↗</span>',
-    '.cta-row .cta.quiet': 'Ver lo que he construido ↓',
-    '#product .kicker': 'LO PRINCIPAL <i>·</i> el que uso a diario',
-    '#product h2': 'El sistema de memoria',
-    '#product .sys': '<b>La mayoría de la IA busca. Esta recuerda.</b> Mi trabajo corre sobre una memoria privada y estructurada: reglas, historial y decisiones en archivos planos, sin base de datos, sin proveedor. Mis agentes y yo respondemos desde el mismo lugar, así que nada se vuelve a explicar y nada se vuelve a deducir. El método se está publicando como repositorio abierto.',
-    '#product .sys-short': 'Una memoria privada y estructurada en archivos planos: mi propio trabajo corre sobre ella a diario, y el método se está publicando.',
-    '#memtree': '<span class="dir">00-core/</span>       las reglas con las que arranca\n<span class="dir">10-memory/</span>     lo que el negocio sabe\n  <span class="dir">episodic/</span>    lo que pasó, con fecha\n  <span class="dir">semantic/</span>    hechos, clientes, decisiones\n  <span class="dir">procedural/</span>  cómo hacen las cosas\n  inbox.md     captura cruda, nada se pierde\n<span class="dir">20-ventures/</span>   ofertas · pipeline · clientes\n<span class="dir">40-artifacts/</span>  lo que de verdad se lee',
-    '#tree-note': 'El árbol real, no un diagrama. Archivos planos que cualquiera puede abrir. Unos cientos de líneas en juego en cada momento: diminuto frente a las ventanas de contexto modernas.',
-    '#product .subtitle': '<span><span class="st"><span class="dot"></span>EN PRODUCCIÓN</span> · corre a diario desde que lo construí</span><span><a href="case-study-second-brain.html">leer el caso de estudio ↗</a><span class="gotow"> · <a class="goto" href="#map">ver la disciplina ↓</a></span></span>',
+    '.titlecard .role': 'Copywriter de respuesta directa · dentro de tu equipo comercial',
+    '.thesis': 'Por qué tu prospección te hace perder dinero (y&nbsp;cómo arreglarlo hoy mismo)',
+    '.define': '¿Qué significaría para tu negocio si la conversión de tu prospección mejora un 1%?',
+    '.scene-hero .cta-row .btn': 'Agenda 15 min <span class="arr" aria-hidden="true">↗</span>',
+    '.scene-hero .cta-row .cta.quiet': 'Averígualo en una llamada ↓',
 
-    '#offers .kicker': 'QUÉ HAGO <i>·</i> DOS PRODUCTOS',
-    '#offers h2': 'Qué hago.',
-    '#offers .loop-lede': 'El sistema de memoria de arriba es uno de los dos productos. Este es el otro: copy de respuesta directa para outbound B2B, escrito sobre la investigación y medido cada semana.',
-    '#offers .ledger-row:nth-child(1) h3': 'Outbound de respuesta directa',
-    '#offers .ledger-row:nth-child(1) p': 'Ya sabes a quién le vendes y tienes equipo comercial. Lo que no tienes son las reuniones. Antes de contratar otro SDR: en 30 días investigo tu mercado con los registros públicos de Colombia y la huella digital de tus compradores, escribo las secuencias de correo y LinkedIn con la razón escrita de por qué cada empresa, corro el outreach dentro de la ley, y agendo reuniones calificadas en tu calendario. Cada semana ves los números con su denominador: enviados, entregados, respuestas, reuniones agendadas, reuniones hechas. Qué cuenta como reunión calificada queda por escrito antes de empezar, y una que no se presenta no cuenta. <a class="goto" href="#contact">dime a quién le vendes ↓</a>',
-    '#offers .ledger-row:nth-child(2) h3': 'Caso de estudio: Radar de Mercado',
-    '#offers .ledger-row:nth-child(2) p': 'El motor de investigación debajo de cada secuencia es software a la medida que construí para un cliente: el registro mercantil de Colombia cruzado con la contratación pública, una fila por empresa, cortado en una lectura priorizada de qué cuentas están vivas, tienen presupuesto en movimiento, y por qué. No se vende por separado. Es lo que corre debajo.',
-    '#offers .ledger-row:nth-child(3) h3': 'Empieza por la muestra',
-    '#offers .ledger-row:nth-child(3) p': 'Mándame qué vendes y dónde, y lo que usas hoy: tu correo en frío o tu página. En 48 horas recibes una hoja: la investigación (veinte empresas de tu mercado con la razón escrita y el por qué ahora), un diagnóstico de cinco líneas sobre por qué lo que usas hoy pierde, y las tres cosas de tu comprador que investigaría antes de escribir la primera línea. Si te sirve, 15 minutos para recorrerla. Nunca con precio. <a class="goto" href="#contact">mándame lo que usas hoy ↓</a>',
-    '#offers .sys-short': 'Dos productos: el sistema de memoria, y outbound de respuesta directa para equipos B2B que saben a quién le venden y necesitan las reuniones: investigado, escrito, corrido y medido. Radar de Mercado es el motor a la medida debajo, prueba, no se vende por separado. Los dos abren con una puerta gratis.',
-    '#offers .subtitle': '<span><span class="st"><span class="dot half"></span>ABRIENDO</span> · el motor corre sobre un cliente real; el outbound está tomando sus primeros sprints</span><span><a href="#contact">mándame lo que usas hoy ↓</a></span>',
+    '#problem .kicker': 'EL PROBLEMA',
+    '#problem h2': 'El calendario no se llena.',
+    '#problem-a': 'Tienes un equipo comercial, pero no consiguen suficientes reuniones. El promedio del correo en frío es más o menos una respuesta por cada doscientos enviados. ¿Crees que contratar a otro SDR resuelve el problema?',
+    '#problem-b': '<b>El problema no es el esfuerzo.</b> Es la calidad del mensaje.',
+    '#problem .sys-short': 'Un equipo comercial sin suficientes reuniones; el correo en frío promedia una respuesta por cada doscientos enviados; el problema no es el esfuerzo, es la calidad del mensaje.',
+
+    '#why .kicker': 'POR QUÉ ESCUCHARME',
+    '#why h2': 'Primero el piso de ventas. Después los sistemas detrás.',
+    '#why-a': 'Dos años en pisos de venta de alto volumen, marcando listas que armaron otros. Después cofundador y Head of Growth en Frakkr, donde diseñé el CRM, la infraestructura de outbound y los agentes que operaban el pipeline. Hoy escribo y envío yo mismo, sobre una base de 1.751.328 empresas colombianas que construí para saber a quién escribirle y por qué.',
+    '#why-b': '<b>Sé lo que una mala lista le cuesta a un vendedor.</b> Yo era el que la marcaba. Por eso mi trabajo empieza antes del primer mensaje.',
+    '#why .sys-short': 'Dos años en pisos de venta, después cofundador y Head of Growth en Frakkr (CRM, infraestructura de outbound, agentes); hoy escribe y envía él mismo sobre una base de 1.751.328 empresas colombianas que construyó.',
+
+    '#reason h2': 'Qué hago distinto, y por qué funciona.',
+    '#reason .loop-lede': 'La mayoría escribe primero y pregunta después. Yo lo hago al revés, en cuatro pasos, y por eso el mensaje se lee como escrito para esa empresa. Porque lo fue.',
+    '#reason .ledger-row:nth-child(1) h3': '1 · Investigar antes de una sola palabra',
+    '#reason .ledger-row:nth-child(1) p': 'Tu mercado y tu competencia, leídos en el registro mercantil, la contratación pública y los datos abiertos de Colombia antes de escribir nada. Qué empresas están vivas, qué acaban de hacer y por qué ahora.',
+    '#reason .ledger-row:nth-child(2) h3': '2 · Qué mueve a tu comprador',
+    '#reason .ledger-row:nth-child(2) p': 'Qué sabe ya de su problema, cuánto le cuesta y qué lo hace actuar. El mensaje entra por ahí, no por tu producto.',
+    '#reason .ledger-row:nth-child(3) h3': '3 · Estructuras probadas',
+    '#reason .ledger-row:nth-child(3) p': 'AIDA (atención, interés, deseo, acción) y PAS (problema, agitación, solución). Cada mensaje dice una cosa y pide una cosa.',
+    '#reason .ledger-row:nth-child(4) h3': '4 · Decisiones con números',
+    '#reason .ledger-row:nth-child(4) p': 'Cada semana: enviados, respuestas, reuniones, cada uno con su denominador. El siguiente paso sale de esos números, no de una corazonada.',
+    '#reason .cta-row .btn': 'Agenda 15 min <span class="arr" aria-hidden="true">↗</span>',
+    '#reason .cta-row .note-line': 'La muestra llega 48 horas antes de la llamada. <a href="#muestra">Cómo funciona ↓</a>',
+    '#reason .sys-short': 'El método: investigación en los registros públicos de Colombia antes de escribir, qué mueve al comprador, estructuras AIDA y PAS, y decisiones semanales con números y su denominador.',
+
+    '#proof .kicker': 'PRUEBA',
+    '#proof h2': 'Tres veces que el método hizo su trabajo.',
+    '#proof .loop-lede': 'Sin nombres de clientes en público. Los números y la forma en que pasó, sí.',
+    '#proof .ledger-row:nth-child(1) h3': 'Un mensaje en frío, una reunión',
+    '#proof .ledger-row:nth-child(1) p': 'Un solo mensaje en frío por LinkedIn al jefe de tecnología de una clínica universitaria. Respondió nombrando sus propios dolores, pidió el portafolio y agendó la reunión él mismo.',
+    '#proof .ledger-row:nth-child(2) h3': 'Veinte empresas, cinco reuniones',
+    '#proof .ledger-row:nth-child(2) p': 'El CEO de una fintech tomó veinte empresas de mi investigación y les escribió él mismo: quince tenían canal, seis respondieron, cinco reuniones. Su cuenta, no la mía.',
+    '#proof .ledger-row:nth-child(3) h3': 'Más de 140 tiendas',
+    '#proof .ledger-row:nth-child(3) p': 'Un retailer farmacéutico colombiano, unas 2.000 cajas. Dos llamadas antes de cualquier propuesta, después una propuesta escrita en sus números, sobre su propio proceso. Recibió el mapa de sus sistemas, un backlog de 14 procesos manuales recurrentes y su equipo formado para operarlo. Se ganó en Frakkr, donde fui cofundador.',
+    '#proof .cta-row .btn': 'Agenda 15 min <span class="arr" aria-hidden="true">↗</span>',
+    '#proof .cta-row .note-line': 'Tu mercado recibe el mismo trato antes de hablar. <a href="#muestra">La muestra ↓</a>',
+    '#proof .sys-short': 'Prueba con denominador: un mensaje en frío por LinkedIn que se volvió reunión con una clínica universitaria; un CEO fintech que escribió él mismo a veinte empresas investigadas (quince con canal, seis respuestas, cinco reuniones); un retailer grande ganado con dos llamadas antes de la propuesta.',
+    '#proof .subtitle': '<span><span class="st"><span class="dot"></span>MEDIDO</span> · cada número de arriba tiene su denominador · los nombres se quedan con las empresas</span>',
+
+    '#offers .kicker': 'QUÉ RECIBES',
+    '#offers h2': 'Un sprint de 30 días, y todo lo que se queda contigo.',
+    '#offers .loop-lede': 'Volvamos al problema: tienes equipo y no tienes las reuniones. Esto es lo que lo resuelve, y lo que te queda después.',
+    '#offers .ledger-row:nth-child(1) h3': 'El sprint: reuniones con evidencia',
+    '#offers .ledger-row:nth-child(1) p': 'Treinta días de outbound escrito y enviado por mí, dentro de tu proceso: correo institucional, LinkedIn (yo redacto, tú tocas enviar) y llamada a conmutador. Cada mensaje lleva una razón sobre esa empresa. Cada respuesta se atiende hasta que la reunión queda en tu calendario. Cada semana, los números.',
+    '#offers .ledger-row:nth-child(2) h3': 'Incluye · El mapa de tu mercado<span class="q-tag mono">Responde: ¿a quién le escribimos?</span>',
+    '#offers .ledger-row:nth-child(2) p': 'Cuántas empresas había, cuántas pasaron el corte, por qué se cayó cada una y la razón de cada una que quedó. Se queda contigo, sigamos o no.',
+    '#offers .ledger-row:nth-child(3) h3': 'Incluye · Una ficha antes de cada reunión<span class="q-tag mono">Responde: ¿mi equipo entra a ciegas?</span>',
+    '#offers .ledger-row:nth-child(3) p': 'Una página sobre la empresa antes de que tu equipo entre a la reunión. Nadie de tu lado improvisa.',
+    '#offers .ledger-row:nth-child(4) h3': 'Incluye · El informe del día 30<span class="q-tag mono">Responde: ¿y el día 31?</span>',
+    '#offers .ledger-row:nth-child(4) p': 'Quién contestó y quién no, las objeciones en sus propias palabras, qué segmento convierte y qué mensaje lo hizo. Con eso tu equipo puede seguir sin mí.',
+    '#offers .ledger-row:nth-child(5) h3': 'Frente a las alternativas',
+    '#offers .ledger-row:nth-child(5) p': 'Otro SDR son seis meses de sueldo para saber si el outbound te sirve. La pauta te cobra por clics de gente que no pidió nada. Probar estrategias cuesta los meses que no vuelven. El sprint responde en treinta días.',
+    '#offers .ledger-row:nth-child(6) h3': 'El precio',
+    '#offers .ledger-row:nth-child(6) p': 'Una fracción de cualquiera de esas tres cuentas, en dos partes. El número exacto, en la llamada, al lado de tus propios números.',
+    '#offers .ledger-row:nth-child(7) h3': '¿Ya tienes tráfico?',
+    '#offers .ledger-row:nth-child(7) p': 'El mismo método sobre tu página: tu regla de lead que califica por escrito, dos semanas de línea base, después la página, medida contra esa línea. Agencias y constructoras con pauta activa.',
+    '#offers .cta-row .btn': 'Agenda 15 min <span class="arr" aria-hidden="true">↗</span>',
+    '#offers .cta-row .note-line': 'Nada que pagar antes de la llamada. <a href="#muestra">Qué pasa cuando agendas ↓</a>',
+    '#offers .sys-short': 'El sprint (escrito y enviado por mí, cada respuesta hasta tu calendario, números semanales) más el mapa de tu mercado, una ficha antes de cada reunión y el informe del día 30; el precio, una fracción de otro SDR, de la pauta o de meses de prueba, el número en la llamada.',
+    '#offers .subtitle': '<span><span class="st"><span class="dot half"></span>ABRIENDO</span> · tomando los primeros sprints · dos a la vez, un cliente ideal por cliente</span>',
+
+    '#guarantee .kicker': 'SI NO FUNCIONA',
+    '#guarantee h2': 'Seis reuniones, o sigo trabajando gratis hasta que lleguen.',
+    '#guarantee-a': 'El sprint incluye seis reuniones calificadas. Si al día 30 no están, sigo trabajando sin costo hasta completarlas. Y la segunda parte del pago se hace cuando se hace la primera reunión, no cuando la agendo. Si nunca pasa, no la pagas.',
+    '#guarantee-b': '<b>Qué cuenta como reunión.</b> Una empresa dentro de tu cliente ideal, con quien decide o quien firma, a una hora acordada por ambos. Si no se presenta, no cuenta. Si se reprograma, cuenta una vez. Queda por escrito antes de empezar.',
+    '#guarantee .sys-short': 'Seis reuniones calificadas incluidas o el trabajo sigue sin costo; la segunda parte se paga solo cuando se hace la primera reunión; si no se presenta, no cuenta.',
+
+    '#objections .kicker': 'ANTES DE QUE PREGUNTES',
+    '#objections h2': 'Las preguntas que me hacen antes de empezar.',
+    '#objections .loop-lede': 'Respondidas aquí, para que la llamada sea sobre tu caso y no sobre esto.',
+    '#objections .ledger-row:nth-child(1) h3': '¿Desde qué dominio sale esto?',
+    '#objections .ledger-row:nth-child(1) p': 'Desde un buzón dedicado, calentado antes, en un dominio secundario. Nunca desde tu dominio principal. Tu reputación no se toca.',
+    '#objections .ledger-row:nth-child(2) h3': '¿Tocas mi cuenta de LinkedIn?',
+    '#objections .ledger-row:nth-child(2) p': 'No. Yo redacto cada mensaje; en tu cuenta tocas enviar tú. Ningún programa entra a tu LinkedIn.',
+    '#objections .ledger-row:nth-child(3) h3': '¿Esto es legal?',
+    '#objections .ledger-row:nth-child(3) p': 'Sí. Dentro de la Ley 2300 de 2023: buzones institucionales, horarios permitidos, frecuencia y salida como los fija la ley, nunca WhatsApp en frío. Y la Ley 1581 de datos personales.',
+    '#objections .ledger-row:nth-child(4) h3': '¿Eres tú o una agencia?',
+    '#objections .ledger-row:nth-child(4) p': 'Soy yo. Escribo, envío y atiendo cada respuesta. Nadie te pasa a un junior.',
+    '#objections .ledger-row:nth-child(5) h3': 'Ya tengo una base de datos. ¿Para qué esto?',
+    '#objections .ledger-row:nth-child(5) p': 'Una base te dice quién existe. El corte te dice a quién escribirle, por qué y por qué ahora, con lo que lo sustenta: matrícula renovada, contrato con el Estado, pauta activa. El mensaje que sale con esa razón es el trabajo.',
+    '#objections .ledger-row:nth-child(6) h3': '¿Y si mi mercado es muy pequeño para seis reuniones?',
+    '#objections .ledger-row:nth-child(6) p': 'La muestra te da una primera lectura de tu mercado antes de la llamada, y el corte de la semana 1 la confirma: cuántas empresas hay y cuántas encajan. Si no da para seis, lo hablamos antes de que firmes.',
+    '#objections .ledger-row:nth-child(7) h3': '¿Tengo que estar en las reuniones?',
+    '#objections .ledger-row:nth-child(7) p': 'Las reuniones son tuyas. Yo las consigo, te entrego la ficha antes de cada una, y cerrar es tuyo.',
+    '#objections .ledger-row:nth-child(8) h3': '¿Cuánto tiempo me quita?',
+    '#objections .ledger-row:nth-child(8) p': 'Una sesión de trabajo en la semana 1 para fijar tu cliente ideal por escrito, tocar enviar en tu LinkedIn, y las reuniones.',
+    '#objections .sys-short': 'Los envíos salen de un buzón dedicado y calentado en un dominio secundario; nadie toca tu LinkedIn; dentro de la Ley 2300 y la Ley 1581; el trabajo lo hace una persona; el corte le gana a una base de datos; el universo se revisa antes de firmar; las reuniones y el cierre son tuyos; una sesión de tu tiempo en la semana 1.',
+    '#objections .subtitle': '<span>¿Otra pregunta? <a href="#muestra">Tráela a la llamada ↓</a></span>',
+
+    '#muestra .kicker': 'EMPIEZA AQUÍ',
+    '#muestra h2': 'Agenda 15 minutos. La muestra llega antes de la llamada.',
+    '#muestra-a': 'Trabajo dos sprints a la vez, no más, porque los escribo y los envío yo. Cuando los dos están ocupados, el siguiente empieza cuando uno termina. Y cada mes que el calendario sigue vacío es otro mes de sueldo, de pauta o de espera, pagado sin reuniones.',
+    '#muestra-b': '<b>Qué pasa cuando agendas.</b> El formulario pregunta qué vendes, dónde y qué usas hoy. En 48 horas, antes de hablar, recibes una hoja: veinte empresas de tu mercado con la razón escrita y el por qué ahora, cinco líneas sobre por qué lo que usas hoy pierde, y las tres cosas de tu comprador que investigaría primero. En la llamada la recorremos. Sin costo y sin compromiso.',
+    '#muestra .cta-row .btn': 'Agenda 15 min <span class="arr" aria-hidden="true">↗</span>',
+    '#muestra .note-line': '¿Llegaste desde mi correo? Responde ahí.',
+    '#muestra .sys-short': 'Dos sprints a la vez; agenda 15 minutos, el formulario pregunta qué vendes, dónde y qué usas hoy, y la muestra llega en 48 horas, antes de la llamada, sin costo.',
 
     '#built .kicker': 'CONSTRUIDO <i>·</i> ENTREGADO Y FUNCIONANDO',
     '#built h2': 'Lo que he construido.',
-    '#built .loop-lede': 'Todo lo de abajo está funcionando. Nada es una maqueta, y nada se construyó para mostrarlo.',
-    '#built .ledger-row:nth-child(1) h3': 'El sistema de memoria',
-    '#built .ledger-row:nth-child(1) p': 'El sistema de conocimiento que opero a diario, donde mis agentes y yo respondemos desde los mismos archivos planos. Lo medí contra RAG, la forma habitual de darle memoria a una IA, sobre 498 preguntas: archivos planos más búsqueda acertaron 78 de cada 100, RAG acertó 55. La parte del resultado que fue en contra de mi propio diseño está publicada junto con la otra.',
-    '#built .ledger-row:nth-child(2) h3': 'Un registro nacional de empresas',
-    '#built .ledger-row:nth-child(2) p': 'El registro mercantil de Colombia, la contratación pública y los datos abiertos del Estado cruzados en una sola ficha por empresa, 1,75 millones de ellas, y de ahí sale el análisis ordenado de qué cuentas están vivas, cuáles tienen presupuesto en movimiento y por qué cada una está en la lista. El motivo escrito al lado de cada cuenta es el producto.',
-    '#built .ledger-row:nth-child(3) h3': 'Una máquina de outbound, desde cero',
-    '#built .ledger-row:nth-child(3) p': 'Tenants de envío aislados, calentamiento automatizado, secuencias multicanal que cumplen la norma, y un CRM donde la etapa, el ajuste y la prioridad se calculan a partir de fechas de actividad, de modo que el estado del pipeline no se puede corromper a mano. Construida en Frakkr, donde fui cofundador y Head of Growth.',
-    '#built .ledger-row:nth-child(4) h3': 'Un pipeline offline de QA de llamadas',
-    '#built .ledger-row:nth-child(4) p': 'Transcripción local que alimenta un análisis calificado por rúbrica y lo entrega como informe diseñado, en minutos y no en días. Corre sobre llamadas de venta reales, no datos sintéticos, y las grabaciones nunca pasan por una API en la nube.',
-    '#built .ledger-row:nth-child(5) h3': 'Un vigía de contratación pública',
-    '#built .ledger-row:nth-child(5) p': 'Un lector del feed abierto de contratación del Estado que reporta qué cambió desde su última corrida, para que una lectura de mercado arranque del registro de hoy y no del del mes pasado.',
-    '#built .sys-short': 'Construido y funcionando: un sistema de memoria de uso diario, un registro nacional de 1,75 millones de empresas, una máquina de outbound y su CRM desde cero, un pipeline offline de QA de llamadas y un vigía de contratación pública.',
+    '#built .loop-lede': 'Para quien quiera ver lo que hay debajo. Cada etiqueta de estado en esta página es literal.',
+    '#built .ledger-row:nth-child(1) h3': 'El sistema de memoria<span class="st-tag mono">EN PRODUCCIÓN · corre a diario desde que lo construí</span>',
+    '#built .ledger-row:nth-child(1) p:not(.tree-note)': 'El sistema de conocimiento que opero a diario, donde mis agentes y yo respondemos desde los mismos archivos planos. Medido contra RAG sobre 498 preguntas: archivos planos más búsqueda acertaron 78 de cada 100, RAG acertó 55. La mitad que fue en contra de mi propio diseño está publicada con el resultado. <a href="case-study-second-brain.html">Leer el caso de estudio ↗</a>',
+    '#memtree': '<span class="dir">00-core/</span>       las reglas con las que arranca\n<span class="dir">10-memory/</span>     lo que el negocio sabe\n  <span class="dir">episodic/</span>    lo que pasó, con fecha\n  <span class="dir">semantic/</span>    hechos, clientes, decisiones\n  <span class="dir">procedural/</span>  cómo hacen las cosas\n  inbox.md     captura cruda, nada se pierde\n<span class="dir">20-ventures/</span>   ofertas · pipeline · clientes\n<span class="dir">40-artifacts/</span>  lo que de verdad se lee',
+    '#tree-note': 'El árbol real, no un diagrama. Archivos planos que cualquiera puede abrir. Unos cientos de líneas en juego en cada momento: diminuto frente a las ventanas de contexto modernas.',
+    '#built .ledger-row:nth-child(2) h3': 'Icarus, el agente de outbound<span class="st-tag mono">CONSTRUIDO · v0 · borrador y aprobación, primer ciclo con cliente pendiente</span>',
+    '#built .ledger-row:nth-child(2) p': 'Lee la lista de cuentas y los hilos abiertos, redacta cada toque con la razón del registro público al lado, y pasa cada borrador por compuertas duras antes de que alguien lo vea: horarios de envío de la Ley 2300, evidencia obligatoria, ningún precio inventado, revisión del copy. Y espera. Nada se envía solo: un toque en mi teléfono lo ejecuta, y el registro lo anota.',
+    '#built .sys-short': 'Construido y funcionando: el sistema de memoria e Icarus, un agente de outbound de borrador y aprobación.',
     '#built .subtitle': '<span><span class="st"><span class="dot"></span>EN PRODUCCIÓN</span> · las etiquetas de estado en esta página son literales</span><span><a href="case-study-second-brain.html">el sistema de memoria, a fondo ↗</a></span>',
 
-    /* THE STACK swaps as a whole block, not as strings. Only its print line,
-       which sits outside both blocks, goes through this dictionary. */
-    '#tools .sys-short': 'Fuentes y herramientas: SECOP, RUES y datos.gov.co cruzados por NIT; Python para depurar y ordenar; Airtable para operar la lista; n8n para mover información entre sistemas.',
+    '#engine .kicker': 'EL MOTOR DE INVESTIGACIÓN',
+    '#engine h2': 'De dónde sale la razón.',
+    '#engine .loop-lede': 'Dos partes, las dos construidas por mí. Una encuentra las empresas. La otra lee lo que cada una le muestra al mundo.',
+    '#engine .ledger-row:nth-child(1) h3': 'La base de empresas<span class="st-tag mono">EN PRODUCCIÓN · sobre un cliente real</span>',
+    '#engine .ledger-row:nth-child(1) p': 'El registro mercantil de Colombia, la contratación pública y los datos abiertos, cruzados en una sola ficha por empresa. Una API responde qué cuentas están vivas y por qué. Software a la medida construido para un cliente; corre debajo de cada secuencia.',
+    '#engine .ledger-row:nth-child(2) h3': 'El navegador para agentes<span class="st-tag mono">EN PRODUCCIÓN · v2 desde 2026-09-02</span>',
+    '#engine .ledger-row:nth-child(2) p': 'Lee la web de una empresa, su pauta, sus reels y su página de LinkedIn antes de escribir la primera línea. Solo lee. Nunca envía.',
+    '#engine .sys-short': 'El motor de investigación: la base de empresas (registro, contratación pública y datos abiertos en una sola ficha por empresa, con una API) y un navegador de solo lectura para agentes.',
+    '#engine .subtitle': '<span><span class="st"><span class="dot"></span>EN PRODUCCIÓN</span> · RUES · SECOP · datos.gov.co · 1.751.328 empresas, una fila por NIT</span><span><a href="#muestra">pide la muestra ↓</a></span>',
 
-    '#proof .kicker': 'TRABAJO CON CLIENTES <i>·</i> EMPRESA',
-    '#proof h2': 'El backlog real de un retailer.',
-    '#proof .loop-lede': 'Un retailer farmacéutico colombiano: empresa grande, múltiples sedes, alto volumen de cajas POS. Cerré el proyecto y lo ejecuté dentro de su equipo de ingeniería, sobre sus flujos reales de Oracle y n8n. No era un ambiente de demo. Cómo fue:',
-    '#proof .ledger-row:nth-child(1) h3': 'Integrarse y mapear',
-    '#proof .ledger-row:nth-child(1) p': 'Primer entregable: el diagnóstico de arquitectura que produjo el mapa de sistemas que su propio equipo no tenía. Nadie puede arreglar lo que nadie puede ver.',
-    '#proof .ledger-row:nth-child(2) h3': 'Encontrar el trabajo real',
-    '#proof .ledger-row:nth-child(2) p': 'El diagnóstico sacó a la luz un backlog de 14 procesos manuales recurrentes. Esa lista quedó como hoja de ruta, en sus números. La métrica de éxito acordada: horas por proceso reducidas a minutos.',
-    '#proof .ledger-row:nth-child(3) h3': 'Devolverlo funcionando',
-    '#proof .ledger-row:nth-child(3) p': 'Un programa de formación 1:1 sobre sus propios flujos, para que su equipo opere el sistema por su cuenta. Documentado, funcionando, con los controles que avisan cuando algo deja de funcionar.',
-    '#proof .sys-short': 'Un retailer farmacéutico colombiano de gran tamaño: diagnóstico de arquitectura, backlog de 14 procesos y un programa de formación 1:1 sobre flujos reales de Oracle y n8n.',
-    '#proof .subtitle': '<span><span class="st"><span class="dot half"></span>PROYECTO CERRADO</span> · entregué el diagnóstico y el programa de formación; la cuenta quedó con el equipo</span>',
+    '#tools .sys-short': 'Stack: fuentes públicas y la base de empresas, buzón dedicado y registro de toques, Claude Code con Icarus y modelos locales sin nube, y las reglas de contacto (Ley 2300, Ley 1581).',
 
-    '.map-head h2': 'Tres sistemas, un mismo método.',
-    '.map-head p': 'Reunir el contexto en un solo lugar, y de ahí dejar que las personas y las máquinas actúen. El mismo método debajo de los tres. Pasa el cursor por una estación para mirar alrededor.',
-
-    '.map-list li:nth-child(1) .t': 'El sistema de memoria',
-    '.map-list li:nth-child(1) .k': 'en producción',
-    '.map-list li:nth-child(2) .t': 'El motor de targeting',
-    '.map-list li:nth-child(2) .k': 'en producción · cliente',
-    '.map-list li:nth-child(3) .t': 'Workflows agénticos',
-    '.map-list li:nth-child(3) .k': 'producción interna',
-
-    '.about .line': 'Primero el piso de ventas. Después los sistemas detrás.',
-    '.about p.body': 'Dos años en operaciones de venta de alto volumen, resolviendo un caso y vendiendo dentro de la misma llamada. Después cofundador y Head of Growth en Frakkr, donde diseñé el CRM, la infraestructura de outbound y los agentes que operaban el pipeline. Construyo dentro del stack que el equipo ya usa, y lo entrego documentado, funcionando, y con los controles que avisan cuando deja de funcionar. Sé lo que le cuesta una mala lista a un vendedor, porque el que marcaba era yo.',
-    '.about .facts': 'Español, nativo <i>·</i> Inglés, C1 <i>·</i> Estructura antes que escala',
-
-    '.contact h2': 'Dime qué necesitas decidir.',
-    '.contact .sub': 'Agenda 15 minutos, o escríbeme. Trae una pregunta que tu negocio hoy no pueda responder rápido, y te digo qué haría falta para responderla.',
+    '.contact h2': 'Agenda los 15 minutos.',
+    '.contact .sub': 'Qué haces: agendas. Qué pasa: en 48 horas llega la muestra. Qué recibes: veinte empresas con su razón, cinco líneas sobre lo que usas hoy y una llamada para recorrerlo. Si llegaste desde mi correo, responde ahí.',
     '.contact a[href*="cal.com"]': 'Agenda 15 min <span class="arr" aria-hidden="true">↗</span><span class="cal-url"> · cal.com/jhonalbert-alvarez-phuqi8/15min</span>',
 
     '.footer .who-text': 'Jhonalbert Alvarez · Estructura antes que escala',
     '.footer .to-top': 'VOLVER ARRIBA ↑'
   };
 
-  var ST_TXT_ES = { core: 'Jhon', brain: 'Sistema de Memoria', data: 'Inteligencia', flows: 'Workflows' };
-  var ST_ARIA_ES = {
-    core: 'Jhonalbert Alvarez, el operador. Selecciona para reiniciar el mapa.',
-    brain: 'El sistema de memoria. En producción, corre a diario. Pasa el cursor o selecciona para leer.',
-    data: 'Inteligencia de mercado. El registro nacional de empresas y el análisis ordenado que sale de él. Pasa el cursor o selecciona para leer.',
-    flows: 'Workflows agénticos. Agentes programados haciendo el trabajo repetitivo. Pasa el cursor o selecciona para leer.'
-  };
-
-  var EN_SNAP = {}, ST_TXT_EN = {}, ST_ARIA_EN = {};
+  var EN_SNAP = {};
   Object.keys(I18N_ES).forEach(function (sel) {
     var el = document.querySelector(sel);
     if (el) EN_SNAP[sel] = el.innerHTML;
-  });
-  stations.forEach(function (n) {
-    var id = n.dataset.node;
-    var t = n.querySelector('text');
-    if (t) ST_TXT_EN[id] = t.textContent;
-    ST_ARIA_EN[id] = n.getAttribute('aria-label');
   });
 
   var langBtn = document.querySelector('[data-lang-btn]');
@@ -1237,16 +1133,7 @@
       var el = document.querySelector(sel);
       if (el) el.innerHTML = (l === 'es') ? I18N_ES[sel] : EN_SNAP[sel];
     });
-    stations.forEach(function (n) {
-      var id = n.dataset.node;
-      var t = n.querySelector('text');
-      if (t) t.textContent = (l === 'es') ? (ST_TXT_ES[id] || t.textContent) : ST_TXT_EN[id];
-      var a = (l === 'es') ? ST_ARIA_ES[id] : ST_ARIA_EN[id];
-      if (a) n.setAttribute('aria-label', a);
-    });
-    SYSTEMS = (l === 'es') ? SYSTEMS_ES : SYSTEMS_EN;
-    /* the audience split: THE STACK is not a translation, it is two different
-       lists. Whole blocks swap, and the selector dictionary never sees them. */
+    /* THE STACK is two blocks, one per language; the selector dictionary never sees them. */
     document.querySelectorAll('[data-lang-block]').forEach(function (b) {
       b.hidden = (b.getAttribute('data-lang-block') !== l);
     });
@@ -1259,7 +1146,6 @@
       if (!im.dataset.altEn) im.dataset.altEn = im.getAttribute('alt') || '';
       im.setAttribute('alt', (l === 'es') ? im.dataset.altEs : im.dataset.altEn);
     });
-    apply(current);
     if (langBtn) {
       langBtn.textContent = (l === 'es') ? 'EN' : 'ES';
       langBtn.setAttribute('aria-label', (l === 'es') ? 'Switch to English' : 'Cambiar a español');
@@ -1271,24 +1157,6 @@
     langBtn.addEventListener('click', function () { setLang(lang === 'es' ? 'en' : 'es'); });
   }
   try { if (localStorage.getItem('jal-lang') === 'es') setLang('es'); } catch (e) {}
-
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          var i = 0;
-          band.querySelectorAll('.edge').forEach(function (e) { e.style.animationDelay = (i++ * 70) + 'ms'; });
-          var j = 0;
-          band.querySelectorAll('.station').forEach(function (s) { s.style.animationDelay = (250 + j++ * 90) + 'ms'; });
-          band.classList.add('live');
-          io.disconnect();
-        }
-      });
-    }, { threshold: 0.25 });
-    io.observe(stage);
-  } else {
-    band.classList.add('live');
-  }
 })();
 </script>
 <script>
