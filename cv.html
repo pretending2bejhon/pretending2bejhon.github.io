@@ -97,30 +97,30 @@
   @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } .sheet { padding: 26px 20px; } }
 
   @media print {
-    @page { size: letter; margin: 9mm 12mm; }
+    @page { size: letter; margin: 6mm 10mm; }
     html, body { background: #fff; }
-    .sheet { max-width: 100%; margin: 0; padding: 0; box-shadow: none; font-size: 8.8pt; line-height: 1.21; }
+    .sheet { max-width: 100%; margin: 0; padding: 0; box-shadow: none; font-size: 7.8pt; line-height: 1.14; }
     a { color: var(--signal); }
     .job li, .job { break-inside: avoid; }
-    .grid { break-inside: avoid; gap: 0 24pt; }
+    .grid { gap: 0 22pt; }
 
     .role-line { font-size: 7pt; margin-bottom: 4pt; }
     .lockup { gap: 10pt; }
-    .lockup h1 { font-size: 17.5pt; }
+    .lockup h1 { font-size: 16.5pt; }
     .reticle { width: 22pt; }
     .tagline { font-size: 10pt; margin-top: 4pt; }
     .contact-line { font-size: 7.2pt; margin-top: 4pt; }
-    .summary { margin: 7pt 0 0; max-width: none; }
-    .head-rule { margin: 9pt 0 0; }
+    .summary { margin: 5pt 0 0; max-width: none; }
+    .head-rule { margin: 6pt 0 0; }
 
-    h2 { font-size: 7.2pt; margin: 8pt 0 4pt; }
-    .job { margin-bottom: 6pt; }
-    .job-head h3 { font-size: 9.8pt; }
+    h2 { font-size: 7pt; margin: 6pt 0 3pt; }
+    .job { margin-bottom: 4pt; }
+    .job-head h3 { font-size: 9.2pt; }
     .job-meta { font-size: 6.8pt; }
-    .job-intro { font-size: 8.6pt; }
-    .job li { margin-bottom: 1.5pt; padding-left: 13pt; }
-    .skill-line { margin-bottom: 3.5pt; }
-    .proj { margin-bottom: 5pt; }
+    .job-intro { font-size: 8pt; }
+    .job li { margin-bottom: 1pt; padding-left: 12pt; }
+    .skill-line { margin-bottom: 2pt; }
+    .proj { margin-bottom: 2.5pt; }
     .edu { margin-bottom: 6pt; }
     .edu .when, .langs .lvl { font-size: 6.8pt; }
     .langs li { padding: 2pt 1px; }
@@ -141,32 +141,23 @@
         </svg>
       </div>
       <p class="tagline">I build the revenue systems I sell.</p>
-      <p class="contact-line mono">+57 314 207 5466 · <a href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a> · <a href="https://www.linkedin.com/in/jhonalbert-alvarez/">linkedin.com/in/jhonalbert-alvarez</a> · <a href="https://jhonalbert.com/">jhonalbert.com</a> · Colombia, working remotely on EU &amp; US hours</p>
-      <!-- DRAFT: Jhon rewrites -->
-      <p class="summary">Companies call me when they want things done. I go in, understand the problem and build what is missing: a research engine over Colombia's public records that answers which accounts are alive and why, an outbound agent that drafts and waits for approval, and a memory system so a team and its AI answer from one place instead of re-deriving what the business already knew. Two years on high-volume sales floors first, then co-founder and Head of Growth at Frakkr.</p>
+      <p class="contact-line mono">+57 314 207 5466 · <a href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a> · <a href="https://www.linkedin.com/in/jhonalbert-alvarez/">linkedin.com/in/jhonalbert-alvarez</a> · <a href="https://jhonalbert.com/">jhonalbert.com</a> · Colombia, remote on EU &amp; US hours</p>
       <hr class="head-rule">
     </header>
 
     <section aria-label="Experience">
       <h2>Experience</h2>
 
-      <!-- DRAFT: Jhon rewrites -->
       <article class="job">
         <div class="job-head">
           <h3>Forward Deployed Engineer · <span class="org">Independent</span></h3>
           <span class="job-meta mono">Colombia, remote &nbsp;|&nbsp; Aug 2026 – present</span>
         </div>
-        <p class="job-intro">Direct-response outbound for Colombian B2B companies: every account researched on the public record before a line is written, the emails and LinkedIn messages written and sent by me, and the work judged on replies and on meetings that are held. The memory system is the second product.</p>
+        <p class="job-intro">Agents, data systems and direct response copywriting, one operation at a time. Judged on replies and on meetings held.</p>
         <ul>
-          <li>Built and shipped: <b>Icarus</b> (v0, an outbound agent that drafts and waits for approval), <b>the memory system</b> (in daily use), <b>the company spine</b> (an API over Colombia's public records, live on a client), a <b>read-only browser for agents</b> (v2), and <b>two agents</b> for a pharmacy retailer's manager and inventory team (building, Sep 2026).</li>
-          <!-- Source of the 1,751,328 figure: the row count of the company spine itself, one row per NIT, 2026-08. -->
-          <li>Built the research engine the copy runs on: <b>1,751,328 Colombian companies</b>, one row per NIT, joined from RUES, SECOP and datos.gov.co, with an API on top that answers which accounts are alive and why.</li>
-          <!-- Source of the 498 questions and the 78 / 75 / 55 scores: the public benchmark at github.com/pretending2bejhon/ulpia, 2026-08. -->
-          <li>Published the memory system as an open method and benchmarked it against RAG on <b>498 questions</b>: out of every 100, an agent searching organized plain files answered 78 right, the same files in one flat folder 75, RAG 55. The half of the result that went against my own design is published with it.</li>
-          <li>Built <b>Icarus</b> (v0): an outbound agent that drafts every touch with its public-record reason attached and puts each draft through hard gates before anyone sees it (Ley 2300 sending windows, evidence required, copy lint). It drafts and waits for approval. Nothing sends itself.</li>
+          <li>Built and shipped: <b>Icarus</b> (v0), <b>the memory system</b> (daily use), <b>the company spine</b> (live on a client), <b>the browser for agents</b> (v2), <b>two agents</b> for a pharmacy retailer (building, Sep 2026), an <b>AI mentoring plan</b> for its engineers (designed, Jul 2026). Details under Selected Projects.</li>
           <!-- Source of both results: my own outreach ledger, 2026-08 and 2026-09; the twenty, fifteen, six and five are the buyer's own count, reported by him. -->
-          <li>Two results with their denominators, no names: one cold LinkedIn message to the head of technology at a university clinic became a meeting he booked himself; a fintech CEO took twenty researched companies and wrote to them himself, fifteen had a working channel, six replied, five meetings.</li>
-          <li>Built a read-only browser for agents that reads a company's website, its ads, its reels and its LinkedIn page before the first line is written. It only reads, it never sends.</li>
+          <li>Results, no names: one cold LinkedIn message to a university clinic's head of technology, and he booked the meeting himself. A fintech CEO wrote to twenty researched companies: fifteen had a channel, six replied, five meetings.</li>
         </ul>
       </article>
 
@@ -175,14 +166,14 @@
           <h3>Co-founder &amp; Head of Growth · <span class="org">Frakkr</span></h3>
           <span class="job-meta mono">Remote, US market &nbsp;|&nbsp; Jan 2026 – Aug 2026</span>
         </div>
-        <p class="job-intro">AI intake automation for US service firms, plus enterprise AI enablement. I cofounded Frakkr after two years on high-volume sales floors: I designed the CRM, the outbound infrastructure and the AI agents that ran the pipeline. I owned revenue end to end on a 4-person team, and wrote the playbooks it sold with: cold-call flow, objection handling, discovery, compliance guardrails.</p>
+        <p class="job-intro">AI intake for US service firms, plus enterprise AI enablement. Four-person team; I owned revenue end to end: CRM, outbound infrastructure, the agents on the pipeline, the playbooks.</p>
         <ul>
           <!-- Source of the store, register and backlog figures: the engagement's own discovery and diagnostic notes, 2026-07, two discovery calls. -->
-          <li>We won an AI enablement engagement with a <b>Colombian pharmacy retailer</b> (more than 140 stores, about 2,000 registers): I ran the architecture diagnostic that produced the systems map their team lacked plus a 14-item backlog of recurring manual work, and built the 1:1 training program (context engineering, agent skills, scheduled routines) on their live Oracle and n8n workflows. Agreed success metric: hours recovered per process.</li>
-          <li>Stood up the outbound machine from zero: isolated Google Workspace tenants on secondary domains, automated warmup, and CAN-SPAM/TCPA-compliant multichannel sequences (email, LinkedIn, cold calls).</li>
-          <li>Designed two generations of the CRM. In the second the funnel was computed: stage, fit score, intent and priority quadrant were formulas derived from activity dates, so pipeline state could not be hand-corrupted.</li>
-          <li>Put AI agents on the pipeline: six scheduled watchers (reply detection, deadline risk, revenue tripwires, weekly funnel digest), a five-phase enrichment pipeline (Google Places, Apollo, scraping) and cold-lead scoring, each red-teamed for prompt injection before being trusted with writes.</li>
-          <li>Shipped the company's first inbound asset: an 11-question intake-leak diagnostic that shows a firm in dollars what its intake is losing, and converts the reveal into a booked call.</li>
+          <li>Won an AI enablement engagement with a <b>Colombian pharmacy retailer</b> (140+ stores, about 2,000 registers): architecture diagnostic, systems map, a 14-item backlog of manual work, 1:1 training on their live Oracle and n8n flows. Agreed metric: hours recovered per process.</li>
+          <li>Outbound from zero: isolated Workspace tenants, automated warmup, CAN-SPAM and TCPA-compliant email, LinkedIn and cold-call sequences.</li>
+          <li>Two CRM generations. In the second, stage, fit score, intent and priority were formulas from activity dates, so pipeline state could not be hand-corrupted.</li>
+          <li>Agents on the pipeline: six scheduled watchers, a five-phase enrichment pipeline, cold-lead scoring, each red-teamed for prompt injection before writes.</li>
+          <li>First inbound asset: an 11-question intake-leak diagnostic that turns the reveal into a booked call.</li>
         </ul>
       </article>
 
@@ -193,7 +184,7 @@
         </div>
         <ul>
           <!-- Source of the 50+ a day: the employer's own performance reporting at the time, pre-2026. -->
-          <li>Ran 50+ inbound service-to-sales interactions a day: resolved the insurance claim first, then pivoted the same caller into a Verizon Home Device Protect subscription, hitting conversion targets on skeptical, often frustrated callers through coverage-gap discovery, plain-language ROI and rapport under pressure.</li>
+          <li>50+ inbound service-to-sales calls a day: resolved the claim, then sold the same caller a Verizon Home Device Protect subscription. Conversion targets hit on skeptical callers.</li>
         </ul>
       </article>
 
@@ -202,7 +193,7 @@
           <h3>ML Project Assistant · <span class="org">Universidad El Bosque</span></h3>
           <span class="job-meta mono">Bogotá &nbsp;|&nbsp; Jan 2025 – Dec 2025</span>
         </div>
-        <p class="job-intro">Built and evaluated machine-learning models for academic and applied research projects.</p>
+        <p class="job-intro">Built and evaluated machine-learning models for academic and applied research.</p>
       </article>
 
       <article class="job">
@@ -212,7 +203,7 @@
         </div>
         <ul>
           <!-- Source of the 80 percent resolution rate and the 15 percent satisfaction lift: the employer's own performance reporting at the time, pre-2026. -->
-          <li>Held an 80% first-call resolution rate on a high-pressure financial-products line, with customer satisfaction up 15% on my book. Mined internal banking data to match products to client needs, the first version of the data-driven selling I do now.</li>
+          <li>80% first-call resolution on a high-pressure financial-products line, satisfaction up 15% on my book. Matched products to clients from the bank's own data.</li>
         </ul>
       </article>
     </section>
@@ -221,35 +212,30 @@
       <div>
         <section aria-label="Skills">
           <h2>Skills</h2>
-          <p class="skill-line"><b>Direct-response copy.</b> Research before writing · email and LinkedIn sequences · AIDA and PAS structures · sending inside Ley 2300 de 2023 · replies handled through to a held meeting · a touch ledger where every number carries its denominator</p>
-          <p class="skill-line"><b>Delivery inside the client's operation.</b> Technical discovery · architecture diagnostics on live client stacks · embedded build and handover · 1:1 enablement · production cutover</p>
-          <p class="skill-line"><b>Sales &amp; GTM.</b> Cold outreach systems · technical discovery · solutions engineering · objection handling · closing · multichannel cadences · sales compliance (Ley 2300 and Ley 1581 in Colombia, CAN-SPAM and TCPA in the US)</p>
-          <p class="skill-line"><b>RevOps.</b> CRM design · pipeline automation · AI deployment · lead scoring &amp; enrichment · attribution · Airtable · n8n · Instantly · Apollo</p>
-          <p class="skill-line"><b>Data &amp; AI.</b> Python · Postgres · public-record data pipelines · Claude Code · MCP servers · sub-agents · agent skills · context engineering · YAML &amp; Markdown context files · LLM automation · prompt-injection hardening · pandas · scikit-learn · SQL</p>
+          <p class="skill-line"><b>Direct-response copy.</b> Research first · email and LinkedIn sequences · AIDA, PAS · Ley 2300 sending windows · every number with its denominator</p>
+          <p class="skill-line"><b>Delivery inside the client's operation.</b> Technical discovery · architecture diagnostics on live stacks · embedded build · 1:1 enablement · handover</p>
+          <p class="skill-line"><b>Sales &amp; GTM.</b> Cold outreach systems · objection handling · closing · multichannel cadences · Ley 2300, Ley 1581, CAN-SPAM, TCPA</p>
+          <p class="skill-line"><b>RevOps.</b> CRM design · computed pipelines · lead scoring and enrichment · Airtable · n8n · Instantly · Apollo</p>
+          <p class="skill-line"><b>Data &amp; AI.</b> Python · Postgres · SQL · public-record pipelines · Claude Code · MCP servers · agent skills · context engineering · prompt-injection hardening · pandas · scikit-learn</p>
         </section>
 
         <section aria-label="Stack">
           <h2>Stack</h2>
-          <p class="skill-line">The core trio below, Obsidian plus Claude Code plus local AI, is a production memory-and-agents system I built for myself and operate daily.</p>
-          <p class="skill-line"><b>AI &amp; agents.</b> Claude Code (subagents, hooks, skills, MCP) · Codex · NotebookLM · n8n · fully offline local AI: Ollama (Qwen), Whisper, Kokoro TTS, Stable Diffusion on OpenVINO</p>
-          <p class="skill-line"><b>Platforms.</b> Obsidian (knowledge system of record) · Airtable · Slack · GitHub · Google Workspace</p>
-          <p class="skill-line"><b>Scripting &amp; automation.</b> Python · PowerShell · Bash · Playwright</p>
-          <p class="skill-line"><b>GTM tooling.</b> LinkedIn Sales Navigator · Instantly · Fathom</p>
+          <p class="skill-line"><b>AI &amp; agents.</b> Claude Code (subagents, hooks, skills, MCP) · Codex · n8n · offline local AI: Ollama, Whisper, Kokoro TTS, Stable Diffusion on OpenVINO</p>
+          <p class="skill-line"><b>Platforms &amp; scripting.</b> Obsidian · Airtable · Slack · GitHub · Google Workspace · Python · PowerShell · Bash · Playwright · Sales Navigator · Instantly · Fathom</p>
           <p class="skill-line"><b>Client stacks serviced.</b> n8n Enterprise · Claude Enterprise · Gemini on Google Workspace · Databricks · Oracle Retail RMS v16</p>
         </section>
 
         <section aria-label="Selected projects">
           <h2>Selected Projects</h2>
-          <p class="proj"><b>Icarus.</b> BUILT · v0. An agent that drafts every outbound touch with its public-record reason attached, runs it through hard gates (Ley 2300 sending windows, evidence required, no invented price) and waits for a human to approve. Nothing sends itself.</p>
+          <p class="proj"><b>Icarus.</b> BUILT · v0. Drafts every outbound touch with its reason attached, passes hard gates (Ley 2300 windows, evidence required, no invented price) and waits for a human. Nothing sends itself.</p>
           <!-- Source of the 498-question benchmark: public at github.com/pretending2bejhon/ulpia, 2026-08. -->
-          <p class="proj"><b>The memory system.</b> LIVE · in daily use. Rules, history and decisions in plain files that my agents and I read the same way. Benchmarked against RAG on 498 questions and published in full, the run that went against my own design included.</p>
+          <p class="proj"><b>The memory system.</b> LIVE · daily use. Rules, history and decisions in plain files my agents and I read the same way. No database, no vendor. Against RAG on 498 questions: organized files 78 per 100, flat folder 75, RAG 55. Published in full.</p>
           <!-- Source of the 1,751,328 figure: the row count of the company spine itself, one row per NIT, 2026-08. -->
-          <p class="proj"><b>The company spine.</b> LIVE · on a client. Colombia's mercantile registry, public contracting and open data joined into one record per company, with an API that answers which accounts are alive and why.</p>
-          <p class="proj"><b>The browser for agents.</b> LIVE · v2. Reads a company's website, its ads, its reels and its LinkedIn page before the first line is written. It only reads, it never sends.</p>
-          <p class="proj"><b>Two agents for a pharmacy retailer.</b> BUILDING · Sep 2026. The first reads a manager's mail, calendar, Slack and Drive twice a day and tells him what needs him; the second answers inventory questions from a spreadsheet, in Slack, for his whole team.</p>
-          <!-- Source of the store/register figures: the engagement's own discovery and diagnostic notes, 2026-07. -->
-          <p class="proj"><b>Enablement at a pharmacy retailer.</b> DELIVERED. More than 140 stores, about 2,000 registers. Calls before any proposal, so the buyer named his own problem in his own words. He got the map of his systems, a backlog of manual processes and his team trained to run it. Won at Frakkr, where I was co-founder.</p>
-          <p class="proj"><b>Touches that went out.</b> SENT. Real outbound touches, company and person covered, each one carrying a public fact about that company and asking for one thing.</p>
+          <p class="proj"><b>The company spine.</b> LIVE · on a client. Colombia's mercantile registry, public contracting and open data as one record per company, 1,751,328 of them, one per NIT, with an API that answers which accounts are active and why.</p>
+          <p class="proj"><b>The browser for agents.</b> LIVE · v2. Reads a website, its ads, reels and LinkedIn page before my agents start. Reads only, never sends.</p>
+          <p class="proj"><b>A Colombian pharmacy retailer.</b> DELIVERED: systems map, manual-process backlog, team trained (won at Frakkr). BUILDING · Sep 2026: two agents, one briefs a manager from his mail, calendar, Slack and Drive twice a day, one answers inventory questions in Slack for his team.</p>
+          <p class="proj"><b>The AI mentoring plan.</b> DESIGNED · Jul 2026. A retailer's engineers build and run their own agents on real work: Oracle queries, n8n flows, invoices. Every session ends with something running.</p>
         </section>
       </div>
 
