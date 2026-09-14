@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jhonalbert Alvarez · CV</title>
-<meta name="description" content="CV · Jhonalbert Alvarez. Forward Deployed Copywriter · B2B outbound · RevOps · AI systems.">
+<meta name="description" content="CV · Jhonalbert Alvarez. Forward Deployed Engineer + Seller · B2B outbound · RevOps · AI systems.">
 <style>
   /* CV — same identity system as the portfolio site, translated to paper.
      Light ground (this IS the print artifact), violet signal, mono metadata voice,
@@ -130,7 +130,7 @@
 <body>
   <main class="sheet">
     <header>
-      <p class="role-line">Forward Deployed Copywriter · B2B Outbound · RevOps · AI Systems</p>
+      <p class="role-line">Forward Deployed Engineer + Seller · B2B Outbound · RevOps · AI Systems</p>
       <div class="lockup">
         <h1>Jhonalbert Alvarez</h1>
         <svg class="reticle" viewBox="0 0 40 40" aria-hidden="true">
@@ -143,7 +143,7 @@
       <p class="tagline">I build the revenue systems I sell.</p>
       <p class="contact-line mono">+57 314 207 5466 · <a href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a> · <a href="https://www.linkedin.com/in/jhonalbert-alvarez/">linkedin.com/in/jhonalbert-alvarez</a> · <a href="https://jhonalbert.com/">jhonalbert.com</a> · Colombia, working remotely on EU &amp; US hours</p>
       <!-- DRAFT: Jhon rewrites -->
-      <p class="summary">A copywriter who works inside the sales team. I find the companies a client should be selling to, write the emails and LinkedIn messages, send them, and count the meetings that actually happen. I also build the tools that do it: a research engine over Colombia's public records that answers which accounts are alive and why, and a memory system so a team and its AI answer from one place instead of re-deriving what the business already knew. Two years on high-volume sales floors first, then co-founder and Head of Growth at Frakkr.</p>
+      <p class="summary">Companies call me when they want things done. I go in, understand the problem and build what is missing: a research engine over Colombia's public records that answers which accounts are alive and why, an outbound agent that drafts and waits for approval, and a memory system so a team and its AI answer from one place instead of re-deriving what the business already knew. Two years on high-volume sales floors first, then co-founder and Head of Growth at Frakkr.</p>
       <hr class="head-rule">
     </header>
 
@@ -153,11 +153,12 @@
       <!-- DRAFT: Jhon rewrites -->
       <article class="job">
         <div class="job-head">
-          <h3>Forward Deployed Copywriter · <span class="org">Independent</span></h3>
+          <h3>Forward Deployed Engineer · <span class="org">Independent</span></h3>
           <span class="job-meta mono">Colombia, remote &nbsp;|&nbsp; Aug 2026 – present</span>
         </div>
         <p class="job-intro">Direct-response outbound for Colombian B2B companies: every account researched on the public record before a line is written, the emails and LinkedIn messages written and sent by me, and the work judged on replies and on meetings that are held. The memory system is the second product.</p>
         <ul>
+          <li>Built and shipped: <b>Icarus</b> (v0, an outbound agent that drafts and waits for approval), <b>the memory system</b> (in daily use), <b>the company spine</b> (an API over Colombia's public records, live on a client), a <b>read-only browser for agents</b> (v2), and <b>two agents</b> for a pharmacy retailer's manager and inventory team (building, Sep 2026).</li>
           <!-- Source of the 1,751,328 figure: the row count of the company spine itself, one row per NIT, 2026-08. -->
           <li>Built the research engine the copy runs on: <b>1,751,328 Colombian companies</b>, one row per NIT, joined from RUES, SECOP and datos.gov.co, with an API on top that answers which accounts are alive and why.</li>
           <!-- Source of the 498 questions and the 78 / 75 / 55 scores: the public benchmark at github.com/pretending2bejhon/ulpia, 2026-08. -->
@@ -206,7 +207,7 @@
 
       <article class="job">
         <div class="job-head">
-          <h3>Sales &amp; Customer Advisor · <span class="org">ScotiaGBS (Scotiabank)</span></h3>
+          <h3>Customer Advisor · <span class="org">ScotiaGBS (Scotiabank)</span></h3>
           <span class="job-meta mono">Bogotá &nbsp;|&nbsp; Jan 2022 – Jul 2023</span>
         </div>
         <ul>
@@ -239,11 +240,16 @@
 
         <section aria-label="Selected projects">
           <h2>Selected Projects</h2>
-          <!-- Sources: the 498-question benchmark is public at github.com/pretending2bejhon/ulpia, 2026-08; the 4,480 transcripts and the 773 to 5 per day come from an audit of my own agent-session transcripts, 2026-08-01. -->
-          <p class="proj"><b>The memory system.</b> The knowledge system I operate daily, where my agents and I answer from the same plain files: a boot file states the rules, a routing table loads context only when it is needed, and guardrails sit between the agents and anything destructive. Benchmarked against RAG on 498 questions and published in full, the run that went against my own design included. A 4,480-transcript audit of my own sessions validated its cost model and cut security-rule violations from 773 to 5 per day by relocating one rule.</p>
+          <p class="proj"><b>Icarus.</b> BUILT · v0. An agent that drafts every outbound touch with its public-record reason attached, runs it through hard gates (Ley 2300 sending windows, evidence required, no invented price) and waits for a human to approve. Nothing sends itself.</p>
+          <!-- Source of the 498-question benchmark: public at github.com/pretending2bejhon/ulpia, 2026-08. -->
+          <p class="proj"><b>The memory system.</b> LIVE · in daily use. Rules, history and decisions in plain files that my agents and I read the same way. Benchmarked against RAG on 498 questions and published in full, the run that went against my own design included.</p>
           <!-- Source of the 1,751,328 figure: the row count of the company spine itself, one row per NIT, 2026-08. -->
-          <p class="proj"><b>The company spine, Colombia.</b> Joins RUES, SECOP and datos.gov.co into one national record of 1,751,328 companies, one row per NIT, with an API on top that answers which accounts are alive and why. Public records only, inside Ley 2300 and Ley 1581. Built as custom software for a client; it runs under every sequence I write.</p>
-          <p class="proj"><b>Offline call-QA pipeline.</b> Local Whisper transcription feeds a rubric-scored teardown into a styled PDF in minutes, not days. Runs on real sales calls, not synthetic data. Recordings never touch a cloud API.</p>
+          <p class="proj"><b>The company spine.</b> LIVE · on a client. Colombia's mercantile registry, public contracting and open data joined into one record per company, with an API that answers which accounts are alive and why.</p>
+          <p class="proj"><b>The browser for agents.</b> LIVE · v2. Reads a company's website, its ads, its reels and its LinkedIn page before the first line is written. It only reads, it never sends.</p>
+          <p class="proj"><b>Two agents for a pharmacy retailer.</b> BUILDING · Sep 2026. The first reads a manager's mail, calendar, Slack and Drive twice a day and tells him what needs him; the second answers inventory questions from a spreadsheet, in Slack, for his whole team.</p>
+          <!-- Source of the store/register figures: the engagement's own discovery and diagnostic notes, 2026-07. -->
+          <p class="proj"><b>Enablement at a pharmacy retailer.</b> DELIVERED. More than 140 stores, about 2,000 registers. Calls before any proposal, so the buyer named his own problem in his own words. He got the map of his systems, a backlog of manual processes and his team trained to run it. Won at Frakkr, where I was co-founder.</p>
+          <p class="proj"><b>Touches that went out.</b> SENT. Real outbound touches, company and person covered, each one carrying a public fact about that company and asking for one thing.</p>
         </section>
       </div>
 
