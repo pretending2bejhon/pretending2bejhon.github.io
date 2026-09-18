@@ -228,6 +228,44 @@
     .tri-scene.live .tri-core { animation: tri-rise .7s var(--ease-out) .3s forwards; }
   }
 
+  /* ————— visual layer (3D compass + reveal), module visual/visual.js ————— */
+  .visual-gl { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+  .visual-field { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+  .tri-stage[data-gl="on"] { aspect-ratio: 1000 / 740; }
+  .tri-stage[data-gl="on"] .tri-svg { opacity: 0; pointer-events: none; }
+  body[data-cursor="pointer"] { cursor: pointer; }
+  .reveal { position: fixed; inset: 0; z-index: 50; background: rgba(3,2,9,.97); color: var(--text); display: grid; grid-template-rows: auto 1fr; font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif; font-size: var(--t-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .reveal .rc-sep { padding: 0 6px; }
+  .reveal[hidden] { display: none; }
+  .reveal-bar { display: flex; align-items: center; gap: 18px; padding: 22px clamp(22px, 5vw, 56px) 14px; }
+  .reveal-counter { color: var(--dim); font-size: var(--t-meta); letter-spacing: .18em; display: inline-flex; overflow: hidden; }
+  .reveal-counter .rc-top { display: inline-block; color: var(--sighi); }
+  .reveal-line { flex: 1; height: 1px; background: var(--signal); transform-origin: left center; transform: scaleX(0); }
+  .reveal-hint { color: var(--faint); font-size: var(--t-meta); letter-spacing: .14em; }
+  .reveal-close { all: unset; cursor: pointer; color: var(--dim); font-size: 22px; line-height: 1; padding: 4px 10px; }
+  .reveal-close:hover, .reveal-close:focus-visible { color: var(--signal); }
+  .reveal-body { overflow: auto; width: 100%; max-width: 1060px; margin: 0 auto; padding: 8px clamp(22px, 5vw, 56px) 48px; box-sizing: border-box; }
+  .reveal-body .dlg-inner { padding: 0; }
+  .reveal-body .dlg-visual { max-width: 860px; }
+  .reveal-body .vcard, .reveal-body .memtree { font-size: clamp(13px, 1.3vw, 17px); }
+  .reveal-body .proof-visual { width: min(100%, 640px); height: auto; margin: 0 0 var(--s-6); }
+  .reveal-body .proof-body { max-width: 66ch; }
+  .reveal-body .proof-kicker { display: flex; align-items: center; margin: 0 0 var(--s-4); font-size: var(--t-meta); letter-spacing: .14em; color: var(--signal); text-transform: uppercase; }
+  .reveal-body .proof-text { margin: 0; color: var(--dim); font-size: var(--t-body); line-height: 1.7; }
+  .reveal-body .process-glyph { width: clamp(120px, 20vw, 220px); height: auto; margin: 0 0 var(--s-6); display: block; }
+  .reveal-body .process-glyph .ln { stroke: #7a6b96; stroke-width: 1.2; fill: none; }
+  .reveal-body .process-glyph .hi { stroke: var(--signal); stroke-width: 1.3; fill: none; }
+  .reveal-body .process-glyph .fl { fill: var(--signal); }
+  .reveal-body .process-glyph .dash { stroke-dasharray: 3 4; }
+  .reveal-body .step-text h3 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 330; margin: 0 0 10px; }
+  .reveal-body .step-text p { margin: 0; color: var(--dim); font-size: var(--t-body); line-height: 1.7; max-width: 60ch; }
+  .reveal-body .step-no { display: block; margin-bottom: var(--s-3); color: var(--signal); font-size: var(--t-meta); letter-spacing: .2em; }
+  .proof-row[role="button"], .process-step[role="button"] { cursor: pointer; }
+  .proof-row[role="button"]:focus-visible, .process-step[role="button"]:focus-visible { outline: 1px solid var(--signal); outline-offset: 6px; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  @media print { .visual-gl, .visual-field { display: none !important; } }
+
   .tri-readout { margin-top: clamp(22px, 4vh, 40px); border-top: 1px solid var(--hair); padding-top: 24px; min-height: 184px; }
   .tri-readout .kicker { margin-bottom: 10px; }
   .tri-readout h3 { margin: 0 0 10px; font-size: clamp(1.3rem, 2.4vw, 1.8rem); font-weight: 330; letter-spacing: -0.015em; }
@@ -455,9 +493,9 @@
     <div class="nav-right">
       <span class="role mono">FORWARD DEPLOYED ENGINEER</span>
       <nav class="nav-links mono">
-        <a href="#work">Trabajo</a>
-        <a href="#proof">Prueba</a>
         <a href="#how">Cómo trabajo</a>
+        <a href="#proof">Prueba</a>
+        <a href="#work">Trabajo</a>
         <a href="#contact">Contacto</a>
       </nav>
       <button type="button" class="lang-btn" data-lang-btn aria-label="Switch to English">EN</button>
@@ -481,22 +519,6 @@
   </section>
 
   <main class="scenes col">
-    <section class="scene" id="work" aria-label="Trabajo">
-      <p class="kicker mono" id="work-kicker" data-dots>TRABAJO</p>
-      <h2 class="display" id="work-h2">Lo que he construido</h2>
-      <ul class="work-list" data-work-list role="list" aria-label="Proyectos"></ul>
-    </section>
-
-    <section class="pixel-band pixel-sep" aria-hidden="true">
-      <div class="pixel-grid" data-pixel-grid></div>
-    </section>
-
-    <section class="scene" id="proof" aria-label="Prueba">
-      <p class="kicker mono" id="proof-kicker" data-dots>PRUEBA</p>
-      <h2 class="display" id="proof-h2">Demostraciones de impacto</h2>
-      <ul class="proof-rows" data-proof-list role="list"></ul>
-    </section>
-
     <section class="scene tri-scene" id="tri" aria-label="Tres áreas">
       <p class="kicker mono" id="tri-kicker" data-dots>TRES ÁREAS</p>
       <div class="tri-stage" data-tri-stage></div>
@@ -510,6 +532,11 @@
 
     <section class="pixel-band pixel-sep" aria-hidden="true">
       <div class="pixel-grid" data-pixel-grid></div>
+    </section>
+
+    <section class="scene" id="skills" aria-label="Lo que sé hacer">
+      <p class="kicker mono" id="skills-kicker" data-dots>LO QUE SÉ HACER</p>
+      <ul class="good-at" data-good-list role="list"></ul>
     </section>
 
     <section class="scene" id="how" aria-label="Cómo trabajo">
@@ -586,6 +613,22 @@
       </div>
     </section>
 
+    <section class="pixel-band pixel-sep" aria-hidden="true">
+      <div class="pixel-grid" data-pixel-grid></div>
+    </section>
+
+    <section class="scene" id="proof" aria-label="Prueba">
+      <p class="kicker mono" id="proof-kicker" data-dots>PRUEBA</p>
+      <h2 class="display" id="proof-h2">Demostraciones de impacto</h2>
+      <ul class="proof-rows" data-proof-list role="list"></ul>
+    </section>
+
+    <section class="scene" id="work" aria-label="Trabajo">
+      <p class="kicker mono" id="work-kicker" data-dots>TRABAJO</p>
+      <h2 class="display" id="work-h2">Lo que he construido</h2>
+      <ul class="work-list" data-work-list role="list" aria-label="Proyectos"></ul>
+    </section>
+
     <section class="scene" id="journey" aria-label="Recorrido">
       <p class="kicker mono" id="journey-kicker" data-dots>RECORRIDO</p>
       <div class="journey-line" data-journey>
@@ -608,11 +651,6 @@
       </div>
     </section>
 
-    <section class="scene" id="skills" aria-label="Lo que sé hacer">
-      <p class="kicker mono" id="skills-kicker" data-dots>LO QUE SÉ HACER</p>
-      <ul class="good-at" data-good-list role="list"></ul>
-    </section>
-
     <section class="contact" id="contact" aria-label="Contacto">
       <canvas class="contact-star-canvas" data-contact-stars aria-hidden="true"></canvas>
       <div class="contact-content">
@@ -621,6 +659,7 @@
         <div class="slots mono">
           <a class="btn" href="https://cal.com/jhonalbert-alvarez-phuqi8/15min" target="_blank" rel="noopener" id="contact-book">No seas tímido <span class="arr" aria-hidden="true">↗</span></a>
           <a class="slot" href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a>
+          <a class="slot" href="tel:+573142075466">+57 314 207 5466</a>
           <a class="slot slot-icon" href="https://www.linkedin.com/in/jhonalbert-alvarez/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
             <svg class="li" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
             <span>linkedin.com/in/jhonalbert-alvarez</span>
@@ -957,7 +996,7 @@ window.GOOD_AT = [
       } else {
         visualSlot.appendChild(visualNode);
       }
-      btn.addEventListener('click', function () { dlg.showModal(); });
+      btn.addEventListener('click', function (ev) { if (window.openWork) { window.openWork(item.id, ev); } else { dlg.showModal(); } });
       wrap.querySelector('.dlg-close').addEventListener('click', function () { dlg.close(); });
       dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
     });
@@ -1128,6 +1167,7 @@ window.GOOD_AT = [
     }
     var focused = id !== 'core';
     stageEl.classList.toggle('has-focus', focused);
+    document.dispatchEvent(new CustomEvent('tri:applied', { detail: { id: id, pinned: pinned } }));
     stageEl.querySelectorAll('.tri-node, .tri-core').forEach(function (n) {
       n.classList.toggle('is-on', focused && n.dataset.node === id);
     });
@@ -1171,6 +1211,9 @@ window.GOOD_AT = [
     });
   }
 
+  document.addEventListener('tri:hold', function (e) { hold(e.detail.id); });
+  document.addEventListener('tri:release', function () { release(); });
+  document.addEventListener('tri:toggle', function (e) { togglePin(e.detail.id); });
   window.renderTri = function (l) { lang = l; render(); };
   render();
 
@@ -1191,9 +1234,9 @@ window.GOOD_AT = [
   var I18N_EN = {
     '.skip-link': 'Skip to the work',
     '.nav-right .role': 'FORWARD DEPLOYED ENGINEER',
-    '.nav-links a:nth-child(1)': 'Work',
+    '.nav-links a:nth-child(1)': 'How I work',
     '.nav-links a:nth-child(2)': 'Proof',
-    '.nav-links a:nth-child(3)': 'How I work',
+    '.nav-links a:nth-child(3)': 'Work',
     '.nav-links a:nth-child(4)': 'Contact',
     '.hero-content .kicker': 'Bogotá, Colombia',
     '#hero-h1': 'Companies call me when they want results',
@@ -1719,5 +1762,6 @@ window.pixelBand = function (el, cols, rows, seed) {
   update();
 })();
 </script>
+<script type="module" src="visual/visual.js"></script>
 </body>
 </html>

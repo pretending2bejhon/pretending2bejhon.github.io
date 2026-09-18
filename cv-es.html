@@ -100,7 +100,11 @@
   @media print {
     @page { size: letter; margin: 6mm 10mm; }
     html, body { background: #fff; }
-    .sheet { max-width: 100%; margin: 0; padding: 0; box-shadow: none; font-size: 7.8pt; line-height: 1.14; }
+    /* Spanish runs about 15% longer than the English sheet, which overflowed this file
+       onto a second page by three lines (measured 2026-09-17). The leading and the block
+       spacing below are tightened here and ONLY here; cv.html keeps 1.14 so its PDF stays
+       byte-stable. Reprint and check the page count after any copy change. */
+    .sheet { max-width: 100%; margin: 0; padding: 0; box-shadow: none; font-size: 7.8pt; line-height: 1.08; }
     a { color: var(--signal); }
     .job li, .job { break-inside: avoid; }
     .grid { gap: 0 22pt; }
@@ -114,12 +118,12 @@
     .summary { margin: 5pt 0 0; max-width: none; }
     .head-rule { margin: 6pt 0 0; }
 
-    h2 { font-size: 7pt; margin: 6pt 0 3pt; }
-    .job { margin-bottom: 4pt; }
+    h2 { font-size: 7pt; margin: 5pt 0 2.5pt; }
+    .job { margin-bottom: 3pt; }
     .job-head h3 { font-size: 9.2pt; }
     .job-meta { font-size: 6.8pt; }
     .job-intro { font-size: 8pt; }
-    .job li { margin-bottom: 1pt; padding-left: 12pt; }
+    .job li { margin-bottom: 0.5pt; padding-left: 12pt; }
     .skill-line { margin-bottom: 2pt; }
     .proj { margin-bottom: 2.5pt; }
     .edu { margin-bottom: 6pt; }
