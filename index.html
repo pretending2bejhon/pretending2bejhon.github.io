@@ -233,6 +233,7 @@
   .visual-field { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
   .tri-stage[data-gl="on"] { aspect-ratio: 1000 / 740; }
   .tri-stage[data-gl="on"] .tri-svg { opacity: 0; pointer-events: none; }
+  .scene-hero[data-gl="on"] .star-canvas { opacity: 0; transition: opacity .6s var(--ease-out); }
   body[data-cursor="pointer"] { cursor: pointer; }
   .reveal { position: fixed; inset: 0; z-index: 50; background: rgba(3,2,9,.97); color: var(--text); display: grid; grid-template-rows: auto 1fr; font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif; font-size: var(--t-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
   .reveal .rc-sep { padding: 0 6px; }
