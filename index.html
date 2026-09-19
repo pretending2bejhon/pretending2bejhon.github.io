@@ -458,6 +458,74 @@
     .cta-row { flex-direction: column; align-items: flex-start; gap: var(--s-4); }
   }
 
+  /* ————— phone layout for the visual module (I22, moved here 2026-09-19) ————— */
+  /* Base rules for markup the visual module renders at every width: the reveal overlay's
+     previous/next buttons stay hidden until a phone shows them; the compass slot and
+     touch-area buttons stay hidden until visual.js inserts and sizes them. Living here
+     instead of inside visual.js means a phone gets this layout before the module loads,
+     not after, so there is no reflow from the desktop layout into the phone one. */
+  .hero-compass-slot, .tri-touch-controls { display: none; }
+  .reveal, .reveal * { box-sizing: border-box; }
+  .reveal { grid-template-rows: auto minmax(0, 1fr); }
+  .reveal-body { min-height: 0; overscroll-behavior: contain; touch-action: auto; }
+  .reveal :focus-visible { outline: 1px solid var(--signal); outline-offset: 3px; }
+  .reveal-step { display: none; }
+  html.visual-reveal-open, html.visual-reveal-open body { overflow: hidden; }
+  @media screen and (max-width: 759px), screen and (pointer: coarse) and (max-width: 1000px) {
+    .d4 .col { padding-inline: max(22px, env(safe-area-inset-left)) max(22px, env(safe-area-inset-right)); }
+    .d4 .nav { display: grid; grid-template-columns: minmax(0, 1fr) 46px; gap: 4px 12px; padding-top: max(14px, env(safe-area-inset-top)); padding-bottom: 4px; }
+    .d4 .lockup { grid-area: 1 / 1; min-width: 0; }
+    .d4 .lockup .name { font-size: clamp(15px, 4.7vw, 20px); letter-spacing: .12em; white-space: nowrap; }
+    .d4 .lockup .reticle { display: none; }
+    .d4 .nav-right { display: contents; }
+    .d4 .lang-btn { grid-area: 1 / 2; min-width: 44px; min-height: 44px; padding: 0; }
+    .d4 .nav-right .role { grid-area: 2 / 1 / auto / -1; font-size: 10px; letter-spacing: .12em; }
+    .d4 .nav-links { grid-area: 3 / 1 / auto / -1; display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--hair); }
+    .d4 .nav-links a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; font-size: 12px; letter-spacing: 0; }
+    .d4 .scene-hero { min-height: 0; padding: 12px 0 36px; justify-content: flex-start; }
+    .d4 .hero-compass-slot { height: clamp(150px, 25svh, 244px); margin-bottom: 16px; flex: none; }
+    .d4 .scene-hero[data-compass="on"] .hero-compass-slot { display: block; }
+    .d4 .hero-content { gap: 18px; }
+    .d4 .thesis { font-size: clamp(34px, 9.8vw, 42px); line-height: 1.08; max-width: 19ch; }
+    .d4 .hero-content .kicker { font-size: 11px; letter-spacing: .16em; }
+    .d4 .cta-row { align-items: stretch; gap: 8px; }
+    .d4 .cta-row .btn { min-height: 52px; justify-content: space-between; padding: 14px 18px; }
+    .d4 .cta-row .cta { display: inline-flex; align-items: center; align-self: flex-start; min-height: 44px; padding: 8px 0; }
+    .d4 .pixel-band { height: clamp(72px, 13svh, 116px); }
+    .d4 .tri-stage[data-gl="on"] { aspect-ratio: 1.3; }
+    .d4 .tri-touch-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0 0 20px; }
+    .d4 .tri-touch-controls button { font: inherit; font-size: 12px; line-height: 1.35; color: var(--dim); background: rgba(15,10,25,.8); border: 1px solid var(--hair); min-height: 60px; padding: 8px 6px; cursor: pointer; touch-action: manipulation; }
+    .d4 .tri-touch-controls button[aria-pressed="true"] { color: var(--sighi); border-color: var(--signal); background: rgba(190,149,255,.09); }
+    .d4 .tri-readout { margin-top: 0; padding-top: 20px; min-height: 176px; }
+    .d4 .tri-link a { display: inline-flex; align-items: center; min-height: 44px; }
+    .d4 .proof-row { position: relative; top: auto; padding: 24px 20px; gap: 20px; min-height: 0; }
+    .d4 .proof-row .proof-visual { max-width: 200px; justify-self: center; }
+    .d4 .work-row-inner { gap: 10px; }
+    .reveal { height: 100dvh; background: #030209; }
+    .reveal-bar { gap: 10px; padding: max(12px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) 12px max(18px, env(safe-area-inset-left)); border-bottom: 1px solid var(--hair); }
+    .reveal-counter { font-size: 12px; letter-spacing: .08em; flex: none; }
+    .reveal .rc-sep { padding: 0 3px; }
+    .reveal-hint { display: none; }
+    .reveal-close, .reveal-step { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: none; padding: 0; border: 1px solid var(--hair); background: none; color: var(--dim); font: inherit; font-size: 22px; cursor: pointer; touch-action: manipulation; }
+    .reveal-close { margin-left: 2px; }
+    .reveal-body { padding: 24px max(22px, env(safe-area-inset-right)) max(32px, env(safe-area-inset-bottom)) max(22px, env(safe-area-inset-left)); }
+    .reveal-body .proof-visual { max-width: 260px; display: block; margin: 0 auto 24px; }
+    .reveal-body .vcard { padding: 16px; overflow-x: auto; }
+    .reveal-body .memtree { padding: 16px; overflow-x: auto; }
+    .reveal-body .dlg-text, .reveal-body .proof-text, .reveal-body .step-text p { font-size: 16px; line-height: 1.7; }
+  }
+  @media screen and (max-width: 759px) and (max-height: 650px) {
+    .d4 .hero-compass-slot { height: 116px; margin-bottom: 10px; }
+    .d4 .hero-content { gap: 14px; }
+    .d4 .thesis { font-size: 32px; }
+  }
+  @media screen and (pointer: coarse) and (orientation: landscape) and (max-width: 1000px) {
+    .d4 .scene-hero[data-compass="on"] { display: grid; grid-template-columns: 34% minmax(0, 1fr); align-items: center; padding: 24px 22px 32px; }
+    .d4 .scene-hero[data-compass="on"] .hero-compass-slot { height: 200px; margin: 0; }
+    .d4 .scene-hero[data-compass="on"] .hero-content { padding-left: 12px; padding-right: 0; }
+    .d4 .thesis { font-size: 34px; }
+  }
+
   /* ————— print: derived one-pager ————— */
   @media print {
     @page { size: letter; margin: 13mm 15mm; }
@@ -1763,6 +1831,6 @@ window.pixelBand = function (el, cols, rows, seed) {
   update();
 })();
 </script>
-<script type="module" src="visual/visual.js"></script>
+<script type="module" src="visual/visual.js?v=20260919"></script>
 </body>
 </html>
