@@ -77,24 +77,18 @@
   .job-intro { margin: 2px 0 3px; font-size: 12px; color: var(--meta); }
   .job ul { margin: 2px 0 0; padding: 0; list-style: none; }
   .job li { margin: 0 0 2.5px; padding-left: 16px; position: relative; }
-  .job li::before { content: "—"; position: absolute; left: 0; color: var(--signal); }
+  .job li::before { content: ""; position: absolute; left: 0; top: .68em; width: 8px; border-top: 1.2px solid var(--signal); }
 
-  /* ————— bottom grid ————— */
-  .grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 0 34px; }
   .skill-line { margin: 0 0 5px; }
   .skill-line b { color: var(--ink); }
   .proj { margin: 0 0 7px; }
   .proj b { color: var(--ink); }
   .edu { margin: 0 0 8px; }
-  .edu b { color: var(--ink); display: block; }
+  .edu b { color: var(--ink); }
   .edu .where { color: var(--signal); }
   .edu .when { font-size: 9px; color: var(--meta); letter-spacing: .06em; }
-  .langs { margin: 0; padding: 0; list-style: none; }
-  .langs li { display: flex; justify-content: space-between; border-bottom: .5px solid var(--rule-soft); padding: 3px 1px; }
-  .langs .lvl { color: var(--meta); font-size: 9.5px; letter-spacing: .05em; }
-  .langs b { color: var(--ink); font-weight: 600; }
 
-  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } .sheet { padding: 26px 20px; } }
+  @media (max-width: 700px) { .sheet { padding: 26px 20px; } }
 
   @media print {
     @page { size: letter; margin: 6mm 10mm; }
@@ -102,7 +96,6 @@
     .sheet { max-width: 100%; margin: 0; padding: 0; box-shadow: none; font-size: 7.8pt; line-height: 1.14; }
     a { color: var(--signal); }
     .job li, .job { break-inside: avoid; }
-    .grid { gap: 0 22pt; }
 
     .role-line { font-size: 7pt; margin-bottom: 4pt; }
     .lockup { gap: 10pt; }
@@ -121,9 +114,8 @@
     .job li { margin-bottom: 1pt; padding-left: 12pt; }
     .skill-line { margin-bottom: 2pt; }
     .proj { margin-bottom: 2.5pt; }
-    .edu { margin-bottom: 6pt; }
-    .edu .when, .langs .lvl { font-size: 6.8pt; }
-    .langs li { padding: 2pt 1px; }
+    .edu { margin-bottom: 2pt; }
+    .edu .when { font-size: 6.8pt; }
   }
 </style>
 </head>
@@ -141,9 +133,25 @@
         </svg>
       </div>
       <p class="tagline">I build the revenue systems I sell.</p>
-      <p class="contact-line mono">+57 314 207 5466 · <a href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a> · <a href="https://www.linkedin.com/in/jhonalbert-alvarez/">linkedin.com/in/jhonalbert-alvarez</a> · <a href="https://jhonalbert.com/">jhonalbert.com</a> · Colombia, remote on EU &amp; US hours</p>
+      <p class="contact-line mono">+57 314 207 5466 · <a href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a> · <a href="https://www.linkedin.com/in/jhonalbert-alvarez/">linkedin.com/in/jhonalbert-alvarez</a> · <a href="https://github.com/pretending2bejhon">github.com/pretending2bejhon</a> · <a href="https://jhonalbert.com/">jhonalbert.com</a> · Colombia, remote on EU &amp; US hours</p>
       <hr class="head-rule">
     </header>
+
+    <section aria-label="Profile">
+      <h2>Profile</h2>
+      <!-- Source of the 3 hours: my own estimate, 2026-09-26, not measured. Source of 78 against 55 on 498 questions: public at github.com/pretending2bejhon/ulpia, 2026-08. -->
+      <p class="summary">I go into the client's operation, understand the problem, build what is missing and hand it over running. I built the memory system my agents and I work in every day: it saves me about 3 hours a day of re-explaining context, and against RAG on 498 questions it scores 78 per 100 to RAG's 55. Before I build, I sell: research-first outbound that gets buyers to book the meeting themselves.</p>
+    </section>
+
+    <section aria-label="Skills">
+      <h2>Skills</h2>
+      <p class="skill-line"><b>AI &amp; agents.</b> Claude Code (subagents, hooks, skills, MCP servers) · Codex · context engineering · evals · prompt-injection hardening · offline local AI: Ollama, Whisper, Kokoro TTS, Stable Diffusion on OpenVINO</p>
+      <p class="skill-line"><b>Data.</b> Python · Postgres · SQL · public-record pipelines · pandas · scikit-learn</p>
+      <p class="skill-line"><b>Automation &amp; tools.</b> n8n · Playwright · PowerShell · Bash · GitHub · Airtable · Obsidian · Slack · Google Workspace</p>
+      <p class="skill-line"><b>Delivery inside the client's operation.</b> Technical discovery · architecture diagnostics on live stacks · embedded build · 1:1 enablement · handover</p>
+      <p class="skill-line"><b>Sales, copy &amp; RevOps.</b> Direct-response copy, research first · AIDA, PAS · cold outreach systems · objection handling · closing · multichannel cadences · CRM design · computed pipelines · lead scoring and enrichment · Sales Navigator · Instantly · Apollo · Ley 2300, Ley 1581, CAN-SPAM, TCPA</p>
+      <p class="skill-line"><b>Client stacks serviced.</b> n8n Enterprise · Claude Enterprise · Gemini on Google Workspace · Databricks · Oracle Retail RMS v16</p>
+    </section>
 
     <section aria-label="Experience">
       <h2>Experience</h2>
@@ -153,11 +161,16 @@
           <h3>Forward Deployed Engineer · <span class="org">Independent</span></h3>
           <span class="job-meta mono">Colombia, remote &nbsp;|&nbsp; Aug 2026 – present</span>
         </div>
-        <p class="job-intro">Agents, data systems and direct response copywriting, one operation at a time. Judged on replies and on meetings held.</p>
+        <p class="job-intro">Agents, data systems and direct-response copy, one operation at a time. Judged on replies and on meetings held.</p>
         <ul>
-          <li>Built and shipped: <b>Icarus</b> (v0), <b>the memory system</b> (daily use), <b>Vault City</b> (live), <b>the company spine</b> (API online), <b>the browser for agents</b> (v2), <b>two agents</b> for a pharmacy retailer (building, Sep 2026), an <b>AI mentoring plan</b> for its engineers (designed, Jul 2026). Details under Selected Projects.</li>
+          <!-- Source of the 3 hours: my own estimate, 2026-09-26, not measured. Source of the 498-question benchmark: public at github.com/pretending2bejhon/ulpia, 2026-08. -->
+          <li>Saved about 3 hours a day of re-explaining context by building <b>the memory system</b> my agents and I read the same way: plain files, no database, no vendor. Against RAG on 498 questions: organized files 78 per 100, flat folder 75, RAG 55.</li>
+          <!-- Source of the 1,751,328 figure: the row count of the company spine itself, one row per NIT, 2026-08. -->
+          <li>Joined Colombia's mercantile registry, public contracting and open data into <b>the company spine</b>: one record per company, 1,751,328 of them, one per NIT, behind a live API that answers which accounts are active and why.</li>
           <!-- Source of both results: my own outreach ledger, 2026-08 and 2026-09; the twenty, fifteen, six and five are the buyer's own count, reported by him. -->
-          <li>Results, no names: one cold LinkedIn message to a university clinic's head of technology, and he booked the meeting himself. A fintech CEO wrote to twenty researched companies: fifteen had a channel, six replied, five meetings.</li>
+          <li>Turned cold outreach and research into meetings: one LinkedIn message to a university clinic's head of technology, and he booked the call himself. A fintech CEO wrote to twenty companies from my research: fifteen had a channel, six replied, five meetings.</li>
+          <li>Built <b>Icarus</b> (v0), an outbound agent that drafts every touch with its reason attached, passes hard gates (Ley 2300 windows, evidence required, no invented price) and waits for a human. Nothing sends itself.</li>
+          <li>Leading (Sep 2026) <b>two agents</b> for a Colombian pharmacy retailer: one briefs a manager from his mail, calendar, Slack and Drive twice a day, one answers inventory questions in Slack for his team.</li>
         </ul>
       </article>
 
@@ -170,10 +183,10 @@
         <ul>
           <!-- Source of the store, register and backlog figures: the engagement's own discovery and diagnostic notes, 2026-07, two discovery calls. -->
           <li>Won an AI enablement engagement with a <b>Colombian pharmacy retailer</b> (140+ stores, about 2,000 registers): architecture diagnostic, systems map, a 14-item backlog of manual work, 1:1 training on their live Oracle and n8n flows. Agreed metric: hours recovered per process.</li>
-          <li>Outbound from zero: isolated Workspace tenants, automated warmup, CAN-SPAM and TCPA-compliant email, LinkedIn and cold-call sequences.</li>
-          <li>Two CRM generations. In the second, stage, fit score, intent and priority were formulas from activity dates, so pipeline state could not be hand-corrupted.</li>
-          <li>Agents on the pipeline: six scheduled watchers, a five-phase enrichment pipeline, cold-lead scoring, each red-teamed for prompt injection before writes.</li>
-          <li>First inbound asset: an 11-question intake-leak diagnostic that turns the reveal into a booked call.</li>
+          <li>Built outbound from zero: isolated Workspace tenants, automated warmup, CAN-SPAM and TCPA-compliant email, LinkedIn and cold-call sequences.</li>
+          <li>Made pipeline state impossible to hand-corrupt: in the second of two CRM generations, stage, fit score, intent and priority were formulas from activity dates.</li>
+          <li>Put agents on the pipeline: six scheduled watchers, a five-phase enrichment pipeline and cold-lead scoring, each red-teamed for prompt injection before it could write.</li>
+          <li>Shipped the first inbound asset: an 11-question intake-leak diagnostic that turns the reveal into a booked call.</li>
         </ul>
       </article>
 
@@ -206,57 +219,35 @@
           <li>80% first-call resolution on a high-pressure financial-products line, satisfaction up 15% on my book. Matched products to clients from the bank's own data.</li>
         </ul>
       </article>
+
     </section>
 
-    <div class="grid">
-      <div>
-        <section aria-label="Skills">
-          <h2>Skills</h2>
-          <p class="skill-line"><b>Direct-response copy.</b> Research first · email and LinkedIn sequences · AIDA, PAS · Ley 2300 sending windows · every number with its denominator</p>
-          <p class="skill-line"><b>Delivery inside the client's operation.</b> Technical discovery · architecture diagnostics on live stacks · embedded build · 1:1 enablement · handover</p>
-          <p class="skill-line"><b>Sales &amp; GTM.</b> Cold outreach systems · objection handling · closing · multichannel cadences · Ley 2300, Ley 1581, CAN-SPAM, TCPA</p>
-          <p class="skill-line"><b>RevOps.</b> CRM design · computed pipelines · lead scoring and enrichment · Airtable · n8n · Instantly · Apollo</p>
-          <p class="skill-line"><b>Data &amp; AI.</b> Python · Postgres · SQL · public-record pipelines · Claude Code · MCP servers · agent skills · context engineering · prompt-injection hardening · pandas · scikit-learn</p>
-        </section>
+    <section aria-label="Projects">
+      <h2>Projects</h2>
+      <!-- Source: the repo description at github.com/pretending2bejhon/ulpia, public since 2026-08-13, MIT. -->
+      <p class="proj"><b>Ulpia.</b> PUBLIC · MIT. The memory system as an open specification: typed markdown, a mechanical placement algorithm and a nightly consolidation loop, with a worked example vault. <a href="https://github.com/pretending2bejhon/ulpia">github.com/pretending2bejhon/ulpia</a></p>
+      <!-- Source of the 1,246 notes and 12 districts: the live header at jhonalbert.com/memory/, 2026-09-26. No titles, paths or text leave the vault: export.py docstring, github.com/pretending2bejhon/memory. -->
+      <p class="proj"><b>Vault City.</b> LIVE · Sep 2026. My memory system rendered as a 3D night city at <a href="https://jhonalbert.com/memory/">jhonalbert.com/memory</a>: 1,246 notes as buildings in 12 districts, a timeline that plays week by week and a live soundtrack of twelve hardgroove techno rooms coded in Strudel. Anonymous by construction: no titles, paths or text leave the vault. Open source, AGPL-3.0.</p>
+      <p class="proj"><b>The browser for agents.</b> LIVE · v2. Reads a website, its ads, reels and LinkedIn page before my agents start. Reads only, never sends.</p>
+      <p class="proj"><b>The AI mentoring plan.</b> DESIGNED · Jul 2026. A retailer's engineers build and run their own agents on real work: Oracle queries, n8n flows, invoices. Every session ends with something running.</p>
+    </section>
 
-        <section aria-label="Stack">
-          <h2>Stack</h2>
-          <p class="skill-line"><b>AI &amp; agents.</b> Claude Code (subagents, hooks, skills, MCP) · Codex · n8n · offline local AI: Ollama, Whisper, Kokoro TTS, Stable Diffusion on OpenVINO</p>
-          <p class="skill-line"><b>Platforms &amp; scripting.</b> Obsidian · Airtable · Slack · GitHub · Google Workspace · Python · PowerShell · Bash · Playwright · Sales Navigator · Instantly · Fathom</p>
-          <p class="skill-line"><b>Client stacks serviced.</b> n8n Enterprise · Claude Enterprise · Gemini on Google Workspace · Databricks · Oracle Retail RMS v16</p>
-        </section>
+    <section aria-label="How I Work with AI">
+      <h2>How I Work with AI</h2>
+      <!-- Source: my own build method, in daily use since 2026-08 (a design interview skill, rubric-graded build loops, cross-model review rounds on 2026-09-26). -->
+      <p class="summary">Spec first: a design interview and a build loop graded against a rubric before any code. Subagents under a contract: reads fan out, writes never do; one model designs and reviews, another executes. A second model reviews adversarially before anything is called done, and nothing is called done without fresh evidence.</p>
+    </section>
 
-        <section aria-label="Selected projects">
-          <h2>Selected Projects</h2>
-          <p class="proj"><b>Icarus.</b> BUILT · v0. Drafts every outbound touch with its reason attached, passes hard gates (Ley 2300 windows, evidence required, no invented price) and waits for a human. Nothing sends itself.</p>
-          <!-- Source of the 498-question benchmark: public at github.com/pretending2bejhon/ulpia, 2026-08. -->
-          <p class="proj"><b>The memory system.</b> LIVE · daily use. Rules, history and decisions in plain files my agents and I read the same way. No database, no vendor. Against RAG on 498 questions: organized files 78 per 100, flat folder 75, RAG 55. Published in full at <a href="https://github.com/pretending2bejhon/ulpia">github.com/pretending2bejhon/ulpia</a>.</p>
-          <!-- Source of the 1,246 notes and 12 districts: the live header at jhonalbert.com/memory/, 2026-09-26. No titles, paths or text leave the vault: export.py docstring, github.com/pretending2bejhon/memory. -->
-          <p class="proj"><b>Vault City.</b> LIVE · Sep 2026. My memory system rendered as a 3D night city at <a href="https://jhonalbert.com/memory/">jhonalbert.com/memory</a>: 1,246 notes as buildings in 12 districts, a timeline that plays week by week and a live soundtrack of twelve hardgroove techno rooms coded in Strudel. Anonymous by construction: no titles, paths or text leave the vault. Open source, AGPL-3.0.</p>
-          <!-- Source of the 1,751,328 figure: the row count of the company spine itself, one row per NIT, 2026-08. -->
-          <p class="proj"><b>The company spine.</b> LIVE · API online. Colombia's mercantile registry, public contracting and open data as one record per company, 1,751,328 of them, one per NIT, with an API that answers which accounts are active and why.</p>
-          <p class="proj"><b>The browser for agents.</b> LIVE · v2. Reads a website, its ads, reels and LinkedIn page before my agents start. Reads only, never sends.</p>
-          <p class="proj"><b>A Colombian pharmacy retailer.</b> DELIVERED: systems map, manual-process backlog, team trained (won at Frakkr). BUILDING · Sep 2026: two agents, one briefs a manager from his mail, calendar, Slack and Drive twice a day, one answers inventory questions in Slack for his team.</p>
-          <p class="proj"><b>The AI mentoring plan.</b> DESIGNED · Jul 2026. A retailer's engineers build and run their own agents on real work: Oracle queries, n8n flows, invoices. Every session ends with something running.</p>
-        </section>
-      </div>
+    <section aria-label="Education and certifications">
+      <h2>Education &amp; Certifications</h2>
+      <p class="edu"><b>BSc Mathematics coursework</b> · <span class="where">El Bosque University, Bogotá</span> · <span class="when mono">2024 – 2025</span></p>
+      <p class="edu"><b>Software Development Fundamentals</b> · <span class="where">Microsoft &amp; LinkedIn</span> · <span class="when mono">2023</span></p>
+    </section>
 
-      <div>
-        <section aria-label="Education and certifications">
-          <h2>Education &amp; Certs</h2>
-          <p class="edu"><b>BSc Mathematics coursework</b><span class="where">El Bosque University, Bogotá</span><br><span class="when mono">2024 – 2025</span></p>
-          <p class="edu"><b>Software Development Fundamentals</b><span class="where">Microsoft &amp; LinkedIn</span><br><span class="when mono">2023</span></p>
-        </section>
-
-        <section aria-label="Languages">
-          <h2>Languages</h2>
-          <ul class="langs">
-            <li><b>Spanish</b><span class="lvl mono">native</span></li>
-            <li><b>English</b><span class="lvl mono">C1 certified</span></li>
-          </ul>
-        </section>
-      </div>
-    </div>
+    <section aria-label="Languages">
+      <h2>Languages</h2>
+      <p class="edu"><b>Spanish</b> native · <b>English</b> C1 certified</p>
+    </section>
   </main>
 </body>
 </html>

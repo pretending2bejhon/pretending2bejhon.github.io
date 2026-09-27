@@ -78,24 +78,18 @@
   .job-intro { margin: 2px 0 3px; font-size: 12px; color: var(--meta); }
   .job ul { margin: 2px 0 0; padding: 0; list-style: none; }
   .job li { margin: 0 0 2.5px; padding-left: 16px; position: relative; }
-  .job li::before { content: "—"; position: absolute; left: 0; color: var(--signal); }
+  .job li::before { content: ""; position: absolute; left: 0; top: .68em; width: 8px; border-top: 1.2px solid var(--signal); }
 
-  /* ————— bottom grid ————— */
-  .grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 0 34px; }
   .skill-line { margin: 0 0 5px; }
   .skill-line b { color: var(--ink); }
   .proj { margin: 0 0 7px; }
   .proj b { color: var(--ink); }
   .edu { margin: 0 0 8px; }
-  .edu b { color: var(--ink); display: block; }
+  .edu b { color: var(--ink); }
   .edu .where { color: var(--signal); }
   .edu .when { font-size: 9px; color: var(--meta); letter-spacing: .06em; }
-  .langs { margin: 0; padding: 0; list-style: none; }
-  .langs li { display: flex; justify-content: space-between; border-bottom: .5px solid var(--rule-soft); padding: 3px 1px; }
-  .langs .lvl { color: var(--meta); font-size: 9.5px; letter-spacing: .05em; }
-  .langs b { color: var(--ink); font-weight: 600; }
 
-  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } .sheet { padding: 26px 20px; } }
+  @media (max-width: 700px) { .sheet { padding: 26px 20px; } }
 
   @media print {
     @page { size: letter; margin: 6mm 10mm; }
@@ -107,7 +101,6 @@
     .sheet { max-width: 100%; margin: 0; padding: 0; box-shadow: none; font-size: 7.8pt; line-height: 1.08; }
     a { color: var(--signal); }
     .job li, .job { break-inside: avoid; }
-    .grid { gap: 0 22pt; }
 
     .role-line { font-size: 7pt; margin-bottom: 4pt; }
     .lockup { gap: 10pt; }
@@ -126,9 +119,8 @@
     .job li { margin-bottom: 0.5pt; padding-left: 12pt; }
     .skill-line { margin-bottom: 2pt; }
     .proj { margin-bottom: 2.5pt; }
-    .edu { margin-bottom: 6pt; }
-    .edu .when, .langs .lvl { font-size: 6.8pt; }
-    .langs li { padding: 2pt 1px; }
+    .edu { margin-bottom: 2pt; }
+    .edu .when { font-size: 6.8pt; }
   }
 </style>
 </head>
@@ -146,9 +138,25 @@
         </svg>
       </div>
       <p class="tagline">Construyo los sistemas de ingresos que vendo.</p>
-      <p class="contact-line mono">+57 314 207 5466 · <a href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a> · <a href="https://www.linkedin.com/in/jhonalbert-alvarez/">linkedin.com/in/jhonalbert-alvarez</a> · <a href="https://jhonalbert.com/">jhonalbert.com</a> · Colombia, remoto en horario de Europa y EE. UU.</p>
+      <p class="contact-line mono">+57 314 207 5466 · <a href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a> · <a href="https://www.linkedin.com/in/jhonalbert-alvarez/">linkedin.com/in/jhonalbert-alvarez</a> · <a href="https://github.com/pretending2bejhon">github.com/pretending2bejhon</a> · <a href="https://jhonalbert.com/">jhonalbert.com</a> · Colombia, remoto en horario de Europa y EE. UU.</p>
       <hr class="head-rule">
     </header>
+
+    <section aria-label="Perfil">
+      <h2>Perfil</h2>
+      <!-- Source of the 3 hours: my own estimate, 2026-09-26, not measured. Source of 78 against 55 on 498 questions: public at github.com/pretending2bejhon/ulpia, 2026-08. -->
+      <p class="summary">Entro a la operación del cliente, entiendo el problema, construyo lo que falta y lo entrego funcionando. Construí el sistema de memoria con el que mis agentes y yo trabajamos a diario: me ahorra unas 3 horas al día de volver a explicar el contexto, y medido contra RAG en 498 preguntas acierta 78 de 100 contra 55. Antes de construir, vendo: outbound con investigación primero, que logra que el comprador agende la reunión por su cuenta.</p>
+    </section>
+
+    <section aria-label="Habilidades">
+      <h2>Habilidades</h2>
+      <p class="skill-line"><b>IA y agentes.</b> Claude Code (sub-agentes, hooks, skills, servidores MCP) · Codex · context engineering · evals · endurecimiento contra inyección de prompts · IA local offline: Ollama, Whisper, Kokoro TTS, Stable Diffusion sobre OpenVINO</p>
+      <p class="skill-line"><b>Datos.</b> Python · Postgres · SQL · pipelines sobre registros públicos · pandas · scikit-learn</p>
+      <p class="skill-line"><b>Automatización y herramientas.</b> n8n · Playwright · PowerShell · Bash · GitHub · Airtable · Obsidian · Slack · Google Workspace</p>
+      <p class="skill-line"><b>Entrega dentro de la operación del cliente.</b> Discovery técnico · diagnósticos de arquitectura sobre stacks vivos · construcción embebida · habilitación 1:1 · entrega</p>
+      <p class="skill-line"><b>Ventas, copy y RevOps.</b> Copy de respuesta directa, investigación primero · AIDA, PAS · sistemas de prospección en frío · manejo de objeciones · cierre · cadencias multicanal · diseño de CRM · pipelines calculados · scoring y enriquecimiento de leads · Sales Navigator · Instantly · Apollo · Ley 2300, Ley 1581, CAN-SPAM, TCPA</p>
+      <p class="skill-line"><b>Stacks de cliente atendidos.</b> n8n Enterprise · Claude Enterprise · Gemini en Google Workspace · Databricks · Oracle Retail RMS v16</p>
+    </section>
 
     <section aria-label="Experiencia">
       <h2>Experiencia</h2>
@@ -160,9 +168,14 @@
         </div>
         <p class="job-intro">Agentes, sistemas de datos y copywriting de respuesta directa, una operación a la vez. Juzgado por las respuestas y por las reuniones que sí se hacen.</p>
         <ul>
-          <li>Construí y entregué: <b>Icarus</b> (v0), <b>el sistema de memoria</b> (uso diario), <b>Vault City</b> (en producción), <b>la columna de empresas</b> (API en línea), <b>el navegador para agentes</b> (v2), <b>dos agentes</b> para un retailer farmacéutico (en construcción, sep 2026), un <b>plan de mentoría de IA</b> para sus ingenieros (diseñado, jul 2026). Detalle en Proyectos Destacados.</li>
+          <!-- Source of the 3 hours: my own estimate, 2026-09-26, not measured. Source of the 498-question benchmark: public at github.com/pretending2bejhon/ulpia, 2026-08. -->
+          <li>Me ahorré unas 3 horas al día de volver a explicar el contexto construyendo <b>el sistema de memoria</b> que mis agentes y yo leemos por igual: archivos planos, sin base de datos ni proveedor. Contra RAG en 498 preguntas: archivos organizados 78 de 100, carpeta plana 75, RAG 55.</li>
+          <!-- Source of the 1,751,328 figure: the row count of the company spine itself, one row per NIT, 2026-08. -->
+          <li>Uní el registro mercantil, la contratación pública y los datos abiertos de Colombia en <b>la columna de empresas</b>: un solo registro por empresa, 1.751.328 en total, uno por NIT, detrás de una API en línea que responde qué cuentas están activas y por qué.</li>
           <!-- Source of both results: my own outreach ledger, 2026-08 and 2026-09; the twenty, fifteen, six and five are the buyer's own count, reported by him. -->
-          <li>Resultados, sin nombres: un solo mensaje en frío por LinkedIn al jefe de tecnología de una clínica universitaria, y él mismo agendó la reunión. El CEO de una fintech escribió a veinte empresas investigadas: quince tenían canal, seis respondieron, cinco reuniones.</li>
+          <li>Convertí outbound en frío e investigación en reuniones: un solo mensaje por LinkedIn al jefe de tecnología de una clínica universitaria, y él mismo agendó la reunión. El CEO de una fintech escribió a veinte empresas de mi investigación: quince tenían canal, seis respondieron, cinco reuniones.</li>
+          <li>Construí <b>Icarus</b> (v0), un agente de outbound que redacta cada mensaje con su razón adjunta, lo pasa por reglas duras (ventanas de la Ley 2300, evidencia obligatoria, sin precios inventados) y espera a un humano. Nada se envía solo.</li>
+          <li>Liderando (sep 2026) <b>dos agentes</b> para un retailer farmacéutico colombiano: uno le resume a un gerente su correo, calendario, Slack y Drive dos veces al día, otro responde preguntas de inventario en Slack para su equipo.</li>
         </ul>
       </article>
 
@@ -175,10 +188,10 @@
         <ul>
           <!-- Source of the store, register and backlog figures: the engagement's own discovery and diagnostic notes, 2026-07, two discovery calls. -->
           <li>Ganamos un proyecto de habilitación en IA con un <b>retailer farmacéutico colombiano</b> (140+ tiendas, cerca de 2.000 cajas): diagnóstico de arquitectura, mapa de sistemas, backlog de 14 procesos manuales, formación 1:1 sobre sus flujos reales de Oracle y n8n. Métrica acordada: horas recuperadas por proceso.</li>
-          <li>Outbound desde cero: tenants aislados de Workspace, calentamiento automatizado, secuencias de correo, LinkedIn y llamada en frío que cumplen CAN-SPAM y TCPA.</li>
-          <li>Dos generaciones del CRM. En la segunda, etapa, fit score, intención y prioridad eran fórmulas sobre fechas de actividad: el pipeline no podía corromperse a mano.</li>
-          <li>Agentes sobre el pipeline: seis watchers programados, un pipeline de enriquecimiento en cinco fases, scoring de leads en frío, cada uno con red team de inyección de prompts antes de escribir.</li>
-          <li>Primer activo de inbound: un diagnóstico de 11 preguntas sobre fugas en el intake que convierte el hallazgo en una reunión agendada.</li>
+          <li>Monté el outbound desde cero: tenants aislados de Workspace, calentamiento automatizado, secuencias de correo, LinkedIn y llamada en frío que cumplen CAN-SPAM y TCPA.</li>
+          <li>Hice que el pipeline no pudiera corromperse a mano: en la segunda de dos generaciones del CRM, etapa, fit score, intención y prioridad eran fórmulas sobre fechas de actividad.</li>
+          <li>Puse agentes sobre el pipeline: seis watchers programados, un pipeline de enriquecimiento en cinco fases y scoring de leads en frío, cada uno con red team de inyección de prompts antes de poder escribir.</li>
+          <li>Lancé el primer activo de inbound: un diagnóstico de 11 preguntas sobre fugas en el intake que convierte el hallazgo en una reunión agendada.</li>
         </ul>
       </article>
 
@@ -211,57 +224,35 @@
           <li>80% de resolución en la primera llamada en una línea de productos financieros de alta presión, satisfacción 15% arriba en mi cartera. Emparejé productos con clientes desde los datos del propio banco.</li>
         </ul>
       </article>
+
     </section>
 
-    <div class="grid">
-      <div>
-        <section aria-label="Habilidades">
-          <h2>Habilidades</h2>
-          <p class="skill-line"><b>Copy de respuesta directa.</b> Investigación primero · secuencias de correo y LinkedIn · AIDA, PAS · ventanas de envío de la Ley 2300 · cada número con su denominador</p>
-          <p class="skill-line"><b>Entrega dentro de la operación del cliente.</b> Discovery técnico · diagnósticos de arquitectura sobre stacks vivos · construcción embebida · habilitación 1:1 · entrega</p>
-          <p class="skill-line"><b>Ventas y GTM.</b> Sistemas de prospección en frío · manejo de objeciones · cierre · cadencias multicanal · Ley 2300, Ley 1581, CAN-SPAM, TCPA</p>
-          <p class="skill-line"><b>RevOps.</b> Diseño de CRM · pipelines calculados · scoring y enriquecimiento de leads · Airtable · n8n · Instantly · Apollo</p>
-          <p class="skill-line"><b>Datos e IA.</b> Python · Postgres · SQL · pipelines sobre registros públicos · Claude Code · servidores MCP · agent skills · context engineering · endurecimiento contra inyección de prompts · pandas · scikit-learn</p>
-        </section>
+    <section aria-label="Proyectos">
+      <h2>Proyectos</h2>
+      <!-- Source: the repo description at github.com/pretending2bejhon/ulpia, public since 2026-08-13, MIT. -->
+      <p class="proj"><b>Ulpia.</b> PÚBLICO · MIT. El sistema de memoria como especificación abierta: markdown tipado, un algoritmo mecánico de ubicación y un ciclo nocturno de consolidación, con una bóveda de ejemplo. <a href="https://github.com/pretending2bejhon/ulpia">github.com/pretending2bejhon/ulpia</a></p>
+      <!-- Source of the 1,246 notes and 12 districts: the live header at jhonalbert.com/memory/, 2026-09-26. No titles, paths or text leave the vault: export.py docstring, github.com/pretending2bejhon/memory. -->
+      <p class="proj"><b>Vault City.</b> EN PRODUCCIÓN · sep 2026. Mi sistema de memoria convertido en una ciudad nocturna en 3D en <a href="https://jhonalbert.com/memory/">jhonalbert.com/memory</a>: 1.246 notas como edificios en 12 distritos, una línea de tiempo que avanza semana a semana y una banda sonora en vivo de doce salas de techno hardgroove programadas en Strudel. Anónima por diseño: ningún título, ruta ni texto sale de mis archivos. Código abierto, AGPL-3.0.</p>
+      <p class="proj"><b>El navegador para agentes.</b> EN PRODUCCIÓN · v2. Lee un sitio web, sus anuncios, reels y LinkedIn antes de que mis agentes empiecen. Solo lee, nunca envía.</p>
+      <p class="proj"><b>El plan de mentoría de IA.</b> DISEÑADO · jul 2026. Los ingenieros de un retailer construyen y operan sus propios agentes sobre trabajo real: consultas Oracle, flujos n8n, facturas. Cada sesión termina con algo funcionando.</p>
+    </section>
 
-        <section aria-label="Stack">
-          <h2>Stack</h2>
-          <p class="skill-line"><b>IA y agentes.</b> Claude Code (sub-agentes, hooks, skills, MCP) · Codex · n8n · IA local offline: Ollama, Whisper, Kokoro TTS, Stable Diffusion sobre OpenVINO</p>
-          <p class="skill-line"><b>Plataformas y scripting.</b> Obsidian · Airtable · Slack · GitHub · Google Workspace · Python · PowerShell · Bash · Playwright · Sales Navigator · Instantly · Fathom</p>
-          <p class="skill-line"><b>Stacks de cliente atendidos.</b> n8n Enterprise · Claude Enterprise · Gemini en Google Workspace · Databricks · Oracle Retail RMS v16</p>
-        </section>
+    <section aria-label="Cómo Trabajo con IA">
+      <h2>Cómo Trabajo con IA</h2>
+      <!-- Source: my own build method, in daily use since 2026-08 (a design interview skill, rubric-graded build loops, cross-model review rounds on 2026-09-26). -->
+      <p class="summary">Especificación primero: una entrevista de diseño y un loop de construcción calificado contra una rúbrica antes de escribir código. Subagentes con contrato: las lecturas se paralelizan, las escrituras nunca; un modelo diseña y revisa, otro ejecuta. Un segundo modelo revisa en modo adversarial antes de dar algo por listo, y nada se da por terminado sin evidencia fresca.</p>
+    </section>
 
-        <section aria-label="Proyectos destacados">
-          <h2>Proyectos Destacados</h2>
-          <p class="proj"><b>Icarus.</b> CONSTRUIDO · v0. Redacta cada mensaje de outbound con su razón adjunta, pasa reglas duras (ventanas de la Ley 2300, evidencia obligatoria, sin precios inventados) y espera a un humano. Nada se envía solo.</p>
-          <!-- Source of the 498-question benchmark: public at github.com/pretending2bejhon/ulpia, 2026-08. -->
-          <p class="proj"><b>El sistema de memoria.</b> EN PRODUCCIÓN · uso diario. Reglas, historial y decisiones en archivos planos que mis agentes y yo leemos por igual. Sin base de datos, sin proveedor. Contra RAG en 498 preguntas: archivos organizados 78 de 100, carpeta plana 75, RAG 55. Publicado completo en <a href="https://github.com/pretending2bejhon/ulpia">github.com/pretending2bejhon/ulpia</a>.</p>
-          <!-- Source of the 1,246 notes and 12 districts: the live header at jhonalbert.com/memory/, 2026-09-26. No titles, paths or text leave the vault: export.py docstring, github.com/pretending2bejhon/memory. -->
-          <p class="proj"><b>Vault City.</b> EN PRODUCCIÓN · sep 2026. Mi sistema de memoria convertido en una ciudad nocturna en 3D en <a href="https://jhonalbert.com/memory/">jhonalbert.com/memory</a>: 1.246 notas como edificios en 12 distritos, una línea de tiempo que avanza semana a semana y una banda sonora en vivo de doce salas de techno hardgroove programadas en Strudel. Anónima por diseño: ningún título, ruta ni texto sale de mis archivos. Código abierto, AGPL-3.0.</p>
-          <!-- Source of the 1,751,328 figure: the row count of the company spine itself, one row per NIT, 2026-08. -->
-          <p class="proj"><b>La columna de empresas.</b> EN PRODUCCIÓN · API en línea. Registro mercantil, contratación pública y datos abiertos de Colombia en un solo registro por empresa, 1.751.328 en total, uno por NIT, con una API que responde qué cuentas están activas y por qué.</p>
-          <p class="proj"><b>El navegador para agentes.</b> EN PRODUCCIÓN · v2. Lee un sitio web, sus anuncios, reels y LinkedIn antes de que mis agentes empiecen. Solo lee, nunca envía.</p>
-          <p class="proj"><b>Un retailer farmacéutico colombiano.</b> ENTREGADO: mapa de sistemas, backlog de procesos manuales, equipo formado (ganado en Frakkr). CONSTRUYENDO · sep 2026: dos agentes, uno le resume a un gerente su correo, calendario, Slack y Drive dos veces al día, otro responde preguntas de inventario en Slack para su equipo.</p>
-          <p class="proj"><b>El plan de mentoría de IA.</b> DISEÑADO · jul 2026. Los ingenieros de un retailer construyen y operan sus propios agentes sobre trabajo real: consultas Oracle, flujos n8n, facturas. Cada sesión termina con algo funcionando.</p>
-        </section>
-      </div>
+    <section aria-label="Educación y certificaciones">
+      <h2>Educación y Certificaciones</h2>
+      <p class="edu"><b>Estudios de pregrado en Matemáticas</b> · <span class="where">Universidad El Bosque, Bogotá</span> · <span class="when mono">2024 – 2025</span></p>
+      <p class="edu"><b>Fundamentos de Desarrollo de Software</b> · <span class="where">Microsoft y LinkedIn</span> · <span class="when mono">2023</span></p>
+    </section>
 
-      <div>
-        <section aria-label="Educación y certificaciones">
-          <h2>Educación y Certificaciones</h2>
-          <p class="edu"><b>Estudios de pregrado en Matemáticas</b><span class="where">Universidad El Bosque, Bogotá</span><br><span class="when mono">2024 – 2025</span></p>
-          <p class="edu"><b>Fundamentos de Desarrollo de Software</b><span class="where">Microsoft y LinkedIn</span><br><span class="when mono">2023</span></p>
-        </section>
-
-        <section aria-label="Idiomas">
-          <h2>Idiomas</h2>
-          <ul class="langs">
-            <li><b>Español</b><span class="lvl mono">nativo</span></li>
-            <li><b>Inglés</b><span class="lvl mono">C1 certificado</span></li>
-          </ul>
-        </section>
-      </div>
-    </div>
+    <section aria-label="Idiomas">
+      <h2>Idiomas</h2>
+      <p class="edu"><b>Español</b> nativo · <b>Inglés</b> C1 certificado</p>
+    </section>
   </main>
 </body>
 </html>
