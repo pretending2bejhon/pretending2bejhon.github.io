@@ -9,7 +9,7 @@
   /* Hoja de vida, ES / mercado colombiano. Derived from cv.html: identical
      identity system, layout, grid and print rules — ONLY the copy is translated.
      A change to either file must be mirrored in the other, or the two CVs drift.
-     One Letter page. Regenerate the PDF by printing this file — never hand-edit
+     Two Letter pages. Regenerate the PDF by printing this file — never hand-edit
      the PDF. */
 
   @font-face {
@@ -98,7 +98,7 @@
        onto a second page by three lines (measured 2026-09-17). The leading and the block
        spacing below are tightened here and ONLY here; cv.html keeps 1.14 so its PDF stays
        byte-stable. Reprint and check the page count after any copy change. */
-    .sheet { max-width: 100%; margin: 0; padding: 0; box-shadow: none; font-size: 7.8pt; line-height: 1.08; }
+    .sheet { max-width: 100%; margin: 0; padding: 0; box-shadow: none; font-size: 9pt; line-height: 1.24; }
     a { color: var(--signal); }
     .job li, .job { break-inside: avoid; }
 
@@ -112,6 +112,7 @@
     .head-rule { margin: 6pt 0 0; }
 
     h2 { font-size: 7pt; margin: 5pt 0 2.5pt; }
+    h2 { break-after: avoid; page-break-after: avoid; }
     .job { margin-bottom: 3pt; }
     .job-head h3 { font-size: 9.2pt; }
     .job-meta { font-size: 6.8pt; }
@@ -138,24 +139,15 @@
         </svg>
       </div>
       <p class="tagline">Construyo los sistemas de ingresos que vendo.</p>
-      <p class="contact-line mono">+57 314 207 5466 · <a href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a> · <a href="https://www.linkedin.com/in/jhonalbert-alvarez/">linkedin.com/in/jhonalbert-alvarez</a> · <a href="https://github.com/pretending2bejhon">github.com/pretending2bejhon</a> · <a href="https://jhonalbert.com/">jhonalbert.com</a> · Colombia, remoto en horario de Europa y EE. UU.</p>
+      <!-- Source of "open to relocation": Jhon's own message to a recruiter, LinkedIn, 2026-11-05 ("yes, i would be willing to relocate with no issues"). -->
+      <p class="contact-line mono">+57 314 207 5466 · <a href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a> · <a href="https://www.linkedin.com/in/jhonalbert-alvarez/">linkedin.com/in/jhonalbert-alvarez</a> · <a href="https://github.com/pretending2bejhon">github.com/pretending2bejhon</a> · <a href="https://jhonalbert.com/">jhonalbert.com</a> · Colombia, abierto a reubicarme, remoto en horario de Europa y EE. UU.</p>
       <hr class="head-rule">
     </header>
 
     <section aria-label="Perfil">
       <h2>Perfil</h2>
-      <!-- Source of the 3 hours: my own estimate, 2026-09-26, not measured. Source of 78 against 55 on 498 questions: public at github.com/pretending2bejhon/ulpia, 2026-08. -->
-      <p class="summary">Entro a la operación del cliente, entiendo el problema, construyo lo que falta y lo entrego funcionando. Construí el sistema de memoria con el que mis agentes y yo trabajamos a diario: me ahorra unas 3 horas al día de volver a explicar el contexto, y medido contra RAG en 498 preguntas acierta 78 de 100 contra 55. Antes de construir, vendo: outbound con investigación primero, que logra que el comprador agende la reunión por su cuenta.</p>
-    </section>
-
-    <section aria-label="Habilidades">
-      <h2>Habilidades</h2>
-      <p class="skill-line"><b>IA y agentes.</b> Claude Code (sub-agentes, hooks, skills, servidores MCP) · Codex · context engineering · evals · endurecimiento contra inyección de prompts · IA local offline: Ollama, Whisper, Kokoro TTS, Stable Diffusion sobre OpenVINO</p>
-      <p class="skill-line"><b>Datos.</b> Python · Postgres · SQL · pipelines sobre registros públicos · pandas · scikit-learn</p>
-      <p class="skill-line"><b>Automatización y herramientas.</b> n8n · Playwright · PowerShell · Bash · GitHub · Airtable · Obsidian · Slack · Google Workspace</p>
-      <p class="skill-line"><b>Entrega dentro de la operación del cliente.</b> Discovery técnico · diagnósticos de arquitectura sobre stacks vivos · construcción embebida · habilitación 1:1 · entrega</p>
-      <p class="skill-line"><b>Ventas, copy y RevOps.</b> Copy de respuesta directa, investigación primero · AIDA, PAS · sistemas de prospección en frío · manejo de objeciones · cierre · cadencias multicanal · diseño de CRM · pipelines calculados · scoring y enriquecimiento de leads · Sales Navigator · Instantly · Apollo · Ley 2300, Ley 1581, CAN-SPAM, TCPA</p>
-      <p class="skill-line"><b>Stacks de cliente atendidos.</b> n8n Enterprise · Claude Enterprise · Gemini en Google Workspace · Databricks · Oracle Retail RMS v16</p>
+      <!-- Source of 78 against 55 on 498 questions: public at github.com/pretending2bejhon/ulpia, 2026-08. Source of the 140 stores: the Frakkr engagement's discovery notes, 2026-07. Source of 1,751,328: the company spine's row count, 2026-08. "Built and delivered": Jhon said 2026-11-06. -->
+      <p class="summary">Forward deployed engineer y cofundador. Desde enero de 2026 defino problemas con la gente que los vive y construyo los sistemas que los resuelven, dentro de su stack: un proyecto de habilitación en IA con un retailer farmacéutico de 140 tiendas, un agente en producción diaria, un sistema de memoria que le gana a RAG 78 a 55 en 498 preguntas y una API de datos sobre 1,75 millones de empresas colombianas, construida y entregada a dos vendedores. Antes de construir, vendo: outbound con investigación primero, que logra que el comprador agende la reunión por su cuenta.</p>
     </section>
 
     <section aria-label="Experiencia">
@@ -166,26 +158,33 @@
           <h3>Forward Deployed Engineer · <span class="org">Independiente</span></h3>
           <span class="job-meta mono">Colombia, remoto &nbsp;|&nbsp; Ago 2026 – actualidad</span>
         </div>
-        <p class="job-intro">Agentes, sistemas de datos y copywriting de respuesta directa, una operación a la vez. Juzgado por las respuestas y por las reuniones que sí se hacen.</p>
+        <!-- Source of "small and mid-size businesses": Jhon's own message to a recruiter, LinkedIn, 2026-11-06 ("working as a freelancer for a few SMB"). -->
+        <p class="job-intro">Freelance para pequeñas y medianas empresas, una operación a la vez: defino el problema con quien lo tiene, construyo en su stack y lo mantengo funcionando.</p>
         <ul>
+          <!-- Source: code/zoro/README.md (v1.0 shipped 2026-10-07, installed live since 2026-10-08); stack code/zoro/pyproject.toml; 96 requirements, 92 pass: the Zoro v1 build record, cited in 10-memory/working/2026-11-05_portfolio-v10-change-spec__plan.md. -->
+          <li><b>Zoro</b>, un agente de operaciones en uso diario desde oct 2026 · Claude Agent SDK, Python, Slack Bolt, APIs de Google. Cada mañana publica en Slack el estado del correo, la agenda, LinkedIn y las tareas, y toda acción hacia afuera espera aprobación con un botón. 96 requisitos con pruebas de aceptación; 92 pasan.</li>
           <!-- Source of the 3 hours: my own estimate, 2026-09-26, not measured. Source of the 498-question benchmark: public at github.com/pretending2bejhon/ulpia, 2026-08. -->
-          <li>Me ahorré unas 3 horas al día de volver a explicar el contexto construyendo <b>el sistema de memoria</b> que mis agentes y yo leemos por igual: archivos planos, sin base de datos ni proveedor. Contra RAG en 498 preguntas: archivos organizados 78 de 100, carpeta plana 75, RAG 55.</li>
-          <!-- Source of the 1,751,328 figure: the row count of the company spine itself, one row per NIT, 2026-08. -->
-          <li>Uní el registro mercantil, la contratación pública y los datos abiertos de Colombia en <b>la columna de empresas</b>: un solo registro por empresa, 1.751.328 en total, uno por NIT, detrás de una API que responde qué cuentas están activas y por qué.</li>
+          <li><b>El sistema de memoria</b> con el que mis agentes y yo trabajamos a diario · markdown, Python, un arnés de evaluación. Me ahorra unas 3 horas al día de volver a explicar el contexto. Contra RAG en 498 preguntas: archivos organizados 78 de 100, carpeta plana 75, RAG 55. Publicado como especificación abierta (markdown tipado, un algoritmo de ubicación, un ciclo nocturno de consolidación), MIT: <a href="https://github.com/pretending2bejhon/ulpia">github.com/pretending2bejhon/ulpia</a></li>
+          <!-- Source of the 1,751,328 figure: the row count of the company spine itself, one row per NIT, 2026-08. Stack: code/company-api/requirements.txt and deploy/ (Caddyfile, company-api.service). "Built and delivered": Jhon said 2026-11-06. -->
+          <li><b>Radar de Mercado</b>, una API de datos de empresas, construida y entregada a dos vendedores (ago 2026) · Python, FastAPI, Postgres, Playwright, Caddy y systemd en Linux. Uní el registro mercantil, la contratación pública y los datos abiertos de Colombia en un solo registro por empresa, 1.751.328 en total, uno por NIT, para que un vendedor pudiera preguntar qué cuentas están activas y por qué.</li>
+          <!-- Source: code/creator-desk/README.md, status 2026-10-23 (commit c6c2ea0, 250 tests passing, one adversarial review, tested live on a test bot). -->
+          <li><b>Un escritorio de chat para creadoras</b>, para un cliente (oct 2026) · Python, Telegram Bot API. Conversa con los fans con la voz de la creadora y vende su contenido con Telegram Stars; una persona aprueba cada mensaje antes de que llegue a un fan. 250 pruebas, una revisión adversarial, probado en vivo con un bot de prueba.</li>
+          <!-- Source: 10-memory/episodic/2026-09/2026-09-27_brainos-windows-codex-review-r2__report.md; suite 117/117 and end-to-end 33/33 at origin/windows dcd4c7d, 2026-10-02. -->
+          <li><b>BrainOS en Windows</b>, para el equipo de un cliente (sep–oct 2026) · Python, PowerShell, hooks de Claude Code. Porté su arnés de agentes de macOS (sesiones permanentes de Claude Code, un panel, una convención de planes compartida) a Windows: manejo de rutas, hooks de guardrail, el instalador. Pasan 117 pruebas y una corrida de punta a punta de 33 pasos, después de dos rondas de revisión con un segundo modelo.</li>
           <!-- Source of both results: my own outreach ledger, 2026-08 and 2026-09; the twenty, fifteen, six and five are the buyer's own count, reported by him. -->
-          <li>Convertí outbound en frío e investigación en reuniones: un solo mensaje por LinkedIn al jefe de tecnología de una clínica universitaria, y él mismo agendó la reunión. El CEO de una fintech escribió a veinte empresas de mi investigación: quince tenían canal, seis respondieron, cinco reuniones.</li>
-          <!-- Source of the 65: the Zoro v1 written spec (65 product requirements, each with acceptance tests), code/zoro/build/ZORO-V1-SPEC.md, 2026-10. Status: building, not in production (2026-10-06 deck note). -->
-          <li>Construyendo (oct 2026) <b>Zoro</b>, un asistente personal: cada mañana publica en Slack el estado del correo, la agenda, LinkedIn y las tareas, y toda acción hacia afuera espera aprobación con un botón. 96 requisitos con pruebas de aceptación; 92 pasan.</li>
-          <li>Liderando (sep 2026) <b>un agente de inventario</b> para un retailer farmacéutico colombiano, hoy en propuesta: responde preguntas de inventario desde una hoja de cálculo, en Slack, para todo su equipo.</li>
+          <li><b>Outbound que consigue reuniones.</b> Un solo mensaje por LinkedIn al jefe de tecnología de una clínica universitaria, y él mismo agendó la reunión. El CEO de una fintech escribió a veinte empresas de mi investigación: quince tenían canal, seis respondieron, cinco reuniones.</li>
+          <li>Lideré (sep 2026) la propuesta de <b>un agente de inventario</b> para un retailer farmacéutico colombiano: preguntas de inventario respondidas desde una hoja de cálculo, en Slack, para todo el equipo.</li>
+          <!-- Sources: code/hush/README.md (Phaser 4, Strudel, TypeScript); jhonalbert.com/memory/ live 2026-11-06; the site's build pipeline, code/site-visual/tools/build-site.mjs and tools/gates.py; code/call-recorder/call_recorder/transcribe.py. -->
+          <li><b>También entregué.</b> La capa 3D de este sitio, con controles de fotogramas por segundo y de peso (three.js, esbuild) · The Hush, un juego de navegador (TypeScript, Phaser 4, Strudel) en <a href="https://jhonalbert.com/hush/">jhonalbert.com/hush</a> · Vault City, el sistema de memoria como una ciudad nocturna en 3D en <a href="https://jhonalbert.com/memory/">jhonalbert.com/memory</a> · un navegador de línea de comandos con el que mis agentes leen la web (Playwright, solo lee) · un grabador de llamadas con transcripción local (faster-whisper).</li>
         </ul>
       </article>
 
       <article class="job">
         <div class="job-head">
-          <h3>Cofundador y Head of Growth · <span class="org">Frakkr</span></h3>
+          <h3>Cofundador y Forward Deployed Engineer · <span class="org">Frakkr</span></h3>
           <span class="job-meta mono">Remoto, mercado de EE. UU. &nbsp;|&nbsp; Ene 2026 – Ago 2026</span>
         </div>
-        <p class="job-intro">Intake con IA para empresas de servicios en EE. UU., más habilitación en IA para empresas. Equipo de cuatro; respondí por los ingresos de punta a punta: CRM, infraestructura de outbound, los agentes sobre el pipeline, los playbooks.</p>
+        <p class="job-intro">Intake con IA para empresas de servicios en EE. UU., más habilitación en IA para empresas. Equipo de cuatro: definí y construí dentro del stack del cliente, y respondí por los ingresos de punta a punta: CRM, infraestructura de outbound, los agentes sobre el pipeline, los playbooks.</p>
         <ul>
           <!-- Source of the store, register and backlog figures: the engagement's own discovery and diagnostic notes, 2026-07, two discovery calls. -->
           <li>Ganamos un proyecto de habilitación en IA con un <b>retailer farmacéutico colombiano</b> (140+ tiendas, cerca de 2.000 cajas): diagnóstico de arquitectura, mapa de sistemas, backlog de 14 procesos manuales, formación 1:1 sobre sus flujos reales de Oracle y n8n. Métrica acordada: horas recuperadas por proceso.</li>
@@ -213,6 +212,10 @@
           <span class="job-meta mono">Bogotá &nbsp;|&nbsp; Ene 2025 – Dic 2025</span>
         </div>
         <p class="job-intro">Construí y evalué modelos de machine learning para investigación académica y aplicada.</p>
+        <ul>
+          <!-- Source: my article "Comparative Study of Machine Learning Methods for Credit Loan Approval Prediction", Computational Mathematics Seedbed (SEMAC), Universidad El Bosque, 2025; Results section, page 3 (82.5, 79.58, 71.67). Local copy: OneDrive\Desktop\Personal\Profesional shi\Loan_Approval English.pdf. -->
+          <li>Comparé regresión logística, árbol de decisión y random forest para predecir la aprobación de créditos (Python, scikit-learn, ajuste por grid search). Ganó la regresión logística con 82,5% de exactitud en prueba, contra 79,6% y 71,7%. Escrito como artículo para el Semillero de Matemática Computacional (SEMAC).</li>
+        </ul>
       </article>
 
       <article class="job">
@@ -228,14 +231,15 @@
 
     </section>
 
-    <section aria-label="Proyectos">
-      <h2>Proyectos</h2>
-      <!-- Source: the repo description at github.com/pretending2bejhon/ulpia, public since 2026-08-13, MIT. -->
-      <p class="proj"><b>Ulpia.</b> PÚBLICO · MIT. El sistema de memoria como especificación abierta: markdown tipado, un algoritmo mecánico de ubicación y un ciclo nocturno de consolidación, con una bóveda de ejemplo. <a href="https://github.com/pretending2bejhon/ulpia">github.com/pretending2bejhon/ulpia</a></p>
-      <!-- Source of the 1,246 notes and 12 districts: the live header at jhonalbert.com/memory/, 2026-09-26. No titles, paths or text leave the vault: export.py docstring, github.com/pretending2bejhon/memory. -->
-      <p class="proj"><b>Vault City.</b> EN PRODUCCIÓN · sep 2026. Mi sistema de memoria convertido en una ciudad nocturna en 3D en <a href="https://jhonalbert.com/memory/">jhonalbert.com/memory</a>: 1.246 notas como edificios en 12 distritos, una línea de tiempo que avanza semana a semana y una banda sonora en vivo de doce salas de techno hardgroove programadas en Strudel. Anónima por diseño: ningún título, ruta ni texto sale de mis archivos. Código abierto, AGPL-3.0.</p>
-      <p class="proj"><b>El navegador para agentes.</b> EN PRODUCCIÓN · v2. Lee un sitio web, sus anuncios, reels y LinkedIn antes de que mis agentes empiecen. Solo lee, nunca envía.</p>
-      <p class="proj"><b>El plan de mentoría de IA.</b> DISEÑADO · jul 2026. Los ingenieros de un retailer construyen y operan sus propios agentes sobre trabajo real: consultas Oracle, flujos n8n, facturas. Cada sesión termina con algo funcionando.</p>
+    <section aria-label="Habilidades">
+      <h2>Habilidades</h2>
+      <p class="skill-line"><b>Ingeniería.</b> Python · TypeScript · SQL · FastAPI · Postgres · Playwright · despliegues en Linux con Caddy y systemd · three.js y Phaser en la web · Git y GitHub · PowerShell · Bash</p>
+      <p class="skill-line"><b>IA y agentes.</b> Claude Agent SDK · Claude Code (sub-agentes, hooks, skills, servidores MCP) · Codex · bots de Slack y Telegram · context engineering · evals contra líneas base de RAG · endurecimiento contra inyección de prompts · IA local offline: Ollama, Whisper, Kokoro TTS, Stable Diffusion sobre OpenVINO</p>
+      <p class="skill-line"><b>Datos.</b> Pipelines sobre registros públicos · pandas · scikit-learn · ajuste por grid search</p>
+      <p class="skill-line"><b>Automatización y herramientas.</b> n8n · Airtable · Obsidian · Slack · Google Workspace</p>
+      <p class="skill-line"><b>Entrega dentro de la operación del cliente.</b> Discovery técnico · diagnósticos de arquitectura sobre stacks vivos · construcción embebida · habilitación 1:1 · entrega</p>
+      <p class="skill-line"><b>Ventas, copy y RevOps.</b> Copy de respuesta directa, investigación primero · AIDA, PAS · sistemas de prospección en frío · manejo de objeciones · cierre · cadencias multicanal · diseño de CRM · pipelines calculados · scoring y enriquecimiento de leads · Sales Navigator · Instantly · Apollo · Ley 2300, Ley 1581, CAN-SPAM, TCPA</p>
+      <p class="skill-line"><b>Stacks de cliente atendidos.</b> n8n Enterprise · Claude Enterprise · Gemini en Google Workspace · Databricks · Oracle Retail RMS v16</p>
     </section>
 
     <section aria-label="Cómo Trabajo con IA">

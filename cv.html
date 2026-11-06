@@ -8,7 +8,7 @@
 <style>
   /* CV — same identity system as the portfolio site, translated to paper.
      Light ground (this IS the print artifact), violet signal, mono metadata voice,
-     Saira SemiCondensed nameplate. One Letter page. Regenerate the PDF by printing
+     Saira SemiCondensed nameplate. Two Letter pages. Regenerate the PDF by printing
      this file — never hand-edit the PDF. */
 
   @font-face {
@@ -93,7 +93,7 @@
   @media print {
     @page { size: letter; margin: 6mm 10mm; }
     html, body { background: #fff; }
-    .sheet { max-width: 100%; margin: 0; padding: 0; box-shadow: none; font-size: 7.8pt; line-height: 1.14; }
+    .sheet { max-width: 100%; margin: 0; padding: 0; box-shadow: none; font-size: 9pt; line-height: 1.24; }
     a { color: var(--signal); }
     .job li, .job { break-inside: avoid; }
 
@@ -107,6 +107,7 @@
     .head-rule { margin: 6pt 0 0; }
 
     h2 { font-size: 7pt; margin: 6pt 0 3pt; }
+    h2 { break-after: avoid; page-break-after: avoid; }
     .job { margin-bottom: 4pt; }
     .job-head h3 { font-size: 9.2pt; }
     .job-meta { font-size: 6.8pt; }
@@ -133,24 +134,15 @@
         </svg>
       </div>
       <p class="tagline">I build the revenue systems I sell.</p>
-      <p class="contact-line mono">+57 314 207 5466 · <a href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a> · <a href="https://www.linkedin.com/in/jhonalbert-alvarez/">linkedin.com/in/jhonalbert-alvarez</a> · <a href="https://github.com/pretending2bejhon">github.com/pretending2bejhon</a> · <a href="https://jhonalbert.com/">jhonalbert.com</a> · Colombia, remote on EU &amp; US hours</p>
+      <!-- Source of "open to relocation": Jhon's own message to a recruiter, LinkedIn, 2026-11-05 ("yes, i would be willing to relocate with no issues"). -->
+      <p class="contact-line mono">+57 314 207 5466 · <a href="mailto:jhonalbert926@gmail.com">jhonalbert926@gmail.com</a> · <a href="https://www.linkedin.com/in/jhonalbert-alvarez/">linkedin.com/in/jhonalbert-alvarez</a> · <a href="https://github.com/pretending2bejhon">github.com/pretending2bejhon</a> · <a href="https://jhonalbert.com/">jhonalbert.com</a> · Colombia, open to relocation, remote on EU &amp; US hours</p>
       <hr class="head-rule">
     </header>
 
     <section aria-label="Profile">
       <h2>Profile</h2>
-      <!-- Source of the 3 hours: my own estimate, 2026-09-26, not measured. Source of 78 against 55 on 498 questions: public at github.com/pretending2bejhon/ulpia, 2026-08. -->
-      <p class="summary">I go into the client's operation, understand the problem, build what is missing and hand it over running. I built the memory system my agents and I work in every day: it saves me about 3 hours a day of re-explaining context, and against RAG on 498 questions it scores 78 per 100 to RAG's 55. Before I build, I sell: research-first outbound that gets buyers to book the meeting themselves.</p>
-    </section>
-
-    <section aria-label="Skills">
-      <h2>Skills</h2>
-      <p class="skill-line"><b>AI &amp; agents.</b> Claude Code (subagents, hooks, skills, MCP servers) · Codex · context engineering · evals · prompt-injection hardening · offline local AI: Ollama, Whisper, Kokoro TTS, Stable Diffusion on OpenVINO</p>
-      <p class="skill-line"><b>Data.</b> Python · Postgres · SQL · public-record pipelines · pandas · scikit-learn</p>
-      <p class="skill-line"><b>Automation &amp; tools.</b> n8n · Playwright · PowerShell · Bash · GitHub · Airtable · Obsidian · Slack · Google Workspace</p>
-      <p class="skill-line"><b>Delivery inside the client's operation.</b> Technical discovery · architecture diagnostics on live stacks · embedded build · 1:1 enablement · handover</p>
-      <p class="skill-line"><b>Sales, copy &amp; RevOps.</b> Direct-response copy, research first · AIDA, PAS · cold outreach systems · objection handling · closing · multichannel cadences · CRM design · computed pipelines · lead scoring and enrichment · Sales Navigator · Instantly · Apollo · Ley 2300, Ley 1581, CAN-SPAM, TCPA</p>
-      <p class="skill-line"><b>Client stacks serviced.</b> n8n Enterprise · Claude Enterprise · Gemini on Google Workspace · Databricks · Oracle Retail RMS v16</p>
+      <!-- Source of 78 against 55 on 498 questions: public at github.com/pretending2bejhon/ulpia, 2026-08. Source of the 140 stores: the Frakkr engagement's discovery notes, 2026-07. Source of 1,751,328: the company spine's row count, 2026-08. "Built and delivered": Jhon said 2026-11-06. -->
+      <p class="summary">Forward deployed engineer and co-founder. Since January 2026 I have scoped problems with the people who run them and built the systems that fix them, inside their stack: an AI enablement engagement with a 140-store pharmacy retailer, an agent in daily production, a memory system that beats RAG 78 to 55 on 498 questions, and a data API over 1.75 million Colombian companies, built and delivered to two sellers. Before I build, I sell: research-first outbound that gets buyers to book the meeting themselves.</p>
     </section>
 
     <section aria-label="Experience">
@@ -161,26 +153,33 @@
           <h3>Forward Deployed Engineer · <span class="org">Independent</span></h3>
           <span class="job-meta mono">Colombia, remote &nbsp;|&nbsp; Aug 2026 – present</span>
         </div>
-        <p class="job-intro">Agents, data systems and direct-response copy, one operation at a time. Judged on replies and on meetings held.</p>
+        <!-- Source of "small and mid-size businesses": Jhon's own message to a recruiter, LinkedIn, 2026-11-06 ("working as a freelancer for a few SMB"). -->
+        <p class="job-intro">Freelance for small and mid-size businesses, one operation at a time: scope the problem with the people who have it, build in their stack, keep it running.</p>
         <ul>
+          <!-- Source: code/zoro/README.md (v1.0 shipped 2026-10-07, installed live since 2026-10-08); stack code/zoro/pyproject.toml; 96 requirements, 92 pass: the Zoro v1 build record, cited in 10-memory/working/2026-11-05_portfolio-v10-change-spec__plan.md. -->
+          <li><b>Zoro</b>, an operations agent in daily use since Oct 2026 · Claude Agent SDK, Python, Slack Bolt, Google APIs. Every morning it posts the state of email, calendar, LinkedIn and tasks to Slack, and every outward action waits for a tap. 96 requirements with acceptance tests; 92 pass.</li>
           <!-- Source of the 3 hours: my own estimate, 2026-09-26, not measured. Source of the 498-question benchmark: public at github.com/pretending2bejhon/ulpia, 2026-08. -->
-          <li>Saved about 3 hours a day of re-explaining context by building <b>the memory system</b> my agents and I read the same way: plain files, no database, no vendor. Against RAG on 498 questions: organized files 78 per 100, flat folder 75, RAG 55.</li>
-          <!-- Source of the 1,751,328 figure: the row count of the company spine itself, one row per NIT, 2026-08. -->
-          <li>Joined Colombia's mercantile registry, public contracting and open data into <b>the company spine</b>: one record per company, 1,751,328 of them, one per NIT, behind an API that answers which accounts are active and why.</li>
+          <li><b>The memory system</b> my agents and I work in every day · markdown, Python, an eval harness. Saves me about 3 hours a day of re-explaining context. Against RAG on 498 questions: organized files 78 per 100, flat folder 75, RAG 55. Published as an open spec (typed markdown, a placement algorithm, a nightly consolidation loop), MIT: <a href="https://github.com/pretending2bejhon/ulpia">github.com/pretending2bejhon/ulpia</a></li>
+          <!-- Source of the 1,751,328 figure: the row count of the company spine itself, one row per NIT, 2026-08. Stack: code/company-api/requirements.txt and deploy/ (Caddyfile, company-api.service). "Built and delivered": Jhon said 2026-11-06. -->
+          <li><b>Radar de Mercado</b>, a company data API, built and delivered to two sellers (Aug 2026) · Python, FastAPI, Postgres, Playwright, Caddy and systemd on Linux. Joined Colombia's mercantile registry, public contracting and open data into one record per company, 1,751,328 of them, one per NIT, so a seller could ask which accounts are active and why.</li>
+          <!-- Source: code/creator-desk/README.md, status 2026-10-23 (commit c6c2ea0, 250 tests passing, one adversarial review, tested live on a test bot). -->
+          <li><b>A creator chat desk</b> for a client (Oct 2026) · Python, Telegram Bot API. It chats with fans in the creator's voice and sells content for Telegram Stars; a person approves every message before it reaches a fan. 250 tests, one adversarial review, run live on a test bot.</li>
+          <!-- Source: 10-memory/episodic/2026-09/2026-09-27_brainos-windows-codex-review-r2__report.md; suite 117/117 and end-to-end 33/33 at origin/windows dcd4c7d, 2026-10-02. -->
+          <li><b>BrainOS on Windows</b>, for a client team (Sep–Oct 2026) · Python, PowerShell, Claude Code hooks. Ported their macOS agent harness (persistent Claude Code sessions, a dashboard, a shared plan convention) to Windows: path handling, guardrail hooks, the installer. 117 tests and a 33-step end-to-end run pass, after two review rounds by a second model.</li>
           <!-- Source of both results: my own outreach ledger, 2026-08 and 2026-09; the twenty, fifteen, six and five are the buyer's own count, reported by him. -->
-          <li>Turned cold outreach and research into meetings: one LinkedIn message to a university clinic's head of technology, and he booked the call himself. A fintech CEO wrote to twenty companies from my research: fifteen had a channel, six replied, five meetings.</li>
-          <!-- Source of the 65: the Zoro v1 written spec (65 product requirements, each with acceptance tests), code/zoro/build/ZORO-V1-SPEC.md, 2026-10. Status: building, not in production (2026-10-06 deck note). -->
-          <li>Building (Oct 2026) <b>Zoro</b>, a personal assistant: every morning it posts the state of email, calendar, LinkedIn and tasks to Slack, and every outward action waits for approval with a button. 96 requirements with acceptance tests; 92 pass.</li>
-          <li>Leading (Sep 2026) <b>an inventory agent</b> for a Colombian pharmacy retailer, now in proposal: it answers inventory questions from a spreadsheet, in Slack, for his whole team.</li>
+          <li><b>Outreach that books meetings.</b> One LinkedIn message to a university clinic's head of technology, and he booked the call himself. A fintech CEO wrote to twenty companies from my research: fifteen had a channel, six replied, five meetings.</li>
+          <li>Led (Sep 2026) the proposal for <b>an inventory agent</b> for a Colombian pharmacy retailer: inventory questions answered from a spreadsheet, in Slack, for the whole team.</li>
+          <!-- Sources: code/hush/README.md (Phaser 4, Strudel, TypeScript); jhonalbert.com/memory/ live 2026-11-06; the site's build pipeline, code/site-visual/tools/build-site.mjs and tools/gates.py; code/call-recorder/call_recorder/transcribe.py. -->
+          <li><b>Also shipped.</b> This site's 3D layer with frame-rate and size gates (three.js, esbuild) · The Hush, a browser game (TypeScript, Phaser 4, Strudel) at <a href="https://jhonalbert.com/hush/">jhonalbert.com/hush</a> · Vault City, the memory system as a 3D night city at <a href="https://jhonalbert.com/memory/">jhonalbert.com/memory</a> · a browser CLI my agents read the web through (Playwright, reads only) · a call recorder with local transcripts (faster-whisper).</li>
         </ul>
       </article>
 
       <article class="job">
         <div class="job-head">
-          <h3>Co-founder &amp; Head of Growth · <span class="org">Frakkr</span></h3>
+          <h3>Co-founder &amp; Forward Deployed Engineer · <span class="org">Frakkr</span></h3>
           <span class="job-meta mono">Remote, US market &nbsp;|&nbsp; Jan 2026 – Aug 2026</span>
         </div>
-        <p class="job-intro">AI intake for US service firms, plus enterprise AI enablement. Four-person team; I owned revenue end to end: CRM, outbound infrastructure, the agents on the pipeline, the playbooks.</p>
+        <p class="job-intro">AI intake for US service firms, plus enterprise AI enablement. Four-person team: I scoped and built inside the client's stack, and owned revenue end to end: CRM, outbound infrastructure, the agents on the pipeline, the playbooks.</p>
         <ul>
           <!-- Source of the store, register and backlog figures: the engagement's own discovery and diagnostic notes, 2026-07, two discovery calls. -->
           <li>Won an AI enablement engagement with a <b>Colombian pharmacy retailer</b> (140+ stores, about 2,000 registers): architecture diagnostic, systems map, a 14-item backlog of manual work, 1:1 training on their live Oracle and n8n flows. Agreed metric: hours recovered per process.</li>
@@ -208,6 +207,10 @@
           <span class="job-meta mono">Bogotá &nbsp;|&nbsp; Jan 2025 – Dec 2025</span>
         </div>
         <p class="job-intro">Built and evaluated machine-learning models for academic and applied research.</p>
+        <ul>
+          <!-- Source: my article "Comparative Study of Machine Learning Methods for Credit Loan Approval Prediction", Computational Mathematics Seedbed (SEMAC), Universidad El Bosque, 2025; Results section, page 3 (82.5, 79.58, 71.67). Local copy: OneDrive\Desktop\Personal\Profesional shi\Loan_Approval English.pdf. -->
+          <li>Compared logistic regression, decision tree and random forest for loan-approval prediction (Python, scikit-learn, grid-search tuning). Logistic regression won with 82.5% test accuracy, against 79.6% and 71.7%. Written up as an article for the Computational Mathematics Seedbed (SEMAC).</li>
+        </ul>
       </article>
 
       <article class="job">
@@ -223,14 +226,15 @@
 
     </section>
 
-    <section aria-label="Projects">
-      <h2>Projects</h2>
-      <!-- Source: the repo description at github.com/pretending2bejhon/ulpia, public since 2026-08-13, MIT. -->
-      <p class="proj"><b>Ulpia.</b> PUBLIC · MIT. The memory system as an open specification: typed markdown, a mechanical placement algorithm and a nightly consolidation loop, with a worked example vault. <a href="https://github.com/pretending2bejhon/ulpia">github.com/pretending2bejhon/ulpia</a></p>
-      <!-- Source of the 1,246 notes and 12 districts: the live header at jhonalbert.com/memory/, 2026-09-26. No titles, paths or text leave the vault: export.py docstring, github.com/pretending2bejhon/memory. -->
-      <p class="proj"><b>Vault City.</b> LIVE · Sep 2026. My memory system rendered as a 3D night city at <a href="https://jhonalbert.com/memory/">jhonalbert.com/memory</a>: 1,246 notes as buildings in 12 districts, a timeline that plays week by week and a live soundtrack of twelve hardgroove techno rooms coded in Strudel. Anonymous by construction: no titles, paths or text leave the vault. Open source, AGPL-3.0.</p>
-      <p class="proj"><b>The browser for agents.</b> LIVE · v2. Reads a website, its ads, reels and LinkedIn page before my agents start. Reads only, never sends.</p>
-      <p class="proj"><b>The AI mentoring plan.</b> DESIGNED · Jul 2026. A retailer's engineers build and run their own agents on real work: Oracle queries, n8n flows, invoices. Every session ends with something running.</p>
+    <section aria-label="Skills">
+      <h2>Skills</h2>
+      <p class="skill-line"><b>Engineering.</b> Python · TypeScript · SQL · FastAPI · Postgres · Playwright · Linux deploys with Caddy and systemd · three.js and Phaser on the web · Git and GitHub · PowerShell · Bash</p>
+      <p class="skill-line"><b>AI &amp; agents.</b> Claude Agent SDK · Claude Code (subagents, hooks, skills, MCP servers) · Codex · Slack and Telegram bots · context engineering · evals against RAG baselines · prompt-injection hardening · offline local AI: Ollama, Whisper, Kokoro TTS, Stable Diffusion on OpenVINO</p>
+      <p class="skill-line"><b>Data.</b> Public-record pipelines · pandas · scikit-learn · grid-search tuning</p>
+      <p class="skill-line"><b>Automation &amp; tools.</b> n8n · Airtable · Obsidian · Slack · Google Workspace</p>
+      <p class="skill-line"><b>Delivery inside the client's operation.</b> Technical discovery · architecture diagnostics on live stacks · embedded build · 1:1 enablement · handover</p>
+      <p class="skill-line"><b>Sales, copy &amp; RevOps.</b> Direct-response copy, research first · AIDA, PAS · cold outreach systems · objection handling · closing · multichannel cadences · CRM design · computed pipelines · lead scoring and enrichment · Sales Navigator · Instantly · Apollo · Ley 2300, Ley 1581, CAN-SPAM, TCPA</p>
+      <p class="skill-line"><b>Client stacks serviced.</b> n8n Enterprise · Claude Enterprise · Gemini on Google Workspace · Databricks · Oracle Retail RMS v16</p>
     </section>
 
     <section aria-label="How I Work with AI">
